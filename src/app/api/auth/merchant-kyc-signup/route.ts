@@ -4,6 +4,8 @@ import { connectDB } from "@shipco/lib/mongodb";
 import Merchant from "@shipco/lib/models/Merchant";
 import { createToken } from "@shipco/lib/auth";
 
+export const dynamic = "force-dynamic";
+
 const COOKIE_OPTIONS = {
   httpOnly: true,
   secure: process.env.NODE_ENV === "production",

@@ -5,6 +5,8 @@ import Shipment from "@shipco/lib/models/Shipment";
 import Merchant from "@shipco/lib/models/Merchant";
 import { generateWaybillPdf } from "@shipco/lib/waybill";
 
+export const dynamic = "force-dynamic";
+
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
 export async function GET(
