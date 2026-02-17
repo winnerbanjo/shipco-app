@@ -66,8 +66,8 @@ export function BookingSlipModal({ open, onClose, data, className }: BookingSlip
           {/* Logo */}
           <div className="relative mb-6 h-10 w-10 shrink-0 overflow-hidden bg-white">
             <Image
-              src="/dmxlogo.svg"
-              alt="DMX"
+              src="/shipco-logo.png"
+              alt="Shipco"
               fill
               className="object-contain"
               sizes="40px"
@@ -78,7 +78,7 @@ export function BookingSlipModal({ open, onClose, data, className }: BookingSlip
           </h2>
 
           {/* Service Type — bold Wine Red */}
-          <p className="mt-4 font-sans text-sm font-bold tracking-tighter text-[#5e1914]">
+          <p className="mt-4 font-sans text-sm font-bold tracking-tighter text-[#F40009]">
             {SERVICE_LABELS[data.serviceType]}
           </p>
 
@@ -113,7 +113,7 @@ export function BookingSlipModal({ open, onClose, data, className }: BookingSlip
             </div>
             <div className="border-t border-zinc-100 pt-4">
               <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">Total Paid</p>
-              <p className="mt-1 font-sans text-lg font-semibold tracking-tighter text-[#5e1914]">
+              <p className="mt-1 font-sans text-lg font-semibold tracking-tighter text-[#F40009]">
                 ₦{data.totalPaid.toLocaleString("en-NG")}
               </p>
             </div>
@@ -129,7 +129,7 @@ export function BookingSlipModal({ open, onClose, data, className }: BookingSlip
           <Button
             type="button"
             onClick={handlePrint}
-            className="rounded-none bg-[#5e1914] px-4 py-2 text-sm font-medium text-white hover:bg-[#4a130f]"
+            className="rounded-none bg-[#F40009] px-4 py-2 text-sm font-medium text-white hover:bg-[#cc0008]"
           >
             Print Slip
           </Button>
@@ -148,7 +148,7 @@ export function BookingSlipModal({ open, onClose, data, className }: BookingSlip
               router.push(`/track/${data.trackingId}`);
               onClose();
             }}
-            className="text-[#5e1914]"
+            className="text-[#F40009]"
           >
             Track shipment
           </Button>

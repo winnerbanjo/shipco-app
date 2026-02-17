@@ -16,8 +16,8 @@ export default function BookShipmentPage() {
         </Link>
         <div className="relative ml-4 h-9 w-9 shrink-0 overflow-hidden bg-white">
           <Image
-            src="/dmxlogo.svg"
-            alt="DMX"
+            src="/shipco-logo.png"
+            alt="Shipco"
             fill
             className="object-contain"
             sizes="36px"

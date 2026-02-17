@@ -1,9 +1,9 @@
 import Link from "next/link";
 import mongoose from "mongoose";
-import { connectDB } from "@dmx/lib/mongodb";
-import Shipment from "@dmx/lib/models/Shipment";
-import Merchant from "@dmx/lib/models/Merchant";
-import { getSession } from "@dmx/lib/auth";
+import { connectDB } from "@shipco/lib/mongodb";
+import Shipment from "@shipco/lib/models/Shipment";
+import Merchant from "@shipco/lib/models/Merchant";
+import { getSession } from "@shipco/lib/auth";
 import { Package, CheckCircle, Wallet, Truck } from "lucide-react";
 import { MerchantDashboardDateFilter } from "./merchant-dashboard-date-filter";
 import { MerchantKycBanner } from "@/components/merchant-kyc-banner";
@@ -28,11 +28,11 @@ const DEMO_MONTHLY_VOLUME = [
 ];
 
 const DEMO_RECENT_ACTIVITY = [
-  { trackingId: "DMX-782", route: "Lagos to Abuja", amount: 4500, status: "In-Transit" },
-  { trackingId: "DMX-781", route: "Ikeja to Lekki", amount: 2500, status: "Delivered" },
-  { trackingId: "DMX-780", route: "Kano to Lagos", amount: 12000, status: "Delivered" },
-  { trackingId: "DMX-779", route: "Port Harcourt to Enugu", amount: 6000, status: "Pending" },
-  { trackingId: "DMX-778", route: "Victoria Island to Ajah", amount: 3000, status: "Delivered" },
+  { trackingId: "Shipco-782", route: "Lagos to Abuja", amount: 4500, status: "In-Transit" },
+  { trackingId: "Shipco-781", route: "Ikeja to Lekki", amount: 2500, status: "Delivered" },
+  { trackingId: "Shipco-780", route: "Kano to Lagos", amount: 12000, status: "Delivered" },
+  { trackingId: "Shipco-779", route: "Port Harcourt to Enugu", amount: 6000, status: "Pending" },
+  { trackingId: "Shipco-778", route: "Victoria Island to Ajah", amount: 3000, status: "Delivered" },
 ];
 
 export default async function MerchantDashboardPage({
@@ -141,7 +141,7 @@ export default async function MerchantDashboardPage({
           <div key={label} className="border border-zinc-100 bg-white p-8">
             <div className="flex items-center gap-4">
               <div className="flex h-12 w-12 items-center justify-center border border-zinc-100 bg-zinc-50">
-                <Icon strokeWidth={1} className="h-6 w-6 text-[#5e1914]" />
+                <Icon strokeWidth={1} className="h-6 w-6 text-[#F40009]" />
               </div>
               <div>
                 <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">
@@ -161,7 +161,7 @@ export default async function MerchantDashboardPage({
           <h2 className="text-lg font-semibold tracking-tight text-zinc-900">
             Recent activity
           </h2>
-          <Link href="/merchant/dashboard/shipments" className="text-sm font-medium text-[#5e1914] hover:underline">
+          <Link href="/merchant/dashboard/shipments" className="text-sm font-medium text-[#F40009] hover:underline">
             View all
           </Link>
         </div>
@@ -170,7 +170,7 @@ export default async function MerchantDashboardPage({
             <div className="flex flex-col items-center justify-center gap-3 py-16 text-center">
               <Package strokeWidth={1} className="h-10 w-10 text-zinc-300" />
               <p className="text-sm text-zinc-500">No activity yet</p>
-              <Link href="/merchant/booking" className="text-sm font-medium text-[#5e1914] hover:underline">
+              <Link href="/merchant/booking" className="text-sm font-medium text-[#F40009] hover:underline">
                 Create a shipment
               </Link>
             </div>
@@ -189,7 +189,7 @@ export default async function MerchantDashboardPage({
                 {recentActivity.map((row) => (
                   <tr key={row.trackingId} className="border-b border-zinc-100 last:border-b-0">
                     <td className="px-8 py-5">
-                      <Link href={`/track/${row.trackingId}`} className="font-mono text-[#5e1914] hover:underline">
+                      <Link href={`/track/${row.trackingId}`} className="font-mono text-[#F40009] hover:underline">
                         {row.trackingId}
                       </Link>
                     </td>
@@ -207,7 +207,7 @@ export default async function MerchantDashboardPage({
                           row.status === "Delivered"
                             ? "border-green-600 bg-green-50 text-green-700"
                             : row.status === "In-Transit"
-                            ? "border-[#5e1914] bg-[#5e1914]/5 text-[#5e1914]"
+                            ? "border-[#F40009] bg-[#F40009]/5 text-[#F40009]"
                             : "border-zinc-200 bg-zinc-50 text-zinc-700"
                         }`}
                       >
@@ -232,7 +232,7 @@ export default async function MerchantDashboardPage({
             {volumeByMonth.map((v) => (
               <div key={v.month} className="flex flex-1 flex-col items-center gap-3">
                 <div
-                  className="w-full border border-[#5e1914] bg-[#5e1914]"
+                  className="w-full border border-[#F40009] bg-[#F40009]"
                   style={{ height: Math.max(12, (v.count / maxVolume) * 100) }}
                 />
                 <span className="text-xs text-zinc-500">{v.month}</span>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { getWhatsAppUpdateUrl } from "@dmx/lib/whatsapp-url";
+import { getWhatsAppUpdateUrl } from "@shipco/lib/whatsapp-url";
 import { formatDemoDateOnly } from "@/lib/demo-date";
 import { FileDown, MessageCircle, MapPin, Eye, Pencil } from "lucide-react";
 import { TrackModal, type ShipmentForModal } from "./shipments/track-modal";
@@ -57,7 +57,7 @@ export function ShipmentList({ shipments }: { shipments: ShipmentRow[] }) {
   const statusBadgeClass = (status: string) => {
     const s = status.toUpperCase();
     if (s === "DELIVERED") return "border-green-600 bg-green-50 text-green-700";
-    if (s === "IN-TRANSIT" || s === "IN_TRANSIT") return "border-[#5e1914] bg-[#5e1914]/5 text-[#5e1914]";
+    if (s === "IN-TRANSIT" || s === "IN_TRANSIT") return "border-[#F40009] bg-[#F40009]/5 text-[#F40009]";
     return "border-zinc-200 bg-zinc-50 text-zinc-700";
   };
 
@@ -88,7 +88,7 @@ export function ShipmentList({ shipments }: { shipments: ShipmentRow[] }) {
                 <td className="px-8 py-5">
                   <Link
                     href={`/track/${encodeURIComponent(s.trackingId)}`}
-                    className="font-mono text-sm font-medium text-[#5e1914] hover:underline"
+                    className="font-mono text-sm font-medium text-[#F40009] hover:underline"
                   >
                     {s.trackingId}
                   </Link>
@@ -107,7 +107,7 @@ export function ShipmentList({ shipments }: { shipments: ShipmentRow[] }) {
                   <button
                     type="button"
                     onClick={() => handleView(s)}
-                    className="inline-flex items-center gap-2 rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#5e1914] hover:text-[#5e1914]"
+                    className="inline-flex items-center gap-2 rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#F40009] hover:text-[#F40009]"
                   >
                     <Eye strokeWidth={1} className="h-4 w-4" />
                     View
@@ -115,7 +115,7 @@ export function ShipmentList({ shipments }: { shipments: ShipmentRow[] }) {
                   <button
                     type="button"
                     onClick={() => handleEdit(s)}
-                    className="inline-flex items-center gap-2 rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#5e1914] hover:text-[#5e1914]"
+                    className="inline-flex items-center gap-2 rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#F40009] hover:text-[#F40009]"
                   >
                     <Pencil strokeWidth={1} className="h-4 w-4" />
                     {editId === s.id ? "…" : "Edit"}
@@ -123,7 +123,7 @@ export function ShipmentList({ shipments }: { shipments: ShipmentRow[] }) {
                   <button
                     type="button"
                     onClick={() => setTrackingModalShipment({ trackingId: s.trackingId, receiverName: s.receiverName, status: s.status, cost: s.cost, createdAt: s.createdAt })}
-                    className="inline-flex items-center gap-2 rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#5e1914] hover:text-[#5e1914]"
+                    className="inline-flex items-center gap-2 rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#F40009] hover:text-[#F40009]"
                   >
                     <MapPin strokeWidth={1} className="h-4 w-4" />
                     Track
@@ -131,7 +131,7 @@ export function ShipmentList({ shipments }: { shipments: ShipmentRow[] }) {
                   <button
                     type="button"
                     onClick={() => handleDownloadWaybill(s.id)}
-                    className="inline-flex items-center gap-2 rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#5e1914] hover:text-[#5e1914]"
+                    className="inline-flex items-center gap-2 rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#F40009] hover:text-[#F40009]"
                   >
                     <FileDown strokeWidth={1} className="h-4 w-4" />
                     Waybill
@@ -139,7 +139,7 @@ export function ShipmentList({ shipments }: { shipments: ShipmentRow[] }) {
                   <button
                     type="button"
                     onClick={() => handleSendUpdate(s)}
-                    className="inline-flex items-center gap-2 rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#5e1914] hover:text-[#5e1914]"
+                    className="inline-flex items-center gap-2 rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#F40009] hover:text-[#F40009]"
                   >
                     <MessageCircle strokeWidth={1} className="h-4 w-4" />
                     Notify

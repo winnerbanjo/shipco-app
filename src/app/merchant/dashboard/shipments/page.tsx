@@ -1,4 +1,4 @@
-import { getSession } from "@dmx/lib/auth";
+import { getSession } from "@shipco/lib/auth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { ShipmentsWithSearch } from "./shipments-with-search";
@@ -32,7 +32,7 @@ export default async function MerchantShipmentsPage() {
         </div>
         <Link
           href="/merchant/dashboard/booking"
-          className="inline-flex h-12 items-center rounded-none border border-zinc-100 bg-[#5e1914] px-6 text-sm font-medium text-white hover:bg-[#4a130f]"
+          className="inline-flex h-12 items-center rounded-none border border-zinc-100 bg-[#F40009] px-6 text-sm font-medium text-white hover:bg-[#cc0008]"
         >
           Book shipment
         </Link>

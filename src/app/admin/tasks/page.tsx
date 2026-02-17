@@ -15,7 +15,7 @@ function statusClass(status: string): string {
   const s = status.toLowerCase();
   if (s.includes("completed")) return "border-green-600 bg-green-50 text-green-700";
   if (s.includes("progress")) return "border-amber-600 bg-amber-50 text-amber-700";
-  if (s.includes("assigned")) return "border-[#5e1914] bg-[#5e1914]/10 text-[#5e1914]";
+  if (s.includes("assigned")) return "border-[#F40009] bg-[#F40009]/10 text-[#F40009]";
   return "border-zinc-200 bg-zinc-50 text-zinc-700";
 }
 
@@ -86,8 +86,8 @@ export default function AdminTasksPage() {
       <header className="flex items-center gap-4 border-b border-zinc-100 pb-8">
         <div className="relative h-10 w-10 shrink-0 overflow-hidden bg-white">
           <Image
-            src="/dmxlogo.svg"
-            alt="DMX"
+            src="/shipco-logo.png"
+            alt="Shipco"
             fill
             className="object-contain"
             sizes="40px"
@@ -104,7 +104,7 @@ export default function AdminTasksPage() {
         </div>
         <Link
           href="/admin/dashboard"
-          className="rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#5e1914] hover:text-[#5e1914]"
+          className="rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#F40009] hover:text-[#F40009]"
         >
           ← Admin
         </Link>
@@ -127,7 +127,7 @@ export default function AdminTasksPage() {
               id="source"
               value={source}
               onChange={(e) => setSource(e.target.value as TaskSource)}
-              className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+              className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
             >
               <option value="IG">IG</option>
               <option value="WhatsApp">WhatsApp</option>
@@ -143,7 +143,7 @@ export default function AdminTasksPage() {
               value={customerName}
               onChange={(e) => setCustomerName(e.target.value)}
               placeholder="Full name"
-              className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+              className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
             />
           </div>
           <div>
@@ -156,7 +156,7 @@ export default function AdminTasksPage() {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               placeholder="+234 ..."
-              className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+              className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
             />
           </div>
           <div className="sm:col-span-2">
@@ -169,7 +169,7 @@ export default function AdminTasksPage() {
               value={item}
               onChange={(e) => setItem(e.target.value)}
               placeholder="e.g. 2x Designer handbags"
-              className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+              className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
             />
           </div>
           <div>
@@ -182,7 +182,7 @@ export default function AdminTasksPage() {
               value={pickupAddress}
               onChange={(e) => setPickupAddress(e.target.value)}
               placeholder="e.g. Lekki Phase 1, Lagos"
-              className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+              className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
             />
           </div>
           <div>
@@ -193,7 +193,7 @@ export default function AdminTasksPage() {
               id="assignedHub"
               value={assignedHub}
               onChange={(e) => setAssignedHub(e.target.value as HubSlug)}
-              className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+              className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
             >
               {HUB_OPTIONS.map((opt) => (
                 <option key={opt.value} value={opt.value}>
@@ -212,13 +212,13 @@ export default function AdminTasksPage() {
               onChange={(e) => setSpecialInstructions(e.target.value)}
               placeholder="e.g. Customer is only available after 4 PM. Fragile—contains glass ornaments."
               rows={4}
-              className="mt-2 w-full resize-y rounded-none border border-zinc-200 bg-white px-4 py-4 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+              className="mt-2 w-full resize-y rounded-none border border-zinc-200 bg-white px-4 py-4 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
             />
           </div>
           <div className="flex items-end sm:col-span-2 lg:col-span-3">
             <button
               type="submit"
-              className="w-full border border-[#5e1914] bg-[#5e1914] px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-[#4a130f]"
+              className="w-full border border-[#F40009] bg-[#F40009] px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-[#cc0008]"
             >
               Save & push to hub
             </button>
@@ -237,12 +237,12 @@ export default function AdminTasksPage() {
             placeholder="Search by ID or Name"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="h-10 min-w-[200px] flex-1 rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+            className="h-10 min-w-[200px] flex-1 rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
           />
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="h-10 rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+            className="h-10 rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
           >
             <option value="All statuses">All statuses</option>
             <option value="Unassigned">Unassigned</option>
@@ -254,7 +254,7 @@ export default function AdminTasksPage() {
             <button
               type="button"
               onClick={clearFilters}
-              className="rounded-none border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-700 hover:border-[#5e1914] hover:text-[#5e1914]"
+              className="rounded-none border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-700 hover:border-[#F40009] hover:text-[#F40009]"
             >
               Clear Filters
             </button>

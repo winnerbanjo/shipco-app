@@ -25,7 +25,7 @@ const DEMO_MERCHANTS = [
 ];
 
 const TAB_STYLES =
-  "rounded-none border-0 border-b-2 border-transparent px-6 py-3 text-sm font-medium text-zinc-600 data-[state=active]:border-[#5e1914] data-[state=active]:text-[#5e1914] data-[state=active]:shadow-none";
+  "rounded-none border-0 border-b-2 border-transparent px-6 py-3 text-sm font-medium text-zinc-600 data-[state=active]:border-[#F40009] data-[state=active]:text-[#F40009] data-[state=active]:shadow-none";
 
 const TOAST_DURATION_MS = 4000;
 
@@ -267,8 +267,8 @@ export default function AdminPricingPage() {
       <header className="flex items-center gap-4 border-b border-zinc-200 pb-6">
         <div className="relative h-10 w-10 shrink-0 overflow-hidden bg-white">
           <Image
-            src="/dmxlogo.svg"
-            alt="DMX"
+            src="/shipco-logo.png"
+            alt="Shipco"
             fill
             className="object-contain"
             sizes="40px"
@@ -325,7 +325,7 @@ export default function AdminPricingPage() {
                   step={1}
                   defaultValue={20}
                   id="profit-markup"
-                  className="mt-2 w-24 border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+                  className="mt-2 w-24 border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
                 />
               </div>
               <p className="text-sm text-zinc-600">
@@ -373,7 +373,7 @@ export default function AdminPricingPage() {
                   onChange={(e) =>
                     setApiConfig((c) => ({ ...c, endpoint: e.target.value }))
                   }
-                  className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+                  className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
                 />
               </div>
               {apiConfig.lastSync && (
@@ -392,7 +392,7 @@ export default function AdminPricingPage() {
                     lastSync: c.connected ? c.lastSync : STATIC_ISO,
                   }));
                 }}
-                className="cursor-pointer border border-[#5e1914] bg-[#5e1914] px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-[#4a130f]"
+                className="cursor-pointer border border-[#F40009] bg-[#F40009] px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-[#cc0008]"
               >
                 {apiConfig.connected ? "Disconnect" : "Connect"}
               </button>
@@ -421,7 +421,7 @@ export default function AdminPricingPage() {
                   step={0.5}
                   value={markupPercent ?? 20}
                   onChange={(e) => setMarkupPercent(Math.max(0, Math.min(100, parseFloat(e.target.value) || 0)))}
-                  className="w-24 border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+                  className="w-24 border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
                 />
                 <span className="text-xs text-zinc-500">Applied to cost price to get selling price</span>
               </div>
@@ -440,7 +440,7 @@ export default function AdminPricingPage() {
                 onDrop={(e) => handleFileDrop(e, "economy")}
                 className={`flex min-h-[200px] flex-col items-center justify-center border-2 border-dashed p-12 transition-colors ${
                   isDragging
-                    ? "border-[#5e1914] bg-[#5e1914]/5"
+                    ? "border-[#F40009] bg-[#F40009]/5"
                     : "border-zinc-200 bg-zinc-50"
                 }`}
               >
@@ -463,14 +463,14 @@ export default function AdminPricingPage() {
                 />
                 <label
                   htmlFor="csv-upload"
-                  className="mt-4 cursor-pointer border border-[#5e1914] bg-[#5e1914] px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-[#4a130f]"
+                  className="mt-4 cursor-pointer border border-[#F40009] bg-[#F40009] px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-[#cc0008]"
                 >
                   Choose file
                 </label>
               </div>
               <p className="mt-6 text-sm font-medium text-zinc-900">
                 Last Uploaded:{" "}
-                <span className="text-[#5e1914]">
+                <span className="text-[#F40009]">
                   {csvLastUploaded ? formatDemoDateTime(csvLastUploaded) : "Never"}
                 </span>
               </p>
@@ -540,7 +540,7 @@ export default function AdminPricingPage() {
                           }
                           onFocus={() => setEditingId(r?.id ?? null)}
                           onBlur={() => setEditingId(null)}
-                          className="w-24 border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+                          className="w-24 border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
                         />
                       </td>
                       <td className="px-8 py-4">
@@ -557,7 +557,7 @@ export default function AdminPricingPage() {
                           }
                           onFocus={() => setEditingId(r?.id ?? null)}
                           onBlur={() => setEditingId(null)}
-                          className="w-24 border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+                          className="w-24 border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
                         />
                       </td>
                       <td className="px-8 py-4 text-zinc-600">{r?.currency ?? "NGN"}</td>
@@ -588,7 +588,7 @@ export default function AdminPricingPage() {
                     downloadPricingStructureCsv();
                   }
                 }}
-                className="mt-3 inline-flex cursor-pointer items-center gap-1 rounded-none border border-zinc-200 bg-white px-3 py-1.5 text-xs font-medium text-zinc-700 font-sans transition-colors hover:border-[#5e1914] hover:text-[#5e1914]"
+                className="mt-3 inline-flex cursor-pointer items-center gap-1 rounded-none border border-zinc-200 bg-white px-3 py-1.5 text-xs font-medium text-zinc-700 font-sans transition-colors hover:border-[#F40009] hover:text-[#F40009]"
               >
                 <Download className="h-3.5 w-3.5" />
                 Download Pricing Structure (Country→Zone)
@@ -606,7 +606,7 @@ export default function AdminPricingPage() {
                     className={cn(
                       "cursor-pointer px-4 py-2 text-sm font-medium transition-colors",
                       rateMode === "global"
-                        ? "border border-[#5e1914] bg-[#5e1914] text-white"
+                        ? "border border-[#F40009] bg-[#F40009] text-white"
                         : "text-zinc-600 hover:bg-zinc-50"
                     )}
                   >
@@ -622,7 +622,7 @@ export default function AdminPricingPage() {
                     className={cn(
                       "cursor-pointer px-4 py-2 text-sm font-medium transition-colors",
                       rateMode === "custom"
-                        ? "border border-[#5e1914] bg-[#5e1914] text-white"
+                        ? "border border-[#F40009] bg-[#F40009] text-white"
                         : "text-zinc-600 hover:bg-zinc-50"
                     )}
                   >
@@ -639,7 +639,7 @@ export default function AdminPricingPage() {
                       value={merchantSearch}
                       onChange={(e) => setMerchantSearch(e.target.value)}
                       placeholder="Search (e.g. Mubarak, Greenlife)..."
-                      className="w-full rounded-none border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 font-sans placeholder:text-zinc-400 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+                      className="w-full rounded-none border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 font-sans placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
                     />
                     {(merchantSearch.length > 0 || selectedMerchantId) && (
                       <ul className="absolute z-10 mt-1 max-h-48 w-full overflow-auto border border-zinc-100 bg-white font-sans text-sm shadow-lg">
@@ -657,7 +657,7 @@ export default function AdminPricingPage() {
                               }}
                               className={cn(
                                 "w-full cursor-pointer px-4 py-2.5 text-left transition-colors hover:bg-zinc-50",
-                                selectedMerchantId === m.id ? "bg-[#5e1914]/10 text-[#5e1914]" : "text-zinc-900"
+                                selectedMerchantId === m.id ? "bg-[#F40009]/10 text-[#F40009]" : "text-zinc-900"
                               )}
                             >
                               {m.businessName}
@@ -672,7 +672,7 @@ export default function AdminPricingPage() {
                   </div>
                   {selectedMerchantId && (
                     <p className="mt-2 text-xs text-zinc-500 font-sans">
-                      Custom rates for: <span className="font-medium text-[#5e1914]">{DEMO_MERCHANTS.find((m) => m.id === selectedMerchantId)?.businessName ?? selectedMerchantId}</span>
+                      Custom rates for: <span className="font-medium text-[#F40009]">{DEMO_MERCHANTS.find((m) => m.id === selectedMerchantId)?.businessName ?? selectedMerchantId}</span>
                     </p>
                   )}
                 </div>
@@ -680,7 +680,7 @@ export default function AdminPricingPage() {
             </div>
             <div className="p-8">
               {csvError && (
-                <p className="mb-6 border border-[#5e1914] bg-[#5e1914]/10 px-4 py-3 text-sm font-medium text-[#5e1914] font-sans">
+                <p className="mb-6 border border-[#F40009] bg-[#F40009]/10 px-4 py-3 text-sm font-medium text-[#F40009] font-sans">
                   {csvError}
                 </p>
               )}
@@ -692,7 +692,7 @@ export default function AdminPricingPage() {
                         {type === "economy" && "Economy"}
                         {type === "express" && "Express"}
                         {type === "international" && "International"}
-                        {type === "movers" && "DMX Movers"}
+                        {type === "movers" && "Shipco Movers"}
                       </p>
                       <button
                         type="button"
@@ -701,7 +701,7 @@ export default function AdminPricingPage() {
                           e.stopPropagation();
                           downloadTemplateCsv(type);
                         }}
-                        className="inline-flex cursor-pointer items-center gap-1 rounded-none border border-[#5e1914] bg-white px-3 py-1.5 text-xs font-medium text-[#5e1914] font-sans transition-colors hover:bg-[#5e1914]/5"
+                        className="inline-flex cursor-pointer items-center gap-1 rounded-none border border-[#F40009] bg-white px-3 py-1.5 text-xs font-medium text-[#F40009] font-sans transition-colors hover:bg-[#F40009]/5"
                       >
                         <Download className="h-3.5 w-3.5" />
                         Download Demo CSV
@@ -720,7 +720,7 @@ export default function AdminPricingPage() {
                       onDrop={(e) => handleFileDrop(e, type)}
                       className={cn(
                         "flex min-h-[140px] flex-col items-center justify-center rounded-none border-2 border-dashed bg-white p-6 transition-colors font-sans",
-                        hover === type ? "border-[#5e1914] bg-[#5e1914]/5" : "border-zinc-200 hover:border-[#5e1914] hover:bg-[#5e1914]/5"
+                        hover === type ? "border-[#F40009] bg-[#F40009]/5" : "border-zinc-200 hover:border-[#F40009] hover:bg-[#F40009]/5"
                       )}
                     >
                       <Upload className="mb-2 h-8 w-8 text-zinc-400" />
@@ -732,12 +732,12 @@ export default function AdminPricingPage() {
                         id={`${type}-csv`}
                         onChange={(e) => handleFileSelect(e, type)}
                       />
-                      <label htmlFor={`${type}-csv`} className="mt-2 cursor-pointer rounded-none border border-[#5e1914] bg-[#5e1914] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#4a130f]">
+                      <label htmlFor={`${type}-csv`} className="mt-2 cursor-pointer rounded-none border border-[#F40009] bg-[#F40009] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#cc0008]">
                         Choose file
                       </label>
                     </div>
                     <p className="mt-2 text-xs font-medium text-zinc-500 font-sans">
-                      Status: <span className="text-[#5e1914]">
+                      Status: <span className="text-[#F40009]">
                         {type === "economy" && economyRateStatus}
                         {type === "express" && expressRateStatus}
                         {type === "international" && internationalRateStatus}
@@ -865,7 +865,7 @@ export default function AdminPricingPage() {
                             e.stopPropagation();
                             assignMoversDiscountToMerchant();
                           }}
-                          className="cursor-pointer rounded-none border border-[#5e1914] bg-[#5e1914] px-3 py-1.5 text-xs font-medium text-white font-sans transition-colors hover:bg-[#4a130f]"
+                          className="cursor-pointer rounded-none border border-[#F40009] bg-[#F40009] px-3 py-1.5 text-xs font-medium text-white font-sans transition-colors hover:bg-[#cc0008]"
                         >
                           Assign Rate
                         </button>
@@ -901,7 +901,7 @@ export default function AdminPricingPage() {
       {toast && (
         <div
           role="status"
-          className="fixed bottom-6 right-6 z-[100] border border-[#5e1914] bg-white px-6 py-4 font-sans text-sm font-medium text-zinc-900 shadow-lg"
+          className="fixed bottom-6 right-6 z-[100] border border-[#F40009] bg-white px-6 py-4 font-sans text-sm font-medium text-zinc-900 shadow-lg"
         >
           {toast}
         </div>

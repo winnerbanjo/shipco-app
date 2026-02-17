@@ -34,12 +34,12 @@ export function ServiceTypeSelector({ value, onSelect, className }: ServiceTypeS
             className={cn(
               "flex flex-col items-start rounded-none border bg-white p-6 text-left transition-colors",
               selected
-                ? "border-[#5e1914] ring-1 ring-[#5e1914]"
+                ? "border-[#F40009] ring-1 ring-[#F40009]"
                 : "border-zinc-100 hover:border-zinc-200"
             )}
           >
             <div className="flex h-12 w-12 items-center justify-center border border-zinc-100 bg-white">
-              <Icon className="h-6 w-6 text-[#5e1914]" strokeWidth={1.5} />
+              <Icon className="h-6 w-6 text-[#F40009]" strokeWidth={1.5} />
             </div>
             <p className="mt-4 font-sans text-base font-semibold tracking-tighter text-zinc-900">
               {SERVICE_LABELS[type]}

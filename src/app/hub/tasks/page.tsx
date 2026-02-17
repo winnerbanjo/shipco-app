@@ -30,8 +30,8 @@ function displayStatus(status: TaskStatus): string {
 
 function statusBadgeClass(status: TaskStatus): string {
   if (status === "Completed") return "border-green-600 bg-green-50 text-green-700";
-  if (status === "In Progress") return "border-[#5e1914] bg-[#5e1914]/10 text-[#5e1914]";
-  return "border-[#5e1914] bg-[#5e1914]/10 text-[#5e1914]";
+  if (status === "In Progress") return "border-[#F40009] bg-[#F40009]/10 text-[#F40009]";
+  return "border-[#F40009] bg-[#F40009]/10 text-[#F40009]";
 }
 
 export default function HubTasksPage() {
@@ -105,8 +105,8 @@ export default function HubTasksPage() {
       <header className="flex items-center gap-4 border-b border-zinc-100 pb-6">
         <div className="relative h-10 w-10 shrink-0 overflow-hidden bg-white">
           <Image
-            src="/dmxlogo.svg"
-            alt="DMX"
+            src="/shipco-logo.png"
+            alt="Shipco"
             fill
             className="object-contain"
             sizes="40px"
@@ -123,7 +123,7 @@ export default function HubTasksPage() {
         </div>
         <Link
           href="/hub/dashboard"
-          className="rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#5e1914] hover:text-[#5e1914]"
+          className="rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#F40009] hover:text-[#F40009]"
         >
           ← Dashboard
         </Link>
@@ -135,12 +135,12 @@ export default function HubTasksPage() {
           placeholder="Search by ID or Name"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="h-10 flex-1 min-w-[200px] rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+          className="h-10 flex-1 min-w-[200px] rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
         />
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="h-10 rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+          className="h-10 rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
         >
           {STATUS_OPTIONS.map((opt) => (
             <option key={opt.value} value={opt.value}>
@@ -152,7 +152,7 @@ export default function HubTasksPage() {
           <button
             type="button"
             onClick={clearFilters}
-            className="rounded-none border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-700 hover:border-[#5e1914] hover:text-[#5e1914]"
+            className="rounded-none border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-700 hover:border-[#F40009] hover:text-[#F40009]"
           >
             Clear Filters
           </button>
@@ -194,7 +194,7 @@ export default function HubTasksPage() {
                     <button
                       type="button"
                       onClick={() => acceptTask(t)}
-                      className="border border-[#5e1914] bg-[#5e1914] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#4a130f]"
+                      className="border border-[#F40009] bg-[#F40009] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#cc0008]"
                     >
                       Accept Task
                     </button>
@@ -203,7 +203,7 @@ export default function HubTasksPage() {
                     <button
                       type="button"
                       onClick={() => completeTask(t.id)}
-                      className="border border-[#5e1914] bg-[#5e1914] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#4a130f]"
+                      className="border border-[#F40009] bg-[#F40009] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#cc0008]"
                     >
                       Mark as Completed
                     </button>

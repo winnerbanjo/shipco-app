@@ -2,7 +2,7 @@
  * Simple logging utility for backend debugging.
  * Use console.log prefixed with [Component] for Render logs.
  */
-const PREFIX = "[DMX]";
+const PREFIX = "[Shipco]";
 
 export function logShipmentCreated(data: { trackingId: string; userId?: string; merchantId?: string; cost?: number }) {
   console.log(`${PREFIX} Shipment created`, JSON.stringify(data));

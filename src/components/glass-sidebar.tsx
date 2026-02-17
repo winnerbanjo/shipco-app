@@ -53,9 +53,9 @@ export function GlassSidebar({ role, title }: GlassSidebarProps) {
       <div className="flex h-14 items-center border-b border-white/10 px-4">
         <Link
           href={role === "ADMIN" ? "/admin" : "/merchant"}
-          className="font-semibold text-dmx-red"
+          className="font-semibold text-shipco-red"
         >
-          {title ?? (role === "ADMIN" ? "DMX Admin" : "DMX Merchant")}
+          {title ?? (role === "ADMIN" ? "Shipco Admin" : "Shipco Merchant")}
         </Link>
       </div>
       <nav className="flex-1 space-y-0.5 p-2">
@@ -71,7 +71,7 @@ export function GlassSidebar({ role, title }: GlassSidebarProps) {
                 "flex items-center gap-3 border-l-[3px] px-3 py-2.5 text-sm font-medium transition-colors",
                 "rounded-none",
                 isActive
-                  ? "border-l-dmx-red bg-dmx-red/20 text-white"
+                  ? "border-l-shipco-red bg-shipco-red/20 text-white"
                   : "border-l-transparent text-slate-200 hover:bg-white/10 hover:text-white"
               )}
             >

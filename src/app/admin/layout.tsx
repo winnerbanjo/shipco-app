@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
-import { getSession as getMerchantSession } from "@dmx/lib/auth";
+import { getSession as getMerchantSession } from "@shipco/lib/auth";
 import { AdminAppleSidebar } from "@/components/apple-sidebar";
 
 export default async function AdminLayout({

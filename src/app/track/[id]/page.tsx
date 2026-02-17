@@ -1,23 +1,23 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { connectDB } from "@dmx/lib/mongodb";
-import Shipment from "@dmx/lib/models/Shipment";
+import { connectDB } from "@shipco/lib/mongodb";
+import Shipment from "@shipco/lib/models/Shipment";
 import { isValidTrackingFormat } from "@/lib/tracking";
 import { TrackPageClient } from "./track-client";
 import { TrackDetailHeader } from "./track-detail-header";
 
-const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "https://dmx-logistics.com";
+const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "https://shipco-logistics.com";
 
 type Props = { params: Promise<{ id: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   return {
-    title: `Track ${id} | DMX Logistics`,
-    description: `Track your DMX Logistics shipment ${id}. View delivery journey and status.`,
+    title: `Track ${id} | Shipco Logistics`,
+    description: `Track your Shipco Logistics shipment ${id}. View delivery journey and status.`,
     openGraph: {
-      title: `Track ${id} | DMX Logistics`,
-      description: `Track your DMX Logistics shipment ${id}.`,
+      title: `Track ${id} | Shipco Logistics`,
+      description: `Track your Shipco Logistics shipment ${id}.`,
       url: `${BASE_URL}/track/${id}`,
     },
   };
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function TrackPage({ params }: Props) {
   const { id } = await params;
   const trackingId = id?.trim().toUpperCase();
-  const mockBypass = trackingId === "DMX-123" || trackingId === "DMX-782-NG";
+  const mockBypass = trackingId === "Shipco-123" || trackingId === "Shipco-782-NG";
 
   if (!trackingId) {
     notFound();
@@ -49,7 +49,7 @@ export default async function TrackPage({ params }: Props) {
     partnerTrackingUrl?: string;
   };
 
-  if (trackingId === "DMX-1001") {
+  if (trackingId === "Shipco-1001") {
     data = {
       trackingId,
       receiverName: "Abuja",
@@ -65,10 +65,10 @@ export default async function TrackPage({ params }: Props) {
       partnerName: "DHL",
       partnerTrackingUrl: "https://www.dhl.com/en/express/tracking.html?AWB=" + trackingId,
     };
-  } else if (trackingId === "DMX-1234-5678" || trackingId === "DMX-123" || trackingId === "DMX-782-NG") {
+  } else if (trackingId === "Shipco-1234-5678" || trackingId === "Shipco-123" || trackingId === "Shipco-782-NG") {
     data = {
       trackingId,
-      receiverName: trackingId === "DMX-782-NG" ? "Lagos" : "Demo Recipient",
+      receiverName: trackingId === "Shipco-782-NG" ? "Lagos" : "Demo Recipient",
       status: "In Transit",
       packageWeight: 2.5,
       cost: 4500,

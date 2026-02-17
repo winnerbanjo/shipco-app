@@ -2,11 +2,11 @@ import { Metadata } from "next";
 import { TrackPageClient } from "./track-page-client";
 
 export const metadata: Metadata = {
-  title: "Track Shipment | DMX Logistics",
-  description: "Track your DMX Logistics shipment. Enter your tracking ID to see the delivery journey.",
+  title: "Track Shipment | Shipco Logistics",
+  description: "Track your Shipco Logistics shipment. Enter your tracking ID to see the delivery journey.",
   openGraph: {
-    title: "Track Shipment | DMX Logistics",
-    description: "Track your DMX Logistics shipment by ID.",
+    title: "Track Shipment | Shipco Logistics",
+    description: "Track your Shipco Logistics shipment by ID.",
   },
 };
 

@@ -33,15 +33,15 @@ export function MerchantAppleSidebar() {
         <Link href="/merchant/dashboard" className="flex items-center gap-2">
           <div className="relative h-8 w-8 shrink-0 overflow-hidden">
             <Image
-              src="/dmxlogo.svg"
-              alt="DMX"
+              src="/shipco-logo.png"
+              alt="Shipco"
               fill
               className="object-contain"
               sizes="32px"
             />
           </div>
           <span className="text-sm font-medium text-zinc-900">
-            DMX <span className="text-[#5e1914]">Logistics</span>
+            Shipco <span className="text-[#F40009]">Logistics</span>
           </span>
         </Link>
       </div>
@@ -56,12 +56,12 @@ export function MerchantAppleSidebar() {
               href={item.href}
               className={cn(
                 "relative flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900",
-                isActive && "text-[#5e1914]"
+                isActive && "text-[#F40009]"
               )}
             >
               {isActive && (
                 <span
-                  className="absolute left-0 top-1/2 h-5 w-0.5 -translate-y-1/2 bg-[#5e1914]"
+                  className="absolute left-0 top-1/2 h-5 w-0.5 -translate-y-1/2 bg-[#F40009]"
                   aria-hidden
                 />
               )}
@@ -104,15 +104,15 @@ export function AdminAppleSidebar() {
         <Link href="/admin/dashboard" className="flex items-center gap-2">
           <div className="relative h-8 w-8 shrink-0 overflow-hidden">
             <Image
-              src="/dmxlogo.svg"
-              alt="DMX"
+              src="/shipco-logo.png"
+              alt="Shipco"
               fill
               className="object-contain"
               sizes="32px"
             />
           </div>
           <span className="text-sm font-medium text-zinc-900">
-            DMX <span className="text-[#5e1914]">Logistics</span>
+            Shipco <span className="text-[#F40009]">Logistics</span>
           </span>
         </Link>
       </div>
@@ -125,12 +125,12 @@ export function AdminAppleSidebar() {
               href={item.href}
               className={cn(
                 "relative flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900",
-                isActive && "text-[#5e1914]"
+                isActive && "text-[#F40009]"
               )}
             >
               {isActive && (
                 <span
-                  className="absolute left-0 top-1/2 h-5 w-0.5 -translate-y-1/2 bg-[#5e1914]"
+                  className="absolute left-0 top-1/2 h-5 w-0.5 -translate-y-1/2 bg-[#F40009]"
                   aria-hidden
                 />
               )}

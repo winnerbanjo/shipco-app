@@ -1,5 +1,5 @@
 /**
- * DMX Logistics - Shipping rate calculation
+ * Shipco Logistics - Shipping rate calculation
  * Local: Base ₦2000 + ₦500 per KG
  * International: Base ₦15000 + ₦2500 per KG
  */

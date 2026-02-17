@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-const MOCK_IDS = ["DMX-123", "DMX-782-NG"];
+const MOCK_IDS = ["Shipco-123", "Shipco-782-NG"];
 
 export function TrackForm({
   className = "",
@@ -36,10 +36,10 @@ export function TrackForm({
       <div>
         <input
           type="text"
-          placeholder="e.g. DMX-123 or DMX-782-NG"
+          placeholder="e.g. Shipco-123 or Shipco-782-NG"
           value={value}
           onChange={(e) => setValue(e.target.value.toUpperCase())}
-          className="w-full rounded-none border border-zinc-200 bg-white px-4 py-3.5 text-base text-zinc-900 placeholder-zinc-400 focus:border-[#5e1914] focus:outline-none focus:ring-0"
+          className="w-full rounded-none border border-zinc-200 bg-white px-4 py-3.5 text-base text-zinc-900 placeholder-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-0"
           aria-label="Tracking ID"
         />
         {error && (
@@ -50,7 +50,7 @@ export function TrackForm({
       </div>
       <button
         type="submit"
-        className="rounded-none bg-[#5e1914] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#4a130f]"
+        className="rounded-none bg-[#F40009] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#cc0008]"
       >
         Track
       </button>

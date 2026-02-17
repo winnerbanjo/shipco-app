@@ -1,8 +1,8 @@
 import { redirect } from "next/navigation";
 import Image from "next/image";
-import { getSession } from "@dmx/lib/auth";
-import { connectDB } from "@dmx/lib/mongodb";
-import Merchant from "@dmx/lib/models/Merchant";
+import { getSession } from "@shipco/lib/auth";
+import { connectDB } from "@shipco/lib/mongodb";
+import Merchant from "@shipco/lib/models/Merchant";
 import { getMerchantKycStatus } from "@/lib/merchant-kyc";
 import { MerchantBookingFlow } from "./merchant-booking-flow";
 
@@ -34,8 +34,8 @@ export default async function MerchantBookingPage() {
       <header className="flex items-center gap-4 border-b border-zinc-100 pb-6">
         <div className="relative h-10 w-10 shrink-0 overflow-hidden bg-white">
           <Image
-            src="/dmxlogo.svg"
-            alt="DMX"
+            src="/shipco-logo.png"
+            alt="Shipco"
             fill
             className="object-contain"
             sizes="40px"

@@ -24,8 +24,8 @@ export function CustomerSidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="flex w-56 flex-col border-r border-dmx-border bg-card">
-      <div className="p-4 font-semibold text-dmx-red">DMX Logistics</div>
+    <aside className="flex w-56 flex-col border-r border-shipco-border bg-card">
+      <div className="p-4 font-semibold text-shipco-red">Shipco Logistics</div>
       <nav className="flex flex-1 flex-col gap-1 px-2">
         {nav.map(({ href, label, icon: Icon }) => (
           <Link
@@ -34,7 +34,7 @@ export function CustomerSidebar() {
             className={cn(
               "flex items-center gap-3 rounded-none border-l-[3px] px-3 py-2 text-sm transition-colors",
               pathname === href
-                ? "border-l-dmx-red bg-dmx-red/10 text-dmx-red"
+                ? "border-l-shipco-red bg-shipco-red/10 text-shipco-red"
                 : "border-l-transparent text-muted-foreground hover:bg-accent hover:text-accent-foreground"
             )}
           >

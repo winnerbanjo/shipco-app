@@ -1,5 +1,5 @@
 /**
- * DMX Logistics – Mongoose connection singleton.
+ * Shipco Logistics – Mongoose connection singleton.
  * Connects to MongoDB Atlas using MONGODB_URI.
  */
 import mongoose from "mongoose";
@@ -8,7 +8,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
 
 if (!MONGODB_URI) {
   throw new Error(
-    "Please define MONGODB_URI in your .env.local file. Example: mongodb+srv://user:pass@cluster.mongodb.net/dmx"
+    "Please define MONGODB_URI in your .env.local file. Example: mongodb+srv://user:pass@cluster.mongodb.net/shipco"
   );
 }
 
@@ -27,7 +27,7 @@ export async function connectDB(): Promise<typeof mongoose> {
   if (!cached.promise) {
     if (!MONGODB_URI) throw new Error("MONGODB_URI is required");
     cached.promise = mongoose.connect(MONGODB_URI, {
-      dbName: process.env.MONGODB_DB ?? "dmx",
+      dbName: process.env.MONGODB_DB ?? "shipco",
     });
   }
 

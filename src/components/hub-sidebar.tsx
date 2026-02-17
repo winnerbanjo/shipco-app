@@ -27,7 +27,7 @@ export function HubSidebar() {
   const [logoError, setLogoError] = useState(false);
 
   function handleSignOut() {
-    document.cookie = "dmx-hub-token=; path=/; max-age=0";
+    document.cookie = "shipco-hub-token=; path=/; max-age=0";
     window.location.href = "/auth/login";
   }
 
@@ -37,8 +37,8 @@ export function HubSidebar() {
         <Link href="/hub/dashboard" className="flex h-10 items-center gap-2">
           {!logoError ? (
             <Image
-              src="/dmxlogo.svg"
-              alt="DMX"
+              src="/shipco-logo.png"
+              alt="Shipco"
               width={40}
               height={40}
               className="h-10 w-10 object-contain"
@@ -46,7 +46,7 @@ export function HubSidebar() {
               unoptimized
             />
           ) : (
-            <span className="font-sans font-semibold tracking-tighter text-[#5e1914]">DMX</span>
+            <span className="font-sans font-semibold tracking-tighter text-[#F40009]">Shipco</span>
           )}
           <span className="font-sans font-semibold tracking-tighter text-zinc-900">Hub</span>
         </Link>
@@ -61,7 +61,7 @@ export function HubSidebar() {
               className={cn(
                 "flex items-center gap-3 rounded-none border-l-[3px] px-3 py-2 text-sm font-medium transition-colors",
                 isActive
-                  ? "border-l-[#5e1914] bg-[#5e1914]/10 text-[#5e1914]"
+                  ? "border-l-[#F40009] bg-[#F40009]/10 text-[#F40009]"
                   : "border-l-transparent text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900"
               )}
             >

@@ -1,11 +1,11 @@
 "use server";
 
 import mongoose from "mongoose";
-import { connectDB } from "@dmx/lib/mongodb";
-import Merchant from "@dmx/lib/models/Merchant";
-import Shipment from "@dmx/lib/models/Shipment";
-import { getSession } from "@dmx/lib/auth";
-import { generateTrackingId } from "@dmx/lib/utils";
+import { connectDB } from "@shipco/lib/mongodb";
+import Merchant from "@shipco/lib/models/Merchant";
+import Shipment from "@shipco/lib/models/Shipment";
+import { getSession } from "@shipco/lib/auth";
+import { generateTrackingId } from "@shipco/lib/utils";
 import { getQuoteForRoute } from "@/data/pricing-demo";
 import {
   getZoneFromCountry,
@@ -15,7 +15,7 @@ import {
 } from "@/data/zone-pricing";
 import { getPricingCityFromAddress } from "@/data/address-constants";
 import { formatStructuredAddress } from "@/types/address";
-import { sendShipmentBookedEmail } from "@dmx/lib/notifications";
+import { sendShipmentBookedEmail } from "@shipco/lib/notifications";
 import type { ServiceType } from "@/data/booking-constants";
 
 export type CreateBookingState = {
@@ -118,7 +118,7 @@ export async function createBookingFromPowerForm(
   try {
     const conn = await connectDB();
     if (!conn) {
-      const trackingId = "DMX-DEMO-" + Date.now().toString(36).toUpperCase();
+      const trackingId = "Shipco-DEMO-" + Date.now().toString(36).toUpperCase();
       const senderName = session?.email?.split("@")[0] ?? "Merchant";
       return {
         trackingId,
@@ -154,7 +154,7 @@ export async function createBookingFromPowerForm(
     const sellingPrice = cost;
     const costPrice = Math.round(sellingPrice / (1 + DEFAULT_MARKUP_PERCENT / 100));
 
-    const shipmentDoc =     const shipmentDoc = await Shipment.create({
+    const shipmentDoc = await Shipment.create({
       merchantId: new mongoose.Types.ObjectId(session.merchantId as string),
       trackingId,
       receiverDetails: {
@@ -199,7 +199,7 @@ export async function createBookingFromPowerForm(
     };
   } catch (err) {
     console.error("createBookingFromPowerForm error:", err);
-    const trackingId = "DMX-DEMO-" + Date.now().toString(36).toUpperCase();
+    const trackingId = "Shipco-DEMO-" + Date.now().toString(36).toUpperCase();
     return {
       trackingId,
       success: `Shipment booked (demo). Cost: ₦${cost.toLocaleString()} deducted.`,

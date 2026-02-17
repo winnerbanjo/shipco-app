@@ -17,15 +17,15 @@ export function TrackPageClient() {
           <Link href="/" className="flex items-center gap-2">
             {!logoError ? (
               <Image
-                src="/dmxlogo.svg"
-                alt="DMX"
+                src="/shipco-logo.png"
+                alt="Shipco"
                 width={40}
                 height={40}
                 className="h-10 w-10 object-contain"
                 onError={() => setLogoError(true)}
               />
             ) : (
-              <span className="text-lg font-semibold tracking-tight text-[#5e1914]">DMX</span>
+              <span className="text-lg font-semibold tracking-tight text-[#F40009]">Shipco</span>
             )}
           </Link>
         </div>

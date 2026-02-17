@@ -22,7 +22,7 @@ export const authOptions: NextAuthOptions = {
         const roleFromClient = credentials.role as Role | undefined;
 
         // Demo bypass (gate with DISABLE_DEMO=true in production)
-        const DEMO_ADMIN = "admin@dmx.com";
+        const DEMO_ADMIN = "admin@shipco.com";
         const DEMO_PASSWORD = "password123";
         const demoDisabled = process.env.DISABLE_DEMO === "true";
         if (!demoDisabled && email === DEMO_ADMIN && password === DEMO_PASSWORD) {

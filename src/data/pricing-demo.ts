@@ -1,4 +1,4 @@
-/** DMX Pricing Engine — demo/static data for API, CSV, and Manual rates. */
+/** Shipco Pricing Engine — demo/static data for API, CSV, and Manual rates. */
 import { STATIC_ISO } from "@/lib/demo-date";
 
 export type PricingSource = "api" | "csv" | "manual";

@@ -13,7 +13,7 @@
     "jsx": "preserve",
     "incremental": true,
     "plugins": [{ "name": "next" }],
-    "paths": { "@/*": ["./src/*"], "@dmx/lib/*": ["./lib/*"] }
+    "paths": { "@/*": ["./src/*"], "@shipco/lib/*": ["./lib/*"] }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

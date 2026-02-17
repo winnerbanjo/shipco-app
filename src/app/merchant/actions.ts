@@ -1,12 +1,12 @@
 "use server";
 
 import mongoose from "mongoose";
-import { connectDB } from "@dmx/lib/mongodb";
-import Merchant from "@dmx/lib/models/Merchant";
-import Shipment from "@dmx/lib/models/Shipment";
-import { getSession } from "@dmx/lib/auth";
-import { generateTrackingId } from "@dmx/lib/utils";
-import { sendShipmentBookedEmail } from "@dmx/lib/notifications";
+import { connectDB } from "@shipco/lib/mongodb";
+import Merchant from "@shipco/lib/models/Merchant";
+import Shipment from "@shipco/lib/models/Shipment";
+import { getSession } from "@shipco/lib/auth";
+import { generateTrackingId } from "@shipco/lib/utils";
+import { sendShipmentBookedEmail } from "@shipco/lib/notifications";
 import { calculateBookingPrice } from "@/lib/booking-pricing";
 
 export type CreateBookingState = { error?: string; trackingId?: string; success?: string };

@@ -1,5 +1,5 @@
 /**
- * DMX Zone-Based Cost Engine — Pricing Structure.
+ * Shipco Zone-Based Cost Engine — Pricing Structure.
  * Re-exports logic from @/lib/logic for backward compatibility.
  * Zone labels and extended country mapping for UI.
  */

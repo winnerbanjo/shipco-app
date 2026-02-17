@@ -19,7 +19,7 @@ export default async function AdminLayout({
       <header className="border-b border-slate-200 bg-white px-4 py-3">
         <div className="flex items-center justify-between">
           <Link href="/admin" className="font-semibold text-[#1e40af]">
-            DMX Admin
+            Shipco Admin
           </Link>
           <nav className="flex gap-4 text-sm">
             <Link href="/admin" className="text-slate-600 hover:text-[#1e40af]">

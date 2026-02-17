@@ -1,5 +1,5 @@
 /**
- * DMX Logistics - Shared types (Source of Truth aligned with PRD)
+ * Shipco Logistics - Shared types (Source of Truth aligned with PRD)
  */
 
 export type Role = "MERCHANT" | "CUSTOMER" | "ADMIN" | "AGENT";

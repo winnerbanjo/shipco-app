@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function generateTrackingId(): string {
-  const prefix = "DMX";
+  const prefix = "Shipco";
   const timestamp = Date.now().toString(36).toUpperCase();
   const random = Math.random().toString(36).substring(2, 8).toUpperCase();
   return `${prefix}-${timestamp}-${random}`;

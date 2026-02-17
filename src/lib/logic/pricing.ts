@@ -1,5 +1,5 @@
 /**
- * DMX Pricing Logic — reusable for Quick Quote, Booking, and API.
+ * Shipco Pricing Logic — reusable for Quick Quote, Booking, and API.
  * Backend-engineer friendly: pure functions, easy to unit test.
  */
 

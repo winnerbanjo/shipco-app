@@ -1,9 +1,9 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { connectDB } from "@dmx/lib/mongodb";
-import Merchant from "@dmx/lib/models/Merchant";
-import { getSession } from "@dmx/lib/auth";
+import { connectDB } from "@shipco/lib/mongodb";
+import Merchant from "@shipco/lib/models/Merchant";
+import { getSession } from "@shipco/lib/auth";
 import { generateMockApiKey } from "@/lib/utils";
 
 type ProfileState = { error?: string; ok?: boolean } | null;

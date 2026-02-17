@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import { hash } from "bcryptjs";
-import { connectDB } from "@dmx/lib/mongodb";
-import Merchant from "@dmx/lib/models/Merchant";
-import { createToken } from "@dmx/lib/auth";
+import { connectDB } from "@shipco/lib/mongodb";
+import Merchant from "@shipco/lib/models/Merchant";
+import { createToken } from "@shipco/lib/auth";
 
 const COOKIE_OPTIONS = {
   httpOnly: true,
@@ -74,7 +74,7 @@ export async function POST(req: Request) {
     });
 
     const res = NextResponse.json({ ok: true, token });
-    res.cookies.set("dmx-merchant-token", token, COOKIE_OPTIONS);
+    res.cookies.set("shipco-merchant-token", token, COOKIE_OPTIONS);
     return res;
   } catch (e) {
     console.error("merchant-kyc-signup error:", e);

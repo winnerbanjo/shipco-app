@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { connectDB } from "@dmx/lib/mongodb";
-import Shipment from "@dmx/lib/models/Shipment";
+import { connectDB } from "@shipco/lib/mongodb";
+import Shipment from "@shipco/lib/models/Shipment";
 import { isValidTrackingFormat } from "@/lib/tracking";
 
 /**
@@ -16,7 +16,7 @@ export async function GET(
 
   if (!trackingId || !isValidTrackingFormat(trackingId)) {
     return NextResponse.json(
-      { error: "Invalid tracking ID format. Use DMX-XXXX-XXXX." },
+      { error: "Invalid tracking ID format. Use Shipco-XXXX-XXXX." },
       { status: 400 }
     );
   }

@@ -5,8 +5,8 @@ import { getToken } from "next-auth/jwt";
 const SESSION_COOKIES = [
   "next-auth.session-token",
   "__Secure-next-auth.session-token",
-  "dmx-merchant-token",
-  "dmx-hub-token",
+  "shipco-merchant-token",
+  "shipco-hub-token",
 ];
 
 const PROTECTED_PREFIXES = ["/dashboard", "/admin", "/merchant", "/customer", "/hub"];

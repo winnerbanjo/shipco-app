@@ -29,7 +29,7 @@ export default function HubBookingPage() {
   const [hsCode, setHsCode] = useState("");
   const [idPassportNumber, setIdPassportNumber] = useState("");
   const [packageCategory, setPackageCategory] = useState("");
-  const [fulfillmentPartnerId, setFulfillmentPartnerId] = useState<string>("dmx-internal");
+  const [fulfillmentPartnerId, setFulfillmentPartnerId] = useState<string>("shipco-internal");
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
@@ -66,7 +66,7 @@ export default function HubBookingPage() {
       <div className="mx-auto max-w-2xl bg-white">
         <header className="flex items-center gap-4 border-b border-zinc-100 pb-6">
           <div className="relative h-10 w-10 shrink-0 overflow-hidden bg-white">
-            <Image src="/dmxlogo.png" alt="DMX" fill className="object-contain" sizes="40px" />
+            <Image src="/shipco-logo.png" alt="Shipco" fill className="object-contain" sizes="40px" />
           </div>
           <div className="flex-1">
             <h1 className="font-sans text-2xl font-semibold tracking-tighter text-zinc-900">Booking</h1>
@@ -74,18 +74,18 @@ export default function HubBookingPage() {
           </div>
         </header>
         <div className="mt-10 rounded-none border border-zinc-100 bg-zinc-50 p-8">
-          <p className="text-sm font-medium text-[#5e1914]">Booking saved. You can return to Tasks or create another.</p>
+          <p className="text-sm font-medium text-[#F40009]">Booking saved. You can return to Tasks or create another.</p>
           <div className="mt-6 flex gap-3">
             <Link
               href="/hub/tasks"
-              className="rounded-none border border-[#5e1914] bg-[#5e1914] px-4 py-2 text-sm font-medium text-white hover:bg-[#4a130f]"
+              className="rounded-none border border-[#F40009] bg-[#F40009] px-4 py-2 text-sm font-medium text-white hover:bg-[#cc0008]"
             >
               Back to Tasks
             </Link>
             <button
               type="button"
               onClick={() => { setSubmitted(false); setServiceType(null); }}
-              className="rounded-none border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#5e1914] hover:text-[#5e1914]"
+              className="rounded-none border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#F40009] hover:text-[#F40009]"
             >
               New booking
             </button>
@@ -100,13 +100,13 @@ export default function HubBookingPage() {
       <div className="mx-auto max-w-2xl bg-white">
         <header className="flex items-center gap-4 border-b border-zinc-100 pb-6">
           <div className="relative h-10 w-10 shrink-0 overflow-hidden bg-white">
-            <Image src="/dmxlogo.png" alt="DMX" fill className="object-contain" sizes="40px" />
+            <Image src="/shipco-logo.png" alt="Shipco" fill className="object-contain" sizes="40px" />
           </div>
           <div className="flex-1">
             <h1 className="font-sans text-2xl font-semibold tracking-tighter text-zinc-900">Booking</h1>
             <p className="mt-1 text-sm text-zinc-500">Select service type. From a task? Accept the task to open the form pre-filled.</p>
           </div>
-          <Link href="/hub/tasks" className="rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#5e1914] hover:text-[#5e1914]">
+          <Link href="/hub/tasks" className="rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#F40009] hover:text-[#F40009]">
             ← Tasks
           </Link>
         </header>
@@ -122,7 +122,7 @@ export default function HubBookingPage() {
     <div className="mx-auto max-w-2xl bg-white">
       <header className="flex items-center gap-4 border-b border-zinc-100 pb-6">
         <div className="relative h-10 w-10 shrink-0 overflow-hidden bg-white">
-          <Image src="/dmxlogo.png" alt="DMX" fill className="object-contain" sizes="40px" />
+          <Image src="/shipco-logo.png" alt="Shipco" fill className="object-contain" sizes="40px" />
         </div>
         <div className="flex-1">
           <h1 className="font-sans text-2xl font-semibold tracking-tighter text-zinc-900">Booking</h1>
@@ -130,7 +130,7 @@ export default function HubBookingPage() {
             {fromTask ? "Task data pre-filled. Complete and add internal note." : "Create waybill. Add internal note on receipt."}
           </p>
         </div>
-        <Link href="/hub/tasks" className="rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#5e1914] hover:text-[#5e1914]">
+        <Link href="/hub/tasks" className="rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#F40009] hover:text-[#F40009]">
           ← Tasks
         </Link>
       </header>
@@ -139,7 +139,7 @@ export default function HubBookingPage() {
         <button
           type="button"
           onClick={() => setServiceType(null)}
-          className="text-sm font-medium text-zinc-500 hover:text-[#5e1914]"
+          className="text-sm font-medium text-zinc-500 hover:text-[#F40009]"
         >
           ← Change service type
         </button>
@@ -157,7 +157,7 @@ export default function HubBookingPage() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Full name"
-                className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+                className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
                 required
               />
             </div>
@@ -169,7 +169,7 @@ export default function HubBookingPage() {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="+234 ..."
-                className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+                className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
                 required
               />
             </div>
@@ -210,7 +210,7 @@ export default function HubBookingPage() {
                   min="0"
                   value={itemValueCustoms}
                   onChange={(e) => setItemValueCustoms(e.target.value)}
-                  className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+                  className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
                 />
               </div>
               <div>
@@ -221,7 +221,7 @@ export default function HubBookingPage() {
                   value={hsCode}
                   onChange={(e) => setHsCode(e.target.value)}
                   placeholder="e.g. 8471.30"
-                  className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+                  className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
                 />
               </div>
               <div>
@@ -231,7 +231,7 @@ export default function HubBookingPage() {
                   type="text"
                   value={idPassportNumber}
                   onChange={(e) => setIdPassportNumber(e.target.value)}
-                  className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+                  className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
                 />
               </div>
               <div>
@@ -240,7 +240,7 @@ export default function HubBookingPage() {
                   id="packageCategory"
                   value={packageCategory}
                   onChange={(e) => setPackageCategory(e.target.value)}
-                  className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+                  className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
                 >
                   <option value="">Select</option>
                   {PACKAGE_CATEGORY_OPTIONS.map((o) => (
@@ -258,7 +258,7 @@ export default function HubBookingPage() {
             id="fulfillmentPartner"
             value={fulfillmentPartnerId}
             onChange={(e) => setFulfillmentPartnerId(e.target.value)}
-            className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+            className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
           >
             {DEMO_PARTNERS.map((p) => (
               <option key={p.id} value={p.id}>
@@ -279,7 +279,7 @@ export default function HubBookingPage() {
             onChange={(e) => setNotes(e.target.value)}
             placeholder="e.g. Call before arriving. Fragile—handle with care."
             rows={3}
-            className="mt-2 w-full resize-y rounded-none border border-zinc-200 bg-white px-4 py-4 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+            className="mt-2 w-full resize-y rounded-none border border-zinc-200 bg-white px-4 py-4 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
           />
         </section>
 
@@ -293,7 +293,7 @@ export default function HubBookingPage() {
             onChange={(e) => setInternalNote(e.target.value)}
             placeholder="e.g. Box slightly dented. Sealed. Verified weight 2.1 kg."
             rows={3}
-            className="mt-2 w-full resize-y rounded-none border border-zinc-200 bg-white px-4 py-4 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+            className="mt-2 w-full resize-y rounded-none border border-zinc-200 bg-white px-4 py-4 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
           />
           <p className="mt-1 text-xs text-zinc-500">For staff only. Log condition when package arrives at hub.</p>
         </section>
@@ -301,13 +301,13 @@ export default function HubBookingPage() {
         <div className="flex gap-3">
           <button
             type="submit"
-            className="rounded-none border border-[#5e1914] bg-[#5e1914] px-6 py-3 text-sm font-medium text-white hover:bg-[#4a130f]"
+            className="rounded-none border border-[#F40009] bg-[#F40009] px-6 py-3 text-sm font-medium text-white hover:bg-[#cc0008]"
           >
             Create waybill
           </button>
           <Link
             href="/hub/tasks"
-            className="rounded-none border border-zinc-200 bg-white px-6 py-3 text-sm font-medium text-zinc-700 hover:border-[#5e1914] hover:text-[#5e1914]"
+            className="rounded-none border border-zinc-200 bg-white px-6 py-3 text-sm font-medium text-zinc-700 hover:border-[#F40009] hover:text-[#F40009]"
           >
             Cancel
           </Link>

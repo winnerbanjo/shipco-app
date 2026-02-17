@@ -33,9 +33,9 @@ function loadGoogleScript(apiKey: string): Promise<void> {
   const p = new Promise<void>((resolve, reject) => {
     const script = document.createElement("script");
     script.id = GOOGLE_SCRIPT_ID;
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=__dmxGoogleMapsReady`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=__shipcoGoogleMapsReady`;
     script.async = true;
-    (window as unknown as { __dmxGoogleMapsReady?: () => void }).__dmxGoogleMapsReady = () => resolve();
+    (window as unknown as { __shipcoGoogleMapsReady?: () => void }).__shipcoGoogleMapsReady = () => resolve();
     script.onerror = () => reject(new Error("Google Maps script failed to load"));
     document.head.appendChild(script);
   });
@@ -146,7 +146,7 @@ export function StructuredAddressField({
         icon: {
           path: g.maps.SymbolPath.CIRCLE,
           scale: 12,
-          fillColor: "#5e1914",
+          fillColor: "#F40009",
           fillOpacity: 1,
           strokeColor: "#ffffff",
           strokeWeight: 2,
@@ -184,7 +184,7 @@ export function StructuredAddressField({
             onChange={(e) => onChange({ ...value, streetAddress: e.target.value })}
             placeholder={autocompleteReady ? "Start typing for suggestions..." : "e.g. 12 Admiralty Way, Lekki"}
             required={required}
-            className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+            className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
           />
         </div>
 
@@ -202,7 +202,7 @@ export function StructuredAddressField({
                 onChange(next);
                 onHubSuggest?.(getHubFromAddress(next.lga, next.state));
               }}
-              className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+              className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
             >
               <option value="">Select LGA / Area</option>
               {lgaOptions.map((lga) => (
@@ -223,7 +223,7 @@ export function StructuredAddressField({
                 onChange(next);
                 onHubSuggest?.(getHubFromAddress(next.lga, next.state));
               }}
-              className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+              className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
             >
               <option value="">Select State</option>
               {ADDRESS_STATES.map((s) => (
@@ -245,7 +245,7 @@ export function StructuredAddressField({
               value={value.apartment}
               onChange={(e) => onChange({ ...value, apartment: e.target.value })}
               placeholder="e.g. Suite 4B"
-              className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+              className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
             />
           </div>
           <div>
@@ -259,14 +259,14 @@ export function StructuredAddressField({
               value={value.landmark}
               onChange={(e) => onChange({ ...value, landmark: e.target.value })}
               placeholder="e.g. Opposite GTBank"
-              className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+              className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
             />
           </div>
         </div>
 
         {displayHub && (
           <p className="text-xs text-zinc-500 font-sans">
-            Smart Hub: <span className="font-medium text-[#5e1914]">{displayHub}</span>
+            Smart Hub: <span className="font-medium text-[#F40009]">{displayHub}</span>
           </p>
         )}
       </div>
@@ -275,7 +275,7 @@ export function StructuredAddressField({
         <div className="w-full shrink-0 rounded-none border border-zinc-100 bg-white lg:w-80">
           <header className="flex items-center gap-3 border-b border-zinc-100 px-4 py-3">
             <div className="relative h-8 w-8 shrink-0 overflow-hidden bg-white">
-              <Image src="/dmxlogo.png" alt="DMX" fill className="object-contain" sizes="32px" />
+              <Image src="/shipco-logo.png" alt="Shipco" fill className="object-contain" sizes="32px" />
             </div>
             <span className="text-xs font-medium uppercase tracking-wider text-zinc-500 font-sans">
               Map

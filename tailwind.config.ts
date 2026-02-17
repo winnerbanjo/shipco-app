@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-/** DMX Logistics: Apple-minimalist. White #fff, charcoal #18181b, Wine Red #5e1914, sharp edges. */
+/** Shipco Logistics: Apple-minimalist. White #fff, charcoal #18181b, Coca-Cola Red #F40009, sharp edges. */
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -20,13 +20,13 @@ const config: Config = {
       },
       colors: {
         charcoal: "#18181b",
-        dmxRed: "#5e1914",
+        shipcoRed: "#F40009",
         "profit-green": "#166534",
-        "dmx-red": "#5e1914",
-        "dmx-red-hover": "#4a130f",
-        "dmx-black": "#0a0a0a",
-        "dmx-blue": "#2563eb",
-        "dmx-border": "#262626",
+        "shipco-red": "#F40009",
+        "shipco-red-hover": "#cc0008",
+        "shipco-black": "#0a0a0a",
+        "shipco-blue": "#2563eb",
+        "shipco-border": "#262626",
         "pure-black": "#000000",
         "slate-gray": "#1a1a1a",
         "logistics-blue": "#3b82f6",
@@ -63,15 +63,15 @@ const config: Config = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        /* DMX luxury palette */
-        "dmx-bg": "hsl(var(--dmx-bg))",
-        "dmx-foreground": "hsl(var(--dmx-foreground))",
-        "dmx-muted": "hsl(var(--dmx-muted))",
-        "dmx-accent": "hsl(var(--dmx-accent))",
-        "dmx-card": "hsl(var(--dmx-card))",
-        "dmx-primary": "hsl(var(--dmx-primary))",
-        "dmx-primary-foreground": "hsl(var(--dmx-primary-foreground))",
-        "dmx-gold": "hsl(var(--dmx-gold))",
+        /* Shipco brand palette */
+        "shipco-bg": "hsl(var(--shipco-bg))",
+        "shipco-foreground": "hsl(var(--shipco-foreground))",
+        "shipco-muted": "hsl(var(--shipco-muted))",
+        "shipco-accent": "hsl(var(--shipco-accent))",
+        "shipco-card": "hsl(var(--shipco-card))",
+        "shipco-primary": "hsl(var(--shipco-primary))",
+        "shipco-primary-foreground": "hsl(var(--shipco-primary-foreground))",
+        "shipco-gold": "hsl(var(--shipco-gold))",
       },
     },
   },

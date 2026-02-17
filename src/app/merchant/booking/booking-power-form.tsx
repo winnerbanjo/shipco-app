@@ -107,7 +107,7 @@ export function BookingPowerForm({
             </p>
           )}
           {state?.success && !state?.slip && (
-            <p className="mb-6 text-sm text-[#5e1914]">{state.success}</p>
+            <p className="mb-6 text-sm text-[#F40009]">{state.success}</p>
           )}
 
           <div className="mb-8 flex items-center gap-3">
@@ -125,7 +125,7 @@ export function BookingPowerForm({
                 onClick={() => setServiceLevel("Standard")}
                 className={`flex-1 rounded-none px-6 py-3 text-sm font-medium transition-colors ${
                   serviceLevel === "Standard"
-                    ? "bg-[#5e1914] text-white"
+                    ? "bg-[#F40009] text-white"
                     : "bg-white text-zinc-600 hover:bg-zinc-50"
                 }`}
               >
@@ -136,7 +136,7 @@ export function BookingPowerForm({
                 onClick={() => setServiceLevel("Express")}
                 className={`flex-1 rounded-none px-6 py-3 text-sm font-medium transition-colors ${
                   serviceLevel === "Express"
-                    ? "bg-[#5e1914] text-white"
+                    ? "bg-[#F40009] text-white"
                     : "bg-white text-zinc-600 hover:bg-zinc-50"
                 }`}
               >
@@ -295,7 +295,7 @@ export function BookingPowerForm({
                       className="mt-2 h-12 rounded-none border-zinc-100"
                     />
                     {zone && (
-                      <p className="mt-1 text-xs font-medium text-[#5e1914]">
+                      <p className="mt-1 text-xs font-medium text-[#F40009]">
                         Zone detected: {ZONE_LABELS[zone]} — rate pulled from sheet
                       </p>
                     )}
@@ -365,7 +365,7 @@ export function BookingPowerForm({
                     value="Standard"
                     checked={serviceLevel === "Standard"}
                     onChange={() => setServiceLevel("Standard")}
-                    className="h-4 w-4 border-zinc-300 text-[#5e1914]"
+                    className="h-4 w-4 border-zinc-300 text-[#F40009]"
                   />
                   <span className="ml-3 text-sm font-medium text-zinc-900">Standard</span>
                 </label>
@@ -376,7 +376,7 @@ export function BookingPowerForm({
                     value="Express"
                     checked={serviceLevel === "Express"}
                     onChange={() => setServiceLevel("Express")}
-                    className="h-4 w-4 border-zinc-300 text-[#5e1914]"
+                    className="h-4 w-4 border-zinc-300 text-[#F40009]"
                   />
                   <span className="ml-3 text-sm font-medium text-zinc-900">Express</span>
                 </label>
@@ -385,7 +385,7 @@ export function BookingPowerForm({
           </div>
 
           <div className="mt-12">
-            <Button type="submit" className="h-12 rounded-none bg-[#5e1914] px-8 text-sm font-medium text-white hover:bg-[#4a130f]">
+            <Button type="submit" className="h-12 rounded-none bg-[#F40009] px-8 text-sm font-medium text-white hover:bg-[#cc0008]">
               Generate Waybill
             </Button>
           </div>
@@ -412,7 +412,7 @@ export function BookingPowerForm({
             </div>
             <div className="flex justify-between border-t border-zinc-100 pt-4">
               <span className="text-sm font-medium text-zinc-900">Total</span>
-              <span className="text-xl font-semibold tracking-tighter text-[#5e1914]">
+              <span className="text-xl font-semibold tracking-tighter text-[#F40009]">
                 ₦{total.toLocaleString()}
               </span>
             </div>
@@ -420,7 +420,7 @@ export function BookingPowerForm({
           <p className="mt-3 text-xs text-zinc-500">
             {weightNum > 0 ? `${weightNum} kg · ${serviceLevel}` : "Enter weight to see quote"}
           </p>
-          <Button type="submit" form="booking-power-form" className="mt-8 w-full rounded-none bg-[#5e1914] py-3 text-sm font-medium text-white hover:bg-[#4a130f]">
+          <Button type="submit" form="booking-power-form" className="mt-8 w-full rounded-none bg-[#F40009] py-3 text-sm font-medium text-white hover:bg-[#cc0008]">
             Generate Waybill
           </Button>
         </aside>

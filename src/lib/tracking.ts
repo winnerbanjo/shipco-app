@@ -1,5 +1,5 @@
 /**
- * Generate unique tracking ID in format DMX-XXXX-XXXX
+ * Generate unique tracking ID in format Shipco-XXXX-XXXX
  * X = alphanumeric uppercase
  */
 
@@ -14,15 +14,15 @@ function randomSegment(length: number): string {
 }
 
 /**
- * Generate a tracking ID: DMX-XXXX-XXXX
+ * Generate a tracking ID: Shipco-XXXX-XXXX
  */
 export function generateTrackingId(): string {
-  return `DMX-${randomSegment(4)}-${randomSegment(4)}`;
+  return `Shipco-${randomSegment(4)}-${randomSegment(4)}`;
 }
 
 /**
- * Validate format DMX-XXXX or DMX-XXXX-XXXX (case insensitive)
+ * Validate format Shipco-XXXX or Shipco-XXXX-XXXX (case insensitive)
  */
 export function isValidTrackingFormat(trackingId: string): boolean {
-  return /^DMX-[A-Z0-9]{4}(-[A-Z0-9]{4})?$/i.test(trackingId.trim());
+  return /^Shipco-[A-Z0-9]{4}(-[A-Z0-9]{4})?$/i.test(trackingId.trim());
 }

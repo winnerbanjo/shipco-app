@@ -46,8 +46,8 @@ export default function HubCustomersPage() {
       <header className="flex items-center gap-4 border-b border-zinc-100 pb-6">
         <div className="relative h-10 w-10 shrink-0 overflow-hidden bg-white">
           <Image
-            src="/dmxlogo.svg"
-            alt="DMX"
+            src="/shipco-logo.png"
+            alt="Shipco"
             fill
             className="object-contain"
             sizes="40px"
@@ -64,7 +64,7 @@ export default function HubCustomersPage() {
         </div>
         <Link
           href="/hub/dashboard"
-          className="rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#5e1914] hover:text-[#5e1914]"
+          className="rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#F40009] hover:text-[#F40009]"
         >
           ← Dashboard
         </Link>
@@ -76,12 +76,12 @@ export default function HubCustomersPage() {
           placeholder="Search by Name or ID"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="h-10 min-w-[200px] flex-1 rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+          className="h-10 min-w-[200px] flex-1 rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
         />
         <select
           value={city}
           onChange={(e) => setCity(e.target.value)}
-          className="h-10 rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+          className="h-10 rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
         >
           {cityOptions.map((opt) => (
             <option key={opt} value={opt}>
@@ -93,7 +93,7 @@ export default function HubCustomersPage() {
           <button
             type="button"
             onClick={clearFilters}
-            className="rounded-none border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-700 hover:border-[#5e1914] hover:text-[#5e1914]"
+            className="rounded-none border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-700 hover:border-[#F40009] hover:text-[#F40009]"
           >
             Clear Filters
           </button>

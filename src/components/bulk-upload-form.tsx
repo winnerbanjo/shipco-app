@@ -21,7 +21,7 @@ export function BulkUploadForm() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "dmx-bulk-shipments-template.csv";
+    a.download = "shipco-bulk-shipments-template.csv";
     a.click();
     URL.revokeObjectURL(url);
   }, []);

@@ -1,6 +1,6 @@
 "use server";
 
-import { createToken } from "@dmx/lib/auth";
+import { createToken } from "@shipco/lib/auth";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { DEMO_MERCHANT_ID_APPROVED, DEMO_MERCHANT_ID_PENDING } from "@/lib/merchant-kyc";
@@ -8,11 +8,11 @@ import { DEMO_MERCHANT_ID_APPROVED, DEMO_MERCHANT_ID_PENDING } from "@/lib/merch
 export async function setDemoMerchantSession() {
   const token = await createToken({
     merchantId: DEMO_MERCHANT_ID_APPROVED,
-    email: "demo@dmx.com",
+    email: "demo@shipco.com",
     isVerified: true,
   });
   const store = await cookies();
-  store.set("dmx-merchant-token", token, {
+  store.set("shipco-merchant-token", token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
@@ -26,11 +26,11 @@ export async function setDemoMerchantSession() {
 export async function setDemoMerchantPendingSession() {
   const token = await createToken({
     merchantId: DEMO_MERCHANT_ID_PENDING,
-    email: "newstore@dmx.com",
+    email: "newstore@shipco.com",
     isVerified: false,
   });
   const store = await cookies();
-  store.set("dmx-merchant-token", token, {
+  store.set("shipco-merchant-token", token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
@@ -42,7 +42,7 @@ export async function setDemoMerchantPendingSession() {
 
 export async function setDemoHubSession() {
   const store = await cookies();
-  store.set("dmx-hub-token", "demo-hub-staff", {
+  store.set("shipco-hub-token", "demo-hub-staff", {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",

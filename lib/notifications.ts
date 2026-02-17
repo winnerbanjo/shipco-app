@@ -6,7 +6,7 @@
 import nodemailer from "nodemailer";
 import { getTrackUrl } from "./whatsapp-url";
 
-const APP_NAME = "DMX Logistics";
+const APP_NAME = "Shipco Logistics";
 
 /** Email transporter (Nodemailer). Set SMTP in env. */
 function getTransporter() {
@@ -60,9 +60,9 @@ export async function sendShipmentBookedEmail(params: {
   `;
   try {
     await transporter.sendMail({
-      from: process.env.SMTP_FROM || `"${APP_NAME}" <noreply@dmx-logistics.com>`,
+      from: process.env.SMTP_FROM || `"${APP_NAME}" <noreply@shipco-logistics.com>`,
       to: params.to,
-      subject: "Your DMX package is on the way",
+      subject: "Your Shipco package is on the way",
       html,
     });
     return { ok: true };
@@ -72,7 +72,7 @@ export async function sendShipmentBookedEmail(params: {
   }
 }
 
-/** Send 'Status Updated' email — subject: "Your DMX Package is moving" */
+/** Send 'Status Updated' email — subject: "Your Shipco Package is moving" */
 export async function sendStatusUpdatedEmail(params: {
   to: string;
   recipientName: string;
@@ -87,7 +87,7 @@ export async function sendStatusUpdatedEmail(params: {
   const html = `
     <div style="${baseEmailStyles}">
       <p>Dear ${params.recipientName},</p>
-      <p>Your DMX package is moving.</p>
+      <p>Your Shipco package is moving.</p>
       <p><strong>Tracking ID:</strong> ${params.trackingId}</p>
       <p><strong>Status:</strong> ${params.status}</p>
       <a href="${trackUrl}" style="${ctaStyle}">View delivery journey</a>
@@ -96,9 +96,9 @@ export async function sendStatusUpdatedEmail(params: {
   `;
   try {
     await transporter.sendMail({
-      from: process.env.SMTP_FROM || `"${APP_NAME}" <noreply@dmx-logistics.com>`,
+      from: process.env.SMTP_FROM || `"${APP_NAME}" <noreply@shipco-logistics.com>`,
       to: params.to,
-      subject: "Your DMX Package is moving",
+      subject: "Your Shipco Package is moving",
       html,
     });
     return { ok: true };

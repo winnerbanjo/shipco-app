@@ -1,4 +1,4 @@
-# DMX Logistics — Backend Engineer Handoff
+# Shipco Logistics — Backend Engineer Handoff
 
 This document lists all environment variables and backend architecture for the Render deployment.
 
@@ -6,10 +6,10 @@ This document lists all environment variables and backend architecture for the R
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `DATABASE_URL` | Yes | PostgreSQL connection string. Format: `postgresql://user:password@host:5432/dmx?schema=public` |
-| `NEXTAUTH_URL` | Yes | App URL (e.g. `https://dmx-logistics.onrender.com`). Must match deployment URL. |
+| `DATABASE_URL` | Yes | PostgreSQL connection string. Format: `postgresql://user:password@host:5432/shipco?schema=public` |
+| `NEXTAUTH_URL` | Yes | App URL (e.g. `https://shipco-logistics.onrender.com`). Must match deployment URL. |
 | `NEXTAUTH_SECRET` | Yes | Random secret for JWT signing. Generate: `openssl rand -base64 32` |
-| `MONGODB_URI` | Yes* | MongoDB Atlas connection string for Merchant module. Format: `mongodb+srv://user:pass@cluster.mongodb.net/dmx` |
+| `MONGODB_URI` | Yes* | MongoDB Atlas connection string for Merchant module. Format: `mongodb+srv://user:pass@cluster.mongodb.net/shipco` |
 | `JWT_SECRET` | Yes | Secret for merchant JWT auth. Use same as NEXTAUTH_SECRET or a separate 32+ char string. |
 | `ADMIN_EMAIL` | No | Email that grants Admin role. If set, user with this email can access `/admin/*`. |
 | `PAYSTACK_SECRET_KEY` | Yes* | Paystack secret key for wallet funding webhook. Get from [Paystack Dashboard](https://dashboard.paystack.com). |
@@ -41,7 +41,7 @@ This document lists all environment variables and backend architecture for the R
 - `/api/shipments/bulk` — Session required.
 - `/api/merchant/wallet` — Session required.
 - `/api/merchant/api-key` — Session + MerchantProfile required.
-- `/api/merchant/shipments/[id]/waybill` — Merchant session (getSession from @dmx/lib/auth).
+- `/api/merchant/shipments/[id]/waybill` — Merchant session (getSession from @shipco/lib/auth).
 - `/api/admin/merchants/[id]/verify` — Admin role required.
 - `/api/track/[id]` — Public (no auth).
 - `/api/auth/register` — Public.

@@ -18,7 +18,7 @@ export function WalletCard({ balance }: WalletCardProps) {
         </div>
         <Link
           href="/merchant/dashboard/wallet"
-          className="rounded-none bg-[#5e1914] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#4a130f]"
+          className="rounded-none bg-[#F40009] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#cc0008]"
         >
           Top Up
         </Link>

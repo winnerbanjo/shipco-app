@@ -11,7 +11,7 @@ export type ShipmentForModal = {
   createdAt: string;
 };
 
-/** DMX-1001 master demo: Origin Lagos, Dest Abuja, status "In Transit - Arrived at Gwagwalada Hub" */
+/** Shipco-1001 master demo: Origin Lagos, Dest Abuja, status "In Transit - Arrived at Gwagwalada Hub" */
 const DEMO_1001 = {
   origin: "Lagos",
   destination: "Abuja",
@@ -26,7 +26,7 @@ const DEMO_1001 = {
 };
 
 function getTimeline(s: ShipmentForModal): { origin: string; destination: string; statusDetail: string; steps: { label: string; done: boolean; current?: boolean }[] } {
-  if (s.trackingId === "DMX-1001") {
+  if (s.trackingId === "Shipco-1001") {
     return DEMO_1001;
   }
   const status = s.status.toUpperCase();
@@ -86,7 +86,7 @@ export function TrackModal({
         <div className="border-b border-zinc-100 px-6 py-4">
           <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">Route</p>
           <p className="mt-1 text-sm font-medium text-zinc-900">{origin} → {destination}</p>
-          <p className="mt-2 text-sm text-[#5e1914]">{statusDetail}</p>
+          <p className="mt-2 text-sm text-[#F40009]">{statusDetail}</p>
         </div>
         <div className="px-6 py-6">
           <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">Journey</p>
@@ -102,15 +102,15 @@ export function TrackModal({
                 <div
                   className={`relative z-10 h-4 w-4 shrink-0 border-2 ${
                     step.done
-                      ? "border-[#5e1914] bg-[#5e1914]"
+                      ? "border-[#F40009] bg-[#F40009]"
                       : step.current
-                        ? "border-[#5e1914] bg-white"
+                        ? "border-[#F40009] bg-white"
                         : "border-zinc-200 bg-white"
                   }`}
                 />
                 <p
                   className={`pt-0.5 text-sm font-medium ${
-                    step.done ? "text-zinc-900" : step.current ? "text-[#5e1914]" : "text-zinc-400"
+                    step.done ? "text-zinc-900" : step.current ? "text-[#F40009]" : "text-zinc-400"
                   }`}
                 >
                   {step.label}

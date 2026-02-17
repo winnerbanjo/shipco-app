@@ -17,8 +17,8 @@ export default function AdminDashboardPage() {
       <header className="flex items-center gap-4 border-b border-zinc-200 pb-6">
         <div className="relative h-10 w-10 shrink-0 overflow-hidden bg-white">
           <Image
-            src="/dmxlogo.svg"
-            alt="DMX"
+            src="/shipco-logo.png"
+            alt="Shipco"
             fill
             className="object-contain"
             sizes="40px"
@@ -76,7 +76,7 @@ export default function AdminDashboardPage() {
                   <td className="px-8 py-5 font-medium text-zinc-900">{m.businessName}</td>
                   <td className="px-8 py-5 text-zinc-600">{m.email}</td>
                   <td className="px-8 py-5">
-                    <span className="inline-block border border-[#5e1914] bg-[#5e1914]/10 px-2 py-1 text-xs font-medium text-[#5e1914]">
+                    <span className="inline-block border border-[#F40009] bg-[#F40009]/10 px-2 py-1 text-xs font-medium text-[#F40009]">
                       Verified
                     </span>
                   </td>

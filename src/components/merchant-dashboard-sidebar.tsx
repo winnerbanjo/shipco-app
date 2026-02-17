@@ -35,9 +35,9 @@ export function MerchantDashboardSidebar({
       <div className="flex h-20 items-center border-b border-zinc-100 px-8">
         <Link
           href="/merchant/dashboard"
-          className="text-xl font-bold tracking-[0.2em] text-[#5e1914]"
+          className="text-xl font-bold tracking-[0.2em] text-[#F40009]"
         >
-          DMX
+          Shipco
         </Link>
       </div>
       <nav className="flex-1 space-y-0.5 p-6">
@@ -50,14 +50,14 @@ export function MerchantDashboardSidebar({
               href={item.href}
               className={`flex items-center gap-4 border-l-[3px] px-5 py-3.5 text-sm font-medium transition-colors ${
                 isActive
-                  ? "border-l-[#5e1914] bg-white text-[#5e1914]"
+                  ? "border-l-[#F40009] bg-white text-[#F40009]"
                   : "border-l-transparent text-zinc-600 hover:bg-white/80 hover:text-zinc-900"
               }`}
             >
               <Icon
                 strokeWidth={1}
                 className={`h-4 w-4 shrink-0 ${
-                  isActive ? "text-[#5e1914]" : "text-zinc-500"
+                  isActive ? "text-[#F40009]" : "text-zinc-500"
                 }`}
               />
               {item.label}

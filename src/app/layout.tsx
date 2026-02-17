@@ -5,12 +5,12 @@ import { Providers } from "@/components/providers";
 
 export const metadata: Metadata = {
   title: {
-    default: "DMX Logistics | Shipping as easy as sending money",
-    template: "%s | DMX Logistics",
+    default: "Shipco Logistics Platform | Shipping as easy as sending money",
+    template: "%s | Shipco Logistics Platform",
   },
-  description: "Ship with confidence. Track deliveries, book shipments, and manage logistics with DMX.",
+  description: "Ship with confidence. Track deliveries, book shipments, and manage logistics with Shipco.",
   openGraph: {
-    title: "DMX Logistics",
+    title: "Shipco Logistics Platform",
     description: "Shipping as easy as sending money.",
   },
 };

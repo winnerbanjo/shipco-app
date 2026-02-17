@@ -1,4 +1,4 @@
-/** DMX Partner/3PL Management — demo data for logistics partners. */
+/** Shipco Partner/3PL Management — demo data for logistics partners. */
 
 export type ServiceType = "domestic" | "international";
 
@@ -15,9 +15,9 @@ export interface Partner {
 /** Demo partners — DHL, GIG, FedEx, Internal Fleet */
 export const DEMO_PARTNERS: Partner[] = [
   {
-    id: "dmx-internal",
-    name: "DMX Internal Fleet",
-    contact: "fleet@dmx.ng",
+    id: "shipco-internal",
+    name: "Shipco Internal Fleet",
+    contact: "fleet@shipco.ng",
     serviceType: "domestic",
     isInternal: true,
   },

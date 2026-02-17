@@ -85,8 +85,8 @@ export default function AdminPartnersPage() {
         <div className="flex items-center gap-4">
           <div className="relative h-10 w-10 shrink-0 overflow-hidden bg-white">
             <Image
-              src="/dmxlogo.svg"
-              alt="DMX"
+              src="/shipco-logo.png"
+              alt="Shipco"
               fill
               className="object-contain"
               sizes="40px"
@@ -107,7 +107,7 @@ export default function AdminPartnersPage() {
             resetForm();
             setShowForm(!showForm);
           }}
-          className="flex items-center gap-2 border border-[#5e1914] bg-[#5e1914] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#4a130f]"
+          className="flex items-center gap-2 border border-[#F40009] bg-[#F40009] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#cc0008]"
         >
           <Plus className="h-4 w-4" />
           Add New Partner
@@ -129,7 +129,7 @@ export default function AdminPartnersPage() {
                 value={form.name}
                 onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
                 placeholder="e.g. DHL"
-                className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+                className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
               />
             </div>
             <div>
@@ -142,7 +142,7 @@ export default function AdminPartnersPage() {
                 value={form.contact}
                 onChange={(e) => setForm((f) => ({ ...f, contact: e.target.value }))}
                 placeholder="partners@example.com"
-                className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+                className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
               />
             </div>
             <div>
@@ -155,7 +155,7 @@ export default function AdminPartnersPage() {
                 value={form.apiKey}
                 onChange={(e) => setForm((f) => ({ ...f, apiKey: e.target.value }))}
                 placeholder="••••••••"
-                className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+                className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
               />
             </div>
             <div>
@@ -167,7 +167,7 @@ export default function AdminPartnersPage() {
                 onChange={(e) =>
                   setForm((f) => ({ ...f, serviceType: e.target.value as ServiceType }))
                 }
-                className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+                className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
               >
                 <option value="domestic">Domestic</option>
                 <option value="international">International</option>
@@ -183,7 +183,7 @@ export default function AdminPartnersPage() {
                 value={form.trackingUrl}
                 onChange={(e) => setForm((f) => ({ ...f, trackingUrl: e.target.value }))}
                 placeholder="https://partner.com/track?ref="
-                className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]"
+                className="mt-2 w-full border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
               />
             </div>
           </div>
@@ -191,14 +191,14 @@ export default function AdminPartnersPage() {
             <button
               type="button"
               onClick={handleSave}
-              className="border border-[#5e1914] bg-[#5e1914] px-6 py-2 text-sm font-medium text-white hover:bg-[#4a130f]"
+              className="border border-[#F40009] bg-[#F40009] px-6 py-2 text-sm font-medium text-white hover:bg-[#cc0008]"
             >
               {editing ? "Save" : "Add Partner"}
             </button>
             <button
               type="button"
               onClick={resetForm}
-              className="border border-zinc-200 bg-white px-6 py-2 text-sm font-medium text-zinc-700 hover:border-[#5e1914] hover:text-[#5e1914]"
+              className="border border-zinc-200 bg-white px-6 py-2 text-sm font-medium text-zinc-700 hover:border-[#F40009] hover:text-[#F40009]"
             >
               Cancel
             </button>
@@ -233,7 +233,7 @@ export default function AdminPartnersPage() {
                 <td className="px-8 py-5 font-medium text-zinc-900">
                   {p.name}
                   {p.isInternal && (
-                    <span className="ml-2 inline-block border border-[#5e1914] bg-[#5e1914]/10 px-2 py-0.5 text-xs font-medium text-[#5e1914]">
+                    <span className="ml-2 inline-block border border-[#F40009] bg-[#F40009]/10 px-2 py-0.5 text-xs font-medium text-[#F40009]">
                       Internal
                     </span>
                   )}
@@ -244,7 +244,7 @@ export default function AdminPartnersPage() {
                 </td>
                 <td className="px-8 py-5 text-zinc-600">
                   {p.trackingUrl ? (
-                    <span className="text-[#5e1914]">Track via Partner</span>
+                    <span className="text-[#F40009]">Track via Partner</span>
                   ) : (
                     "—"
                   )}
@@ -254,7 +254,7 @@ export default function AdminPartnersPage() {
                     <button
                       type="button"
                       onClick={() => handleEdit(p)}
-                      className="flex items-center gap-1 text-zinc-600 hover:text-[#5e1914]"
+                      className="flex items-center gap-1 text-zinc-600 hover:text-[#F40009]"
                     >
                       <Edit2 className="h-4 w-4" />
                       Edit

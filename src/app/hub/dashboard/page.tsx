@@ -46,15 +46,15 @@ export default function HubDashboardPage() {
       <header className="flex items-center gap-4 border-b border-zinc-100 pb-6">
         {!logoError ? (
           <Image
-            src="/dmxlogo.svg"
-            alt="DMX"
+            src="/shipco-logo.png"
+            alt="Shipco"
             width={40}
             height={40}
             className="h-10 w-10 object-contain"
             onError={() => setLogoError(true)}
           />
         ) : (
-          <span className="font-sans text-lg font-semibold tracking-tighter text-[#5e1914]">DMX</span>
+          <span className="font-sans text-lg font-semibold tracking-tighter text-[#F40009]">Shipco</span>
         )}
         <div>
           <h1 className="font-sans text-2xl font-semibold tracking-tighter text-zinc-900">
@@ -82,7 +82,7 @@ export default function HubDashboardPage() {
               href={href}
               className={
                 primary
-                  ? "flex items-center gap-4 border-0 bg-[#5e1914] p-6 font-medium text-white transition-colors hover:bg-[#4a130f]"
+                  ? "flex items-center gap-4 border-0 bg-[#F40009] p-6 font-medium text-white transition-colors hover:bg-[#cc0008]"
                   : "flex items-center gap-4 border border-zinc-100 bg-white p-6 transition-colors hover:border-zinc-200 hover:bg-zinc-50"
               }
             >
@@ -93,7 +93,7 @@ export default function HubDashboardPage() {
                     : "flex h-12 w-12 items-center justify-center border border-zinc-100 bg-zinc-50"
                 }
               >
-                <Icon strokeWidth={1} className={`h-6 w-6 ${primary ? "text-white" : "text-[#5e1914]"}`} />
+                <Icon strokeWidth={1} className={`h-6 w-6 ${primary ? "text-white" : "text-[#F40009]"}`} />
               </div>
               <span className={primary ? "text-white" : "text-zinc-900"}>{label}</span>
             </Link>
@@ -186,7 +186,7 @@ export default function HubDashboardPage() {
             <tbody>
               {inventoryPreview.map((s) => (
                 <tr key={s.id} className="border-b border-zinc-100 last:border-b-0">
-                  <td className="px-6 py-4 font-mono font-sans tracking-tighter text-[#5e1914]">
+                  <td className="px-6 py-4 font-mono font-sans tracking-tighter text-[#F40009]">
                     {s.trackingId}
                   </td>
                   <td className="px-6 py-4 font-sans tracking-tighter text-zinc-900">
@@ -205,7 +205,7 @@ export default function HubDashboardPage() {
         </div>
         <Link
           href="/hub/inventory"
-          className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[#5e1914] hover:underline"
+          className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[#F40009] hover:underline"
         >
           <Package className="h-4 w-4" />
           View full Branch Inventory

@@ -2,7 +2,7 @@ import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 
 const JWT_SECRET = new TextEncoder().encode(
-  process.env.JWT_SECRET || "dmx-logistics-secret-key-change-in-production"
+  process.env.JWT_SECRET || "shipco-logistics-secret-key-change-in-production"
 );
 
 export interface JWTPayload {
@@ -31,7 +31,7 @@ export async function verifyToken(token: string): Promise<JWTPayload | null> {
 
 export async function getSession(): Promise<JWTPayload | null> {
   const cookieStore = await cookies();
-  const token = cookieStore.get("dmx-merchant-token")?.value;
+  const token = cookieStore.get("shipco-merchant-token")?.value;
   if (!token) return null;
   return verifyToken(token);
 }

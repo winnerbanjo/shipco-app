@@ -114,7 +114,7 @@ export default function AdminMerchantsPage() {
                       <span
                         className={
                           customName
-                            ? "inline-block rounded-none border border-[#5e1914] bg-[#5e1914]/10 px-2 py-1 text-xs font-medium text-[#5e1914] font-sans"
+                            ? "inline-block rounded-none border border-[#F40009] bg-[#F40009]/10 px-2 py-1 text-xs font-medium text-[#F40009] font-sans"
                             : "inline-block rounded-none border border-zinc-200 bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-600 font-sans"
                         }
                       >
@@ -127,7 +127,7 @@ export default function AdminMerchantsPage() {
                           m.kycStatus === "Approved"
                             ? "inline-block border border-green-600 bg-green-50 px-2 py-1 text-xs font-medium text-green-700 font-sans"
                             : m.kycStatus === "Rejected"
-                              ? "inline-block border border-[#5e1914] bg-[#5e1914]/10 px-2 py-1 text-xs font-medium text-[#5e1914] font-sans"
+                              ? "inline-block border border-[#F40009] bg-[#F40009]/10 px-2 py-1 text-xs font-medium text-[#F40009] font-sans"
                               : "inline-block border border-amber-600 bg-amber-50 px-2 py-1 text-xs font-medium text-amber-800 font-sans"
                         }
                       >
@@ -139,13 +139,13 @@ export default function AdminMerchantsPage() {
                         <button
                           type="button"
                           onClick={() => setKycModal({ merchantId: m.id, businessName: m.businessName })}
-                          className="rounded-none border border-zinc-200 bg-white px-3 py-1.5 text-xs font-medium text-zinc-700 font-sans transition-colors hover:border-[#5e1914] hover:text-[#5e1914]"
+                          className="rounded-none border border-zinc-200 bg-white px-3 py-1.5 text-xs font-medium text-zinc-700 font-sans transition-colors hover:border-[#F40009] hover:text-[#F40009]"
                         >
                           KYC Documents
                         </button>
                         <button
                           type="button"
-                          className="rounded-none border border-[#5e1914] bg-white px-3 py-1.5 text-xs font-medium text-[#5e1914] font-sans transition-colors hover:bg-[#5e1914]/5"
+                          className="rounded-none border border-[#F40009] bg-white px-3 py-1.5 text-xs font-medium text-[#F40009] font-sans transition-colors hover:bg-[#F40009]/5"
                         >
                           View
                         </button>

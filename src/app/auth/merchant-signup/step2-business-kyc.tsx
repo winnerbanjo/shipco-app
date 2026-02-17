@@ -4,7 +4,7 @@ import { useState } from "react";
 import type { BusinessKycData } from "./page";
 
 const INPUT_CLASS =
-  "mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#5e1914] focus:outline-none focus:ring-1 focus:ring-[#5e1914]";
+  "mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]";
 const LABEL_CLASS = "block text-xs font-medium uppercase tracking-wider text-zinc-500 font-sans";
 
 export function MerchantSignupStep2({
@@ -103,7 +103,7 @@ export function MerchantSignupStep2({
         <button
           type="submit"
           disabled={!valid || submitting}
-          className="flex-1 rounded-none bg-[#5e1914] py-4 text-sm font-medium text-white hover:bg-[#4a130f] disabled:opacity-50 font-sans"
+          className="flex-1 rounded-none bg-[#F40009] py-4 text-sm font-medium text-white hover:bg-[#cc0008] disabled:opacity-50 font-sans"
         >
           {submitting ? "Submitting…" : "Submit for verification"}
         </button>

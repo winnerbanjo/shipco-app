@@ -33,7 +33,7 @@ export function getTemplateCsv(service: ServiceTemplateType): string {
 
 export function downloadTemplateCsv(service: ServiceTemplateType): void {
   const csv = getTemplateCsv(service);
-  const filename = `dmx-rate-card-${service}.csv`;
+  const filename = `shipco-rate-card-${service}.csv`;
   const blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8;" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
@@ -49,7 +49,7 @@ export function downloadPricingStructureCsv(): void {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = "dmx-pricing-structure.csv";
+  a.download = "shipco-pricing-structure.csv";
   a.click();
   URL.revokeObjectURL(url);
 }

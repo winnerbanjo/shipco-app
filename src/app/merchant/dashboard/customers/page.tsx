@@ -1,4 +1,4 @@
-import { getSession } from "@dmx/lib/auth";
+import { getSession } from "@shipco/lib/auth";
 import { redirect } from "next/navigation";
 import { MERCHANT_DEMO_CUSTOMERS_15 } from "@/data/demo-customers";
 import { MerchantCustomersTable } from "./customers-table";

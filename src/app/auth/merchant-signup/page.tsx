@@ -42,7 +42,7 @@ export default function MerchantSignupPage() {
       <div className="mx-auto max-w-xl px-6 py-12">
         <header className="flex items-center gap-4 border-b border-zinc-100 pb-8">
           <div className="relative h-10 w-10 shrink-0 overflow-hidden bg-white">
-            <Image src="/dmxlogo.png" alt="DMX" fill className="object-contain" sizes="40px" />
+            <Image src="/shipco-logo.png" alt="Shipco" fill className="object-contain" sizes="40px" />
           </div>
           <div>
             <h1 className="font-sans text-2xl font-semibold tracking-tighter text-zinc-900">
@@ -74,7 +74,7 @@ export default function MerchantSignupPage() {
 
         <p className="mt-10 text-center text-xs text-zinc-400">
           Already have an account?{" "}
-          <Link href="/auth/login" className="text-[#5e1914] hover:underline">
+          <Link href="/auth/login" className="text-[#F40009] hover:underline">
             Sign in
           </Link>
         </p>

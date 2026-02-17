@@ -1,8 +1,8 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { connectDB } from "@dmx/lib/mongodb";
-import Merchant from "@dmx/lib/models/Merchant";
+import { connectDB } from "@shipco/lib/mongodb";
+import Merchant from "@shipco/lib/models/Merchant";
 import { setMerchantKycStatus, getMerchantKycDocuments } from "@/lib/merchant-kyc";
 
 export async function toggleMerchantVerification(formData: FormData) {

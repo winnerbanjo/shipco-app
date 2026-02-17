@@ -21,7 +21,7 @@ const createSchema = z.object({
 });
 
 function generateTrackingNumber(): string {
-  return `DMX${Date.now().toString(36).toUpperCase()}${Math.random().toString(36).slice(2, 8).toUpperCase()}`;
+  return `Shipco${Date.now().toString(36).toUpperCase()}${Math.random().toString(36).slice(2, 8).toUpperCase()}`;
 }
 
 export async function POST(req: Request) {

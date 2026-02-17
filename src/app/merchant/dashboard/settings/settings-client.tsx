@@ -87,7 +87,7 @@ export function SettingsClient({
               className="mt-2 h-12 rounded-none border-zinc-100"
             />
           </div>
-          <Button type="submit" className="rounded-none bg-[#5e1914] hover:bg-[#4a130f]">
+          <Button type="submit" className="rounded-none bg-[#F40009] hover:bg-[#cc0008]">
             Save
           </Button>
         </form>
@@ -135,7 +135,7 @@ export function SettingsClient({
           API keys
         </h2>
         <p className="mt-2 text-sm text-zinc-500">
-          For website integration. Use this key to connect your app to DMX.
+          For website integration. Use this key to connect your app to Shipco.
         </p>
         <div className="mt-8 border border-zinc-100 bg-zinc-50 p-6">
           <div className="flex items-center gap-4">
@@ -163,7 +163,7 @@ export function SettingsClient({
             type="button"
             onClick={handleGenerateKey}
             disabled={generating}
-            className="mt-4 rounded-none bg-[#5e1914] hover:bg-[#4a130f]"
+            className="mt-4 rounded-none bg-[#F40009] hover:bg-[#cc0008]"
           >
             {generating ? "Generating…" : apiKeyMasked || apiKey ? "Regenerate API key" : "Generate API key"}
           </Button>

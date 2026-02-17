@@ -20,7 +20,7 @@ export type HubBookingFromTask = {
   serviceType?: ServiceType;
 };
 
-export const BOOKING_FROM_TASK_KEY = "dmx-hub-booking-from-task";
+export const BOOKING_FROM_TASK_KEY = "shipco-hub-booking-from-task";
 
 export type DemoTask = {
   id: string;

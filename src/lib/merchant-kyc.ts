@@ -1,5 +1,5 @@
-import { connectDB } from "@dmx/lib/mongodb";
-import Merchant, { type KycStatus } from "@dmx/lib/models/Merchant";
+import { connectDB } from "@shipco/lib/mongodb";
+import Merchant, { type KycStatus } from "@shipco/lib/models/Merchant";
 
 /** Demo merchant IDs: Mubarak (Approved), New Store (Pending). */
 export const DEMO_MERCHANT_ID_APPROVED = "000000000000000000000001";

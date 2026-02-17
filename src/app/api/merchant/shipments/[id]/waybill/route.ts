@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getSession } from "@dmx/lib/auth";
-import { connectDB } from "@dmx/lib/mongodb";
-import Shipment from "@dmx/lib/models/Shipment";
-import Merchant from "@dmx/lib/models/Merchant";
-import { generateWaybillPdf } from "@dmx/lib/waybill";
+import { getSession } from "@shipco/lib/auth";
+import { connectDB } from "@shipco/lib/mongodb";
+import Shipment from "@shipco/lib/models/Shipment";
+import Merchant from "@shipco/lib/models/Merchant";
+import { generateWaybillPdf } from "@shipco/lib/waybill";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
@@ -51,7 +51,7 @@ export async function GET(
       status: 200,
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition": `attachment; filename="DMX-Waybill-${shipment.trackingId}.pdf"`,
+        "Content-Disposition": `attachment; filename="Shipco-Waybill-${shipment.trackingId}.pdf"`,
       },
     });
   } catch (err) {

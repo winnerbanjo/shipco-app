@@ -58,7 +58,7 @@ export function KycDocumentsModal({
       <div className="w-full max-w-lg rounded-none border border-zinc-200 bg-white shadow-lg">
         <header className="flex items-center gap-3 border-b border-zinc-100 px-6 py-4">
           <div className="relative h-8 w-8 shrink-0 overflow-hidden bg-white">
-            <Image src="/dmxlogo.png" alt="DMX" fill className="object-contain" sizes="32px" />
+            <Image src="/shipco-logo.png" alt="Shipco" fill className="object-contain" sizes="32px" />
           </div>
           <div>
             <h2 className="font-sans text-lg font-semibold tracking-tight text-zinc-900">
@@ -92,7 +92,7 @@ export function KycDocumentsModal({
                       <p><span className="text-zinc-500">DOB:</span> {data.personalKyc.dateOfBirth}</p>
                       <p><span className="text-zinc-500">ID Type:</span> {data.personalKyc.idType}</p>
                       {data.personalKyc.idDocumentUrl && (
-                        <p><span className="text-zinc-500">Document:</span> <a href={data.personalKyc.idDocumentUrl} target="_blank" rel="noopener noreferrer" className="text-[#5e1914] underline">View</a></p>
+                        <p><span className="text-zinc-500">Document:</span> <a href={data.personalKyc.idDocumentUrl} target="_blank" rel="noopener noreferrer" className="text-[#F40009] underline">View</a></p>
                       )}
                     </>
                   ) : (
@@ -111,7 +111,7 @@ export function KycDocumentsModal({
                       <p><span className="text-zinc-500">RC Number:</span> {data.businessKyc.rcNumber}</p>
                       <p><span className="text-zinc-500">Address:</span> {data.businessKyc.businessAddress}</p>
                       {data.businessKyc.cacDocumentUrl && (
-                        <p><span className="text-zinc-500">CAC Doc:</span> <a href={data.businessKyc.cacDocumentUrl} target="_blank" rel="noopener noreferrer" className="text-[#5e1914] underline">View</a></p>
+                        <p><span className="text-zinc-500">CAC Doc:</span> <a href={data.businessKyc.cacDocumentUrl} target="_blank" rel="noopener noreferrer" className="text-[#F40009] underline">View</a></p>
                       )}
                     </>
                   ) : (
@@ -138,7 +138,7 @@ export function KycDocumentsModal({
             type="button"
             onClick={handleReject}
             disabled={actionLoading}
-            className="flex-1 rounded-none border border-[#5e1914] bg-white py-3 text-sm font-medium text-[#5e1914] hover:bg-[#5e1914]/5 disabled:opacity-50 font-sans"
+            className="flex-1 rounded-none border border-[#F40009] bg-white py-3 text-sm font-medium text-[#F40009] hover:bg-[#F40009]/5 disabled:opacity-50 font-sans"
           >
             Reject
           </button>

@@ -14,7 +14,7 @@ export default async function AdminLayout({
 
   return (
     <div className="flex h-screen bg-pure-black text-white">
-      <GlassSidebar role="ADMIN" title="DMX Admin" />
+      <GlassSidebar role="ADMIN" title="Shipco Admin" />
       <main className="flex-1 overflow-auto bg-slate-gray p-6">{children}</main>
     </div>
   );

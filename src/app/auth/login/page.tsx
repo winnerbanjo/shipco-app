@@ -20,16 +20,16 @@ export default function AuthLoginPage() {
         <div className="mb-8 flex justify-center">
           {!logoError ? (
             <Image
-              src="/dmxlogo.svg"
-              alt="DMX"
+              src="/shipco-logo.png"
+              alt="Shipco"
               width={96}
               height={96}
               className="h-24 w-24 object-contain"
               onError={() => setLogoError(true)}
             />
           ) : (
-            <p className="text-center text-2xl font-bold tracking-[0.2em] text-[#5e1914]">
-              DMX
+            <p className="text-center text-2xl font-bold tracking-[0.2em] text-[#F40009]">
+              Shipco
             </p>
           )}
         </div>
@@ -43,7 +43,7 @@ export default function AuthLoginPage() {
             <form action={setDemoMerchantSession}>
               <button
                 type="submit"
-                className="w-full rounded-none bg-[#5e1914] py-4 text-sm font-medium text-white hover:bg-[#4a130f]"
+                className="w-full rounded-none bg-[#F40009] py-4 text-sm font-medium text-white hover:bg-[#cc0008]"
               >
                 Merchant Demo (Approved)
               </button>
@@ -59,14 +59,14 @@ export default function AuthLoginPage() {
             <button
               type="button"
               onClick={handleAdminDemo}
-              className="w-full rounded-none border border-zinc-100 bg-white py-4 text-sm font-medium text-[#5e1914] hover:bg-zinc-50"
+              className="w-full rounded-none border border-zinc-100 bg-white py-4 text-sm font-medium text-[#F40009] hover:bg-zinc-50"
             >
               Admin Demo
             </button>
             <form action={setDemoHubSession}>
               <button
                 type="submit"
-                className="w-full rounded-none border border-zinc-100 bg-white py-4 text-sm font-medium text-[#5e1914] hover:bg-zinc-50"
+                className="w-full rounded-none border border-zinc-100 bg-white py-4 text-sm font-medium text-[#F40009] hover:bg-zinc-50"
               >
                 Hub Demo
               </button>
@@ -75,11 +75,11 @@ export default function AuthLoginPage() {
 
           <div className="mt-12 space-y-4 text-center">
             <p className="text-xs text-zinc-500">
-              <Link href="/auth/merchant-signup" className="text-[#5e1914] hover:underline">
+              <Link href="/auth/merchant-signup" className="text-[#F40009] hover:underline">
                 Register as Merchant
               </Link>
               {" · "}
-              <Link href="/track" className="text-[#5e1914] hover:underline">
+              <Link href="/track" className="text-[#F40009] hover:underline">
                 Track a Package
               </Link>
             </p>

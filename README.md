@@ -1,6 +1,6 @@
-# DMX Logistics
+# Shipco Logistics Platform
 
-Next.js 14+ (App Router) application for DMX Logistics — shipment creation, wallet, and admin controls.
+Next.js 14+ (App Router) application for Shipco Logistics — shipment creation, wallet, and admin controls.
 
 ## Tech stack
 

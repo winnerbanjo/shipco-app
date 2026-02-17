@@ -25,7 +25,7 @@ export interface IShipment extends Document {
   packageWeight: number; // in kg
   /** @deprecated Use sellingPrice. Kept for backward compat; equals sellingPrice. */
   cost: number;
-  /** What DMX pays carriers (cost price). */
+  /** What Shipco pays carriers (cost price). */
   costPrice: number;
   /** What the Merchant/Customer pays (selling price). grossProfit = sellingPrice - costPrice */
   sellingPrice: number;

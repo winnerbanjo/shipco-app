@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { getSession } from "@dmx/lib/auth";
+import { getSession } from "@shipco/lib/auth";
 import { MerchantDashboardSidebar } from "@/components/merchant-dashboard-sidebar";
 import { MerchantMobileNav } from "@/components/merchant-mobile-nav";
 
