@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 
+/** Prisma uses DATABASE_URL from env for PostgreSQL connection. */
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
 
 export const prisma =

@@ -5,12 +5,12 @@ import { Providers } from "@/components/providers";
 
 export const metadata: Metadata = {
   title: {
-    default: "Shipco Logistics Platform | Shipping as easy as sending money",
-    template: "%s | Shipco Logistics Platform",
+    default: "Shipco - Modern Logistics Platform",
+    template: "%s | Shipco - Modern Logistics Platform",
   },
   description: "Ship with confidence. Track deliveries, book shipments, and manage logistics with Shipco.",
   openGraph: {
-    title: "Shipco Logistics Platform",
+    title: "Shipco - Modern Logistics Platform",
     description: "Shipping as easy as sending money.",
   },
 };
