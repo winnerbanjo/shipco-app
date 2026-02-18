@@ -37,7 +37,7 @@ export async function setMerchantKycStatus(merchantId: string, status: KycStatus
 
 export async function getMerchantKycDocuments(merchantId: string): Promise<{
   personalKyc: { fullName: string; dateOfBirth: string; idType: string; idDocumentUrl?: string } | null;
-  businessKyc: { companyName: string; rcNumber: string; businessAddress: string; cacDocumentUrl?: string } | null;
+  businessKyc: { companyName: string; rcNumber?: string; businessAddress?: string; industry?: string; cacDocumentUrl?: string } | null;
   kycStatus: KycStatus;
 } | null> {
   const conn = await connectDB();
@@ -55,7 +55,7 @@ export async function getMerchantKycDocuments(merchantId: string): Promise<{
 
 function getDemoKycDocuments(merchantId: string): {
   personalKyc: { fullName: string; dateOfBirth: string; idType: string; idDocumentUrl?: string } | null;
-  businessKyc: { companyName: string; rcNumber: string; businessAddress: string; cacDocumentUrl?: string } | null;
+  businessKyc: { companyName: string; rcNumber?: string; businessAddress?: string; industry?: string; cacDocumentUrl?: string } | null;
   kycStatus: KycStatus;
 } | null {
   const status = statusOverrides[merchantId] ?? DEMO_DEFAULTS[merchantId] ?? "Pending Verification";

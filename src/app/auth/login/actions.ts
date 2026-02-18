@@ -5,7 +5,14 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { DEMO_MERCHANT_ID_APPROVED, DEMO_MERCHANT_ID_PENDING } from "@/lib/merchant-kyc";
 
-export async function setDemoMerchantSession() {
+function safeCallbackUrl(callbackUrl: string | null): string | null {
+  if (!callbackUrl || typeof callbackUrl !== "string") return null;
+  const path = callbackUrl.startsWith("/") ? callbackUrl : new URL(callbackUrl).pathname;
+  if (!path.startsWith("/merchant") && !path.startsWith("/admin") && !path.startsWith("/customer") && !path.startsWith("/hub")) return null;
+  return path;
+}
+
+export async function setDemoMerchantSession(formData?: FormData) {
   const token = await createToken({
     merchantId: DEMO_MERCHANT_ID_APPROVED,
     email: "demo@shipco.com",
@@ -16,14 +23,14 @@ export async function setDemoMerchantSession() {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
-    maxAge: 60 * 60 * 24 * 7, // 7 days
+    maxAge: 60 * 60 * 24 * 7,
     path: "/",
   });
-  redirect("/merchant/dashboard");
+  const cb = safeCallbackUrl(formData?.get("callbackUrl") as string | null);
+  redirect(cb ?? "/merchant/dashboard");
 }
 
-/** Demo login as "New Store" (Pending Verification) to test KYC approval flow. */
-export async function setDemoMerchantPendingSession() {
+export async function setDemoMerchantPendingSession(formData?: FormData) {
   const token = await createToken({
     merchantId: DEMO_MERCHANT_ID_PENDING,
     email: "newstore@shipco.com",
@@ -37,10 +44,11 @@ export async function setDemoMerchantPendingSession() {
     maxAge: 60 * 60 * 24 * 7,
     path: "/",
   });
-  redirect("/merchant/dashboard");
+  const cb = safeCallbackUrl(formData?.get("callbackUrl") as string | null);
+  redirect(cb ?? "/merchant/dashboard");
 }
 
-export async function setDemoHubSession() {
+export async function setDemoHubSession(formData?: FormData) {
   const store = await cookies();
   store.set("shipco-hub-token", "demo-hub-staff", {
     httpOnly: true,
@@ -49,5 +57,6 @@ export async function setDemoHubSession() {
     maxAge: 60 * 60 * 24 * 7,
     path: "/",
   });
-  redirect("/hub/dashboard");
+  const cb = safeCallbackUrl(formData?.get("callbackUrl") as string | null);
+  redirect(cb ?? "/hub/dashboard");
 }

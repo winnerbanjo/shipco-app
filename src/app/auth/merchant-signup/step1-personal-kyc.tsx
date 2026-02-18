@@ -1,6 +1,13 @@
 "use client";
 
-import type { PersonalKycData } from "./page";
+export type PersonalKycData = {
+  email: string;
+  password: string;
+  fullName: string;
+  dateOfBirth: string;
+  idType: "NIN" | "Passport" | "BVN";
+  idDocumentFile?: File | null;
+};
 
 const INPUT_CLASS =
   "mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]";

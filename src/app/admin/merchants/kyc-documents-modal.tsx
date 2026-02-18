@@ -6,7 +6,7 @@ import { getMerchantKycDocumentsAction, setMerchantKycStatusAction } from "./act
 
 type KycDoc = {
   personalKyc: { fullName: string; dateOfBirth: string; idType: string; idDocumentUrl?: string } | null;
-  businessKyc: { companyName: string; rcNumber: string; businessAddress: string; cacDocumentUrl?: string } | null;
+  businessKyc: { companyName: string; rcNumber?: string; businessAddress?: string; industry?: string; cacDocumentUrl?: string } | null;
   kycStatus: string;
 };
 
@@ -108,8 +108,9 @@ export function KycDocumentsModal({
                   {data.businessKyc ? (
                     <>
                       <p><span className="text-zinc-500">Company:</span> {data.businessKyc.companyName}</p>
-                      <p><span className="text-zinc-500">RC Number:</span> {data.businessKyc.rcNumber}</p>
-                      <p><span className="text-zinc-500">Address:</span> {data.businessKyc.businessAddress}</p>
+                      <p><span className="text-zinc-500">RC Number:</span> {data.businessKyc.rcNumber ?? "—"}</p>
+                      {data.businessKyc.industry && <p><span className="text-zinc-500">Industry:</span> {data.businessKyc.industry}</p>}
+                      <p><span className="text-zinc-500">Address:</span> {data.businessKyc.businessAddress ?? "—"}</p>
                       {data.businessKyc.cacDocumentUrl && (
                         <p><span className="text-zinc-500">CAC Doc:</span> <a href={data.businessKyc.cacDocumentUrl} target="_blank" rel="noopener noreferrer" className="text-[#F40009] underline">View</a></p>
                       )}

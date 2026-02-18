@@ -11,8 +11,9 @@ export interface IPersonalKyc {
 
 export interface IBusinessKyc {
   companyName: string;
-  rcNumber: string;
-  businessAddress: string;
+  rcNumber?: string;
+  businessAddress?: string;
+  industry?: string;
   cacDocumentUrl?: string;
 }
 
@@ -22,6 +23,7 @@ export interface IMerchant extends Document {
   email: string;
   password: string;
   address: string;
+  phone?: string;
   isVerified: boolean;
   kycStatus: KycStatus;
   personalKyc?: IPersonalKyc;
@@ -47,6 +49,7 @@ const BusinessKycSchema = new Schema<IBusinessKyc>(
     companyName: { type: String, default: "" },
     rcNumber: { type: String, default: "" },
     businessAddress: { type: String, default: "" },
+    industry: { type: String },
     cacDocumentUrl: { type: String },
   },
   { _id: false }
@@ -54,10 +57,11 @@ const BusinessKycSchema = new Schema<IBusinessKyc>(
 
 const MerchantSchema = new Schema<IMerchant>(
   {
-    businessName: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-    address: { type: String, required: true },
+  businessName: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  address: { type: String, default: "" },
+  phone: { type: String },
     isVerified: { type: Boolean, default: false },
     kycStatus: { type: String, enum: ["Pending Verification", "Approved", "Rejected"], default: "Pending Verification" },
     personalKyc: { type: PersonalKycSchema },

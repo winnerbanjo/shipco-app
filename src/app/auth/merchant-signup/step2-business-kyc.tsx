@@ -1,7 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import type { BusinessKycData } from "./page";
+
+export type BusinessKycData = {
+  companyName: string;
+  rcNumber: string;
+  businessAddress: string;
+  cacDocumentFile?: File | null;
+};
 
 const INPUT_CLASS =
   "mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]";

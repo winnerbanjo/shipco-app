@@ -1,14 +1,18 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState, Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { setDemoMerchantSession, setDemoMerchantPendingSession, setDemoHubSession } from "./actions";
 
-export default function AuthLoginPage() {
+function LoginContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [logoError, setLogoError] = useState(false);
+  const errorParam = searchParams.get("error");
+  const isUnauthorized = errorParam === "unauthorized";
+  const callbackUrl = searchParams.get("callbackUrl") ?? "";
 
   function handleAdminDemo() {
     router.push("/admin/dashboard");
@@ -35,23 +39,30 @@ export default function AuthLoginPage() {
         </div>
 
         <div className="w-full border border-zinc-100 bg-white p-8">
+          {isUnauthorized && (
+            <div className="mb-6 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-center text-sm text-amber-800">
+              You don’t have access to that area. Sign in with the correct account (Admin or Hub).
+            </div>
+          )}
           <p className="text-center text-[11px] font-medium uppercase tracking-[0.2em] text-zinc-500">
             Merchant Sign In
           </p>
 
           <div className="mt-10 flex flex-col gap-4">
             <form action={setDemoMerchantSession}>
+              {callbackUrl && <input type="hidden" name="callbackUrl" value={callbackUrl} />}
               <button
                 type="submit"
-                className="w-full rounded-none bg-[#F40009] py-4 text-sm font-medium text-white hover:bg-[#cc0008]"
+                className="w-full rounded-2xl bg-[#F40009] py-4 text-sm font-medium text-white hover:bg-[#cc0008] transition-colors"
               >
                 Merchant Demo (Approved)
               </button>
             </form>
             <form action={setDemoMerchantPendingSession}>
+              {callbackUrl && <input type="hidden" name="callbackUrl" value={callbackUrl} />}
               <button
                 type="submit"
-                className="w-full rounded-none border border-zinc-200 bg-white py-4 text-sm font-medium text-zinc-700 hover:bg-zinc-50"
+                className="w-full rounded-2xl border border-[#F40009] bg-white py-4 text-sm font-medium text-[#F40009] hover:bg-[#F40009]/5 transition-colors"
               >
                 Merchant Demo (Pending KYC)
               </button>
@@ -59,14 +70,15 @@ export default function AuthLoginPage() {
             <button
               type="button"
               onClick={handleAdminDemo}
-              className="w-full rounded-none border border-zinc-100 bg-white py-4 text-sm font-medium text-[#F40009] hover:bg-zinc-50"
+              className="w-full rounded-2xl border border-zinc-200 bg-white py-4 text-sm font-medium text-zinc-700 hover:bg-zinc-50"
             >
               Admin Demo
             </button>
             <form action={setDemoHubSession}>
+              {callbackUrl && <input type="hidden" name="callbackUrl" value={callbackUrl} />}
               <button
                 type="submit"
-                className="w-full rounded-none border border-zinc-100 bg-white py-4 text-sm font-medium text-[#F40009] hover:bg-zinc-50"
+                className="w-full rounded-2xl border border-zinc-200 bg-white py-4 text-sm font-medium text-zinc-700 hover:bg-zinc-50"
               >
                 Hub Demo
               </button>
@@ -91,5 +103,13 @@ export default function AuthLoginPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function AuthLoginPage() {
+  return (
+    <Suspense fallback={<div className="flex min-h-screen items-center justify-center bg-white">Loading…</div>}>
+      <LoginContent />
+    </Suspense>
   );
 }

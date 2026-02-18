@@ -2,7 +2,7 @@
  * Shipco Logistics - Shared types (Source of Truth aligned with PRD)
  */
 
-export type Role = "MERCHANT" | "CUSTOMER" | "ADMIN" | "AGENT";
+export type Role = "MERCHANT" | "CUSTOMER" | "ADMIN" | "AGENT" | "HUB_OPERATOR";
 
 export type ShipmentStatus =
   | "PENDING"

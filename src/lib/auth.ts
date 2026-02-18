@@ -80,6 +80,12 @@ export const authOptions: NextAuthOptions = {
       }
       return session;
     },
+    redirect({ url, baseUrl }) {
+      if (!url || url === baseUrl || url === `${baseUrl}/`) return `${baseUrl}/auth/callback`;
+      if (url.startsWith("/")) return `${baseUrl}${url}`;
+      if (new URL(url).origin === baseUrl) return url;
+      return baseUrl;
+    },
   },
   pages: {
     signIn: "/auth/login",

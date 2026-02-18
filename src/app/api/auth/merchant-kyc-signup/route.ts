@@ -17,23 +17,35 @@ const COOKIE_OPTIONS = {
 export async function POST(req: Request) {
   try {
     const body = await req.json();
+    const userType = (body.userType as "personal" | "business") ?? "business";
     const {
       email,
       password,
+      fullName,
+      phone,
       personalKyc,
       businessKyc,
     } = body as {
       email: string;
       password: string;
-      personalKyc: { fullName: string; dateOfBirth: string; idType: string };
-      businessKyc: { companyName: string; rcNumber: string; businessAddress: string };
+      fullName?: string;
+      phone?: string;
+      personalKyc?: { fullName: string; dateOfBirth: string; idType: string };
+      businessKyc?: { companyName: string; rcNumber?: string; businessAddress?: string; industry?: string };
     };
 
     if (!email?.trim() || !password || (password as string).length < 6) {
       return NextResponse.json({ message: "Email and password (min 6 chars) required." }, { status: 400 });
     }
-    if (!businessKyc?.companyName?.trim() || !businessKyc?.businessAddress?.trim()) {
-      return NextResponse.json({ message: "Company name and business address required." }, { status: 400 });
+
+    if (userType === "personal") {
+      if (!fullName?.trim()) {
+        return NextResponse.json({ message: "Name is required." }, { status: 400 });
+      }
+    } else {
+      if (!businessKyc?.companyName?.trim()) {
+        return NextResponse.json({ message: "Company name is required for business accounts." }, { status: 400 });
+      }
     }
 
     const conn = await connectDB();
@@ -47,11 +59,33 @@ export async function POST(req: Request) {
     }
 
     const passwordHash = await hash(password, 12);
+
+    if (userType === "personal") {
+      const merchant = await Merchant.create({
+        email: email.trim().toLowerCase(),
+        password: passwordHash,
+        businessName: fullName!.trim(),
+        address: "Personal",
+        phone: phone?.trim() ?? "",
+        isVerified: true,
+        kycStatus: "Approved",
+        walletBalance: 0,
+      });
+      const token = await createToken({
+        merchantId: String(merchant._id),
+        email: merchant.email,
+        isVerified: true,
+      });
+      const res = NextResponse.json({ ok: true, token, redirectTo: "/merchant/dashboard" });
+      res.cookies.set("shipco-merchant-token", token, COOKIE_OPTIONS);
+      return res;
+    }
+
     const merchant = await Merchant.create({
       email: email.trim().toLowerCase(),
       password: passwordHash,
-      businessName: businessKyc.companyName.trim(),
-      address: businessKyc.businessAddress.trim(),
+      businessName: businessKyc!.companyName.trim(),
+      address: businessKyc!.businessAddress?.trim() ?? "",
       isVerified: false,
       kycStatus: "Pending Verification",
       personalKyc: personalKyc
@@ -62,9 +96,10 @@ export async function POST(req: Request) {
           }
         : undefined,
       businessKyc: {
-        companyName: businessKyc.companyName.trim(),
-        rcNumber: businessKyc.rcNumber?.trim() ?? "",
-        businessAddress: businessKyc.businessAddress.trim(),
+        companyName: businessKyc!.companyName.trim(),
+        rcNumber: businessKyc!.rcNumber?.trim() ?? "",
+        businessAddress: businessKyc!.businessAddress?.trim() ?? "",
+        industry: businessKyc!.industry?.trim(),
       },
       walletBalance: 0,
     });
@@ -75,7 +110,7 @@ export async function POST(req: Request) {
       isVerified: false,
     });
 
-    const res = NextResponse.json({ ok: true, token });
+    const res = NextResponse.json({ ok: true, token, redirectTo: "/merchant/kyc" });
     res.cookies.set("shipco-merchant-token", token, COOKIE_OPTIONS);
     return res;
   } catch (e) {

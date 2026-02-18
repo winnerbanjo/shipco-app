@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
+import { getAndClearBookingDraft } from "@/lib/booking-draft";
 import { useFormState } from "react-dom";
 import { createBookingFromPowerForm, type CreateBookingState } from "@/app/merchant/booking-actions";
 import { Button } from "@/components/ui/button";
@@ -54,8 +55,18 @@ export function BookingPowerForm({
   const [idPassportNumber, setIdPassportNumber] = useState("");
   const [packageCategory, setPackageCategory] = useState("");
   const [receiverCountry, setReceiverCountry] = useState("");
+  const draftApplied = useRef(false);
 
   const isInternational = serviceType === "international";
+
+  useEffect(() => {
+    if (draftApplied.current) return;
+    const draft = getAndClearBookingDraft();
+    if (!draft) return;
+    draftApplied.current = true;
+    setWeight(String(draft.weightKg));
+    setReceiverCountry(draft.destination);
+  }, []);
 
   function handleReceiverHubSuggest(hub: string | null) {
     if (hub && DESTINATION_HUB_OPTIONS.some((o) => o.value === hub)) setAssignedHub(hub);

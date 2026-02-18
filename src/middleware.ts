@@ -27,9 +27,10 @@ function hasSessionCookie(request: NextRequest): boolean {
   return SESSION_COOKIES.some((name) => cookieHeader.includes(`${name}=`));
 }
 
-function redirectToSignIn(request: NextRequest, pathname: string, reason?: string) {
+function redirectToSignIn(request: NextRequest, pathname: string, reason?: string, errorCode?: string) {
   const loginUrl = new URL(SIGNIN_URL, request.url);
   loginUrl.searchParams.set("callbackUrl", pathname);
+  if (errorCode) loginUrl.searchParams.set("error", errorCode);
   if (reason) {
     console.log("[middleware] Redirecting to signin:", reason);
   }
@@ -48,7 +49,7 @@ export async function middleware(request: NextRequest) {
       return redirectToSignIn(request, pathname, "No session cookie");
     }
 
-    // Role-check for /admin routes
+    // Admin routes: only users with role ADMIN may access
     if (pathname.startsWith("/admin")) {
       let token;
       try {
@@ -58,13 +59,22 @@ export async function middleware(request: NextRequest) {
         });
       } catch (err) {
         console.log("[middleware] Token decode failed, redirecting to signin. Error:", err);
-        return redirectToSignIn(request, pathname, "Token decode failed");
+        return redirectToSignIn(request, pathname, "Token decode failed", "unauthorized");
       }
 
       const role = token?.role;
       if (token == null || role == null || role !== "ADMIN") {
         console.log("[middleware] Admin route: token =", JSON.stringify(token ?? null), "| role =", role);
-        return redirectToSignIn(request, pathname, "Missing or invalid admin token/role");
+        return redirectToSignIn(request, pathname, "Missing or invalid admin token/role", "unauthorized");
+      }
+    }
+
+    // Hub routes: only users with hub token (HUB_OPERATOR) may access
+    if (pathname.startsWith("/hub")) {
+      const hasHubToken = request.cookies.get("shipco-hub-token")?.value;
+      if (!hasHubToken) {
+        console.log("[middleware] Hub route: no hub token");
+        return redirectToSignIn(request, pathname, "Hub access requires hub operator login", "unauthorized");
       }
     }
 
