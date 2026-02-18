@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { BookingForm } from "../booking-form";
 import { ChevronLeft } from "lucide-react";
 
@@ -14,15 +13,7 @@ export default function BookShipmentPage() {
           <ChevronLeft strokeWidth={1} className="mr-1 h-4 w-4" />
           Back
         </Link>
-        <div className="relative ml-4 h-9 w-9 shrink-0 overflow-hidden bg-white">
-          <Image
-            src="/shipco-logo.png"
-            alt="Shipco"
-            fill
-            className="object-contain"
-            sizes="36px"
-          />
-        </div>
+        <span className="ml-4 shrink-0 font-sans text-lg font-bold text-black">Shipco</span>
         <div>
           <h1 className="font-sans text-2xl font-semibold tracking-tighter text-zinc-900">
             Book shipment

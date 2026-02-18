@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -72,9 +71,7 @@ export default function MerchantKycPage() {
   return (
     <div className="mx-auto max-w-2xl">
       <header className="flex items-center gap-4 border-b border-zinc-100 pb-6">
-        <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-2xl">
-          <Image src="/shipco-logo.png" alt="Shipco" fill className="object-contain" sizes="40px" />
-        </div>
+        <span className="shrink-0 font-sans text-xl font-bold text-black">Shipco</span>
         <div>
           <h1 className="font-sans text-2xl font-semibold tracking-tighter text-zinc-900">
             KYC verification

@@ -1,8 +1,6 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import {
@@ -19,13 +17,11 @@ const nav = [
   { href: "/hub/tasks", label: "Tasks", icon: CheckSquare },
   { href: "/hub/booking", label: "Booking", icon: FileEdit },
   { href: "/hub/inventory", label: "Branch Inventory", icon: Package },
-  { href: "/hub/customers", label: "Customer Directory", icon: Users },
+  { href: "/hub/customers", label: "Merchant Directory", icon: Users },
 ];
 
 export function HubSidebar() {
   const pathname = usePathname();
-  const [logoError, setLogoError] = useState(false);
-
   function handleSignOut() {
     document.cookie = "shipco-hub-token=; path=/; max-age=0";
     window.location.href = "/auth/login";
@@ -34,21 +30,8 @@ export function HubSidebar() {
   return (
     <aside className="flex h-full w-56 flex-col border-r border-zinc-100 bg-white">
       <div className="flex h-14 items-center border-b border-zinc-100 px-4 py-3">
-        <Link href="/hub/dashboard" className="flex h-10 items-center gap-2">
-          {!logoError ? (
-            <Image
-              src="/shipco-logo.png"
-              alt="Shipco"
-              width={40}
-              height={40}
-              className="h-10 w-10 object-contain"
-              onError={() => setLogoError(true)}
-              unoptimized
-            />
-          ) : (
-            <span className="font-sans font-semibold tracking-tighter text-[#F40009]">Shipco</span>
-          )}
-          <span className="font-sans font-semibold tracking-tighter text-zinc-900">Hub</span>
+        <Link href="/hub/dashboard" className="flex h-10 items-center gap-2 font-sans text-lg font-bold text-black">
+          Shipco <span className="font-normal text-zinc-600">Hub</span>
         </Link>
       </div>
       <nav className="flex-1 space-y-0.5 p-2">

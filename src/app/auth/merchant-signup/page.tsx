@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 export type UserType = "personal" | "business";
@@ -116,9 +115,7 @@ export default function MerchantSignupPage() {
     <div className="min-h-screen bg-white">
       <div className="mx-auto max-w-xl px-6 py-12">
         <header className="flex items-center gap-4 border-b border-zinc-100 pb-8">
-          <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-2xl bg-white">
-            <Image src="/shipco-logo.png" alt="Shipco" fill className="object-contain" sizes="40px" />
-          </div>
+          <span className="shrink-0 font-sans text-xl font-bold text-black">Shipco</span>
           <div>
             <h1 className="font-sans text-2xl font-semibold tracking-tighter text-zinc-900">
               Merchant Sign-Up

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { MERCHANT_DEMO_CUSTOMERS_15 } from "@/data/demo-customers";
 import { AdminCustomersTable } from "./customers-table";
@@ -7,21 +6,13 @@ export default function AdminCustomersPage() {
   return (
     <div className="mx-auto max-w-5xl bg-white">
       <header className="flex items-center gap-4 border-b border-zinc-100 pb-6">
-        <div className="relative h-10 w-10 shrink-0 overflow-hidden bg-white">
-          <Image
-            src="/shipco-logo.png"
-            alt="Shipco"
-            fill
-            className="object-contain"
-            sizes="40px"
-          />
-        </div>
+        <span className="shrink-0 font-sans text-xl font-bold text-black">Shipco</span>
         <div>
           <h1 className="text-3xl font-semibold tracking-tight text-zinc-900">
-            Customers
+            Merchants
           </h1>
           <p className="mt-1 text-sm text-zinc-500">
-            Global database of all Shipco customers. Use search and filters above the table.
+            Global database of all Shipco merchants. Use search and filters above the table.
           </p>
         </div>
         <Link

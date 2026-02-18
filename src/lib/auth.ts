@@ -1,10 +1,11 @@
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { compare } from "bcryptjs";
 import type { Role } from "@/types";
 import { prisma } from "@/lib/prisma";
 
 /**
- * Validates email/password and assigns role. Looks up User in DB to get real id for wallet/shipments.
+ * NextAuth for ADMIN and HUB_OPERATOR (Prisma User). MERCHANT signs in via MongoDB + cookie.
  */
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -13,54 +14,21 @@ export const authOptions: NextAuthOptions = {
       credentials: {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
-        role: { label: "Role", type: "text" },
       },
       async authorize(credentials) {
         if (!credentials?.email) return null;
-        const email = credentials.email;
+        const email = credentials.email.trim();
         const password = credentials.password ?? "";
-        const roleFromClient = credentials.role as Role | undefined;
-
-        // Demo bypass (gate with DISABLE_DEMO=true in production)
-        const DEMO_ADMIN = "admin@shipco.com";
-        const DEMO_PASSWORD = "password123";
-        const demoDisabled = process.env.DISABLE_DEMO === "true";
-        if (!demoDisabled && email === DEMO_ADMIN && password === DEMO_PASSWORD) {
-          try {
-            let user = await prisma.user.findUnique({ where: { email: DEMO_ADMIN } });
-            if (!user) {
-              user = await prisma.user.create({
-                data: {
-                  email: DEMO_ADMIN,
-                  name: "Demo Admin",
-                  role: "ADMIN",
-                },
-              });
-            }
-            return { id: user.id, email: user.email!, name: user.name ?? "Demo Admin", role: "ADMIN" as Role };
-          } catch {
-            return { id: "demo-admin", email: DEMO_ADMIN, name: "Demo Admin", role: "ADMIN" as Role };
-          }
-        }
-
-        const role = roleFromClient === "ADMIN" ? "ADMIN" : "MERCHANT";
-        let user = await prisma.user.findUnique({
-          where: { email },
-        });
-        if (!user) {
-          user = await prisma.user.create({
-            data: {
-              email,
-              name: "User",
-              role,
-            },
-          });
-        }
+        const user = await prisma.user.findUnique({ where: { email } });
+        if (!user) return null;
+        if (!user.passwordHash) return null;
+        const ok = await compare(password, user.passwordHash);
+        if (!ok) return null;
         return {
           id: user.id,
-          email: user.email!,
-          name: user.name ?? "User",
-          role: (user.role as Role) ?? role,
+          email: user.email,
+          name: user.name ?? undefined,
+          role: user.role as Role,
         };
       },
     }),

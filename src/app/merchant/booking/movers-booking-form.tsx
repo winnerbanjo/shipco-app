@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -67,15 +66,7 @@ export function MoversBookingForm({
   return (
     <div className="mx-auto max-w-2xl font-sans">
       <div className="mb-8 flex items-center gap-4 border-b border-zinc-100 pb-6">
-        <div className="relative h-10 w-10 shrink-0 overflow-hidden bg-white">
-          <Image
-            src="/shipco-logo.png"
-            alt="Shipco"
-            fill
-            className="object-contain"
-            sizes="40px"
-          />
-        </div>
+        <span className="shrink-0 font-sans text-xl font-bold text-black">Shipco</span>
         <div>
           <h2 className="text-xl font-semibold tracking-tighter text-zinc-900">
             Shipco Movers / Heavy Van

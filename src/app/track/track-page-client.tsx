@@ -1,32 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
 import { TrackForm } from "./track-form";
 import { TrackJourney } from "./track-journey";
 
 export function TrackPageClient() {
   const [showMock, setShowMock] = useState(false);
-  const [logoError, setLogoError] = useState(false);
 
   return (
     <>
       <header className="border-b border-zinc-100 bg-white">
         <div className="mx-auto flex max-w-2xl items-center px-6 py-5">
-          <Link href="/" className="flex items-center gap-2">
-            {!logoError ? (
-              <Image
-                src="/shipco-logo.png"
-                alt="Shipco"
-                width={40}
-                height={40}
-                className="h-10 w-10 object-contain"
-                onError={() => setLogoError(true)}
-              />
-            ) : (
-              <span className="text-lg font-semibold tracking-tight text-[#F40009]">Shipco</span>
-            )}
+          <Link href="/" className="font-sans text-lg font-bold text-black">
+            Shipco
           </Link>
         </div>
       </header>

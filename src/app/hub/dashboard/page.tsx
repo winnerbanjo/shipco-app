@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState, useMemo } from "react";
 import { ScanLine, RefreshCw, UserPlus, Package } from "lucide-react";
 import { HUB_INVENTORY_DEMO_SHIPMENTS } from "@/data/demo-shipments";
@@ -15,11 +14,10 @@ import {
 const QUICK_ACTIONS = [
   { href: "/hub/scan", label: "Scan Package", icon: ScanLine, primary: true },
   { href: "/hub/update-status", label: "Update Status", icon: RefreshCw, primary: false },
-  { href: "/hub/register-walkin", label: "Register Walk-in Customer", icon: UserPlus, primary: true },
+  { href: "/hub/register-walkin", label: "Register Walk-in Merchant", icon: UserPlus, primary: true },
 ];
 
 export default function HubDashboardPage() {
-  const [logoError, setLogoError] = useState(false);
   const [dateState, setDateState] = useState<DateFilterState>({ period: "today" });
 
   const metrics = useMemo(
@@ -44,18 +42,7 @@ export default function HubDashboardPage() {
   return (
     <div className="mx-auto max-w-5xl bg-white">
       <header className="flex items-center gap-4 border-b border-zinc-100 pb-6">
-        {!logoError ? (
-          <Image
-            src="/shipco-logo.png"
-            alt="Shipco"
-            width={40}
-            height={40}
-            className="h-10 w-10 object-contain"
-            onError={() => setLogoError(true)}
-          />
-        ) : (
-          <span className="font-sans text-lg font-semibold tracking-tighter text-[#F40009]">Shipco</span>
-        )}
+        <span className="shrink-0 font-sans text-xl font-bold text-black">Shipco</span>
         <div>
           <h1 className="font-sans text-2xl font-semibold tracking-tighter text-zinc-900">
             Hub Operations

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { BOOKING_FROM_TASK_KEY, type HubBookingFromTask } from "@/data/demo-tasks";
 import type { ServiceType } from "@/data/booking-constants";
@@ -65,9 +64,7 @@ export default function HubBookingPage() {
     return (
       <div className="mx-auto max-w-2xl bg-white">
         <header className="flex items-center gap-4 border-b border-zinc-100 pb-6">
-          <div className="relative h-10 w-10 shrink-0 overflow-hidden bg-white">
-            <Image src="/shipco-logo.png" alt="Shipco" fill className="object-contain" sizes="40px" />
-          </div>
+          <span className="shrink-0 font-sans text-xl font-bold text-black">Shipco</span>
           <div className="flex-1">
             <h1 className="font-sans text-2xl font-semibold tracking-tighter text-zinc-900">Booking</h1>
             <p className="mt-1 text-sm text-zinc-500">Waybill created. Shipment will appear in Branch Inventory.</p>
@@ -99,9 +96,7 @@ export default function HubBookingPage() {
     return (
       <div className="mx-auto max-w-2xl bg-white">
         <header className="flex items-center gap-4 border-b border-zinc-100 pb-6">
-          <div className="relative h-10 w-10 shrink-0 overflow-hidden bg-white">
-            <Image src="/shipco-logo.png" alt="Shipco" fill className="object-contain" sizes="40px" />
-          </div>
+          <span className="shrink-0 font-sans text-xl font-bold text-black">Shipco</span>
           <div className="flex-1">
             <h1 className="font-sans text-2xl font-semibold tracking-tighter text-zinc-900">Booking</h1>
             <p className="mt-1 text-sm text-zinc-500">Select service type. From a task? Accept the task to open the form pre-filled.</p>
@@ -121,9 +116,7 @@ export default function HubBookingPage() {
   return (
     <div className="mx-auto max-w-2xl bg-white">
       <header className="flex items-center gap-4 border-b border-zinc-100 pb-6">
-        <div className="relative h-10 w-10 shrink-0 overflow-hidden bg-white">
-          <Image src="/shipco-logo.png" alt="Shipco" fill className="object-contain" sizes="40px" />
-        </div>
+        <span className="shrink-0 font-sans text-xl font-bold text-black">Shipco</span>
         <div className="flex-1">
           <h1 className="font-sans text-2xl font-semibold tracking-tighter text-zinc-900">Booking</h1>
           <p className="mt-1 text-sm text-zinc-500">

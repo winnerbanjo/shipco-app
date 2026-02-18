@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
@@ -30,19 +29,8 @@ export function MerchantAppleSidebar() {
   return (
     <aside className="flex h-full w-52 flex-col border-r border-zinc-200 bg-white">
       <div className="flex h-14 items-center gap-2 border-b border-zinc-200 px-4">
-        <Link href="/merchant/dashboard" className="flex items-center gap-2">
-          <div className="relative h-8 w-8 shrink-0 overflow-hidden">
-            <Image
-              src="/shipco-logo.png"
-              alt="Shipco"
-              fill
-              className="object-contain"
-              sizes="32px"
-            />
-          </div>
-          <span className="text-sm font-medium text-zinc-900">
-            Shipco <span className="text-[#F40009]">Logistics</span>
-          </span>
+        <Link href="/merchant/dashboard" className="flex items-center gap-2 font-sans text-sm font-bold text-black">
+          Shipco <span className="font-normal text-[#F40009]">Logistics</span>
         </Link>
       </div>
       <nav className="flex-1 space-y-0.5 p-4">
@@ -90,7 +78,7 @@ const adminNav = [
   { href: "/admin/tasks", label: "Task Dispatcher", icon: CheckSquare },
   { href: "/admin/merchants", label: "Merchants", icon: Package },
   { href: "/admin/shipments", label: "Shipments", icon: History },
-  { href: "/admin/customers", label: "Customers", icon: Users },
+  { href: "/admin/customers", label: "Merchants", icon: Users },
   { href: "/admin/pricing", label: "Pricing Engine", icon: DollarSign },
   { href: "/admin/partners", label: "Partners", icon: Truck },
 ];
@@ -101,19 +89,8 @@ export function AdminAppleSidebar() {
   return (
     <aside className="flex h-full w-52 flex-col border-r border-zinc-200 bg-white">
       <div className="flex h-14 items-center gap-2 border-b border-zinc-200 px-4">
-        <Link href="/admin/dashboard" className="flex items-center gap-2">
-          <div className="relative h-8 w-8 shrink-0 overflow-hidden">
-            <Image
-              src="/shipco-logo.png"
-              alt="Shipco"
-              fill
-              className="object-contain"
-              sizes="32px"
-            />
-          </div>
-          <span className="text-sm font-medium text-zinc-900">
-            Shipco <span className="text-[#F40009]">Logistics</span>
-          </span>
+        <Link href="/admin/dashboard" className="flex items-center gap-2 font-sans text-sm font-bold text-black">
+          Shipco <span className="font-normal text-[#F40009]">Logistics</span>
         </Link>
       </div>
       <nav className="flex-1 space-y-0.5 p-4">

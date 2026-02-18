@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { getMerchantKycDocumentsAction, setMerchantKycStatusAction } from "./actions";
 
 type KycDoc = {
@@ -57,9 +56,7 @@ export function KycDocumentsModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
       <div className="w-full max-w-lg rounded-none border border-zinc-200 bg-white shadow-lg">
         <header className="flex items-center gap-3 border-b border-zinc-100 px-6 py-4">
-          <div className="relative h-8 w-8 shrink-0 overflow-hidden bg-white">
-            <Image src="/shipco-logo.png" alt="Shipco" fill className="object-contain" sizes="32px" />
-          </div>
+          <span className="shrink-0 font-sans text-lg font-bold text-black">Shipco</span>
           <div>
             <h2 className="font-sans text-lg font-semibold tracking-tight text-zinc-900">
               KYC Documents

@@ -1,62 +1,50 @@
 "use server";
 
 import { createToken } from "@shipco/lib/auth";
+import { connectDB } from "@shipco/lib/mongodb";
+import Merchant from "@shipco/lib/models/Merchant";
+import { compare } from "bcryptjs";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
-import { DEMO_MERCHANT_ID_APPROVED, DEMO_MERCHANT_ID_PENDING } from "@/lib/merchant-kyc";
 
 function safeCallbackUrl(callbackUrl: string | null): string | null {
   if (!callbackUrl || typeof callbackUrl !== "string") return null;
   const path = callbackUrl.startsWith("/") ? callbackUrl : new URL(callbackUrl).pathname;
-  if (!path.startsWith("/merchant") && !path.startsWith("/admin") && !path.startsWith("/customer") && !path.startsWith("/hub")) return null;
+  if (!path.startsWith("/merchant") && !path.startsWith("/admin") && !path.startsWith("/hub")) return null;
   return path;
 }
 
-export async function setDemoMerchantSession(formData?: FormData) {
-  const token = await createToken({
-    merchantId: DEMO_MERCHANT_ID_APPROVED,
-    email: "demo@shipco.com",
-    isVerified: true,
-  });
-  const store = await cookies();
-  store.set("shipco-merchant-token", token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    maxAge: 60 * 60 * 24 * 7,
-    path: "/",
-  });
-  const cb = safeCallbackUrl(formData?.get("callbackUrl") as string | null);
-  redirect(cb ?? "/merchant/dashboard");
-}
-
-export async function setDemoMerchantPendingSession(formData?: FormData) {
-  const token = await createToken({
-    merchantId: DEMO_MERCHANT_ID_PENDING,
-    email: "newstore@shipco.com",
-    isVerified: false,
-  });
-  const store = await cookies();
-  store.set("shipco-merchant-token", token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    maxAge: 60 * 60 * 24 * 7,
-    path: "/",
-  });
-  const cb = safeCallbackUrl(formData?.get("callbackUrl") as string | null);
-  redirect(cb ?? "/merchant/dashboard");
-}
-
-export async function setDemoHubSession(formData?: FormData) {
-  const store = await cookies();
-  store.set("shipco-hub-token", "demo-hub-staff", {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    maxAge: 60 * 60 * 24 * 7,
-    path: "/",
-  });
-  const cb = safeCallbackUrl(formData?.get("callbackUrl") as string | null);
-  redirect(cb ?? "/hub/dashboard");
+/** Merchant login (MongoDB): verify email/password, set cookie, return redirect. */
+export async function attemptMerchantLogin(
+  email: string,
+  password: string,
+  callbackUrl: string | null
+): Promise<{ success: true; redirect: string } | { success: false; error: string }> {
+  const e = email?.trim();
+  const p = password ?? "";
+  if (!e || !p) return { success: false, error: "Email and password required." };
+  try {
+    await connectDB();
+    const merchant = await Merchant.findOne({ email: e.toLowerCase() }).select("_id email password isVerified").lean();
+    if (!merchant) return { success: false, error: "Invalid email or password." };
+    const ok = await compare(p, merchant.password);
+    if (!ok) return { success: false, error: "Invalid email or password." };
+    const token = await createToken({
+      merchantId: String(merchant._id),
+      email: merchant.email,
+      isVerified: !!merchant.isVerified,
+    });
+    const store = await cookies();
+    store.set("shipco-merchant-token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      maxAge: 60 * 60 * 24 * 7,
+      path: "/",
+    });
+    const cb = safeCallbackUrl(callbackUrl);
+    return { success: true, redirect: cb ?? "/merchant/dashboard" };
+  } catch (err) {
+    console.error("[Merchant login]", err);
+    return { success: false, error: "Sign-in failed. Try again." };
+  }
 }

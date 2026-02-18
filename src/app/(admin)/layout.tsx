@@ -10,7 +10,7 @@ export default async function AdminLayout({
 }) {
   const session = await getServerSession(authOptions);
   if (!session) redirect("/auth/login?callbackUrl=/admin");
-  if ((session.user as { role?: string })?.role !== "ADMIN") redirect("/customer");
+  if ((session.user as { role?: string })?.role !== "ADMIN") redirect("/merchant/dashboard");
 
   return (
     <div className="flex h-screen bg-pure-black text-white">

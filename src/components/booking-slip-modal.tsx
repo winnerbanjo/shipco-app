@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import type { ServiceType } from "@/data/booking-constants";
 import { SERVICE_LABELS, TERMS_BY_SERVICE } from "@/data/booking-constants";
@@ -64,15 +63,7 @@ export function BookingSlipModal({ open, onClose, data, className }: BookingSlip
       <div className="relative max-h-[90vh] w-full max-w-lg overflow-auto rounded-none border border-zinc-200 bg-white shadow-lg">
         <div ref={slipRef} className="p-8">
           {/* Logo */}
-          <div className="relative mb-6 h-10 w-10 shrink-0 overflow-hidden bg-white">
-            <Image
-              src="/shipco-logo.png"
-              alt="Shipco"
-              fill
-              className="object-contain"
-              sizes="40px"
-            />
-          </div>
+          <span className="mb-6 block shrink-0 font-sans text-xl font-bold text-black">Shipco</span>
           <h2 id="slip-title" className="font-sans text-lg font-semibold tracking-tighter text-zinc-900">
             Booking Slip
           </h2>

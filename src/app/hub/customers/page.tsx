@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { MERCHANT_DEMO_CUSTOMERS_15 } from "@/data/demo-customers";
 import type { DemoCustomer } from "@/data/demo-customers";
@@ -44,22 +43,13 @@ export default function HubCustomersPage() {
   return (
     <div className="mx-auto max-w-4xl bg-white">
       <header className="flex items-center gap-4 border-b border-zinc-100 pb-6">
-        <div className="relative h-10 w-10 shrink-0 overflow-hidden bg-white">
-          <Image
-            src="/shipco-logo.png"
-            alt="Shipco"
-            fill
-            className="object-contain"
-            sizes="40px"
-            unoptimized
-          />
-        </div>
+        <span className="shrink-0 font-sans text-xl font-bold text-black">Shipco</span>
         <div className="flex-1">
           <h1 className="text-2xl font-semibold tracking-tight text-zinc-900">
-            Customer Directory
+            Merchant Directory
           </h1>
           <p className="mt-1 text-sm text-zinc-500">
-            Walk-in and linked customers. Use search and filters above the table.
+            Walk-in and linked merchants. Use search and filters above the table.
           </p>
         </div>
         <Link

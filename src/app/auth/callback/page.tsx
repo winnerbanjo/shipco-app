@@ -10,6 +10,6 @@ export default async function AuthCallbackPage() {
   const role = (session.user as { role?: string }).role;
   if (role === "ADMIN") redirect("/admin/dashboard");
   if (role === "MERCHANT") redirect("/merchant/dashboard");
-  if (role === "CUSTOMER") redirect("/customer/dashboard");
+  if (role === "HUB_OPERATOR") redirect("/hub/dashboard");
   redirect("/");
 }

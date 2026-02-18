@@ -1,20 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
 import { AdminShipmentsTable } from "./admin-shipments-table";
 
 export default function AdminShipmentsPage() {
   return (
     <div className="mx-auto max-w-6xl bg-white">
       <header className="flex items-center gap-4 border-b border-zinc-100 pb-6">
-        <div className="relative h-10 w-10 shrink-0 overflow-hidden bg-white">
-          <Image
-            src="/shipco-logo.png"
-            alt="Shipco"
-            fill
-            className="object-contain"
-            sizes="40px"
-          />
-        </div>
+        <span className="shrink-0 font-sans text-xl font-bold text-black">Shipco</span>
         <div className="flex-1">
           <h1 className="text-2xl font-semibold tracking-tight text-zinc-900">
             All Shipments

@@ -1,8 +1,6 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import {
@@ -28,25 +26,12 @@ const nav = [
 
 export function MerchantSidebar() {
   const pathname = usePathname();
-  const [logoError, setLogoError] = useState(false);
 
   return (
     <aside className="flex h-full w-56 flex-col border-r border-zinc-100 bg-white">
       <div className="flex h-14 items-center border-b border-zinc-100 px-4 py-3">
-        <Link href="/merchant/dashboard" className="flex h-10 items-center gap-2">
-          {!logoError ? (
-            <Image
-              src="/shipco-logo.png"
-              alt="Shipco"
-              width={40}
-              height={40}
-              className="h-10 w-10 object-contain"
-              onError={() => setLogoError(true)}
-            />
-          ) : (
-            <span className="font-semibold tracking-tight text-[#F40009]">Shipco</span>
-          )}
-          <span className="font-semibold tracking-tight text-zinc-900">Merchant</span>
+        <Link href="/merchant/dashboard" className="flex h-10 items-center gap-2 font-sans text-lg font-bold text-black">
+          Shipco <span className="font-normal text-zinc-600">Merchant</span>
         </Link>
       </div>
       <nav className="flex-1 space-y-0.5 p-2">

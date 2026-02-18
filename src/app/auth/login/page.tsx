@@ -3,89 +3,109 @@
 import { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
-import { setDemoMerchantSession, setDemoMerchantPendingSession, setDemoHubSession } from "./actions";
+import { signIn } from "next-auth/react";
+import { attemptMerchantLogin } from "./actions";
 
 function LoginContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [logoError, setLogoError] = useState(false);
+  const callbackUrl = searchParams.get("callbackUrl") ?? "/auth/callback";
   const errorParam = searchParams.get("error");
   const isUnauthorized = errorParam === "unauthorized";
-  const callbackUrl = searchParams.get("callbackUrl") ?? "";
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState<string | null>(isUnauthorized ? "You don't have access to that area." : null);
+  const [loading, setLoading] = useState(false);
 
-  function handleAdminDemo() {
-    router.push("/admin/dashboard");
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setError(null);
+    setLoading(true);
+    try {
+      const res = await signIn("credentials", {
+        email: email.trim(),
+        password,
+        redirect: false,
+        callbackUrl: callbackUrl as string,
+      });
+      if (res?.ok && res.url) {
+        router.push(res.url);
+        return;
+      }
+      const merchantRes = await attemptMerchantLogin(email.trim(), password, callbackUrl);
+      if (merchantRes.success) {
+        router.push(merchantRes.redirect);
+        return;
+      }
+      setError(merchantRes.error);
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-white px-4 py-12 font-sans">
       <div className="w-full max-w-sm">
         <div className="mb-8 flex justify-center">
-          {!logoError ? (
-            <Image
-              src="/shipco-logo.png"
-              alt="Shipco"
-              width={96}
-              height={96}
-              className="h-24 w-24 object-contain"
-              onError={() => setLogoError(true)}
-            />
-          ) : (
-            <p className="text-center text-2xl font-bold tracking-[0.2em] text-[#F40009]">
-              Shipco
-            </p>
-          )}
+          <span className="font-sans text-2xl font-bold text-black tracking-tight">Shipco</span>
         </div>
 
-        <div className="w-full border border-zinc-100 bg-white p-8">
-          {isUnauthorized && (
+        <div className="w-full border border-zinc-100 bg-white p-8 shadow-sm">
+          {error && (
             <div className="mb-6 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-center text-sm text-amber-800">
-              You don’t have access to that area. Sign in with the correct account (Admin or Hub).
+              {error}
             </div>
           )}
+
           <p className="text-center text-[11px] font-medium uppercase tracking-[0.2em] text-zinc-500">
-            Merchant Sign In
+            Sign in
           </p>
 
-          <div className="mt-10 flex flex-col gap-4">
-            <form action={setDemoMerchantSession}>
-              {callbackUrl && <input type="hidden" name="callbackUrl" value={callbackUrl} />}
-              <button
-                type="submit"
-                className="w-full rounded-2xl bg-[#F40009] py-4 text-sm font-medium text-white hover:bg-[#cc0008] transition-colors"
-              >
-                Merchant Demo (Approved)
-              </button>
-            </form>
-            <form action={setDemoMerchantPendingSession}>
-              {callbackUrl && <input type="hidden" name="callbackUrl" value={callbackUrl} />}
-              <button
-                type="submit"
-                className="w-full rounded-2xl border border-[#F40009] bg-white py-4 text-sm font-medium text-[#F40009] hover:bg-[#F40009]/5 transition-colors"
-              >
-                Merchant Demo (Pending KYC)
-              </button>
-            </form>
+          <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
+            <div>
+              <label htmlFor="email" className="mb-1 block text-xs font-medium text-zinc-600">
+                Email
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="w-full rounded-lg border border-zinc-200 px-3 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
+                placeholder="you@example.com"
+              />
+            </div>
+            <div>
+              <label htmlFor="password" className="mb-1 block text-xs font-medium text-zinc-600">
+                Password
+              </label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autoComplete="current-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="w-full rounded-lg border border-zinc-200 px-3 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
+                placeholder="••••••••"
+              />
+            </div>
             <button
-              type="button"
-              onClick={handleAdminDemo}
-              className="w-full rounded-2xl border border-zinc-200 bg-white py-4 text-sm font-medium text-zinc-700 hover:bg-zinc-50"
+              type="submit"
+              disabled={loading}
+              className="mt-2 w-full rounded-2xl bg-[#F40009] py-4 text-sm font-medium text-white transition-colors hover:bg-[#cc0008] disabled:opacity-70"
             >
-              Admin Demo
+              {loading ? "Signing in…" : "Sign in"}
             </button>
-            <form action={setDemoHubSession}>
-              {callbackUrl && <input type="hidden" name="callbackUrl" value={callbackUrl} />}
-              <button
-                type="submit"
-                className="w-full rounded-2xl border border-zinc-200 bg-white py-4 text-sm font-medium text-zinc-700 hover:bg-zinc-50"
-              >
-                Hub Demo
-              </button>
-            </form>
-          </div>
+          </form>
 
-          <div className="mt-12 space-y-4 text-center">
+          <div className="mt-8 space-y-4 text-center">
             <p className="text-xs text-zinc-500">
               <Link href="/auth/merchant-signup" className="text-[#F40009] hover:underline">
                 Register as Merchant
@@ -96,10 +116,6 @@ function LoginContent() {
               </Link>
             </p>
           </div>
-
-          <p className="mt-8 text-center text-[11px] text-zinc-400">
-            Demo access only. No credentials required.
-          </p>
         </div>
       </div>
     </div>
@@ -108,7 +124,7 @@ function LoginContent() {
 
 export default function AuthLoginPage() {
   return (
-    <Suspense fallback={<div className="flex min-h-screen items-center justify-center bg-white">Loading…</div>}>
+    <Suspense fallback={<div className="flex min-h-screen items-center justify-center bg-white font-sans">Loading…</div>}>
       <LoginContent />
     </Suspense>
   );

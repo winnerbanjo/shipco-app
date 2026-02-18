@@ -10,7 +10,7 @@ const registerSchema = z.object({
   password: z.string().min(6),
   name: z.string().optional(),
   phone: z.string().optional(),
-  role: z.enum(["CUSTOMER", "MERCHANT"]),
+  role: z.enum(["MERCHANT"]),
   // Step 2 merchant fields
   businessName: z.string().optional(),
   businessAddress: z.string().optional(),

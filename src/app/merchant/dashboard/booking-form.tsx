@@ -3,7 +3,6 @@
 import { useState, useMemo } from "react";
 import { useFormState } from "react-dom";
 import Link from "next/link";
-import Image from "next/image";
 import { createBooking, type CreateBookingState } from "@/app/merchant/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

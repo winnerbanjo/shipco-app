@@ -1,5 +1,4 @@
 import { redirect } from "next/navigation";
-import Image from "next/image";
 import { getSession } from "@shipco/lib/auth";
 import { connectDB } from "@shipco/lib/mongodb";
 import Merchant from "@shipco/lib/models/Merchant";
@@ -32,15 +31,7 @@ export default async function MerchantBookingPage() {
   return (
     <div className="mx-auto max-w-6xl bg-white px-6 py-8">
       <header className="flex items-center gap-4 border-b border-zinc-100 pb-6">
-        <div className="relative h-10 w-10 shrink-0 overflow-hidden bg-white">
-          <Image
-            src="/shipco-logo.png"
-            alt="Shipco"
-            fill
-            className="object-contain"
-            sizes="40px"
-          />
-        </div>
+        <span className="shrink-0 font-sans text-xl font-bold text-black">Shipco</span>
         <div>
           <h1 className="font-sans text-3xl font-semibold tracking-tighter text-zinc-900">
             New shipment

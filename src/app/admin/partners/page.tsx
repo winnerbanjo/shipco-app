@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { DEMO_PARTNERS, type Partner, type ServiceType } from "@/data/partners-demo";
 import { Plus, Mail, Key, Globe, Edit2 } from "lucide-react";
 
@@ -83,15 +82,7 @@ export default function AdminPartnersPage() {
     <div className="mx-auto max-w-5xl bg-white px-8 py-8">
       <header className="flex items-center justify-between border-b border-zinc-200 pb-6">
         <div className="flex items-center gap-4">
-          <div className="relative h-10 w-10 shrink-0 overflow-hidden bg-white">
-            <Image
-              src="/shipco-logo.png"
-              alt="Shipco"
-              fill
-              className="object-contain"
-              sizes="40px"
-            />
-          </div>
+          <span className="shrink-0 font-sans text-xl font-bold text-black">Shipco</span>
           <div>
             <h1 className="font-sans text-3xl font-semibold tracking-tighter text-zinc-900">
               Partner Management

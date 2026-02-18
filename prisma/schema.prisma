@@ -1,5 +1,5 @@
-// DMX Logistics - Prisma Schema
-// Source: PRD-aligned data model
+// Shipco Logistics - Prisma Schema
+// Roles: ADMIN, MERCHANT, HUB_OPERATOR only.
 
 generator client {
   provider = "prisma-client-js"
@@ -14,9 +14,8 @@ datasource db {
 
 enum Role {
   MERCHANT
-  CUSTOMER
   ADMIN
-  AGENT
+  HUB_OPERATOR
 }
 
 enum ShipmentStatus {
@@ -60,7 +59,7 @@ model User {
   name          String?
   phone         String?
   passwordHash  String?   @map("password_hash")
-  role          Role      @default(CUSTOMER)
+  role          Role      @default(MERCHANT)
   emailVerified DateTime? @map("email_verified_at")
   image         String?
   createdAt     DateTime  @default(now()) @map("created_at")

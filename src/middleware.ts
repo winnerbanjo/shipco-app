@@ -41,6 +41,13 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   try {
+    // Consolidate Customer → Merchant: redirect all /customer to merchant dashboard
+    if (pathname.startsWith("/customer")) {
+      const url = request.nextUrl.clone();
+      url.pathname = "/merchant/dashboard";
+      return NextResponse.redirect(url);
+    }
+
     if (!isProtectedPath(pathname) || isPublicPath(pathname)) {
       return NextResponse.next();
     }

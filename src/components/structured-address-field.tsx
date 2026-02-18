@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import {
   ADDRESS_STATES,
   LGA_BY_STATE,
@@ -274,9 +273,7 @@ export function StructuredAddressField({
       {showMapPreview && (
         <div className="w-full shrink-0 rounded-none border border-zinc-100 bg-white lg:w-80">
           <header className="flex items-center gap-3 border-b border-zinc-100 px-4 py-3">
-            <div className="relative h-8 w-8 shrink-0 overflow-hidden bg-white">
-              <Image src="/shipco-logo.png" alt="Shipco" fill className="object-contain" sizes="32px" />
-            </div>
+            <span className="shrink-0 font-sans text-sm font-bold text-black">Shipco</span>
             <span className="text-xs font-medium uppercase tracking-wider text-zinc-500 font-sans">
               Map
             </span>
