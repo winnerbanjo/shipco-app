@@ -4,7 +4,6 @@ import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { initializePayment } from "@/app/actions/paystack";
 import { Loader2, Wallet, ArrowDownLeft, ArrowUpRight } from "lucide-react";
 
 type TransactionRow = { id: string; label: string; amount: number; date: string };
@@ -64,9 +63,30 @@ export function WalletPageClient({
     }
     setFunding(true);
     try {
-      const result = await initializePayment(numAmount);
+      const res = await fetch("/api/paystack/initialize", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount: numAmount }),
+      });
+      const result = await res.json();
       if (result.success && result.authorizationUrl) {
-        window.location.href = result.authorizationUrl;
+        const popup = window.open(
+          result.authorizationUrl,
+          "paystack",
+          "width=500,height=700,scrollbars=yes,resizable=yes"
+        );
+        if (popup) {
+          setModalOpen(false);
+          setAmount("");
+          const checkClosed = setInterval(() => {
+            if (popup.closed) {
+              clearInterval(checkClosed);
+              window.location.reload();
+            }
+          }, 500);
+        } else {
+          setError("Popup blocked. Please allow popups and try again, or use the link below.");
+        }
       } else {
         setError(result.error ?? "Failed to initialize payment");
       }
@@ -185,7 +205,7 @@ export function WalletPageClient({
               Fund wallet
             </h2>
             <p className="mt-2 text-sm text-zinc-500">
-              You will be redirected to Paystack to complete the payment.
+              A Paystack payment window will open. Complete payment there; this page will refresh when done.
             </p>
             <form onSubmit={handleFundWallet} className="mt-8 space-y-6">
               {error && <p className="text-sm text-red-600">{error}</p>}
@@ -226,7 +246,7 @@ export function WalletPageClient({
                       Processing…
                     </>
                   ) : (
-                    "Continue to Paystack"
+                    "Open Paystack"
                   )}
                 </Button>
               </div>
