@@ -276,7 +276,7 @@ export function QuickQuoteCard({ className }: { className?: string }) {
           <Button
             type="button"
             onClick={handleGenerateQuote}
-            className="h-12 min-h-[3rem] w-full rounded-none bg-[#e3201b] font-sans font-medium text-white hover:bg-[#cc0008] sm:h-10 sm:min-h-0"
+            className="h-12 min-h-[3rem] w-full rounded-none bg-[#e3201b] font-sans font-medium text-white hover:bg-[#e3201b]/90 sm:h-10 sm:min-h-0"
           >
             Generate Quote
           </Button>

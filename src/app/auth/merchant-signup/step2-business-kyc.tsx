@@ -109,7 +109,7 @@ export function MerchantSignupStep2({
         <button
           type="submit"
           disabled={!valid || submitting}
-          className="flex-1 rounded-none bg-[#e3201b] py-4 text-sm font-medium text-white hover:bg-[#cc0008] disabled:opacity-50 font-sans"
+          className="flex-1 rounded-none bg-[#e3201b] py-4 text-sm font-medium text-white hover:bg-[#e3201b]/90 disabled:opacity-50 font-sans"
         >
           {submitting ? "Submitting…" : "Submit for verification"}
         </button>

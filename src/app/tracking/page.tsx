@@ -58,7 +58,7 @@ export default function TrackingPage() {
               </div>
               <button
                 type="submit"
-                className="rounded-xl bg-[#e3201b] px-8 py-4 font-medium text-white shadow-lg shadow-[#e3201b]/25 transition-all hover:-translate-y-0.5 hover:bg-[#c41b17] focus:outline-none focus:ring-2 focus:ring-[#e3201b] focus:ring-offset-2"
+                className="rounded-xl bg-[#e3201b] px-8 py-4 font-medium text-white shadow-lg shadow-[#e3201b]/25 transition-all hover:-translate-y-0.5 hover:bg-[#e3201b]/90 focus:outline-none focus:ring-2 focus:ring-[#e3201b] focus:ring-offset-2"
               >
                 Track
               </button>

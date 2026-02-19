@@ -75,7 +75,7 @@ export default function HubBookingPage() {
           <div className="mt-6 flex gap-3">
             <Link
               href="/hub/tasks"
-              className="rounded-none border border-[#e3201b] bg-[#e3201b] px-4 py-2 text-sm font-medium text-white hover:bg-[#c41b17]"
+              className="rounded-none border border-[#e3201b] bg-[#e3201b] px-4 py-2 text-sm font-medium text-white hover:bg-[#e3201b]/90"
             >
               Back to Tasks
             </Link>
@@ -294,7 +294,7 @@ export default function HubBookingPage() {
         <div className="flex gap-3">
           <button
             type="submit"
-            className="rounded-none border border-[#e3201b] bg-[#e3201b] px-6 py-3 text-sm font-medium text-white hover:bg-[#c41b17]"
+            className="rounded-none border border-[#e3201b] bg-[#e3201b] px-6 py-3 text-sm font-medium text-white hover:bg-[#e3201b]/90"
           >
             Create waybill
           </button>

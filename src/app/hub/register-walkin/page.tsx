@@ -24,7 +24,7 @@ export default function HubRegisterWalkinPage() {
         />
         <Link
           href="/hub/dashboard"
-          className="mt-4 inline-block w-full rounded-none bg-[#e3201b] py-3 text-center text-sm font-medium text-white hover:bg-[#cc0008]"
+          className="mt-4 inline-block w-full rounded-none bg-[#e3201b] py-3 text-center text-sm font-medium text-white hover:bg-[#e3201b]/90"
         >
           Register
         </Link>

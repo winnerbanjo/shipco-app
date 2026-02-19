@@ -184,7 +184,7 @@ export default function HubTasksPage() {
                     <button
                       type="button"
                       onClick={() => acceptTask(t)}
-                      className="border border-[#e3201b] bg-[#e3201b] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#c41b17]"
+                      className="border border-[#e3201b] bg-[#e3201b] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#e3201b]/90"
                     >
                       Accept Task
                     </button>
@@ -193,7 +193,7 @@ export default function HubTasksPage() {
                     <button
                       type="button"
                       onClick={() => completeTask(t.id)}
-                      className="border border-[#e3201b] bg-[#e3201b] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#c41b17]"
+                      className="border border-[#e3201b] bg-[#e3201b] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#e3201b]/90"
                     >
                       Mark as Completed
                     </button>

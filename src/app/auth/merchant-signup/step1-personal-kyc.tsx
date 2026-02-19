@@ -126,7 +126,7 @@ export function MerchantSignupStep1({
       <button
         type="submit"
         disabled={!valid}
-        className="w-full rounded-none bg-[#e3201b] py-4 text-sm font-medium text-white hover:bg-[#cc0008] disabled:opacity-50 font-sans"
+        className="w-full rounded-none bg-[#e3201b] py-4 text-sm font-medium text-white hover:bg-[#e3201b]/90 disabled:opacity-50 font-sans"
       >
         Continue to Business KYC
       </button>

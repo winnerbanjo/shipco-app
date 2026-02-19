@@ -120,7 +120,7 @@ export function BookingSlipModal({ open, onClose, data, className }: BookingSlip
           <Button
             type="button"
             onClick={handlePrint}
-            className="rounded-none bg-[#e3201b] px-4 py-2 text-sm font-medium text-white hover:bg-[#c41b17]"
+            className="rounded-none bg-[#e3201b] px-4 py-2 text-sm font-medium text-white hover:bg-[#e3201b]/90"
           >
             Print Slip
           </Button>

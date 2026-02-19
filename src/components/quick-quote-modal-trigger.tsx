@@ -25,7 +25,7 @@ export function QuickQuoteModalTrigger() {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-40 flex h-12 min-h-[3rem] items-center gap-2 rounded-none border border-[#e3201b] bg-[#e3201b] px-4 py-3 font-sans text-sm font-medium text-white shadow-lg transition-colors hover:bg-[#cc0008] md:bottom-8 md:right-8 md:px-5"
+        className="fixed bottom-6 right-6 z-40 flex h-12 min-h-[3rem] items-center gap-2 rounded-none border border-[#e3201b] bg-[#e3201b] px-4 py-3 font-sans text-sm font-medium text-white shadow-lg transition-colors hover:bg-[#e3201b]/90 md:bottom-8 md:right-8 md:px-5"
         aria-label="Check rates"
       >
         <Calculator className="h-5 w-5 shrink-0" />

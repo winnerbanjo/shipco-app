@@ -74,7 +74,7 @@ export function BookingForm() {
     <div className="flex flex-col gap-10 lg:flex-row lg:items-start">
       <form action={formAction} className="min-w-0 flex-1">
         {state?.error && (
-          <p className="mb-8 text-sm text-red-600 font-sans" role="alert">
+          <p className="mb-8 text-sm text-[#e3201b] font-sans" role="alert">
             {state.error}
           </p>
         )}
@@ -156,7 +156,7 @@ export function BookingForm() {
               <Button
                 type="button"
                 onClick={() => setStep(2)}
-                className="h-12 rounded-none bg-[#e3201b] px-8 font-sans hover:bg-[#c41b17]"
+                className="h-12 rounded-none bg-[#e3201b] px-8 font-sans hover:bg-[#e3201b]/90"
               >
                 Next
                 <ChevronRight strokeWidth={1} className="ml-2 h-4 w-4" />
@@ -329,7 +329,7 @@ export function BookingForm() {
               <Button
                 type="button"
                 onClick={() => setStep(3)}
-                className="h-12 rounded-none bg-[#e3201b] px-8 font-sans hover:bg-[#c41b17]"
+                className="h-12 rounded-none bg-[#e3201b] px-8 font-sans hover:bg-[#e3201b]/90"
               >
                 Next
                 <ChevronRight strokeWidth={1} className="ml-2 h-4 w-4" />
@@ -376,7 +376,7 @@ export function BookingForm() {
               {signatureRequired && <input type="hidden" name="signatureRequired" value="on" />}
               <Button
                 type="submit"
-                className="h-12 rounded-none bg-[#e3201b] px-8 font-sans hover:bg-[#c41b17]"
+                className="h-12 rounded-none bg-[#e3201b] px-8 font-sans hover:bg-[#e3201b]/90"
               >
                 Create booking
               </Button>

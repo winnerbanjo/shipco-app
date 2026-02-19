@@ -199,7 +199,7 @@ export function MoversBookingForm({
           </Button>
           <Button
             type="button"
-            className="rounded-none bg-[#e3201b] font-sans hover:bg-[#c41b17]"
+            className="rounded-none bg-[#e3201b] font-sans hover:bg-[#e3201b]/90"
           >
             Book Van
           </Button>

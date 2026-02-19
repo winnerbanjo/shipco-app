@@ -156,7 +156,7 @@ export default function MerchantSignupPage() {
 
         <div className="mt-8 rounded-2xl border border-zinc-100 bg-white p-8 shadow-sm">
           {error && (
-            <div className="mb-6 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+            <div className="mb-6 rounded-2xl border border-[#e3201b]/30 bg-[#e3201b]/5 px-4 py-3 text-sm text-[#e3201b]">
               {error}
             </div>
           )}
@@ -214,7 +214,7 @@ export default function MerchantSignupPage() {
               <button
                 type="submit"
                 disabled={!personalValid || submitting}
-                className="w-full rounded-2xl bg-[#e3201b] py-4 text-sm font-medium text-white hover:bg-[#cc0008] disabled:opacity-50 font-sans transition-colors"
+                className="w-full rounded-2xl bg-[#e3201b] py-4 text-sm font-medium text-white hover:bg-[#e3201b]/90 disabled:opacity-50 font-sans transition-colors"
               >
                 {submitting ? "Creating account…" : "Continue to Dashboard"}
               </button>
@@ -268,7 +268,7 @@ export default function MerchantSignupPage() {
                   <button
                     type="submit"
                     disabled={!businessStep1Valid}
-                    className="w-full rounded-2xl bg-[#e3201b] py-4 text-sm font-medium text-white hover:bg-[#cc0008] disabled:opacity-50 font-sans transition-colors"
+                    className="w-full rounded-2xl bg-[#e3201b] py-4 text-sm font-medium text-white hover:bg-[#e3201b]/90 disabled:opacity-50 font-sans transition-colors"
                   >
                     Continue
                   </button>
@@ -311,7 +311,7 @@ export default function MerchantSignupPage() {
                     <button
                       type="submit"
                       disabled={!businessStep2Valid || submitting}
-                      className="flex-1 rounded-2xl bg-[#e3201b] py-4 text-sm font-medium text-white hover:bg-[#cc0008] disabled:opacity-50 font-sans transition-colors"
+                      className="flex-1 rounded-2xl bg-[#e3201b] py-4 text-sm font-medium text-white hover:bg-[#e3201b]/90 disabled:opacity-50 font-sans transition-colors"
                     >
                       {submitting ? "Creating account…" : "Continue to KYC"}
                     </button>

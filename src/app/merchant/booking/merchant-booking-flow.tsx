@@ -1,15 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import type { ServiceType } from "@/data/booking-constants";
 import { ServiceTypeSelector } from "@/components/service-type-selector";
 import { BookingPowerForm } from "./booking-power-form";
 import { MoversBookingForm } from "./movers-booking-form";
+import { peekBookingDraft } from "@/lib/booking-draft";
 
 type Sender = { businessName: string; email: string; address: string };
 
 export function MerchantBookingFlow({ sender, merchantId }: { sender: Sender; merchantId?: string }) {
   const [serviceType, setServiceType] = useState<ServiceType | null>(null);
+  const draftApplied = useRef(false);
+
+  useEffect(() => {
+    if (draftApplied.current) return;
+    const draft = peekBookingDraft();
+    if (!draft?.serviceType) return;
+    const st = draft.serviceType as ServiceType;
+    if (["local", "nationwide", "international", "movers"].includes(st)) {
+      draftApplied.current = true;
+      setServiceType(st);
+    }
+  }, []);
 
   if (serviceType === null) {
     return (

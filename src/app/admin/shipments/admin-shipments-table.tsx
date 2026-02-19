@@ -86,6 +86,7 @@ export function AdminShipmentsTable() {
             <tr className="border-b border-zinc-200 bg-zinc-50">
               <th className="px-8 py-5 font-medium font-sans tracking-tight text-zinc-900">Tracking ID</th>
               <th className="px-8 py-5 font-medium font-sans tracking-tight text-zinc-900">Merchant</th>
+              <th className="px-8 py-5 font-medium font-sans tracking-tight text-zinc-900">Service</th>
               <th className="px-8 py-5 font-medium font-sans tracking-tight text-zinc-900">Origin</th>
               <th className="px-8 py-5 font-medium font-sans tracking-tight text-zinc-900">Destination</th>
               <th className="px-8 py-5 font-medium font-sans tracking-tight text-zinc-900">Weight</th>
@@ -98,7 +99,7 @@ export function AdminShipmentsTable() {
           <tbody>
             {filtered.length === 0 ? (
               <tr>
-                <td colSpan={9} className="px-8 py-16 text-center text-sm text-zinc-500">
+                <td colSpan={10} className="px-8 py-16 text-center text-sm text-zinc-500">
                   No matches found
                 </td>
               </tr>
@@ -111,6 +112,7 @@ export function AdminShipmentsTable() {
                   <tr key={s.id} className="border-b border-zinc-200 last:border-b-0">
                     <td className="px-8 py-5 font-mono font-sans text-[#e3201b]">{s.trackingId}</td>
                     <td className="px-8 py-5 font-sans text-zinc-900">{s.merchant}</td>
+                    <td className="px-8 py-5 font-sans text-zinc-600">{s.serviceMode ?? "—"}</td>
                     <td className="px-8 py-5 font-sans text-zinc-600">{s.origin}</td>
                     <td className="px-8 py-5 font-sans text-zinc-900">{s.destination}</td>
                     <td className="px-8 py-5 font-sans text-zinc-600">{s.weightKg} kg</td>

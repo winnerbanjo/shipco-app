@@ -98,7 +98,7 @@ export default function AdminPartnersPage() {
             resetForm();
             setShowForm(!showForm);
           }}
-          className="flex items-center gap-2 border border-[#e3201b] bg-[#e3201b] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#cc0008]"
+          className="flex items-center gap-2 border border-[#e3201b] bg-[#e3201b] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#e3201b]/90"
         >
           <Plus className="h-4 w-4" />
           Add New Partner
@@ -182,7 +182,7 @@ export default function AdminPartnersPage() {
             <button
               type="button"
               onClick={handleSave}
-              className="border border-[#e3201b] bg-[#e3201b] px-6 py-2 text-sm font-medium text-white hover:bg-[#cc0008]"
+              className="border border-[#e3201b] bg-[#e3201b] px-6 py-2 text-sm font-medium text-white hover:bg-[#e3201b]/90"
             >
               {editing ? "Save" : "Add Partner"}
             </button>

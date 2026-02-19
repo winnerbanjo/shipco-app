@@ -50,7 +50,7 @@ export function TrackForm({
       </div>
       <button
         type="submit"
-        className="rounded-none bg-[#e3201b] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#cc0008]"
+        className="rounded-none bg-[#e3201b] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#e3201b]/90"
       >
         Track
       </button>

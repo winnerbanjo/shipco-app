@@ -43,7 +43,7 @@ export function LandingNav() {
           </Link>
           <Link
             href="/auth/login?callbackUrl=/merchant/booking"
-            className="rounded-full bg-[#e3201b] px-5 py-2.5 text-sm font-medium text-white shadow-lg shadow-[#e3201b]/25 transition-all hover:-translate-y-0.5 hover:bg-[#c41b17] hover:shadow-xl hover:shadow-[#e3201b]/30"
+            className="rounded-full bg-[#e3201b] px-5 py-2.5 text-sm font-medium text-white shadow-lg shadow-[#e3201b]/25 transition-all hover:-translate-y-0.5 hover:bg-[#e3201b]/90 hover:shadow-xl hover:shadow-[#e3201b]/30"
           >
             Get Started
           </Link>

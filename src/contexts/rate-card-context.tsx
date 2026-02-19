@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useCallback, useContext, useMemo, useState } from "react";
+import { computeLocalDispatchTotal } from "@/data/local-dispatch-pricing";
 
 export interface RateCardRow {
   origin: string;
@@ -92,6 +93,15 @@ export function RateCardProvider({ children }: { children: React.ReactNode }) {
 
   const getQuote = useCallback(
     (origin: string, destination: string, weightKg: number, express: boolean, merchantId?: string): { baseFare: number; perKg: number; total: number } => {
+      const o = origin.trim();
+      const d = destination.trim();
+      const bothLagos = o.toLowerCase() === "lagos" && d.toLowerCase() === "lagos";
+      if (bothLagos && weightKg > 0) {
+        const total = computeLocalDispatchTotal(weightKg);
+        const baseFare = total;
+        const perKg = 0;
+        return { baseFare, perKg, total: express ? Math.round(total * EXPRESS_MULTIPLIER) : total };
+      }
       const custom = merchantId ? customRatesByMerchant[merchantId] : undefined;
       const rates = custom
         ? (express ? custom.expressRates : custom.economyRates)

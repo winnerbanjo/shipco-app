@@ -358,7 +358,7 @@ export default function PricingPage() {
                 </div>
                 <a
                   href="mailto:sales@shipco.com?subject=High-Volume%20Pricing"
-                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-[#e3201b] px-8 py-4 font-medium text-white shadow-lg shadow-[#e3201b]/25 transition-all hover:-translate-y-0.5 hover:bg-[#c41b17] hover:shadow-xl"
+                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-[#e3201b] px-8 py-4 font-medium text-white shadow-lg shadow-[#e3201b]/25 transition-all hover:-translate-y-0.5 hover:bg-[#e3201b]/90 hover:shadow-xl"
                 >
                   <MessageCircle className="h-5 w-5" strokeWidth={1.5} />
                   Contact sales

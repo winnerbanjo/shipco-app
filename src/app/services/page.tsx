@@ -156,7 +156,7 @@ export default function ServicesPage() {
           <ScrollReveal className="mt-20 text-center">
             <Link
               href="/auth/login?callbackUrl=/merchant/booking"
-              className="inline-flex items-center justify-center rounded-xl bg-[#e3201b] px-8 py-4 text-base font-medium text-white shadow-lg shadow-[#e3201b]/25 transition-all hover:-translate-y-0.5 hover:bg-[#c41b17]"
+              className="inline-flex items-center justify-center rounded-xl bg-[#e3201b] px-8 py-4 text-base font-medium text-white shadow-lg shadow-[#e3201b]/25 transition-all hover:-translate-y-0.5 hover:bg-[#e3201b]/90"
             >
               Get Started — Book a shipment
             </Link>

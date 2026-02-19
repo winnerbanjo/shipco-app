@@ -67,7 +67,7 @@ export default function HubDashboardPage() {
             <Link
               key={href}
               href={href}
-              className="flex items-center gap-4 border-0 bg-[#e3201b] p-6 font-medium text-white transition-colors hover:bg-[#c41b17]"
+              className="flex items-center gap-4 border-0 bg-[#e3201b] p-6 font-medium text-white transition-colors hover:bg-[#e3201b]/90"
             >
               <div className="flex h-12 w-12 items-center justify-center bg-white/15">
                 <Icon strokeWidth={1} className="h-6 w-6 text-white" />

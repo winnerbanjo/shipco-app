@@ -77,7 +77,7 @@ export default function ApiDocsPage() {
                   <button
                     type="button"
                     onClick={copyApiKey}
-                    className="ml-auto flex shrink-0 items-center gap-2 rounded-lg bg-[#e3201b] px-3 py-2 text-xs font-medium text-white transition-colors hover:bg-[#c41b17]"
+                    className="ml-auto flex shrink-0 items-center gap-2 rounded-lg bg-[#e3201b] px-3 py-2 text-xs font-medium text-white transition-colors hover:bg-[#e3201b]/90"
                   >
                     {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
                     {copied ? "Copied" : "Copy API Key"}

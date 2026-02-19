@@ -45,7 +45,7 @@ export function SettingsClient({
           Business details
         </h2>
         <form action={formAction} className="mt-8 space-y-6">
-          {state?.error && <p className="text-sm text-red-600">{state.error}</p>}
+          {state?.error && <p className="text-sm text-[#e3201b]">{state.error}</p>}
           {state?.ok && <p className="text-sm text-green-600">Saved.</p>}
           <div>
             <Label htmlFor="businessName" className="text-zinc-700">Business name</Label>
@@ -87,7 +87,7 @@ export function SettingsClient({
               className="mt-2 h-12 rounded-none border-zinc-100"
             />
           </div>
-          <Button type="submit" className="rounded-none bg-[#e3201b] hover:bg-[#cc0008]">
+          <Button type="submit" className="rounded-none bg-[#e3201b] hover:bg-[#e3201b]/90">
             Save
           </Button>
         </form>
@@ -163,7 +163,7 @@ export function SettingsClient({
             type="button"
             onClick={handleGenerateKey}
             disabled={generating}
-            className="mt-4 rounded-none bg-[#e3201b] hover:bg-[#cc0008]"
+            className="mt-4 rounded-none bg-[#e3201b] hover:bg-[#e3201b]/90"
           >
             {generating ? "Generating…" : apiKeyMasked || apiKey ? "Regenerate API key" : "Generate API key"}
           </Button>

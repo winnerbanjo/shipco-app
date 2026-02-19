@@ -383,7 +383,7 @@ export default function AdminPricingPage() {
                     lastSync: c.connected ? c.lastSync : STATIC_ISO,
                   }));
                 }}
-                className="cursor-pointer border border-[#e3201b] bg-[#e3201b] px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-[#c41b17]"
+                className="cursor-pointer border border-[#e3201b] bg-[#e3201b] px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-[#e3201b]/90"
               >
                 {apiConfig.connected ? "Disconnect" : "Connect"}
               </button>
@@ -454,7 +454,7 @@ export default function AdminPricingPage() {
                 />
                 <label
                   htmlFor="csv-upload"
-                  className="mt-4 cursor-pointer border border-[#e3201b] bg-[#e3201b] px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-[#c41b17]"
+                  className="mt-4 cursor-pointer border border-[#e3201b] bg-[#e3201b] px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-[#e3201b]/90"
                 >
                   Choose file
                 </label>
@@ -723,7 +723,7 @@ export default function AdminPricingPage() {
                         id={`${type}-csv`}
                         onChange={(e) => handleFileSelect(e, type)}
                       />
-                      <label htmlFor={`${type}-csv`} className="mt-2 cursor-pointer rounded-none border border-[#e3201b] bg-[#e3201b] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#c41b17]">
+                      <label htmlFor={`${type}-csv`} className="mt-2 cursor-pointer rounded-none border border-[#e3201b] bg-[#e3201b] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#e3201b]/90">
                         Choose file
                       </label>
                     </div>
@@ -856,7 +856,7 @@ export default function AdminPricingPage() {
                             e.stopPropagation();
                             assignMoversDiscountToMerchant();
                           }}
-                          className="cursor-pointer rounded-none border border-[#e3201b] bg-[#e3201b] px-3 py-1.5 text-xs font-medium text-white font-sans transition-colors hover:bg-[#c41b17]"
+                          className="cursor-pointer rounded-none border border-[#e3201b] bg-[#e3201b] px-3 py-1.5 text-xs font-medium text-white font-sans transition-colors hover:bg-[#e3201b]/90"
                         >
                           Assign Rate
                         </button>

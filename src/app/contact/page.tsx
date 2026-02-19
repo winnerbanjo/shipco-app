@@ -183,7 +183,7 @@ export default function ContactPage() {
               </div>
               <button
                 type="submit"
-                className="mt-8 w-full rounded-xl bg-[#e3201b] px-6 py-4 text-base font-medium text-white shadow-lg shadow-[#e3201b]/25 transition-all hover:-translate-y-0.5 hover:bg-[#c41b17] hover:shadow-xl"
+                className="mt-8 w-full rounded-xl bg-[#e3201b] px-6 py-4 text-base font-medium text-white shadow-lg shadow-[#e3201b]/25 transition-all hover:-translate-y-0.5 hover:bg-[#e3201b]/90 hover:shadow-xl"
               >
                 Send message
               </button>

@@ -118,7 +118,7 @@ export function WalletPageClient({
           <Button
             type="button"
             onClick={() => setModalOpen(true)}
-            className="h-12 rounded-none bg-[#e3201b] px-8 text-sm font-medium text-white hover:bg-[#c41b17]"
+            className="h-12 rounded-none bg-[#e3201b] px-8 text-sm font-medium text-white hover:bg-[#e3201b]/90"
           >
             Fund wallet
           </Button>
@@ -237,7 +237,7 @@ export function WalletPageClient({
                 </Button>
                 <Button
                   type="submit"
-                  className="flex-1 rounded-none bg-[#e3201b] hover:bg-[#c41b17]"
+                  className="flex-1 rounded-none bg-[#e3201b] hover:bg-[#e3201b]/90"
                   disabled={funding}
                 >
                   {funding ? (

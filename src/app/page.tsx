@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   Building2,
   Bike,
@@ -21,6 +22,8 @@ import { LandingNav } from "@/components/landing/LandingNav";
 import { FatFooter } from "@/components/landing/FatFooter";
 import { BackToTop } from "@/components/landing/BackToTop";
 import { ScrollReveal } from "@/components/landing/ScrollReveal";
+import { saveBookingDraft } from "@/lib/booking-draft";
+import { computeLocalDispatchTotal } from "@/data/local-dispatch-pricing";
 
 const CITIES = [
   "Lagos",
@@ -149,15 +152,44 @@ const inputClass =
   "mt-2 w-full rounded-xl border border-[#121212]/15 bg-white px-4 py-3 text-sm text-[#121212] focus:border-[#e3201b] focus:outline-none focus:ring-2 focus:ring-[#e3201b]/20 placeholder:text-[#121212]/40";
 
 function SmartQuoteWidget() {
+  const router = useRouter();
   const [service, setService] = useState<ServiceType>("nationwide");
   const [city, setCity] = useState("Lagos");
   const [originCity, setOriginCity] = useState("Lagos");
   const [destinationCity, setDestinationCity] = useState("");
+  const [originLga, setOriginLga] = useState("");
+  const [destLga, setDestLga] = useState("");
   const [area, setArea] = useState("");
   const [originCountry, setOriginCountry] = useState("");
   const [destinationCountry, setDestinationCountry] = useState("");
   const [category, setCategory] = useState("general");
   const [weight, setWeight] = useState("");
+
+  const isWithinLagos =
+    service === "nationwide" && originCity === "Lagos" && destinationCity === "Lagos";
+  const weightNum = parseFloat(weight) || 0;
+  const localDispatchAmount = isWithinLagos && weightNum > 0 ? computeLocalDispatchTotal(weightNum) : 0;
+
+  function handleGetQuoteAndBook() {
+    const origin =
+      service === "local" ? city : service === "nationwide" ? originCity : service === "import" ? originCountry : originCity;
+    const destination =
+      service === "local" ? area : service === "nationwide" ? destinationCity : service === "import" ? destinationCity : destinationCountry;
+    const w = weightNum || 0;
+    const quoteAmount =
+      isWithinLagos && w > 0 ? localDispatchAmount : 0;
+    saveBookingDraft(origin, destination, w, quoteAmount, {
+      serviceType: service,
+      ...(isWithinLagos && { originLga: originLga || undefined, destLga: destLga || undefined }),
+    });
+    const params = new URLSearchParams();
+    params.set("callbackUrl", "/merchant/booking");
+    if (origin) params.set("origin", origin);
+    if (destination) params.set("destination", destination);
+    if (w > 0) params.set("weight", String(w));
+    if (service) params.set("service", service);
+    router.push(`/auth/login?${params.toString()}`);
+  }
 
   return (
     <div className="rounded-2xl border border-[#121212]/10 bg-white/80 p-6 shadow-xl backdrop-blur-md transition-all hover:shadow-2xl sm:p-8">
@@ -220,7 +252,7 @@ function SmartQuoteWidget() {
           </>
         )}
 
-        {/* Nationwide: Origin + Destination city */}
+        {/* Nationwide: Origin + Destination city; when both Lagos → LGA selector */}
         {service === "nationwide" && (
           <>
             <div className="grid gap-4 sm:grid-cols-2">
@@ -230,7 +262,10 @@ function SmartQuoteWidget() {
                 </label>
                 <select
                   value={originCity}
-                  onChange={(e) => setOriginCity(e.target.value)}
+                  onChange={(e) => {
+                    setOriginCity(e.target.value);
+                    if (e.target.value !== "Lagos") setOriginLga("");
+                  }}
                   className={inputClass}
                 >
                   {CITIES.map((c) => (
@@ -244,7 +279,10 @@ function SmartQuoteWidget() {
                 </label>
                 <select
                   value={destinationCity}
-                  onChange={(e) => setDestinationCity(e.target.value)}
+                  onChange={(e) => {
+                    setDestinationCity(e.target.value);
+                    if (e.target.value !== "Lagos") setDestLga("");
+                  }}
                   className={inputClass}
                 >
                   <option value="">Select city</option>
@@ -254,6 +292,47 @@ function SmartQuoteWidget() {
                 </select>
               </div>
             </div>
+            {isWithinLagos && (
+              <>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label className="block text-xs font-medium uppercase tracking-wider text-[#121212]/60">
+                      Origin LGA / Area
+                    </label>
+                    <select
+                      value={originLga}
+                      onChange={(e) => setOriginLga(e.target.value)}
+                      className={inputClass}
+                    >
+                      <option value="">Select area</option>
+                      {LAGOS_AREAS.map((a) => (
+                        <option key={a} value={a}>{a}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium uppercase tracking-wider text-[#121212]/60">
+                      Destination LGA / Area
+                    </label>
+                    <select
+                      value={destLga}
+                      onChange={(e) => setDestLga(e.target.value)}
+                      className={inputClass}
+                    >
+                      <option value="">Select area</option>
+                      {LAGOS_AREAS.map((a) => (
+                        <option key={a} value={a}>{a}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+                {weightNum > 0 && (
+                  <p className="text-sm font-medium text-[#e3201b]">
+                    Local Dispatch: ₦{localDispatchAmount.toLocaleString("en-NG")} (flat + ₦{120}/kg)
+                  </p>
+                )}
+              </>
+            )}
           </>
         )}
 
@@ -372,13 +451,14 @@ function SmartQuoteWidget() {
         </div>
       </div>
 
-      <Link
-        href="/auth/login?callbackUrl=/merchant/booking"
-        className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-[#e3201b] px-6 py-4 text-base font-medium text-white shadow-lg shadow-[#e3201b]/25 transition-all hover:-translate-y-0.5 hover:bg-[#c41b17] hover:shadow-xl"
+      <button
+        type="button"
+        onClick={handleGetQuoteAndBook}
+        className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-[#e3201b] px-6 py-4 text-base font-medium text-white shadow-lg shadow-[#e3201b]/25 transition-all hover:-translate-y-0.5 hover:bg-[#e3201b]/90 hover:shadow-xl"
       >
         Get Quote & Book
         <ArrowRight className="h-5 w-5" strokeWidth={2} />
-      </Link>
+      </button>
     </div>
   );
 }

@@ -119,6 +119,13 @@ export function BookingPowerForm({
     draftApplied.current = true;
     setWeight(String(draft.weightKg));
     setReceiverCountry(draft.destination);
+    if (draft.destLga || draft.destination) {
+      setReceiverStructured((prev) => ({
+        ...prev,
+        state: prev.state || draft.destination || "",
+        lga: prev.lga || draft.destLga || "",
+      }));
+    }
   }, []);
 
   function handleReceiverHubSuggest(hub: string | null) {
@@ -174,7 +181,7 @@ export function BookingPowerForm({
           <input type="hidden" name="nearestHub" value={serviceMode === "dropoff" ? nearestHub : ""} />
 
           {state?.error && (
-            <p className="mb-6 text-sm text-red-600" role="alert">
+            <p className="mb-6 text-sm text-[#e3201b]" role="alert">
               {state.error}
             </p>
           )}
@@ -524,7 +531,7 @@ export function BookingPowerForm({
           </div>
 
           <div className="mt-12">
-            <Button type="submit" className="h-12 rounded-none bg-[#e3201b] px-8 text-sm font-medium text-white hover:bg-[#c41b17]">
+            <Button type="submit" className="h-12 rounded-none bg-[#e3201b] px-8 text-sm font-medium text-white hover:bg-[#e3201b]/90">
               Generate Waybill
             </Button>
           </div>
@@ -567,7 +574,7 @@ export function BookingPowerForm({
               ? `${weightNum} kg · ${serviceLevel}${serviceMode === "pickup" ? " · Pick-up" : " · Drop-off"}`
               : "Enter weight to see quote"}
           </p>
-          <Button type="submit" form="booking-power-form" className="mt-8 w-full rounded-none bg-[#e3201b] py-3 text-sm font-medium text-white hover:bg-[#c41b17]">
+          <Button type="submit" form="booking-power-form" className="mt-8 w-full rounded-none bg-[#e3201b] py-3 text-sm font-medium text-white hover:bg-[#e3201b]/90">
             Generate Waybill
           </Button>
         </aside>

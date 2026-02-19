@@ -88,7 +88,7 @@ export default function MerchantKycPage() {
 
       <form onSubmit={handleSubmit} className="mt-8 space-y-8">
         {error && (
-          <div className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+          <div className="rounded-2xl border border-[#e3201b]/30 bg-[#e3201b]/5 px-4 py-3 text-sm text-red-700">
             {error}
           </div>
         )}
@@ -102,7 +102,7 @@ export default function MerchantKycPage() {
             onDragLeave={() => setIdDrag(false)}
             onDrop={onIdDrop}
             className={`mt-3 flex min-h-[140px] flex-col items-center justify-center rounded-2xl border-2 border-dashed bg-zinc-50/50 p-6 transition-colors ${
-              idDrag ? "border-[#e3201b] bg-red-50/30" : "border-zinc-200"
+              idDrag ? "border-[#e3201b] bg-[#e3201b]/5" : "border-zinc-200"
             }`}
           >
             <input
@@ -145,7 +145,7 @@ export default function MerchantKycPage() {
             onDragLeave={() => setCacDrag(false)}
             onDrop={onCacDrop}
             className={`mt-3 flex min-h-[120px] flex-col items-center justify-center rounded-2xl border-2 border-dashed bg-zinc-50/50 p-6 transition-colors ${
-              cacDrag ? "border-[#e3201b] bg-red-50/30" : "border-zinc-200"
+              cacDrag ? "border-[#e3201b] bg-[#e3201b]/5" : "border-zinc-200"
             }`}
           >
             <input
@@ -175,7 +175,7 @@ export default function MerchantKycPage() {
           <button
             type="submit"
             disabled={submitting}
-            className="flex-1 rounded-2xl bg-[#e3201b] py-4 text-sm font-medium text-white hover:bg-[#cc0008] disabled:opacity-50"
+            className="flex-1 rounded-2xl bg-[#e3201b] py-4 text-sm font-medium text-white hover:bg-[#e3201b]/90 disabled:opacity-50"
           >
             {submitting ? "Submitting…" : "Submit for verification"}
           </button>

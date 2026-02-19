@@ -208,7 +208,7 @@ export default function AdminTasksPage() {
           <div className="flex items-end sm:col-span-2 lg:col-span-3">
             <button
               type="submit"
-              className="w-full border border-[#e3201b] bg-[#e3201b] px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-[#cc0008]"
+              className="w-full border border-[#e3201b] bg-[#e3201b] px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-[#e3201b]/90"
             >
               Save & push to hub
             </button>
