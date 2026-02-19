@@ -6,14 +6,10 @@ import { prisma } from "@/lib/prisma";
 
 /**
  * NextAuth credentials: same bcryptjs library as prisma/seed.ts (hash there, compare here).
- * Session is JWT; secret from env.
- *
- * Production (Vercel): Set NEXTAUTH_URL to your live URL (e.g. https://your-app.vercel.app).
- * trustHost lets NextAuth use X-Forwarded-Host/Proto from Vercel's proxy for callbacks.
+ * Session is JWT. Set NEXTAUTH_URL to your live URL in production (e.g. https://your-app.vercel.app).
  */
 export const authOptions: NextAuthOptions = {
-  trustHost: true,
-  useSecureCookies: process.env.NODE_ENV === "production",
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
       id: "credentials",
@@ -96,7 +92,6 @@ export const authOptions: NextAuthOptions = {
   },
   pages: { signIn: "/auth/login" },
   session: { strategy: "jwt" },
-  secret: process.env.NEXTAUTH_SECRET,
   debug: process.env.NODE_ENV === "development",
 };
 

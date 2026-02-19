@@ -1,10 +1,10 @@
 import { PrismaClient } from "@prisma/client";
 
 /**
- * Singleton with production-ready DB URL (sslmode=require, connect_timeout=30).
- * Prevents connection pool exhaustion on Vercel serverless.
+ * Singleton: one PrismaClient per process so Vercel serverless does not leak connections.
+ * DB URL gets sslmode=require&connect_timeout=30 when DATABASE_URL is set.
  */
-const globalForPrisma = globalThis as typeof globalThis & { prisma?: PrismaClient };
+const globalForPrisma = globalThis as typeof globalThis & { __prisma?: PrismaClient };
 
 function getDatabaseUrl(): string {
   const base = process.env.DATABASE_URL ?? "";
@@ -13,13 +13,13 @@ function getDatabaseUrl(): string {
   return `${base}${sep}sslmode=require&connect_timeout=30`;
 }
 
-const dbUrl = getDatabaseUrl();
-const prisma =
-  globalForPrisma.prisma ||
-  new PrismaClient({
+if (typeof globalForPrisma.__prisma === "undefined") {
+  const dbUrl = getDatabaseUrl();
+  globalForPrisma.__prisma = new PrismaClient({
     log: ["query"],
     ...(dbUrl ? { datasources: { db: { url: dbUrl } } } : {}),
   });
-if (!globalForPrisma.prisma) globalForPrisma.prisma = prisma;
+}
+const prisma = globalForPrisma.__prisma;
 
 export { prisma };
