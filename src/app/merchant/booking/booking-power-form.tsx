@@ -23,6 +23,7 @@ import { BookingSlipModal } from "@/components/booking-slip-modal";
 import { StructuredAddressField } from "@/components/structured-address-field";
 import { emptyStructuredAddress, type StructuredAddressValue } from "@/types/address";
 
+const PICKUP_FEE_NGN = 1500;
 const ITEM_CATEGORIES = ["Documents", "Electronics", "Fashion", "Food & Beverage", "General Merchandise", "Other"] as const;
 const PACKAGE_CATEGORY_OPTIONS = [
   { value: "personal", label: "Personal" },
@@ -42,6 +43,9 @@ export function BookingPowerForm({
   merchantId?: string;
   onBack: () => void;
 }) {
+  type ServiceMode = "dropoff" | "pickup";
+  const [serviceMode, setServiceMode] = useState<ServiceMode>("dropoff");
+  const [nearestHub, setNearestHub] = useState(DESTINATION_HUB_OPTIONS[0].value);
   const [receiverName, setReceiverName] = useState("");
   const [receiverPhone, setReceiverPhone] = useState("");
   const [receiverStructured, setReceiverStructured] = useState<StructuredAddressValue>(emptyStructuredAddress());
@@ -98,8 +102,14 @@ export function BookingPowerForm({
     }
     const ins = declaredNum > 0 ? Math.round(declaredNum * 0.005) : 0;
     const intlIns = isInternational && itemValueNum > 0 ? Math.round(itemValueNum * 0.01) : 0;
-    return { baseFare: baseFareVal, insurance: ins + intlIns, total: totalVal + ins + intlIns };
-  }, [weightNum, express, declaredNum, isInternational, itemValueNum, origin, destination, zone, getQuote, merchantId]);
+    const pickupFee = serviceMode === "pickup" ? PICKUP_FEE_NGN : 0;
+    return {
+      baseFare: baseFareVal,
+      insurance: ins + intlIns,
+      total: totalVal + ins + intlIns + pickupFee,
+      pickupFee,
+    };
+  }, [weightNum, express, declaredNum, isInternational, itemValueNum, origin, destination, zone, getQuote, merchantId, serviceMode]);
 
   const [showSlip, setShowSlip] = useState(false);
   useEffect(() => {
@@ -111,6 +121,8 @@ export function BookingPowerForm({
       <div className="mt-12 flex gap-0">
         <form id="booking-power-form" action={formAction} className="min-w-0 flex-1 pr-12">
           <input type="hidden" name="serviceType" value={serviceType} />
+          <input type="hidden" name="serviceMode" value={serviceMode} />
+          <input type="hidden" name="nearestHub" value={serviceMode === "dropoff" ? nearestHub : ""} />
 
           {state?.error && (
             <p className="mb-6 text-sm text-red-600" role="alert">
@@ -126,6 +138,55 @@ export function BookingPowerForm({
               ← Change service
             </Button>
           </div>
+
+          {/* Service mode: Drop-off at Hub | Rider Pick-up */}
+          <div className="mb-10">
+            <p className="mb-3 text-xs font-medium uppercase tracking-wider text-zinc-500">Service mode</p>
+            <div className="flex rounded-lg border border-zinc-200 bg-zinc-50/50 p-1">
+              <button
+                type="button"
+                onClick={() => setServiceMode("dropoff")}
+                className={`flex-1 rounded-md px-5 py-3 text-sm font-medium transition-colors ${
+                  serviceMode === "dropoff"
+                    ? "bg-[#F40009] text-white shadow-sm"
+                    : "text-zinc-600 hover:text-zinc-900"
+                }`}
+              >
+                Drop-off at Hub
+              </button>
+              <button
+                type="button"
+                onClick={() => setServiceMode("pickup")}
+                className={`flex-1 rounded-md px-5 py-3 text-sm font-medium transition-colors ${
+                  serviceMode === "pickup"
+                    ? "bg-[#F40009] text-white shadow-sm"
+                    : "text-zinc-600 hover:text-zinc-900"
+                }`}
+              >
+                Rider Pick-up
+              </button>
+            </div>
+          </div>
+
+          {serviceMode === "dropoff" && (
+            <section className="mb-10 border-b border-zinc-100 pb-10">
+              <h2 className="text-xs font-medium uppercase tracking-wider text-zinc-500">Drop-off location</h2>
+              <p className="mt-1 text-sm text-zinc-400">Select the hub where you’ll drop the package</p>
+              <div className="mt-4">
+                <Label htmlFor="nearestHub" className="text-zinc-700">Select nearest hub</Label>
+                <select
+                  id="nearestHub"
+                  value={nearestHub}
+                  onChange={(e) => setNearestHub(e.target.value)}
+                  className="mt-2 flex h-12 w-full max-w-sm rounded-lg border border-zinc-200 bg-white px-4 font-sans text-zinc-900"
+                >
+                  {DESTINATION_HUB_OPTIONS.map((o) => (
+                    <option key={o.value} value={o.value}>{o.label}</option>
+                  ))}
+                </select>
+              </div>
+            </section>
+          )}
 
           {/* Economy | Express toggle — Economy = Standard (slower, cheaper), Express = premium */}
           <div className="mb-10">
@@ -160,25 +221,27 @@ export function BookingPowerForm({
           </div>
 
           <div className="space-y-16">
-            {/* Sender */}
-            <section className="border-b border-zinc-100 pb-12">
-              <h2 className="text-xs font-medium uppercase tracking-wider text-zinc-500">Sender details</h2>
-              <p className="mt-1 text-sm text-zinc-400">From your merchant profile</p>
-              <div className="mt-8 grid gap-6 sm:grid-cols-2">
-                <div>
-                  <Label className="text-zinc-700">Business name</Label>
-                  <Input readOnly value={sender.businessName} className="mt-2 h-12 rounded-none border-zinc-100 bg-zinc-50" />
+            {/* Sender — only when Rider Pick-up */}
+            {serviceMode === "pickup" && (
+              <section className="border-b border-zinc-100 pb-12">
+                <h2 className="text-xs font-medium uppercase tracking-wider text-zinc-500">Sender details</h2>
+                <p className="mt-1 text-sm text-zinc-400">From your merchant profile (rider will pick up here)</p>
+                <div className="mt-8 grid gap-6 sm:grid-cols-2">
+                  <div>
+                    <Label className="text-zinc-700">Business name</Label>
+                    <Input readOnly value={sender.businessName} className="mt-2 h-12 rounded-none border-zinc-100 bg-zinc-50" />
+                  </div>
+                  <div>
+                    <Label className="text-zinc-700">Email</Label>
+                    <Input readOnly value={sender.email} className="mt-2 h-12 rounded-none border-zinc-100 bg-zinc-50" />
+                  </div>
+                  <div className="sm:col-span-2">
+                    <Label className="text-zinc-700">Address</Label>
+                    <Input readOnly value={sender.address} className="mt-2 h-12 rounded-none border-zinc-100 bg-zinc-50" />
+                  </div>
                 </div>
-                <div>
-                  <Label className="text-zinc-700">Email</Label>
-                  <Input readOnly value={sender.email} className="mt-2 h-12 rounded-none border-zinc-100 bg-zinc-50" />
-                </div>
-                <div className="sm:col-span-2">
-                  <Label className="text-zinc-700">Address</Label>
-                  <Input readOnly value={sender.address} className="mt-2 h-12 rounded-none border-zinc-100 bg-zinc-50" />
-                </div>
-              </div>
-            </section>
+              </section>
+            )}
 
             {/* Receiver + Destination Hub */}
             <section className="border-b border-zinc-100 pb-12">
@@ -421,6 +484,12 @@ export function BookingPowerForm({
               <span className="text-zinc-600">Insurance</span>
               <span className="font-medium text-zinc-900">₦{insurance.toLocaleString()}</span>
             </div>
+            {serviceMode === "pickup" && (
+              <div className="flex justify-between text-sm">
+                <span className="text-zinc-600">Pick-up fee</span>
+                <span className="font-medium text-zinc-900">₦{PICKUP_FEE_NGN.toLocaleString()}</span>
+              </div>
+            )}
             <div className="flex justify-between border-t border-zinc-100 pt-4">
               <span className="text-sm font-medium text-zinc-900">Total</span>
               <span className="text-xl font-semibold tracking-tighter text-[#F40009]">
@@ -429,7 +498,9 @@ export function BookingPowerForm({
             </div>
           </div>
           <p className="mt-3 text-xs text-zinc-500">
-            {weightNum > 0 ? `${weightNum} kg · ${serviceLevel}` : "Enter weight to see quote"}
+            {weightNum > 0
+              ? `${weightNum} kg · ${serviceLevel}${serviceMode === "pickup" ? " · Pick-up" : " · Drop-off"}`
+              : "Enter weight to see quote"}
           </p>
           <Button type="submit" form="booking-power-form" className="mt-8 w-full rounded-none bg-[#F40009] py-3 text-sm font-medium text-white hover:bg-[#cc0008]">
             Generate Waybill
