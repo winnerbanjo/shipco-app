@@ -189,9 +189,9 @@ export async function createBookingFromPowerForm(
       console.warn("Shipment booked but email failed:", emailErr);
     }
 
-    const senderName = merchant.businessName ?? "Merchant";
+    const senderName = merchant?.businessName ?? "Merchant";
     const senderAddressForm = (formData.get("senderAddress") as string)?.trim();
-    const senderAddress = senderAddressForm || merchant.address ?? "";
+    const senderAddress = (senderAddressForm || merchant?.address) ?? "";
 
     return {
       trackingId: shipmentDoc.trackingId,
