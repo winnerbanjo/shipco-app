@@ -64,7 +64,7 @@ export function DateFilter({ value, onChange, className }: DateFilterProps) {
             className={cn(
               "h-12 min-h-[3rem] rounded-none border px-3 py-2 text-sm font-medium transition-colors sm:h-auto sm:min-h-0",
               value.period === preset.value
-                ? "border-[#F40009] bg-[#F40009] text-white"
+                ? "border-[#e3201b] bg-[#e3201b] text-white"
                 : "border-zinc-200 bg-white text-zinc-700 hover:border-zinc-300 hover:bg-zinc-50"
             )}
           >
@@ -80,7 +80,7 @@ export function DateFilter({ value, onChange, className }: DateFilterProps) {
             onChange={(e) =>
               handleCustomRange(e.target.value, value.customTo ?? value.customFrom ?? "")
             }
-            className="h-9 rounded-none border border-zinc-200 bg-white px-2 text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-0"
+            className="h-9 rounded-none border border-zinc-200 bg-white px-2 text-sm text-zinc-900 focus:border-[#e3201b] focus:outline-none focus:ring-0"
           />
           <span className="text-zinc-400">→</span>
           <input
@@ -89,7 +89,7 @@ export function DateFilter({ value, onChange, className }: DateFilterProps) {
             onChange={(e) =>
               handleCustomRange(value.customFrom ?? "", e.target.value)
             }
-            className="h-9 rounded-none border border-zinc-200 bg-white px-2 text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-0"
+            className="h-9 rounded-none border border-zinc-200 bg-white px-2 text-sm text-zinc-900 focus:border-[#e3201b] focus:outline-none focus:ring-0"
           />
         </div>
       )}

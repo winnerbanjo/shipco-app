@@ -86,7 +86,7 @@ export function TrackModal({
         <div className="border-b border-zinc-100 px-6 py-4">
           <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">Route</p>
           <p className="mt-1 text-sm font-medium text-zinc-900">{origin} → {destination}</p>
-          <p className="mt-2 text-sm text-[#F40009]">{statusDetail}</p>
+          <p className="mt-2 text-sm text-[#e3201b]">{statusDetail}</p>
         </div>
         <div className="px-6 py-6">
           <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">Journey</p>
@@ -102,15 +102,15 @@ export function TrackModal({
                 <div
                   className={`relative z-10 h-4 w-4 shrink-0 border-2 ${
                     step.done
-                      ? "border-[#F40009] bg-[#F40009]"
+                      ? "border-[#e3201b] bg-[#e3201b]"
                       : step.current
-                        ? "border-[#F40009] bg-white"
+                        ? "border-[#e3201b] bg-white"
                         : "border-zinc-200 bg-white"
                   }`}
                 />
                 <p
                   className={`pt-0.5 text-sm font-medium ${
-                    step.done ? "text-zinc-900" : step.current ? "text-[#F40009]" : "text-zinc-400"
+                    step.done ? "text-zinc-900" : step.current ? "text-[#e3201b]" : "text-zinc-400"
                   }`}
                 >
                   {step.label}

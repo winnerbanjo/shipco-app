@@ -111,7 +111,7 @@ const TRUSTED_LOGOS = [
 
 const TESTIMONIALS = [
   {
-    quote: "Shipco made our nationwide fulfillment seamless. Tracking and support are top-notch.",
+    quote: "shipco made our nationwide fulfillment seamless. Tracking and support are top-notch.",
     author: "Adebayo O.",
     role: "Operations, TechCorp",
   },
@@ -146,7 +146,7 @@ const PICKUP_BULLETS = [
 const HERO_IMAGE = "/happy-client-with-their-box-delivered (1).jpg";
 
 const inputClass =
-  "mt-2 w-full rounded-xl border border-[#121212]/15 bg-white px-4 py-3 text-sm text-[#121212] focus:border-[#F40009] focus:outline-none focus:ring-2 focus:ring-[#F40009]/20 placeholder:text-[#121212]/40";
+  "mt-2 w-full rounded-xl border border-[#121212]/15 bg-white px-4 py-3 text-sm text-[#121212] focus:border-[#e3201b] focus:outline-none focus:ring-2 focus:ring-[#e3201b]/20 placeholder:text-[#121212]/40";
 
 function SmartQuoteWidget() {
   const [service, setService] = useState<ServiceType>("nationwide");
@@ -174,7 +174,7 @@ function SmartQuoteWidget() {
             onClick={() => setService(id)}
             className={`inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
               service === id
-                ? "bg-[#F40009] text-white"
+                ? "bg-[#e3201b] text-white"
                 : "bg-[#121212]/5 text-[#121212]/80 hover:bg-[#121212]/10 hover:text-[#121212]"
             }`}
           >
@@ -374,7 +374,7 @@ function SmartQuoteWidget() {
 
       <Link
         href="/auth/login?callbackUrl=/merchant/booking"
-        className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-[#F40009] px-6 py-4 text-base font-medium text-white shadow-lg shadow-[#F40009]/25 transition-all hover:-translate-y-0.5 hover:bg-[#cc0008] hover:shadow-xl"
+        className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-[#e3201b] px-6 py-4 text-base font-medium text-white shadow-lg shadow-[#e3201b]/25 transition-all hover:-translate-y-0.5 hover:bg-[#c41b17] hover:shadow-xl"
       >
         Get Quote & Book
         <ArrowRight className="h-5 w-5" strokeWidth={2} />
@@ -405,7 +405,7 @@ function TestimonialSlider() {
             transition={{ duration: 0.35 }}
             className="text-center"
           >
-            <Quote className="mx-auto h-10 w-10 text-[#F40009]/30" strokeWidth={1} />
+            <Quote className="mx-auto h-10 w-10 text-[#e3201b]/30" strokeWidth={1} />
             <blockquote className="mt-4 text-lg font-medium leading-relaxed text-[#121212] sm:text-xl">
               &ldquo;{TESTIMONIALS[index].quote}&rdquo;
             </blockquote>
@@ -432,7 +432,7 @@ function TestimonialSlider() {
               type="button"
               onClick={() => setIndex(i)}
               className={`h-2 rounded-full transition-all ${
-                i === index ? "w-6 bg-[#F40009]" : "w-2 bg-[#121212]/20 hover:bg-[#121212]/40"
+                i === index ? "w-6 bg-[#e3201b]" : "w-2 bg-[#121212]/20 hover:bg-[#121212]/40"
               }`}
               aria-label={`Go to testimonial ${i + 1}`}
             />
@@ -482,7 +482,7 @@ export default function HomePage() {
               <div className="relative aspect-square w-full max-w-md overflow-hidden rounded-3xl bg-[#121212]/5 shadow-2xl transition-all duration-500 hover:shadow-[0_24px_48px_-12px_rgba(0,0,0,0.18)] hover:-translate-y-2 animate-float">
                 <Image
                   src={HERO_IMAGE}
-                  alt="Happy client with their box delivered — Shipco delivery"
+                  alt="Happy client with their box delivered — shipco delivery"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -497,7 +497,7 @@ export default function HomePage() {
             <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 rounded-2xl border border-[#121212]/10 bg-white/80 px-8 py-6 shadow-xl backdrop-blur-md">
               {STATS.map(({ value, label }, i) => (
                 <div key={label} className="flex items-baseline gap-2">
-                  <span className="text-2xl font-bold text-[#F40009] sm:text-3xl">{value}</span>
+                  <span className="text-2xl font-bold text-[#e3201b] sm:text-3xl">{value}</span>
                   <span className="text-sm font-medium text-[#121212]/70">{label}</span>
                 </div>
               ))}
@@ -555,21 +555,21 @@ export default function HomePage() {
               {SERVICE_DEEP_DIVE.map(({ icon: Icon, title, href, bullets }, i) => (
                 <ScrollReveal key={title} delay={0.05 + i * 0.1}>
                   <div className="flex h-full flex-col rounded-2xl border border-[#121212]/10 bg-white/80 p-8 shadow-xl backdrop-blur-md transition-all hover:-translate-y-2 hover:shadow-2xl">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F40009]/10 text-[#F40009]">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#e3201b]/10 text-[#e3201b]">
                       <Icon className="h-7 w-7" strokeWidth={1.5} />
                     </div>
                     <h3 className="mt-6 text-xl font-bold text-[#121212]">{title}</h3>
                     <ul className="mt-4 flex-1 space-y-2">
                       {bullets.map((b) => (
                         <li key={b} className="flex items-start gap-2 text-sm text-[#121212]/80">
-                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#F40009]" strokeWidth={2} />
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#e3201b]" strokeWidth={2} />
                           {b}
                         </li>
                       ))}
                     </ul>
                     <Link
                       href={href}
-                      className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-[#F40009] hover:underline"
+                      className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-[#e3201b] hover:underline"
                     >
                       Learn more
                       <ArrowRight className="h-4 w-4" />
@@ -601,7 +601,7 @@ export default function HomePage() {
               ].map(({ step, title, body }) => (
                 <ScrollReveal key={step} delay={0.1 + step * 0.08}>
                   <div className="group relative z-10 flex flex-col items-center text-center transition-transform hover:-translate-y-2">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#F40009] text-lg font-bold text-white shadow-lg shadow-[#F40009]/30">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#e3201b] text-lg font-bold text-white shadow-lg shadow-[#e3201b]/30">
                       {step}
                     </div>
                     <h3 className="mt-6 text-lg font-semibold text-[#121212]">{title}</h3>
@@ -644,15 +644,15 @@ export default function HomePage() {
             <div className="mt-16 grid gap-8 sm:grid-cols-2">
               <ScrollReveal delay={0.1}>
                 <div className="rounded-2xl border border-[#121212]/10 bg-white/80 p-8 shadow-xl backdrop-blur-md transition-all hover:-translate-y-2 hover:shadow-2xl">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F40009]/10">
-                    <Building2 className="h-7 w-7 text-[#F40009]" strokeWidth={1.5} />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#e3201b]/10">
+                    <Building2 className="h-7 w-7 text-[#e3201b]" strokeWidth={1.5} />
                   </div>
                   <h3 className="mt-6 text-2xl font-bold text-[#121212]">Drop-off at Hub</h3>
                   <p className="mt-2 text-[#121212]/70">Save more when you bring your package to the nearest hub.</p>
                   <ul className="mt-6 space-y-3">
                     {DROPOFF_BULLETS.map((item) => (
                       <li key={item} className="flex items-start gap-3 text-sm text-[#121212]/80">
-                        <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#F40009]" strokeWidth={2} />
+                        <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#e3201b]" strokeWidth={2} />
                         {item}
                       </li>
                     ))}
@@ -661,15 +661,15 @@ export default function HomePage() {
               </ScrollReveal>
               <ScrollReveal delay={0.2}>
                 <div className="rounded-2xl border border-[#121212]/10 bg-white/80 p-8 shadow-xl backdrop-blur-md transition-all hover:-translate-y-2 hover:shadow-2xl">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F40009]/10">
-                    <Bike className="h-7 w-7 text-[#F40009]" strokeWidth={1.5} />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#e3201b]/10">
+                    <Bike className="h-7 w-7 text-[#e3201b]" strokeWidth={1.5} />
                   </div>
                   <h3 className="mt-6 text-2xl font-bold text-[#121212]">Rider Pick-up</h3>
                   <p className="mt-2 text-[#121212]/70">We come to you. Schedule a pick-up at your door.</p>
                   <ul className="mt-6 space-y-3">
                     {PICKUP_BULLETS.map((item) => (
                       <li key={item} className="flex items-start gap-3 text-sm text-[#121212]/80">
-                        <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#F40009]" strokeWidth={2} />
+                        <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#e3201b]" strokeWidth={2} />
                         {item}
                       </li>
                     ))}

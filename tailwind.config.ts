@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-/** Shipco Logistics: Apple-minimalist. White #fff, charcoal #18181b, Coca-Cola Red #F40009, sharp edges. */
+/** shipco: primary red #e3201b, jet black, sharp edges. */
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -19,11 +19,12 @@ const config: Config = {
         none: "0",
       },
       colors: {
+        primary: "#e3201b",
         charcoal: "#18181b",
-        shipcoRed: "#F40009",
+        shipcoRed: "#e3201b",
         "profit-green": "#166534",
-        "shipco-red": "#F40009",
-        "shipco-red-hover": "#cc0008",
+        "shipco-red": "#e3201b",
+        "shipco-red-hover": "#c41b17",
         "shipco-black": "#0a0a0a",
         "shipco-blue": "#2563eb",
         "shipco-border": "#262626",
@@ -41,7 +42,7 @@ const config: Config = {
           foreground: "hsl(var(--popover-foreground))",
         },
         primary: {
-          DEFAULT: "#F40009",
+          DEFAULT: "#e3201b",
           foreground: "#ffffff",
         },
         secondary: {

@@ -21,7 +21,7 @@ export type BusinessFormData = {
 };
 
 const INPUT_CLASS =
-  "mt-2 w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-2 focus:ring-[#F40009]/20";
+  "mt-2 w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#e3201b] focus:outline-none focus:ring-2 focus:ring-[#e3201b]/20";
 const LABEL_CLASS = "block text-xs font-medium uppercase tracking-wider text-zinc-500 font-sans";
 
 export default function MerchantSignupPage() {
@@ -115,7 +115,7 @@ export default function MerchantSignupPage() {
     <div className="min-h-screen bg-white">
       <div className="mx-auto max-w-xl px-6 py-12">
         <header className="flex items-center gap-4 border-b border-zinc-100 pb-8">
-          <span className="shrink-0 font-sans text-xl font-bold text-black">Shipco</span>
+          <span className="shrink-0 font-sans text-xl font-bold tracking-tighter text-black">shipco</span>
           <div>
             <h1 className="font-sans text-2xl font-semibold tracking-tighter text-zinc-900">
               Merchant Sign-Up
@@ -214,7 +214,7 @@ export default function MerchantSignupPage() {
               <button
                 type="submit"
                 disabled={!personalValid || submitting}
-                className="w-full rounded-2xl bg-[#F40009] py-4 text-sm font-medium text-white hover:bg-[#cc0008] disabled:opacity-50 font-sans transition-colors"
+                className="w-full rounded-2xl bg-[#e3201b] py-4 text-sm font-medium text-white hover:bg-[#cc0008] disabled:opacity-50 font-sans transition-colors"
               >
                 {submitting ? "Creating account…" : "Continue to Dashboard"}
               </button>
@@ -268,7 +268,7 @@ export default function MerchantSignupPage() {
                   <button
                     type="submit"
                     disabled={!businessStep1Valid}
-                    className="w-full rounded-2xl bg-[#F40009] py-4 text-sm font-medium text-white hover:bg-[#cc0008] disabled:opacity-50 font-sans transition-colors"
+                    className="w-full rounded-2xl bg-[#e3201b] py-4 text-sm font-medium text-white hover:bg-[#cc0008] disabled:opacity-50 font-sans transition-colors"
                   >
                     Continue
                   </button>
@@ -311,7 +311,7 @@ export default function MerchantSignupPage() {
                     <button
                       type="submit"
                       disabled={!businessStep2Valid || submitting}
-                      className="flex-1 rounded-2xl bg-[#F40009] py-4 text-sm font-medium text-white hover:bg-[#cc0008] disabled:opacity-50 font-sans transition-colors"
+                      className="flex-1 rounded-2xl bg-[#e3201b] py-4 text-sm font-medium text-white hover:bg-[#cc0008] disabled:opacity-50 font-sans transition-colors"
                     >
                       {submitting ? "Creating account…" : "Continue to KYC"}
                     </button>
@@ -324,7 +324,7 @@ export default function MerchantSignupPage() {
 
         <p className="mt-10 text-center text-xs text-zinc-400">
           Already have an account?{" "}
-          <Link href="/auth/login" className="text-[#F40009] hover:underline">
+          <Link href="/auth/login" className="text-[#e3201b] hover:underline">
             Sign in
           </Link>
         </p>

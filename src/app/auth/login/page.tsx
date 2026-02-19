@@ -95,7 +95,7 @@ function LoginContent() {
     <div className="flex min-h-screen flex-col items-center justify-center bg-white px-4 py-12 font-sans">
       <div className="w-full max-w-sm">
         <div className="mb-8 flex justify-center">
-          <span className="font-sans text-2xl font-bold text-black tracking-tight">Shipco</span>
+          <span className="font-sans text-2xl font-bold tracking-tighter text-black">shipco</span>
         </div>
 
         <div className="w-full border border-zinc-100 bg-white p-8 shadow-sm">
@@ -122,7 +122,7 @@ function LoginContent() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full rounded-lg border border-zinc-200 px-3 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
+                className="w-full rounded-lg border border-zinc-200 px-3 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:border-[#e3201b] focus:outline-none focus:ring-1 focus:ring-[#e3201b]"
                 placeholder="you@example.com"
               />
             </div>
@@ -138,14 +138,14 @@ function LoginContent() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full rounded-lg border border-zinc-200 px-3 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
+                className="w-full rounded-lg border border-zinc-200 px-3 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:border-[#e3201b] focus:outline-none focus:ring-1 focus:ring-[#e3201b]"
                 placeholder="••••••••"
               />
             </div>
             <button
               type="submit"
               disabled={loading}
-              className="mt-2 w-full rounded-2xl bg-[#F40009] py-4 text-sm font-medium text-white transition-colors hover:bg-[#cc0008] disabled:opacity-70"
+              className="mt-2 w-full rounded-2xl bg-[#e3201b] py-4 text-sm font-medium text-white transition-colors hover:bg-[#c41b17] disabled:opacity-70"
             >
               {loading ? "Logging in..." : "Sign in"}
             </button>
@@ -153,11 +153,11 @@ function LoginContent() {
 
           <div className="mt-8 space-y-4 text-center">
             <p className="text-xs text-zinc-500">
-              <Link href="/auth/merchant-signup" className="text-[#F40009] hover:underline">
+              <Link href="/auth/merchant-signup" className="text-[#e3201b] hover:underline">
                 Register as Merchant
               </Link>
               {" · "}
-              <Link href="/track" className="text-[#F40009] hover:underline">
+              <Link href="/track" className="text-[#e3201b] hover:underline">
                 Track a Package
               </Link>
             </p>

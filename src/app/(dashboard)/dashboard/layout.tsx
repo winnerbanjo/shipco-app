@@ -18,7 +18,7 @@ export default async function DashboardLayout({
       <header className="sticky top-0 z-10 border-b border-slate-200 bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
           <Link href="/dashboard" className="font-semibold text-slate-900">
-            Shipco Logistics
+            shipco Logistics
           </Link>
           <nav className="flex items-center gap-4">
             <Link

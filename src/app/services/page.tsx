@@ -16,7 +16,7 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-4xl px-6 py-16 sm:py-24">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#121212]/70 hover:text-[#F40009]"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#121212]/70 hover:text-[#e3201b]"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to home
@@ -35,8 +35,8 @@ export default function ServicesPage() {
           <section id="nationwide" className="mt-16 scroll-mt-24">
             <ScrollReveal>
               <div className="flex items-center gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F40009]/10">
-                  <Truck className="h-7 w-7 text-[#F40009]" strokeWidth={1.5} />
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#e3201b]/10">
+                  <Truck className="h-7 w-7 text-[#e3201b]" strokeWidth={1.5} />
                 </div>
                 <h2 className="text-2xl font-bold text-[#121212] sm:text-3xl">
                   Nationwide Delivery
@@ -54,7 +54,7 @@ export default function ServicesPage() {
                   "Rates by zone and weight",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-[#121212]/80">
-                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#F40009]" strokeWidth={2} />
+                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#e3201b]" strokeWidth={2} />
                     {item}
                   </li>
                 ))}
@@ -66,8 +66,8 @@ export default function ServicesPage() {
           <section id="import-export" className="mt-20 scroll-mt-24">
             <ScrollReveal>
               <div className="flex items-center gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F40009]/10">
-                  <Globe className="h-7 w-7 text-[#F40009]" strokeWidth={1.5} />
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#e3201b]/10">
+                  <Globe className="h-7 w-7 text-[#e3201b]" strokeWidth={1.5} />
                 </div>
                 <h2 className="text-2xl font-bold text-[#121212] sm:text-3xl">
                   Import / Export
@@ -85,7 +85,7 @@ export default function ServicesPage() {
                   "DDP and DDU incoterms",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-[#121212]/80">
-                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#F40009]" strokeWidth={2} />
+                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#e3201b]" strokeWidth={2} />
                     {item}
                   </li>
                 ))}
@@ -97,8 +97,8 @@ export default function ServicesPage() {
           <section id="warehousing" className="mt-20 scroll-mt-24">
             <ScrollReveal>
               <div className="flex items-center gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F40009]/10">
-                  <Warehouse className="h-7 w-7 text-[#F40009]" strokeWidth={1.5} />
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#e3201b]/10">
+                  <Warehouse className="h-7 w-7 text-[#e3201b]" strokeWidth={1.5} />
                 </div>
                 <h2 className="text-2xl font-bold text-[#121212] sm:text-3xl">
                   Warehousing
@@ -115,7 +115,7 @@ export default function ServicesPage() {
                   "Reporting and visibility via dashboard",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-[#121212]/80">
-                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#F40009]" strokeWidth={2} />
+                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#e3201b]" strokeWidth={2} />
                     {item}
                   </li>
                 ))}
@@ -127,8 +127,8 @@ export default function ServicesPage() {
           <section id="last-mile" className="mt-20 scroll-mt-24">
             <ScrollReveal>
               <div className="flex items-center gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F40009]/10">
-                  <Bike className="h-7 w-7 text-[#F40009]" strokeWidth={1.5} />
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#e3201b]/10">
+                  <Bike className="h-7 w-7 text-[#e3201b]" strokeWidth={1.5} />
                 </div>
                 <h2 className="text-2xl font-bold text-[#121212] sm:text-3xl">
                   Last-Mile
@@ -145,7 +145,7 @@ export default function ServicesPage() {
                   "Cash on delivery and prepaid options",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-[#121212]/80">
-                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#F40009]" strokeWidth={2} />
+                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#e3201b]" strokeWidth={2} />
                     {item}
                   </li>
                 ))}
@@ -156,7 +156,7 @@ export default function ServicesPage() {
           <ScrollReveal className="mt-20 text-center">
             <Link
               href="/auth/login?callbackUrl=/merchant/booking"
-              className="inline-flex items-center justify-center rounded-xl bg-[#F40009] px-8 py-4 text-base font-medium text-white shadow-lg shadow-[#F40009]/25 transition-all hover:-translate-y-0.5 hover:bg-[#cc0008]"
+              className="inline-flex items-center justify-center rounded-xl bg-[#e3201b] px-8 py-4 text-base font-medium text-white shadow-lg shadow-[#e3201b]/25 transition-all hover:-translate-y-0.5 hover:bg-[#c41b17]"
             >
               Get Started — Book a shipment
             </Link>

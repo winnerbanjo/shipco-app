@@ -23,8 +23,8 @@ export function MerchantMobileNav({ email, isAdmin }: { email: string; isAdmin: 
     <>
       {/* Mobile header bar — visible only when sidebar is hidden */}
       <header className="flex h-14 min-h-[3.5rem] items-center justify-between border-b border-zinc-100 bg-white px-4 md:hidden">
-        <Link href="/merchant/dashboard" className="text-lg font-bold tracking-[0.2em] text-[#F40009]">
-          Shipco
+        <Link href="/merchant/dashboard" className="text-lg font-bold tracking-tighter text-[#e3201b]">
+          shipco
         </Link>
         <button
           type="button"
@@ -46,7 +46,7 @@ export function MerchantMobileNav({ email, isAdmin }: { email: string; isAdmin: 
           />
           <aside className="fixed inset-y-0 left-0 z-50 flex w-64 flex-col border-r border-zinc-100 bg-zinc-50 md:hidden">
             <div className="flex h-14 items-center justify-between border-b border-zinc-100 px-4">
-              <span className="text-lg font-bold tracking-[0.2em] text-[#F40009]">Shipco</span>
+              <span className="text-lg font-bold tracking-[0.2em] text-[#e3201b]">shipco</span>
               <button
                 type="button"
                 onClick={() => setOpen(false)}
@@ -66,7 +66,7 @@ export function MerchantMobileNav({ email, isAdmin }: { email: string; isAdmin: 
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className={`flex h-12 min-h-[3rem] items-center gap-4 rounded-none px-4 text-sm font-medium transition-colors ${
-                      isActive ? "bg-white text-[#F40009]" : "text-zinc-600 hover:bg-white/80"
+                      isActive ? "bg-white text-[#e3201b]" : "text-zinc-600 hover:bg-white/80"
                     }`}
                   >
                     <Icon className="h-4 w-4 shrink-0" />

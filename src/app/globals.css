@@ -14,14 +14,14 @@ body {
 }
 
 ::selection {
-  background-color: #F40009;
+  background-color: #e3201b;
   color: white;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-  outline-color: #F40009;
+  outline-color: #e3201b;
 }
 
 /* Apple-minimalist: Geist Sans, tracking-tight, pure white, 1px zinc-100 */

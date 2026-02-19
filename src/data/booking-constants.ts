@@ -6,7 +6,7 @@ export const SERVICE_LABELS: Record<ServiceType, string> = {
   local: "Local Delivery",
   nationwide: "Nationwide",
   international: "International (Import/Export)",
-  movers: "Shipco Movers / Heavy Van",
+  movers: "shipco Movers / Heavy Van",
 };
 
 export const SERVICE_DESCRIPTIONS: Record<ServiceType, string> = {

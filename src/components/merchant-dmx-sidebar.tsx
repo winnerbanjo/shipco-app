@@ -17,10 +17,10 @@ export function MerchantSidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="flex h-full w-56 flex-col border-r border-[#F40009] bg-black" style={{ borderRightWidth: "1px" }}>
-      <div className="flex h-14 items-center border-b border-[#F40009]/30 px-4">
+    <aside className="flex h-full w-56 flex-col border-r border-[#e3201b] bg-black" style={{ borderRightWidth: "1px" }}>
+      <div className="flex h-14 items-center border-b border-[#e3201b]/30 px-4">
         <Link href="/dashboard" className="flex items-center gap-2 font-sans text-lg font-bold text-white">
-          Shipco <span className="font-normal text-zinc-400">Merchant</span>
+          <span className="font-bold tracking-tighter text-black">shipco</span> <span className="font-normal text-zinc-400">Merchant</span>
         </Link>
       </div>
       <nav className="flex-1 space-y-0.5 p-2">
@@ -35,7 +35,7 @@ export function MerchantSidebar() {
               className={cn(
                 "flex items-center gap-3 px-3 py-2.5 text-sm font-medium transition-colors",
                 isActive
-                  ? "bg-[#F40009] text-white"
+                  ? "bg-[#e3201b] text-white"
                   : "text-zinc-400 hover:bg-zinc-900 hover:text-white"
               )}
             >
@@ -45,7 +45,7 @@ export function MerchantSidebar() {
           );
         })}
       </nav>
-      <div className="border-t border-[#F40009]/30 p-2">
+      <div className="border-t border-[#e3201b]/30 p-2">
         <button
           type="button"
           onClick={() => signOut({ callbackUrl: "/auth/login" })}

@@ -18,14 +18,14 @@ export default async function AdminLayout({
     <div className="min-h-screen bg-slate-50">
       <header className="border-b border-slate-200 bg-white px-4 py-3">
         <div className="flex items-center justify-between">
-          <Link href="/admin" className="font-semibold text-[#F40009]">
-            Shipco Admin
+          <Link href="/admin" className="font-semibold text-[#e3201b]">
+            shipco Admin
           </Link>
           <nav className="flex gap-4 text-sm">
-            <Link href="/admin" className="text-slate-600 hover:text-[#F40009]">
+            <Link href="/admin" className="text-slate-600 hover:text-[#e3201b]">
               Merchant Approvals
             </Link>
-            <Link href="/merchant/dashboard" className="text-slate-600 hover:text-[#F40009]">
+            <Link href="/merchant/dashboard" className="text-slate-600 hover:text-[#e3201b]">
               Merchant
             </Link>
           </nav>

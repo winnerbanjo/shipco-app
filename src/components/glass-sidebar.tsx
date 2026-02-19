@@ -55,7 +55,7 @@ export function GlassSidebar({ role, title }: GlassSidebarProps) {
           href={role === "ADMIN" ? "/admin" : "/merchant"}
           className="flex items-center gap-2 font-sans text-sm font-bold text-white"
         >
-          <span className="font-bold">Shipco</span>
+          <span className="font-bold tracking-tighter">shipco</span>
           <span className="font-normal text-white/80">{role === "ADMIN" ? "Admin" : "Merchant"}</span>
         </Link>
       </div>

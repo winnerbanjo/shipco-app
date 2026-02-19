@@ -14,7 +14,7 @@ export default function AdminDashboardPage() {
     <div className="mx-auto max-w-5xl bg-white px-8 py-8">
       {/* Header with logo */}
       <header className="flex items-center gap-4 border-b border-zinc-200 pb-6">
-        <span className="shrink-0 font-sans text-xl font-bold text-black">Shipco</span>
+        <span className="shrink-0 font-sans text-xl font-bold tracking-tighter text-black">shipco</span>
         <div>
           <h1 className="font-sans text-3xl font-semibold tracking-tighter text-zinc-900">
             Admin Command Center
@@ -67,7 +67,7 @@ export default function AdminDashboardPage() {
                   <td className="px-8 py-5 font-medium text-zinc-900">{m.businessName}</td>
                   <td className="px-8 py-5 text-zinc-600">{m.email}</td>
                   <td className="px-8 py-5">
-                    <span className="inline-block border border-[#F40009] bg-[#F40009]/10 px-2 py-1 text-xs font-medium text-[#F40009]">
+                    <span className="inline-block border border-[#e3201b] bg-[#e3201b]/10 px-2 py-1 text-xs font-medium text-[#e3201b]">
                       Verified
                     </span>
                   </td>

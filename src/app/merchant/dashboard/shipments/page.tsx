@@ -32,7 +32,7 @@ export default async function MerchantShipmentsPage() {
         </div>
         <Link
           href="/merchant/dashboard/booking"
-          className="inline-flex h-12 items-center rounded-none border border-zinc-100 bg-[#F40009] px-6 text-sm font-medium text-white hover:bg-[#cc0008]"
+          className="inline-flex h-12 items-center rounded-none border border-zinc-100 bg-[#e3201b] px-6 text-sm font-medium text-white hover:bg-[#cc0008]"
         >
           Book shipment
         </Link>

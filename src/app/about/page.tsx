@@ -24,7 +24,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-4xl px-6 py-16 sm:py-24">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#121212]/70 hover:text-[#F40009]"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#121212]/70 hover:text-[#e3201b]"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to home
@@ -32,7 +32,7 @@ export default function AboutPage() {
 
           <ScrollReveal className="mt-8">
             <h1 className="text-4xl font-extrabold tracking-tight text-[#121212] sm:text-5xl">
-              About Shipco
+              About shipco
             </h1>
             <p className="mt-4 text-lg text-[#121212]/70">
               Our mission and where to find us.
@@ -46,7 +46,7 @@ export default function AboutPage() {
                 Our mission
               </h2>
               <p className="mt-4 leading-relaxed text-[#121212]/80">
-                Shipco exists to make logistics simple, transparent, and reliable for businesses and individuals across Nigeria. We combine technology with a physical hub and rider network so that every shipment is tracked, insured, and delivered on time. We believe that moving goods should be as easy as sending a message — and we are built to deliver on that promise, one package at a time.
+                shipco exists to make logistics simple, transparent, and reliable for businesses and individuals across Nigeria. We combine technology with a physical hub and rider network so that every shipment is tracked, insured, and delivered on time. We believe that moving goods should be as easy as sending a message — and we are built to deliver on that promise, one package at a time.
               </p>
             </ScrollReveal>
           </section>
@@ -55,7 +55,7 @@ export default function AboutPage() {
           <section id="hubs" className="mt-20 scroll-mt-24">
             <ScrollReveal>
               <h2 className="flex items-center gap-3 text-2xl font-bold text-[#121212] sm:text-3xl">
-                <MapPin className="h-8 w-8 text-[#F40009]" strokeWidth={1.5} />
+                <MapPin className="h-8 w-8 text-[#e3201b]" strokeWidth={1.5} />
                 Hub locations
               </h2>
               <p className="mt-3 text-[#121212]/70">
@@ -66,8 +66,8 @@ export default function AboutPage() {
               {HUBS.map((hub, i) => (
                 <ScrollReveal key={hub.name} delay={i * 0.05}>
                   <li className="flex gap-4 rounded-2xl border border-[#121212]/10 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#F40009]/10">
-                      <Building2 className="h-6 w-6 text-[#F40009]" strokeWidth={1.5} />
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#e3201b]/10">
+                      <Building2 className="h-6 w-6 text-[#e3201b]" strokeWidth={1.5} />
                     </div>
                     <div>
                       <h3 className="font-semibold text-[#121212]">{hub.name}</h3>
@@ -83,7 +83,7 @@ export default function AboutPage() {
           <ScrollReveal className="mt-16 text-center">
             <Link
               href="/auth/login?callbackUrl=/merchant/booking"
-              className="inline-flex items-center justify-center rounded-xl bg-[#F40009] px-8 py-4 text-base font-medium text-white shadow-lg shadow-[#F40009]/25 transition-all hover:-translate-y-0.5 hover:bg-[#cc0008]"
+              className="inline-flex items-center justify-center rounded-xl bg-[#e3201b] px-8 py-4 text-base font-medium text-white shadow-lg shadow-[#e3201b]/25 transition-all hover:-translate-y-0.5 hover:bg-[#c41b17]"
             >
               Get Started
             </Link>

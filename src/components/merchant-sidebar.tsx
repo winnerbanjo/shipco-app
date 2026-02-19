@@ -32,7 +32,7 @@ export function MerchantSidebar() {
     <aside className="flex h-full w-56 flex-col border-r border-zinc-100 bg-white">
       <div className="flex h-14 items-center border-b border-zinc-100 px-4 py-3">
         <Link href="/merchant/dashboard" className="flex h-10 items-center gap-2 font-sans text-lg font-bold text-black">
-          Shipco <span className="font-normal text-zinc-600">Merchant</span>
+          <span className="font-bold tracking-tighter text-black">shipco</span> <span className="font-normal text-zinc-600">Merchant</span>
         </Link>
       </div>
       <nav className="flex-1 space-y-0.5 p-2">
@@ -47,7 +47,7 @@ export function MerchantSidebar() {
               className={cn(
                 "flex items-center gap-3 rounded-none border-l-[3px] px-3 py-2 text-sm font-medium transition-colors",
                 isActive
-                  ? "border-l-[#F40009] bg-[#F40009]/10 text-[#F40009]"
+                  ? "border-l-[#e3201b] bg-[#e3201b]/10 text-[#e3201b]"
                   : "border-l-transparent text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900"
               )}
             >

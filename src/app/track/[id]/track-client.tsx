@@ -76,7 +76,7 @@ export function TrackPageClient({
             {" · "}
             Destination: <span className="font-medium text-zinc-900">Abuja</span>
           </p>
-          <p className="mt-2 text-sm font-medium text-[#F40009]">
+          <p className="mt-2 text-sm font-medium text-[#e3201b]">
             {status}
           </p>
         </div>
@@ -101,9 +101,9 @@ export function TrackPageClient({
                 <div
                   className={`relative z-10 h-6 w-6 shrink-0 rounded-none border-2 ${
                     isCompleted
-                      ? "border-[#F40009] bg-[#F40009]"
+                      ? "border-[#e3201b] bg-[#e3201b]"
                       : isCurrent
-                        ? "border-[#F40009] bg-white"
+                        ? "border-[#e3201b] bg-white"
                         : "border-zinc-200 bg-white"
                   }`}
                 />
@@ -139,7 +139,7 @@ export function TrackPageClient({
               href={partnerTrackingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-1 inline-block font-medium text-[#F40009] hover:underline"
+              className="mt-1 inline-block font-medium text-[#e3201b] hover:underline"
             >
               Track via {partnerName} →
             </a>

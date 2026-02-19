@@ -15,9 +15,9 @@ export default function HubUpdateStatusPage() {
         <input
           type="text"
           placeholder="Tracking ID"
-          className="w-full rounded-none border border-zinc-200 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-0"
+          className="w-full rounded-none border border-zinc-200 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:border-[#e3201b] focus:outline-none focus:ring-0"
         />
-        <select className="mt-4 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 text-zinc-900 focus:border-[#F40009] focus:outline-none">
+        <select className="mt-4 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 text-zinc-900 focus:border-[#e3201b] focus:outline-none">
           <option>Picked up</option>
           <option>In transit</option>
           <option>Out for delivery</option>
@@ -25,7 +25,7 @@ export default function HubUpdateStatusPage() {
         </select>
         <Link
           href="/hub/dashboard"
-          className="mt-4 inline-block w-full rounded-none bg-[#F40009] py-3 text-center text-sm font-medium text-white hover:bg-[#cc0008]"
+          className="mt-4 inline-block w-full rounded-none bg-[#e3201b] py-3 text-center text-sm font-medium text-white hover:bg-[#cc0008]"
         >
           Update
         </Link>

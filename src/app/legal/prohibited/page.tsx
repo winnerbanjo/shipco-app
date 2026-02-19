@@ -62,7 +62,7 @@ export default function ProhibitedPage() {
         <div className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#121212]/70 hover:text-[#F40009]"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#121212]/70 hover:text-[#e3201b]"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to home
@@ -73,16 +73,16 @@ export default function ProhibitedPage() {
               Prohibited items
             </h1>
             <p className="mt-3 text-[#121212]/70">
-              For safety and legal compliance, the following items may not be shipped via Shipco.
+              For safety and legal compliance, the following items may not be shipped via shipco.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1} className="mt-10">
             <div
-              className="flex items-start gap-4 rounded-2xl border-2 border-[#F40009]/30 bg-[#F40009]/5 p-6"
+              className="flex items-start gap-4 rounded-2xl border-2 border-[#e3201b]/30 bg-[#e3201b]/5 p-6"
               role="alert"
             >
-              <TriangleAlert className="h-8 w-8 shrink-0 text-[#F40009]" strokeWidth={1.5} />
+              <TriangleAlert className="h-8 w-8 shrink-0 text-[#e3201b]" strokeWidth={1.5} />
               <div>
                 <p className="font-semibold text-[#121212]">
                   Shipping prohibited items leads to immediate account suspension and legal reporting.
@@ -94,11 +94,11 @@ export default function ProhibitedPage() {
             </div>
           </ScrollReveal>
 
-          {/* Shipco Shield: 3-column grid (on large screens; 2 then 1 on smaller) */}
+          {/* shipco Shield: 3-column grid (on large screens; 2 then 1 on smaller) */}
           <ScrollReveal delay={0.15}>
             <h2 className="mt-14 flex items-center gap-3 text-2xl font-bold text-[#121212]">
-              <ShieldCheck className="h-8 w-8 text-[#F40009]" strokeWidth={1.5} />
-              Shipco Shield
+              <ShieldCheck className="h-8 w-8 text-[#e3201b]" strokeWidth={1.5} />
+              shipco Shield
             </h2>
             <p className="mt-2 text-[#121212]/70">
               Clear categories of what we do not accept. When in doubt, contact support before shipping.
@@ -111,8 +111,8 @@ export default function ProhibitedPage() {
               return (
                 <ScrollReveal key={cat.title} delay={0.2 + i * 0.08}>
                   <div className="flex h-full flex-col rounded-2xl border border-[#121212]/10 bg-white/80 p-6 shadow-xl backdrop-blur-md transition-all hover:-translate-y-2 hover:shadow-2xl">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#F40009]/10">
-                      <CategoryIcon className="h-6 w-6 text-[#F40009]" strokeWidth={1.5} />
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#e3201b]/10">
+                      <CategoryIcon className="h-6 w-6 text-[#e3201b]" strokeWidth={1.5} />
                     </div>
                     <h3 className="mt-4 text-lg font-bold text-[#121212]">{cat.title}</h3>
                     <p className="mt-1 text-sm text-[#121212]/60">{cat.subtitle}</p>
@@ -141,7 +141,7 @@ export default function ProhibitedPage() {
           </ScrollReveal>
 
           <div className="mt-12 flex flex-wrap gap-4 border-t border-[#121212]/10 pt-8">
-            <Link href="/legal/terms" className="text-sm font-medium text-[#F40009] hover:underline">
+            <Link href="/legal/terms" className="text-sm font-medium text-[#e3201b] hover:underline">
               Terms of Service
             </Link>
             <Link href="/legal/privacy" className="text-sm font-medium text-[#121212]/70 hover:text-[#121212]">

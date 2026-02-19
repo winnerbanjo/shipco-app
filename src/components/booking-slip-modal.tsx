@@ -63,13 +63,13 @@ export function BookingSlipModal({ open, onClose, data, className }: BookingSlip
       <div className="relative max-h-[90vh] w-full max-w-lg overflow-auto rounded-none border border-zinc-200 bg-white shadow-lg">
         <div ref={slipRef} className="p-8">
           {/* Logo */}
-          <span className="mb-6 block shrink-0 font-sans text-xl font-bold text-black">Shipco</span>
+          <span className="mb-6 block shrink-0 font-sans text-xl font-bold tracking-tighter text-black">shipco</span>
           <h2 id="slip-title" className="font-sans text-lg font-semibold tracking-tighter text-zinc-900">
             Booking Slip
           </h2>
 
           {/* Service Type — bold Wine Red */}
-          <p className="mt-4 font-sans text-sm font-bold tracking-tighter text-[#F40009]">
+          <p className="mt-4 font-sans text-sm font-bold tracking-tighter text-[#e3201b]">
             {SERVICE_LABELS[data.serviceType]}
           </p>
 
@@ -104,7 +104,7 @@ export function BookingSlipModal({ open, onClose, data, className }: BookingSlip
             </div>
             <div className="border-t border-zinc-100 pt-4">
               <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">Total Paid</p>
-              <p className="mt-1 font-sans text-lg font-semibold tracking-tighter text-[#F40009]">
+              <p className="mt-1 font-sans text-lg font-semibold tracking-tighter text-[#e3201b]">
                 ₦{data.totalPaid.toLocaleString("en-NG")}
               </p>
             </div>
@@ -120,7 +120,7 @@ export function BookingSlipModal({ open, onClose, data, className }: BookingSlip
           <Button
             type="button"
             onClick={handlePrint}
-            className="rounded-none bg-[#F40009] px-4 py-2 text-sm font-medium text-white hover:bg-[#cc0008]"
+            className="rounded-none bg-[#e3201b] px-4 py-2 text-sm font-medium text-white hover:bg-[#c41b17]"
           >
             Print Slip
           </Button>
@@ -139,7 +139,7 @@ export function BookingSlipModal({ open, onClose, data, className }: BookingSlip
               router.push(`/track/${data.trackingId}`);
               onClose();
             }}
-            className="text-[#F40009]"
+            className="text-[#e3201b]"
           >
             Track shipment
           </Button>

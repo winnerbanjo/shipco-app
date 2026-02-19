@@ -18,8 +18,8 @@ function originMatchesBranch(origin: string, branch: string): boolean {
 function statusClass(status: string): string {
   const s = status.toLowerCase();
   if (s.includes("delivered")) return "border-green-600 bg-green-50 text-green-700";
-  if (s.includes("transit") || s.includes("delivery") || s.includes("picked")) return "border-[#F40009] bg-[#F40009]/10 text-[#F40009]";
-  if (s.includes("sitting") || s.includes("hub")) return "border-[#F40009] bg-[#F40009]/10 text-[#F40009]";
+  if (s.includes("transit") || s.includes("delivery") || s.includes("picked")) return "border-[#e3201b] bg-[#e3201b]/10 text-[#e3201b]";
+  if (s.includes("sitting") || s.includes("hub")) return "border-[#e3201b] bg-[#e3201b]/10 text-[#e3201b]";
   return "border-zinc-200 bg-zinc-50 text-zinc-700";
 }
 
@@ -52,12 +52,12 @@ export function GlobalShipmentsTable() {
           placeholder="Search by ID or Name"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="h-10 flex-1 min-w-[200px] rounded-none border border-zinc-100 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-0"
+          className="h-10 flex-1 min-w-[200px] rounded-none border border-zinc-100 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#e3201b] focus:outline-none focus:ring-0"
         />
         <select
           value={branch}
           onChange={(e) => setBranch(e.target.value)}
-          className="h-10 rounded-none border border-zinc-100 bg-white px-3 text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-0"
+          className="h-10 rounded-none border border-zinc-100 bg-white px-3 text-sm text-zinc-900 focus:border-[#e3201b] focus:outline-none focus:ring-0"
         >
           {BRANCH_OPTIONS.map((opt) => (
             <option key={opt.value} value={opt.value}>
@@ -69,7 +69,7 @@ export function GlobalShipmentsTable() {
           <button
             type="button"
             onClick={() => { setSearch(""); setBranch("All"); }}
-            className="rounded-none border border-zinc-100 bg-white px-3 py-2 text-sm font-medium text-zinc-700 hover:border-[#F40009] hover:text-[#F40009]"
+            className="rounded-none border border-zinc-100 bg-white px-3 py-2 text-sm font-medium text-zinc-700 hover:border-[#e3201b] hover:text-[#e3201b]"
           >
             Clear Filters
           </button>
@@ -101,13 +101,13 @@ export function GlobalShipmentsTable() {
                 const profit = s.amount - (s.partnerCost ?? 0);
                 return (
                   <tr key={s.id} className="border-b border-zinc-100 last:border-b-0">
-                    <td className="px-8 py-5 font-mono text-[#F40009]">{s.trackingId}</td>
+                    <td className="px-8 py-5 font-mono text-[#e3201b]">{s.trackingId}</td>
                     <td className="px-8 py-5 text-zinc-900">{s.merchant}</td>
                     <td className="px-8 py-5 text-zinc-600">{s.origin}</td>
                     <td className="px-8 py-5 text-zinc-900">{s.destination}</td>
                     <td className="px-8 py-5 text-zinc-900">₦{s.amount.toLocaleString("en-NG")}</td>
                     <td className="px-8 py-5 text-zinc-600">₦{(s.partnerCost ?? 0).toLocaleString("en-NG")}</td>
-                    <td className="px-8 py-5 font-medium text-[#F40009]">₦{profit.toLocaleString("en-NG")}</td>
+                    <td className="px-8 py-5 font-medium text-[#e3201b]">₦{profit.toLocaleString("en-NG")}</td>
                     <td className="px-8 py-5">
                       <span className={`inline-block border px-2 py-1 text-xs font-medium ${statusClass(s.status)}`}>
                         {s.status}

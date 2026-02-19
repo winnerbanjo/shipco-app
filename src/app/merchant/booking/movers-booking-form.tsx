@@ -66,10 +66,10 @@ export function MoversBookingForm({
   return (
     <div className="mx-auto max-w-2xl font-sans">
       <div className="mb-8 flex items-center gap-4 border-b border-zinc-100 pb-6">
-        <span className="shrink-0 font-sans text-xl font-bold text-black">Shipco</span>
+        <span className="shrink-0 font-sans text-xl font-bold tracking-tighter text-black">shipco</span>
         <div>
           <h2 className="text-xl font-semibold tracking-tighter text-zinc-900">
-            Shipco Movers / Heavy Van
+            shipco Movers / Heavy Van
           </h2>
           <p className="mt-0.5 text-sm text-zinc-500">
             Van size, laborers, and packaging. Quote updates as you select.
@@ -89,7 +89,7 @@ export function MoversBookingForm({
                 className={cn(
                   "rounded-none border px-4 py-3 text-sm font-medium font-sans transition-colors",
                   vanSize === v.value
-                    ? "border-[#F40009] bg-[#F40009] text-white"
+                    ? "border-[#e3201b] bg-[#e3201b] text-white"
                     : "border-zinc-200 bg-white text-zinc-700 hover:border-zinc-300"
                 )}
               >
@@ -129,7 +129,7 @@ export function MoversBookingForm({
                 type="checkbox"
                 checked={addBoxes}
                 onChange={(e) => setAddBoxes(e.target.checked)}
-                className="h-4 w-4 rounded-none border-zinc-300 text-[#F40009] focus:ring-[#F40009]"
+                className="h-4 w-4 rounded-none border-zinc-300 text-[#e3201b] focus:ring-[#e3201b]"
               />
               <span className="text-sm text-zinc-900">Boxes (+₦{BOXES_COST.toLocaleString()})</span>
             </label>
@@ -138,7 +138,7 @@ export function MoversBookingForm({
                 type="checkbox"
                 checked={addBubbleWrap}
                 onChange={(e) => setAddBubbleWrap(e.target.checked)}
-                className="h-4 w-4 rounded-none border-zinc-300 text-[#F40009] focus:ring-[#F40009]"
+                className="h-4 w-4 rounded-none border-zinc-300 text-[#e3201b] focus:ring-[#e3201b]"
               />
               <span className="text-sm text-zinc-900">Bubble Wrap (+₦{BUBBLE_WRAP_COST.toLocaleString()})</span>
             </label>
@@ -178,7 +178,7 @@ export function MoversBookingForm({
 
         <div className="border-t border-zinc-100 pt-6">
           {discountPercent > 0 && (
-            <p className="mb-2 text-sm text-[#F40009] font-sans">
+            <p className="mb-2 text-sm text-[#e3201b] font-sans">
               {discountPercent}% merchant discount applied
             </p>
           )}
@@ -199,7 +199,7 @@ export function MoversBookingForm({
           </Button>
           <Button
             type="button"
-            className="rounded-none bg-[#F40009] font-sans hover:bg-[#cc0008]"
+            className="rounded-none bg-[#e3201b] font-sans hover:bg-[#c41b17]"
           >
             Book Van
           </Button>

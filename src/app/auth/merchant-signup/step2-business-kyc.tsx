@@ -10,7 +10,7 @@ export type BusinessKycData = {
 };
 
 const INPUT_CLASS =
-  "mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]";
+  "mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#e3201b] focus:outline-none focus:ring-1 focus:ring-[#e3201b]";
 const LABEL_CLASS = "block text-xs font-medium uppercase tracking-wider text-zinc-500 font-sans";
 
 export function MerchantSignupStep2({
@@ -109,7 +109,7 @@ export function MerchantSignupStep2({
         <button
           type="submit"
           disabled={!valid || submitting}
-          className="flex-1 rounded-none bg-[#F40009] py-4 text-sm font-medium text-white hover:bg-[#cc0008] disabled:opacity-50 font-sans"
+          className="flex-1 rounded-none bg-[#e3201b] py-4 text-sm font-medium text-white hover:bg-[#cc0008] disabled:opacity-50 font-sans"
         >
           {submitting ? "Submitting…" : "Submit for verification"}
         </button>

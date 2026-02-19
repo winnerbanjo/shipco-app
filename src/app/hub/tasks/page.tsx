@@ -29,8 +29,8 @@ function displayStatus(status: TaskStatus): string {
 
 function statusBadgeClass(status: TaskStatus): string {
   if (status === "Completed") return "border-green-600 bg-green-50 text-green-700";
-  if (status === "In Progress") return "border-[#F40009] bg-[#F40009]/10 text-[#F40009]";
-  return "border-[#F40009] bg-[#F40009]/10 text-[#F40009]";
+  if (status === "In Progress") return "border-[#e3201b] bg-[#e3201b]/10 text-[#e3201b]";
+  return "border-[#e3201b] bg-[#e3201b]/10 text-[#e3201b]";
 }
 
 export default function HubTasksPage() {
@@ -102,7 +102,7 @@ export default function HubTasksPage() {
   return (
     <div className="mx-auto max-w-4xl bg-white">
       <header className="flex items-center gap-4 border-b border-zinc-100 pb-6">
-        <span className="shrink-0 font-sans text-xl font-bold text-black">Shipco</span>
+        <span className="shrink-0 font-sans text-xl font-bold tracking-tighter text-black">shipco</span>
         <div className="flex-1">
           <h1 className="text-2xl font-semibold tracking-tight text-zinc-900">
             Tasks
@@ -113,7 +113,7 @@ export default function HubTasksPage() {
         </div>
         <Link
           href="/hub/dashboard"
-          className="rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#F40009] hover:text-[#F40009]"
+          className="rounded-none border border-zinc-100 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-[#e3201b] hover:text-[#e3201b]"
         >
           ← Dashboard
         </Link>
@@ -125,12 +125,12 @@ export default function HubTasksPage() {
           placeholder="Search by ID or Name"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="h-10 flex-1 min-w-[200px] rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
+          className="h-10 flex-1 min-w-[200px] rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#e3201b] focus:outline-none focus:ring-1 focus:ring-[#e3201b]"
         />
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="h-10 rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
+          className="h-10 rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 focus:border-[#e3201b] focus:outline-none focus:ring-1 focus:ring-[#e3201b]"
         >
           {STATUS_OPTIONS.map((opt) => (
             <option key={opt.value} value={opt.value}>
@@ -142,7 +142,7 @@ export default function HubTasksPage() {
           <button
             type="button"
             onClick={clearFilters}
-            className="rounded-none border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-700 hover:border-[#F40009] hover:text-[#F40009]"
+            className="rounded-none border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-700 hover:border-[#e3201b] hover:text-[#e3201b]"
           >
             Clear Filters
           </button>
@@ -184,7 +184,7 @@ export default function HubTasksPage() {
                     <button
                       type="button"
                       onClick={() => acceptTask(t)}
-                      className="border border-[#F40009] bg-[#F40009] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#cc0008]"
+                      className="border border-[#e3201b] bg-[#e3201b] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#c41b17]"
                     >
                       Accept Task
                     </button>
@@ -193,7 +193,7 @@ export default function HubTasksPage() {
                     <button
                       type="button"
                       onClick={() => completeTask(t.id)}
-                      className="border border-[#F40009] bg-[#F40009] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#cc0008]"
+                      className="border border-[#e3201b] bg-[#e3201b] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#c41b17]"
                     >
                       Mark as Completed
                     </button>

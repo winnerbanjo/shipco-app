@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Prohibited Items | Shipco",
+  title: "Prohibited Items | shipco",
   description: "Items we do not ship. Shipping prohibited items leads to account suspension and legal reporting.",
 };
 

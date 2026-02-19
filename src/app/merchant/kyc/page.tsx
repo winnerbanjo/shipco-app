@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const INPUT_CLASS =
-  "mt-2 w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-2 focus:ring-[#F40009]/20";
+  "mt-2 w-full rounded-2xl border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#e3201b] focus:outline-none focus:ring-2 focus:ring-[#e3201b]/20";
 const LABEL_CLASS = "block text-xs font-medium uppercase tracking-wider text-zinc-500 font-sans";
 
 export default function MerchantKycPage() {
@@ -71,7 +71,7 @@ export default function MerchantKycPage() {
   return (
     <div className="mx-auto max-w-2xl">
       <header className="flex items-center gap-4 border-b border-zinc-100 pb-6">
-        <span className="shrink-0 font-sans text-xl font-bold text-black">Shipco</span>
+        <span className="shrink-0 font-sans text-xl font-bold tracking-tighter text-black">shipco</span>
         <div>
           <h1 className="font-sans text-2xl font-semibold tracking-tighter text-zinc-900">
             KYC verification
@@ -102,7 +102,7 @@ export default function MerchantKycPage() {
             onDragLeave={() => setIdDrag(false)}
             onDrop={onIdDrop}
             className={`mt-3 flex min-h-[140px] flex-col items-center justify-center rounded-2xl border-2 border-dashed bg-zinc-50/50 p-6 transition-colors ${
-              idDrag ? "border-[#F40009] bg-red-50/30" : "border-zinc-200"
+              idDrag ? "border-[#e3201b] bg-red-50/30" : "border-zinc-200"
             }`}
           >
             <input
@@ -145,7 +145,7 @@ export default function MerchantKycPage() {
             onDragLeave={() => setCacDrag(false)}
             onDrop={onCacDrop}
             className={`mt-3 flex min-h-[120px] flex-col items-center justify-center rounded-2xl border-2 border-dashed bg-zinc-50/50 p-6 transition-colors ${
-              cacDrag ? "border-[#F40009] bg-red-50/30" : "border-zinc-200"
+              cacDrag ? "border-[#e3201b] bg-red-50/30" : "border-zinc-200"
             }`}
           >
             <input
@@ -175,7 +175,7 @@ export default function MerchantKycPage() {
           <button
             type="submit"
             disabled={submitting}
-            className="flex-1 rounded-2xl bg-[#F40009] py-4 text-sm font-medium text-white hover:bg-[#cc0008] disabled:opacity-50"
+            className="flex-1 rounded-2xl bg-[#e3201b] py-4 text-sm font-medium text-white hover:bg-[#cc0008] disabled:opacity-50"
           >
             {submitting ? "Submitting…" : "Submit for verification"}
           </button>

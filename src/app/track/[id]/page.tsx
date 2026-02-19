@@ -13,11 +13,11 @@ type Props = { params: Promise<{ id: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   return {
-    title: `Track ${id} | Shipco Logistics`,
-    description: `Track your Shipco Logistics shipment ${id}. View delivery journey and status.`,
+    title: `Track ${id} | shipco Logistics`,
+    description: `Track your shipco Logistics shipment ${id}. View delivery journey and status.`,
     openGraph: {
-      title: `Track ${id} | Shipco Logistics`,
-      description: `Track your Shipco Logistics shipment ${id}.`,
+      title: `Track ${id} | shipco Logistics`,
+      description: `Track your shipco Logistics shipment ${id}.`,
       url: `${BASE_URL}/track/${id}`,
     },
   };

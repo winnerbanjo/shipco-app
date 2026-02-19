@@ -104,7 +104,7 @@ export function WalletPageClient({
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="flex h-12 w-12 items-center justify-center border border-zinc-100 bg-zinc-50">
-              <Wallet strokeWidth={1} className="h-6 w-6 text-[#F40009]" />
+              <Wallet strokeWidth={1} className="h-6 w-6 text-[#e3201b]" />
             </div>
             <div>
               <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">
@@ -118,7 +118,7 @@ export function WalletPageClient({
           <Button
             type="button"
             onClick={() => setModalOpen(true)}
-            className="h-12 rounded-none bg-[#F40009] px-8 text-sm font-medium text-white hover:bg-[#cc0008]"
+            className="h-12 rounded-none bg-[#e3201b] px-8 text-sm font-medium text-white hover:bg-[#c41b17]"
           >
             Fund wallet
           </Button>
@@ -136,12 +136,12 @@ export function WalletPageClient({
             placeholder="Search by label or date"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="h-10 min-w-[200px] flex-1 rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
+            className="h-10 min-w-[200px] flex-1 rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#e3201b] focus:outline-none focus:ring-1 focus:ring-[#e3201b]"
           />
           <select
             value={typeFilter}
             onChange={(e) => setTypeFilter(e.target.value)}
-            className="h-10 rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
+            className="h-10 rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 focus:border-[#e3201b] focus:outline-none focus:ring-1 focus:ring-[#e3201b]"
           >
             {TYPE_OPTIONS.map((opt) => (
               <option key={opt.value} value={opt.value}>
@@ -153,7 +153,7 @@ export function WalletPageClient({
             <button
               type="button"
               onClick={clearFilters}
-              className="rounded-none border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-700 hover:border-[#F40009] hover:text-[#F40009]"
+              className="rounded-none border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-700 hover:border-[#e3201b] hover:text-[#e3201b]"
             >
               Clear Filters
             </button>
@@ -237,7 +237,7 @@ export function WalletPageClient({
                 </Button>
                 <Button
                   type="submit"
-                  className="flex-1 rounded-none bg-[#F40009] hover:bg-[#cc0008]"
+                  className="flex-1 rounded-none bg-[#e3201b] hover:bg-[#c41b17]"
                   disabled={funding}
                 >
                   {funding ? (

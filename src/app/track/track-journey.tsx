@@ -4,7 +4,7 @@ import { Package, Truck, MapPin, CheckCircle } from "lucide-react";
 
 const STEPS = [
   { key: "processed", label: "Order Processed", done: true, icon: Package },
-  { key: "picked", label: "Picked up by Shipco", done: true, icon: Package },
+  { key: "picked", label: "Picked up by shipco", done: true, icon: Package },
   { key: "transit", label: "In Transit", done: false, current: true, icon: Truck },
   { key: "out", label: "Out for Delivery", done: false, icon: MapPin },
 ];
@@ -27,16 +27,16 @@ export function TrackJourney() {
             <li key={step.key} className="relative flex gap-5 pb-12">
               {!isLast && (
                 <div
-                  className="absolute left-[11px] top-8 h-[calc(100%-1rem)] w-px bg-[#F40009]"
+                  className="absolute left-[11px] top-8 h-[calc(100%-1rem)] w-px bg-[#e3201b]"
                   aria-hidden
                 />
               )}
               <div
                 className={`relative z-10 flex h-6 w-6 shrink-0 items-center justify-center rounded-none border-2 ${
                   step.done
-                    ? "border-[#F40009] bg-[#F40009]"
+                    ? "border-[#e3201b] bg-[#e3201b]"
                     : step.current
-                      ? "border-[#F40009] bg-[#F40009]"
+                      ? "border-[#e3201b] bg-[#e3201b]"
                       : "border-zinc-200 bg-white"
                 }`}
               >

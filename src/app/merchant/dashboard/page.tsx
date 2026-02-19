@@ -141,7 +141,7 @@ export default async function MerchantDashboardPage({
           <div key={label} className="border border-zinc-100 bg-white p-8">
             <div className="flex items-center gap-4">
               <div className="flex h-12 w-12 items-center justify-center border border-zinc-100 bg-zinc-50">
-                <Icon strokeWidth={1} className="h-6 w-6 text-[#F40009]" />
+                <Icon strokeWidth={1} className="h-6 w-6 text-[#e3201b]" />
               </div>
               <div>
                 <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">
@@ -161,7 +161,7 @@ export default async function MerchantDashboardPage({
           <h2 className="text-lg font-semibold tracking-tight text-zinc-900">
             Recent activity
           </h2>
-          <Link href="/merchant/dashboard/shipments" className="text-sm font-medium text-[#F40009] hover:underline">
+          <Link href="/merchant/dashboard/shipments" className="text-sm font-medium text-[#e3201b] hover:underline">
             View all
           </Link>
         </div>
@@ -170,7 +170,7 @@ export default async function MerchantDashboardPage({
             <div className="flex flex-col items-center justify-center gap-3 py-16 text-center">
               <Package strokeWidth={1} className="h-10 w-10 text-zinc-300" />
               <p className="text-sm text-zinc-500">No activity yet</p>
-              <Link href="/merchant/booking" className="text-sm font-medium text-[#F40009] hover:underline">
+              <Link href="/merchant/booking" className="text-sm font-medium text-[#e3201b] hover:underline">
                 Create a shipment
               </Link>
             </div>
@@ -189,7 +189,7 @@ export default async function MerchantDashboardPage({
                 {recentActivity.map((row) => (
                   <tr key={row.trackingId} className="border-b border-zinc-100 last:border-b-0">
                     <td className="px-8 py-5">
-                      <Link href={`/track/${row.trackingId}`} className="font-mono text-[#F40009] hover:underline">
+                      <Link href={`/track/${row.trackingId}`} className="font-mono text-[#e3201b] hover:underline">
                         {row.trackingId}
                       </Link>
                     </td>
@@ -207,7 +207,7 @@ export default async function MerchantDashboardPage({
                           row.status === "Delivered"
                             ? "border-green-600 bg-green-50 text-green-700"
                             : row.status === "In-Transit"
-                            ? "border-[#F40009] bg-[#F40009]/5 text-[#F40009]"
+                            ? "border-[#e3201b] bg-[#e3201b]/5 text-[#e3201b]"
                             : "border-zinc-200 bg-zinc-50 text-zinc-700"
                         }`}
                       >
@@ -232,7 +232,7 @@ export default async function MerchantDashboardPage({
             {volumeByMonth.map((v) => (
               <div key={v.month} className="flex flex-1 flex-col items-center gap-3">
                 <div
-                  className="w-full border border-[#F40009] bg-[#F40009]"
+                  className="w-full border border-[#e3201b] bg-[#e3201b]"
                   style={{ height: Math.max(12, (v.count / maxVolume) * 100) }}
                 />
                 <span className="text-xs text-zinc-500">{v.month}</span>

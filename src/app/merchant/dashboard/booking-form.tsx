@@ -80,7 +80,7 @@ export function BookingForm() {
         )}
         {(state?.trackingId || state?.success) && (
           <div className="mb-8 border border-zinc-100 bg-zinc-50 p-6">
-            <p className="text-sm text-[#F40009] font-sans">
+            <p className="text-sm text-[#e3201b] font-sans">
               {state.success}
               {state.trackingId && (
                 <>
@@ -101,7 +101,7 @@ export function BookingForm() {
               key={s.id}
               className={cn(
                 "h-1 flex-1",
-                s.id <= step ? "bg-[#F40009]" : "bg-zinc-100"
+                s.id <= step ? "bg-[#e3201b]" : "bg-zinc-100"
               )}
             />
           ))}
@@ -156,7 +156,7 @@ export function BookingForm() {
               <Button
                 type="button"
                 onClick={() => setStep(2)}
-                className="h-12 rounded-none bg-[#F40009] px-8 font-sans hover:bg-[#cc0008]"
+                className="h-12 rounded-none bg-[#e3201b] px-8 font-sans hover:bg-[#c41b17]"
               >
                 Next
                 <ChevronRight strokeWidth={1} className="ml-2 h-4 w-4" />
@@ -181,7 +181,7 @@ export function BookingForm() {
                     className={cn(
                       "flex items-center gap-2 border px-4 py-3 font-sans text-sm font-medium transition-colors",
                       preset === p.id
-                        ? "border-[#F40009] bg-[#F40009] text-white"
+                        ? "border-[#e3201b] bg-[#e3201b] text-white"
                         : "border-zinc-200 bg-white text-zinc-700 hover:border-zinc-300"
                     )}
                   >
@@ -270,16 +270,16 @@ export function BookingForm() {
                   type="checkbox"
                   checked={premiumInsurance}
                   onChange={(e) => setPremiumInsurance(e.target.checked)}
-                  className="h-4 w-4 rounded-none border-zinc-300 text-[#F40009] focus:ring-[#F40009]"
+                  className="h-4 w-4 rounded-none border-zinc-300 text-[#e3201b] focus:ring-[#e3201b]"
                 />
                 <span className="font-sans text-sm font-medium text-zinc-900">
                   Add Premium Insurance (1.5% of declared value)
                 </span>
               </label>
               {premiumInsurance && (
-                <div className="inline-flex items-center gap-2 border border-[#F40009] bg-[#F40009]/5 px-3 py-2">
-                  <Shield className="h-4 w-4 text-[#F40009]" />
-                  <span className="text-sm font-medium text-[#F40009] font-sans">
+                <div className="inline-flex items-center gap-2 border border-[#e3201b] bg-[#e3201b]/5 px-3 py-2">
+                  <Shield className="h-4 w-4 text-[#e3201b]" />
+                  <span className="text-sm font-medium text-[#e3201b] font-sans">
                     Protection Secured
                   </span>
                 </div>
@@ -295,7 +295,7 @@ export function BookingForm() {
                   value="on"
                   checked={fragile}
                   onChange={(e) => setFragile(e.target.checked)}
-                  className="h-4 w-4 rounded-none border-zinc-300 text-[#F40009] focus:ring-[#F40009]"
+                  className="h-4 w-4 rounded-none border-zinc-300 text-[#e3201b] focus:ring-[#e3201b]"
                 />
                 <span className="font-sans text-sm font-medium text-zinc-900">
                   Fragile (+₦500 handling fee)
@@ -308,7 +308,7 @@ export function BookingForm() {
                   value="on"
                   checked={signatureRequired}
                   onChange={(e) => setSignatureRequired(e.target.checked)}
-                  className="h-4 w-4 rounded-none border-zinc-300 text-[#F40009] focus:ring-[#F40009]"
+                  className="h-4 w-4 rounded-none border-zinc-300 text-[#e3201b] focus:ring-[#e3201b]"
                 />
                 <span className="font-sans text-sm font-medium text-zinc-900">
                   Signature required on delivery
@@ -329,7 +329,7 @@ export function BookingForm() {
               <Button
                 type="button"
                 onClick={() => setStep(3)}
-                className="h-12 rounded-none bg-[#F40009] px-8 font-sans hover:bg-[#cc0008]"
+                className="h-12 rounded-none bg-[#e3201b] px-8 font-sans hover:bg-[#c41b17]"
               >
                 Next
                 <ChevronRight strokeWidth={1} className="ml-2 h-4 w-4" />
@@ -356,8 +356,8 @@ export function BookingForm() {
               <p className="text-sm text-zinc-600 font-sans">
                 {length} × {width} × {height} cm
               </p>
-              {fragile && <p className="mt-1 text-sm text-[#F40009] font-sans">Fragile</p>}
-              {signatureRequired && <p className="text-sm text-[#F40009] font-sans">Signature required</p>}
+              {fragile && <p className="mt-1 text-sm text-[#e3201b] font-sans">Fragile</p>}
+              {signatureRequired && <p className="text-sm text-[#e3201b] font-sans">Signature required</p>}
             </div>
             <div className="flex justify-between pt-6">
               <Button
@@ -376,7 +376,7 @@ export function BookingForm() {
               {signatureRequired && <input type="hidden" name="signatureRequired" value="on" />}
               <Button
                 type="submit"
-                className="h-12 rounded-none bg-[#F40009] px-8 font-sans hover:bg-[#cc0008]"
+                className="h-12 rounded-none bg-[#e3201b] px-8 font-sans hover:bg-[#c41b17]"
               >
                 Create booking
               </Button>

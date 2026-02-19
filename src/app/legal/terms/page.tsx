@@ -15,7 +15,7 @@ export default function TermsPage() {
         <div className="mx-auto max-w-3xl px-6 py-16 sm:py-24">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#121212]/70 hover:text-[#F40009]"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#121212]/70 hover:text-[#e3201b]"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to home
@@ -26,7 +26,7 @@ export default function TermsPage() {
               Terms of Service
             </h1>
             <p className="mt-3 text-[#121212]/60">
-              Last updated: February 2026. Please read these terms before using Shipco services.
+              Last updated: February 2026. Please read these terms before using shipco services.
             </p>
           </header>
 
@@ -34,7 +34,7 @@ export default function TermsPage() {
             <section className="mb-12">
               <h2 className="text-xl font-bold text-[#121212]">1. Acceptance of terms</h2>
               <p className="mt-3 leading-relaxed text-[#121212]/80">
-                By accessing or using Shipco’s platform, websites, or services (collectively, the “Services”), you agree to be bound by these Terms of Service and our Privacy Policy. If you do not agree, do not use the Services.
+                By accessing or using shipco’s platform, websites, or services (collectively, the “Services”), you agree to be bound by these Terms of Service and our Privacy Policy. If you do not agree, do not use the Services.
               </p>
             </section>
 
@@ -51,7 +51,7 @@ export default function TermsPage() {
             <section className="mb-12">
               <h2 className="text-xl font-bold text-[#121212]">3. Limitation of liability</h2>
               <p className="mt-3 leading-relaxed text-[#121212]/80">
-                Shipco is not liable for loss, damage, or delay caused by third parties (including but not limited to customs, carriers, sub-contractors, or recipients), force majeure, your misdeclaration of contents or value, or your failure to comply with these terms. Where we are liable, our liability is limited to the amount set out in your service agreement or the declared value of the shipment, whichever is lower, and we do not accept liability for indirect, consequential, or punitive damages.
+                shipco is not liable for loss, damage, or delay caused by third parties (including but not limited to customs, carriers, sub-contractors, or recipients), force majeure, your misdeclaration of contents or value, or your failure to comply with these terms. Where we are liable, our liability is limited to the amount set out in your service agreement or the declared value of the shipment, whichever is lower, and we do not accept liability for indirect, consequential, or punitive damages.
               </p>
             </section>
 
@@ -109,7 +109,7 @@ export default function TermsPage() {
           </div>
 
           <div className="mt-12 flex flex-wrap gap-4 border-t border-[#121212]/10 pt-8">
-            <Link href="/legal/privacy" className="text-sm font-medium text-[#F40009] hover:underline">
+            <Link href="/legal/privacy" className="text-sm font-medium text-[#e3201b] hover:underline">
               Privacy Policy
             </Link>
             <Link href="/legal/prohibited" className="text-sm font-medium text-[#121212]/70 hover:text-[#121212]">

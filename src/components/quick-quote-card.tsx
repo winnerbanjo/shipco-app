@@ -39,7 +39,7 @@ export type QuoteResult = {
 
 function getShareText(result: QuoteResult): string {
   const price = `₦${result.amount.toLocaleString("en-NG")}`;
-  return `Shipco Estimate: ${result.originLabel} to ${result.destinationLabel} for ${result.weightKg}kg is ${price}.`;
+  return `shipco Estimate: ${result.originLabel} to ${result.destinationLabel} for ${result.weightKg}kg is ${price}.`;
 }
 
 function ShareQuoteButton({ result }: { result: QuoteResult }) {
@@ -50,7 +50,7 @@ function ShareQuoteButton({ result }: { result: QuoteResult }) {
     if (typeof navigator !== "undefined" && navigator.share) {
       try {
         await navigator.share({
-          title: "Shipco Shipping Quote",
+          title: "shipco Shipping Quote",
           text,
         });
       } catch (err) {
@@ -68,7 +68,7 @@ function ShareQuoteButton({ result }: { result: QuoteResult }) {
       type="button"
       variant="outline"
       onClick={handleShare}
-      className="mt-4 h-12 min-h-[3rem] w-full rounded-none border-[#F40009] font-sans font-medium text-[#F40009] hover:bg-[#F40009]/5 sm:h-10 sm:min-h-0"
+      className="mt-4 h-12 min-h-[3rem] w-full rounded-none border-[#e3201b] font-sans font-medium text-[#e3201b] hover:bg-[#e3201b]/5 sm:h-10 sm:min-h-0"
     >
       Share Quote
     </Button>
@@ -93,7 +93,7 @@ function QuoteResultView({ result, onClose }: { result: QuoteResult; onClose?: (
           </button>
         )}
       </div>
-      <p className="mt-2 text-2xl font-semibold tracking-tight text-[#F40009]">
+      <p className="mt-2 text-2xl font-semibold tracking-tight text-[#e3201b]">
         ₦{result.amount.toLocaleString("en-NG")}
       </p>
       <p className="mt-1 text-xs text-zinc-500">
@@ -192,7 +192,7 @@ export function QuickQuoteCard({ className }: { className?: string }) {
             className={cn(
               "flex-1 py-3 text-xs font-medium transition-colors sm:py-2",
               mode === "export"
-                ? "bg-[#F40009] text-white"
+                ? "bg-[#e3201b] text-white"
                 : "bg-transparent text-zinc-600 hover:bg-zinc-50"
             )}
           >
@@ -208,7 +208,7 @@ export function QuickQuoteCard({ className }: { className?: string }) {
             className={cn(
               "flex-1 py-3 text-xs font-medium transition-colors sm:py-2",
               mode === "import"
-                ? "bg-[#F40009] text-white"
+                ? "bg-[#e3201b] text-white"
                 : "bg-transparent text-zinc-600 hover:bg-zinc-50"
             )}
           >
@@ -276,7 +276,7 @@ export function QuickQuoteCard({ className }: { className?: string }) {
           <Button
             type="button"
             onClick={handleGenerateQuote}
-            className="h-12 min-h-[3rem] w-full rounded-none bg-[#F40009] font-sans font-medium text-white hover:bg-[#cc0008] sm:h-10 sm:min-h-0"
+            className="h-12 min-h-[3rem] w-full rounded-none bg-[#e3201b] font-sans font-medium text-white hover:bg-[#cc0008] sm:h-10 sm:min-h-0"
           >
             Generate Quote
           </Button>

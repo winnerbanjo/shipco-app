@@ -144,7 +144,7 @@ export default function PricingPage() {
         <div className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#121212]/70 hover:text-[#F40009]"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#121212]/70 hover:text-[#e3201b]"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to home
@@ -164,7 +164,7 @@ export default function PricingPage() {
           <ScrollReveal delay={0.1} className="mt-12">
             <div className="rounded-2xl border border-[#121212]/10 bg-white p-6 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl sm:p-8">
               <div className="flex items-center gap-3">
-                <Calculator className="h-8 w-8 text-[#F40009]" strokeWidth={1.5} />
+                <Calculator className="h-8 w-8 text-[#e3201b]" strokeWidth={1.5} />
                 <h2 className="text-xl font-bold text-[#121212]">Rate calculator</h2>
               </div>
 
@@ -176,7 +176,7 @@ export default function PricingPage() {
                   <select
                     value={serviceType}
                     onChange={(e) => setServiceType(e.target.value as ServiceType)}
-                    className="mt-2 w-full rounded-xl border border-[#121212]/15 bg-white px-4 py-3 text-sm text-[#121212] focus:border-[#F40009] focus:outline-none focus:ring-2 focus:ring-[#F40009]/20"
+                    className="mt-2 w-full rounded-xl border border-[#121212]/15 bg-white px-4 py-3 text-sm text-[#121212] focus:border-[#e3201b] focus:outline-none focus:ring-2 focus:ring-[#e3201b]/20"
                   >
                     {SERVICE_OPTIONS.map((o) => (
                       <option key={o.value} value={o.value}>
@@ -195,7 +195,7 @@ export default function PricingPage() {
                     placeholder="e.g. 2.5"
                     value={weight}
                     onChange={(e) => setWeight(e.target.value)}
-                    className="mt-2 w-full rounded-xl border border-[#121212]/15 bg-white px-4 py-3 text-sm text-[#121212] placeholder:text-[#121212]/40 focus:border-[#F40009] focus:outline-none focus:ring-2 focus:ring-[#F40009]/20"
+                    className="mt-2 w-full rounded-xl border border-[#121212]/15 bg-white px-4 py-3 text-sm text-[#121212] placeholder:text-[#121212]/40 focus:border-[#e3201b] focus:outline-none focus:ring-2 focus:ring-[#e3201b]/20"
                   />
                 </div>
                 <div>
@@ -208,7 +208,7 @@ export default function PricingPage() {
                     placeholder="e.g. 30"
                     value={length}
                     onChange={(e) => setLength(e.target.value)}
-                    className="mt-2 w-full rounded-xl border border-[#121212]/15 bg-white px-4 py-3 text-sm text-[#121212] placeholder:text-[#121212]/40 focus:border-[#F40009] focus:outline-none focus:ring-2 focus:ring-[#F40009]/20"
+                    className="mt-2 w-full rounded-xl border border-[#121212]/15 bg-white px-4 py-3 text-sm text-[#121212] placeholder:text-[#121212]/40 focus:border-[#e3201b] focus:outline-none focus:ring-2 focus:ring-[#e3201b]/20"
                   />
                 </div>
                 <div>
@@ -222,7 +222,7 @@ export default function PricingPage() {
                       placeholder="W"
                       value={width}
                       onChange={(e) => setWidth(e.target.value)}
-                      className="w-1/2 rounded-xl border border-[#121212]/15 bg-white px-4 py-3 text-sm text-[#121212] placeholder:text-[#121212]/40 focus:border-[#F40009] focus:outline-none focus:ring-2 focus:ring-[#F40009]/20"
+                      className="w-1/2 rounded-xl border border-[#121212]/15 bg-white px-4 py-3 text-sm text-[#121212] placeholder:text-[#121212]/40 focus:border-[#e3201b] focus:outline-none focus:ring-2 focus:ring-[#e3201b]/20"
                     />
                     <input
                       type="text"
@@ -230,7 +230,7 @@ export default function PricingPage() {
                       placeholder="H"
                       value={height}
                       onChange={(e) => setHeight(e.target.value)}
-                      className="w-1/2 rounded-xl border border-[#121212]/15 bg-white px-4 py-3 text-sm text-[#121212] placeholder:text-[#121212]/40 focus:border-[#F40009] focus:outline-none focus:ring-2 focus:ring-[#F40009]/20"
+                      className="w-1/2 rounded-xl border border-[#121212]/15 bg-white px-4 py-3 text-sm text-[#121212] placeholder:text-[#121212]/40 focus:border-[#e3201b] focus:outline-none focus:ring-2 focus:ring-[#e3201b]/20"
                     />
                   </div>
                 </div>
@@ -268,7 +268,7 @@ export default function PricingPage() {
                     </div>
                     <div className="border-l border-[#121212]/20 pl-6">
                       <p className="text-xs text-[#121212]/60">Total (est.)</p>
-                      <p className="text-3xl font-extrabold text-[#F40009]">
+                      <p className="text-3xl font-extrabold text-[#e3201b]">
                         ₦{quote.total.toLocaleString("en-NG")}
                       </p>
                     </div>
@@ -301,8 +301,8 @@ export default function PricingPage() {
                   <div className="border-b border-r border-[#121212]/10 bg-[#121212]/[0.02] px-4 py-4 text-center font-semibold text-[#121212] sm:px-6 sm:py-5">
                     Economy
                   </div>
-                  <div className="relative border-b border-[#121212]/10 bg-[#F40009]/5 px-4 py-4 text-center font-semibold text-[#121212] sm:px-6 sm:py-5">
-                    <span className="absolute -top-2 left-1/2 -translate-x-1/2 rounded-full bg-[#F40009] px-3 py-0.5 text-xs font-bold uppercase text-white">
+                  <div className="relative border-b border-[#121212]/10 bg-[#e3201b]/5 px-4 py-4 text-center font-semibold text-[#121212] sm:px-6 sm:py-5">
+                    <span className="absolute -top-2 left-1/2 -translate-x-1/2 rounded-full bg-[#e3201b] px-3 py-0.5 text-xs font-bold uppercase text-white">
                       Popular
                     </span>
                     Express
@@ -340,15 +340,15 @@ export default function PricingPage() {
                 <div className="space-y-4">
                   <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-[#121212]/80">
                     <li className="flex items-center gap-2">
-                      <Check className="h-5 w-5 text-[#F40009]" strokeWidth={2} />
+                      <Check className="h-5 w-5 text-[#e3201b]" strokeWidth={2} />
                       Discounted rates
                     </li>
                     <li className="flex items-center gap-2">
-                      <Check className="h-5 w-5 text-[#F40009]" strokeWidth={2} />
+                      <Check className="h-5 w-5 text-[#e3201b]" strokeWidth={2} />
                       Dedicated account manager
                     </li>
                     <li className="flex items-center gap-2">
-                      <Check className="h-5 w-5 text-[#F40009]" strokeWidth={2} />
+                      <Check className="h-5 w-5 text-[#e3201b]" strokeWidth={2} />
                       Monthly invoicing
                     </li>
                   </ul>
@@ -358,7 +358,7 @@ export default function PricingPage() {
                 </div>
                 <a
                   href="mailto:sales@shipco.com?subject=High-Volume%20Pricing"
-                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-[#F40009] px-8 py-4 font-medium text-white shadow-lg shadow-[#F40009]/25 transition-all hover:-translate-y-0.5 hover:bg-[#cc0008] hover:shadow-xl"
+                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-[#e3201b] px-8 py-4 font-medium text-white shadow-lg shadow-[#e3201b]/25 transition-all hover:-translate-y-0.5 hover:bg-[#c41b17] hover:shadow-xl"
                 >
                   <MessageCircle className="h-5 w-5" strokeWidth={1.5} />
                   Contact sales
@@ -381,15 +381,15 @@ export default function PricingPage() {
               {internationalRates.map((r, i) => (
                 <ScrollReveal key={r.route} delay={0.1 + i * 0.06}>
                   <div className="rounded-2xl border border-[#121212]/10 bg-white p-6 shadow-xl transition-all hover:-translate-y-2 hover:shadow-2xl">
-                    <Truck className="h-10 w-10 text-[#F40009]" strokeWidth={1.5} />
+                    <Truck className="h-10 w-10 text-[#e3201b]" strokeWidth={1.5} />
                     <p className="mt-4 font-semibold text-[#121212]">{r.route}</p>
                     <p className="mt-1 text-sm text-[#121212]/60">From {r.startKg} kg</p>
-                    <p className="mt-3 text-2xl font-bold text-[#F40009]">
+                    <p className="mt-3 text-2xl font-bold text-[#e3201b]">
                       ₦{r.fromAmount.toLocaleString("en-NG")}
                     </p>
                     <Link
                       href="/services#import-export"
-                      className="mt-4 inline-block text-sm font-medium text-[#F40009] hover:underline"
+                      className="mt-4 inline-block text-sm font-medium text-[#e3201b] hover:underline"
                     >
                       See Import/Export →
                     </Link>

@@ -31,7 +31,7 @@ export function MerchantAppleSidebar() {
     <aside className="flex h-full w-52 flex-col border-r border-zinc-200 bg-white">
       <div className="flex h-14 items-center gap-2 border-b border-zinc-200 px-4">
         <Link href="/merchant/dashboard" className="flex items-center gap-2 font-sans text-sm font-bold text-black">
-          Shipco <span className="font-normal text-[#F40009]">Logistics</span>
+          <span className="font-bold tracking-tighter text-black">shipco</span> <span className="font-normal text-[#e3201b]">Logistics</span>
         </Link>
       </div>
       <nav className="flex-1 space-y-0.5 p-4">
@@ -45,12 +45,12 @@ export function MerchantAppleSidebar() {
               href={item.href}
               className={cn(
                 "relative flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900",
-                isActive && "text-[#F40009]"
+                isActive && "text-[#e3201b]"
               )}
             >
               {isActive && (
                 <span
-                  className="absolute left-0 top-1/2 h-5 w-0.5 -translate-y-1/2 bg-[#F40009]"
+                  className="absolute left-0 top-1/2 h-5 w-0.5 -translate-y-1/2 bg-[#e3201b]"
                   aria-hidden
                 />
               )}
@@ -92,7 +92,7 @@ export function AdminAppleSidebar() {
     <aside className="flex h-full w-52 flex-col border-r border-zinc-200 bg-white">
       <div className="flex h-14 items-center gap-2 border-b border-zinc-200 px-4">
         <Link href="/admin/dashboard" className="flex items-center gap-2 font-sans text-sm font-bold text-black">
-          Shipco <span className="font-normal text-[#F40009]">Logistics</span>
+          <span className="font-bold tracking-tighter text-black">shipco</span> <span className="font-normal text-[#e3201b]">Logistics</span>
         </Link>
       </div>
       <nav className="flex-1 space-y-0.5 p-4">
@@ -104,12 +104,12 @@ export function AdminAppleSidebar() {
               href={item.href}
               className={cn(
                 "relative flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900",
-                isActive && "text-[#F40009]"
+                isActive && "text-[#e3201b]"
               )}
             >
               {isActive && (
                 <span
-                  className="absolute left-0 top-1/2 h-5 w-0.5 -translate-y-1/2 bg-[#F40009]"
+                  className="absolute left-0 top-1/2 h-5 w-0.5 -translate-y-1/2 bg-[#e3201b]"
                   aria-hidden
                 />
               )}

@@ -145,7 +145,7 @@ export function StructuredAddressField({
         icon: {
           path: g.maps.SymbolPath.CIRCLE,
           scale: 12,
-          fillColor: "#F40009",
+          fillColor: "#e3201b",
           fillOpacity: 1,
           strokeColor: "#ffffff",
           strokeWeight: 2,
@@ -183,7 +183,7 @@ export function StructuredAddressField({
             onChange={(e) => onChange({ ...value, streetAddress: e.target.value })}
             placeholder={autocompleteReady ? "Start typing for suggestions..." : "e.g. 12 Admiralty Way, Lekki"}
             required={required}
-            className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
+            className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#e3201b] focus:outline-none focus:ring-1 focus:ring-[#e3201b]"
           />
         </div>
 
@@ -201,7 +201,7 @@ export function StructuredAddressField({
                 onChange(next);
                 onHubSuggest?.(getHubFromAddress(next.lga, next.state));
               }}
-              className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
+              className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 focus:border-[#e3201b] focus:outline-none focus:ring-1 focus:ring-[#e3201b]"
             >
               <option value="">Select LGA / Area</option>
               {lgaOptions.map((lga) => (
@@ -222,7 +222,7 @@ export function StructuredAddressField({
                 onChange(next);
                 onHubSuggest?.(getHubFromAddress(next.lga, next.state));
               }}
-              className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
+              className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 focus:border-[#e3201b] focus:outline-none focus:ring-1 focus:ring-[#e3201b]"
             >
               <option value="">Select State</option>
               {ADDRESS_STATES.map((s) => (
@@ -244,7 +244,7 @@ export function StructuredAddressField({
               value={value.apartment}
               onChange={(e) => onChange({ ...value, apartment: e.target.value })}
               placeholder="e.g. Suite 4B"
-              className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
+              className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#e3201b] focus:outline-none focus:ring-1 focus:ring-[#e3201b]"
             />
           </div>
           <div>
@@ -258,14 +258,14 @@ export function StructuredAddressField({
               value={value.landmark}
               onChange={(e) => onChange({ ...value, landmark: e.target.value })}
               placeholder="e.g. Opposite GTBank"
-              className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
+              className="mt-2 w-full rounded-none border border-zinc-200 bg-white px-4 py-3 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#e3201b] focus:outline-none focus:ring-1 focus:ring-[#e3201b]"
             />
           </div>
         </div>
 
         {displayHub && (
           <p className="text-xs text-zinc-500 font-sans">
-            Smart Hub: <span className="font-medium text-[#F40009]">{displayHub}</span>
+            Smart Hub: <span className="font-medium text-[#e3201b]">{displayHub}</span>
           </p>
         )}
       </div>
@@ -273,7 +273,7 @@ export function StructuredAddressField({
       {showMapPreview && (
         <div className="w-full shrink-0 rounded-none border border-zinc-100 bg-white lg:w-80">
           <header className="flex items-center gap-3 border-b border-zinc-100 px-4 py-3">
-            <span className="shrink-0 font-sans text-sm font-bold text-black">Shipco</span>
+            <span className="shrink-0 font-sans text-sm font-bold tracking-tighter text-black">shipco</span>
             <span className="text-xs font-medium uppercase tracking-wider text-zinc-500 font-sans">
               Map
             </span>

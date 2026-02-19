@@ -15,7 +15,7 @@ export default function PrivacyPage() {
         <div className="mx-auto max-w-3xl px-6 py-16 sm:py-24">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#121212]/70 hover:text-[#F40009]"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#121212]/70 hover:text-[#e3201b]"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to home
@@ -34,7 +34,7 @@ export default function PrivacyPage() {
             <section className="mb-12">
               <h2 className="text-xl font-bold text-[#121212]">1. Data protection commitment</h2>
               <p className="mt-3 leading-relaxed text-[#121212]/80">
-                Shipco (“we”, “us”) is committed to protecting your personal data in line with applicable laws, including the Nigeria Data Protection Regulation (NDPR) and other relevant legislation. This policy describes how we collect, use, store, and share information when you use our platform, website, or services.
+                shipco (“we”, “us”) is committed to protecting your personal data in line with applicable laws, including the Nigeria Data Protection Regulation (NDPR) and other relevant legislation. This policy describes how we collect, use, store, and share information when you use our platform, website, or services.
               </p>
             </section>
 
@@ -55,7 +55,7 @@ export default function PrivacyPage() {
             <section className="mb-12">
               <h2 className="text-xl font-bold text-[#121212]">4. Merchant privacy</h2>
               <p className="mt-3 leading-relaxed text-[#121212]/80">
-                If you use Shipco as a merchant or business user, we process your business name, contact details, addresses, shipment history, and wallet/transaction data to fulfil contracts and provide the platform. We may share necessary data with hubs, riders, and partners involved in fulfilling your shipments. We retain shipment and financial records as required by law and our internal policies. You can request access, correction, or deletion of your data subject to legal and contractual constraints.
+                If you use shipco as a merchant or business user, we process your business name, contact details, addresses, shipment history, and wallet/transaction data to fulfil contracts and provide the platform. We may share necessary data with hubs, riders, and partners involved in fulfilling your shipments. We retain shipment and financial records as required by law and our internal policies. You can request access, correction, or deletion of your data subject to legal and contractual constraints.
               </p>
             </section>
 
@@ -77,7 +77,7 @@ export default function PrivacyPage() {
           <div className="mt-12 flex flex-wrap gap-4 border-t border-[#121212]/10 pt-8">
             <Link
               href="/legal/terms"
-              className="text-sm font-medium text-[#F40009] hover:underline"
+              className="text-sm font-medium text-[#e3201b] hover:underline"
             >
               Terms of Service
             </Link>

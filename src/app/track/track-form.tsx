@@ -39,7 +39,7 @@ export function TrackForm({
           placeholder="e.g. Shipco-123 or Shipco-782-NG"
           value={value}
           onChange={(e) => setValue(e.target.value.toUpperCase())}
-          className="w-full rounded-none border border-zinc-200 bg-white px-4 py-3.5 text-base text-zinc-900 placeholder-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-0"
+          className="w-full rounded-none border border-zinc-200 bg-white px-4 py-3.5 text-base text-zinc-900 placeholder-zinc-400 focus:border-[#e3201b] focus:outline-none focus:ring-0"
           aria-label="Tracking ID"
         />
         {error && (
@@ -50,7 +50,7 @@ export function TrackForm({
       </div>
       <button
         type="submit"
-        className="rounded-none bg-[#F40009] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#cc0008]"
+        className="rounded-none bg-[#e3201b] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#cc0008]"
       >
         Track
       </button>

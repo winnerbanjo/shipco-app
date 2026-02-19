@@ -26,7 +26,7 @@ export default function TrackingPage() {
         <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col justify-center px-6 py-20">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#121212]/70 hover:text-[#F40009]"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#121212]/70 hover:text-[#e3201b]"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to home
@@ -53,12 +53,12 @@ export default function TrackingPage() {
                   value={trackingId}
                   onChange={(e) => setTrackingId(e.target.value)}
                   placeholder="e.g. SHP-123456789"
-                  className="w-full rounded-xl border border-[#121212]/15 bg-white py-4 pl-12 pr-4 text-[#121212] placeholder:text-[#121212]/40 focus:border-[#F40009] focus:outline-none focus:ring-2 focus:ring-[#F40009]/20"
+                  className="w-full rounded-xl border border-[#121212]/15 bg-white py-4 pl-12 pr-4 text-[#121212] placeholder:text-[#121212]/40 focus:border-[#e3201b] focus:outline-none focus:ring-2 focus:ring-[#e3201b]/20"
                 />
               </div>
               <button
                 type="submit"
-                className="rounded-xl bg-[#F40009] px-8 py-4 font-medium text-white shadow-lg shadow-[#F40009]/25 transition-all hover:-translate-y-0.5 hover:bg-[#cc0008] focus:outline-none focus:ring-2 focus:ring-[#F40009] focus:ring-offset-2"
+                className="rounded-xl bg-[#e3201b] px-8 py-4 font-medium text-white shadow-lg shadow-[#e3201b]/25 transition-all hover:-translate-y-0.5 hover:bg-[#c41b17] focus:outline-none focus:ring-2 focus:ring-[#e3201b] focus:ring-offset-2"
               >
                 Track
               </button>

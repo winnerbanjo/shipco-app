@@ -13,7 +13,7 @@ export default function BookShipmentPage() {
           <ChevronLeft strokeWidth={1} className="mr-1 h-4 w-4" />
           Back
         </Link>
-        <span className="ml-4 shrink-0 font-sans text-lg font-bold text-black">Shipco</span>
+        <span className="ml-4 shrink-0 font-sans text-lg font-bold tracking-tighter text-black">shipco</span>
         <div>
           <h1 className="font-sans text-2xl font-semibold tracking-tighter text-zinc-900">
             Book shipment

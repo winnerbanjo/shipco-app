@@ -12,9 +12,9 @@ export function FatFooter() {
           <div>
             <Link
               href="/"
-              className="font-sans text-xl font-extrabold tracking-tight text-[#121212]"
+              className="font-sans text-xl font-extrabold tracking-tighter text-[#121212]"
             >
-              Shipco
+              shipco
             </Link>
             <p className="mt-3 text-sm text-[#121212]/60">
               Modern logistics for Nigeria. Ship smarter, track easier.
@@ -24,7 +24,7 @@ export function FatFooter() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#121212]/50 transition-colors hover:text-[#F40009]"
+                className="text-[#121212]/50 transition-colors hover:text-[#e3201b]"
                 aria-label="Twitter"
               >
                 <Twitter className="h-5 w-5" />
@@ -33,7 +33,7 @@ export function FatFooter() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#121212]/50 transition-colors hover:text-[#F40009]"
+                className="text-[#121212]/50 transition-colors hover:text-[#e3201b]"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
@@ -42,7 +42,7 @@ export function FatFooter() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#121212]/50 transition-colors hover:text-[#F40009]"
+                className="text-[#121212]/50 transition-colors hover:text-[#e3201b]"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />

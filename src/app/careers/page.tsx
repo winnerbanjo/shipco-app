@@ -18,7 +18,7 @@ const CAREER_CATEGORIES = [
   {
     icon: Code2,
     title: "Technology",
-    description: "Build and maintain the platforms that power Shipco.",
+    description: "Build and maintain the platforms that power shipco.",
     roles: ["Software Engineer", "Product Designer", "Data Analyst", "DevOps Engineer"],
     href: "/careers#technology",
   },
@@ -40,7 +40,7 @@ export default function CareersPage() {
         <div className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#121212]/70 hover:text-[#F40009]"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#121212]/70 hover:text-[#e3201b]"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to home
@@ -63,8 +63,8 @@ export default function CareersPage() {
                   className="scroll-mt-24 rounded-2xl border border-[#121212]/10 bg-white/80 p-8 shadow-xl backdrop-blur-md transition-all hover:-translate-y-2 hover:shadow-2xl"
                 >
                   <div className="flex items-start gap-6">
-                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#F40009]/10">
-                      <Icon className="h-7 w-7 text-[#F40009]" strokeWidth={1.5} />
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#e3201b]/10">
+                      <Icon className="h-7 w-7 text-[#e3201b]" strokeWidth={1.5} />
                     </div>
                     <div className="min-w-0 flex-1">
                       <h2 className="text-2xl font-bold text-[#121212]">{title}</h2>
@@ -72,14 +72,14 @@ export default function CareersPage() {
                       <ul className="mt-4 space-y-2">
                         {roles.map((role) => (
                           <li key={role} className="flex items-center gap-2 text-sm text-[#121212]/80">
-                            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#F40009]" />
+                            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#e3201b]" />
                             {role}
                           </li>
                         ))}
                       </ul>
                       <Link
                         href="mailto:careers@shipco.com?subject=Application"
-                        className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#F40009] hover:underline"
+                        className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#e3201b] hover:underline"
                       >
                         Apply for this area
                         <ArrowRight className="h-4 w-4" />
@@ -94,7 +94,7 @@ export default function CareersPage() {
           <ScrollReveal className="mt-16 text-center">
             <p className="text-[#121212]/70">
               Send your CV to{" "}
-              <a href="mailto:careers@shipco.com" className="font-medium text-[#F40009] hover:underline">
+              <a href="mailto:careers@shipco.com" className="font-medium text-[#e3201b] hover:underline">
                 careers@shipco.com
               </a>{" "}
               with the role title in the subject line.

@@ -42,7 +42,7 @@ export default function HubDashboardPage() {
   return (
     <div className="mx-auto max-w-5xl bg-white">
       <header className="flex items-center gap-4 border-b border-zinc-100 pb-6">
-        <span className="shrink-0 font-sans text-xl font-bold text-black">Shipco</span>
+        <span className="shrink-0 font-sans text-xl font-bold tracking-tighter text-black">shipco</span>
         <div>
           <h1 className="font-sans text-2xl font-semibold tracking-tighter text-zinc-900">
             Hub Operations
@@ -67,7 +67,7 @@ export default function HubDashboardPage() {
             <Link
               key={href}
               href={href}
-              className="flex items-center gap-4 border-0 bg-[#F40009] p-6 font-medium text-white transition-colors hover:bg-[#cc0008]"
+              className="flex items-center gap-4 border-0 bg-[#e3201b] p-6 font-medium text-white transition-colors hover:bg-[#c41b17]"
             >
               <div className="flex h-12 w-12 items-center justify-center bg-white/15">
                 <Icon strokeWidth={1} className="h-6 w-6 text-white" />
@@ -163,7 +163,7 @@ export default function HubDashboardPage() {
             <tbody>
               {inventoryPreview.map((s) => (
                 <tr key={s.id} className="border-b border-zinc-100 last:border-b-0">
-                  <td className="px-6 py-4 font-mono font-sans tracking-tighter text-[#F40009]">
+                  <td className="px-6 py-4 font-mono font-sans tracking-tighter text-[#e3201b]">
                     {s.trackingId}
                   </td>
                   <td className="px-6 py-4 font-sans tracking-tighter text-zinc-900">
@@ -182,7 +182,7 @@ export default function HubDashboardPage() {
         </div>
         <Link
           href="/hub/inventory"
-          className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[#F40009] hover:underline"
+          className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[#e3201b] hover:underline"
         >
           <Package className="h-4 w-4" />
           View full Branch Inventory

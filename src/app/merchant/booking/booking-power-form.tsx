@@ -179,7 +179,7 @@ export function BookingPowerForm({
             </p>
           )}
           {state?.success && !state?.slip && (
-            <p className="mb-6 text-sm text-[#F40009]">{state.success}</p>
+            <p className="mb-6 text-sm text-[#e3201b]">{state.success}</p>
           )}
 
           <div className="mb-8 flex items-center gap-3">
@@ -197,7 +197,7 @@ export function BookingPowerForm({
                 onClick={() => setServiceMode("dropoff")}
                 className={`flex-1 rounded-md px-5 py-3 text-sm font-medium transition-colors ${
                   serviceMode === "dropoff"
-                    ? "bg-[#F40009] text-white shadow-sm"
+                    ? "bg-[#e3201b] text-white shadow-sm"
                     : "text-zinc-600 hover:text-zinc-900"
                 }`}
               >
@@ -208,7 +208,7 @@ export function BookingPowerForm({
                 onClick={() => setServiceMode("pickup")}
                 className={`flex-1 rounded-md px-5 py-3 text-sm font-medium transition-colors ${
                   serviceMode === "pickup"
-                    ? "bg-[#F40009] text-white shadow-sm"
+                    ? "bg-[#e3201b] text-white shadow-sm"
                     : "text-zinc-600 hover:text-zinc-900"
                 }`}
               >
@@ -246,7 +246,7 @@ export function BookingPowerForm({
                 onClick={() => setServiceLevel("Standard")}
                 className={`flex-1 rounded-none px-6 py-3 text-sm font-medium transition-colors ${
                   serviceLevel === "Standard"
-                    ? "bg-[#F40009] text-white"
+                    ? "bg-[#e3201b] text-white"
                     : "bg-white text-zinc-600 hover:bg-zinc-50"
                 }`}
               >
@@ -257,7 +257,7 @@ export function BookingPowerForm({
                 onClick={() => setServiceLevel("Express")}
                 className={`flex-1 rounded-none px-6 py-3 text-sm font-medium transition-colors ${
                   serviceLevel === "Express"
-                    ? "bg-[#F40009] text-white"
+                    ? "bg-[#e3201b] text-white"
                     : "bg-white text-zinc-600 hover:bg-zinc-50"
                 }`}
               >
@@ -434,7 +434,7 @@ export function BookingPowerForm({
                       className="mt-2 h-12 rounded-none border-zinc-100"
                     />
                     {zone && (
-                      <p className="mt-1 text-xs font-medium text-[#F40009]">
+                      <p className="mt-1 text-xs font-medium text-[#e3201b]">
                         Zone detected: {ZONE_LABELS[zone]} — rate pulled from sheet
                       </p>
                     )}
@@ -504,7 +504,7 @@ export function BookingPowerForm({
                     value="Standard"
                     checked={serviceLevel === "Standard"}
                     onChange={() => setServiceLevel("Standard")}
-                    className="h-4 w-4 border-zinc-300 text-[#F40009]"
+                    className="h-4 w-4 border-zinc-300 text-[#e3201b]"
                   />
                   <span className="ml-3 text-sm font-medium text-zinc-900">Standard</span>
                 </label>
@@ -515,7 +515,7 @@ export function BookingPowerForm({
                     value="Express"
                     checked={serviceLevel === "Express"}
                     onChange={() => setServiceLevel("Express")}
-                    className="h-4 w-4 border-zinc-300 text-[#F40009]"
+                    className="h-4 w-4 border-zinc-300 text-[#e3201b]"
                   />
                   <span className="ml-3 text-sm font-medium text-zinc-900">Express</span>
                 </label>
@@ -524,7 +524,7 @@ export function BookingPowerForm({
           </div>
 
           <div className="mt-12">
-            <Button type="submit" className="h-12 rounded-none bg-[#F40009] px-8 text-sm font-medium text-white hover:bg-[#cc0008]">
+            <Button type="submit" className="h-12 rounded-none bg-[#e3201b] px-8 text-sm font-medium text-white hover:bg-[#c41b17]">
               Generate Waybill
             </Button>
           </div>
@@ -557,7 +557,7 @@ export function BookingPowerForm({
             )}
             <div className="flex justify-between border-t border-zinc-100 pt-4">
               <span className="text-sm font-medium text-zinc-900">Total</span>
-              <span className="text-xl font-semibold tracking-tighter text-[#F40009]">
+              <span className="text-xl font-semibold tracking-tighter text-[#e3201b]">
                 ₦{total.toLocaleString()}
               </span>
             </div>
@@ -567,7 +567,7 @@ export function BookingPowerForm({
               ? `${weightNum} kg · ${serviceLevel}${serviceMode === "pickup" ? " · Pick-up" : " · Drop-off"}`
               : "Enter weight to see quote"}
           </p>
-          <Button type="submit" form="booking-power-form" className="mt-8 w-full rounded-none bg-[#F40009] py-3 text-sm font-medium text-white hover:bg-[#cc0008]">
+          <Button type="submit" form="booking-power-form" className="mt-8 w-full rounded-none bg-[#e3201b] py-3 text-sm font-medium text-white hover:bg-[#c41b17]">
             Generate Waybill
           </Button>
         </aside>

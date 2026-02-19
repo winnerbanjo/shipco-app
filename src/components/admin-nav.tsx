@@ -20,7 +20,7 @@ export function AdminNav() {
   return (
     <header className="sticky top-0 z-10 border-b bg-card">
       <div className="flex h-14 items-center gap-6 px-6">
-        <span className="font-sans font-bold text-black">Shipco</span>
+        <span className="font-sans font-bold tracking-tighter text-black">shipco</span>
         <span className="font-normal text-zinc-600">Admin</span>
         <nav className="flex gap-1">
           {nav.map(({ href, label, icon: Icon }) => (

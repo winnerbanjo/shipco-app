@@ -18,7 +18,7 @@ export function DownloadInvoiceButton({
 
   const handleDownload = () => {
     setLoading(true);
-    const content = `Shipco Logistics - Invoice\nTracking: ${trackingNumber}\nShipment ID: ${shipmentId}\nGenerated: ${new Date().toISOString()}\n\nThank you for shipping with us.`;
+    const content = `shipco Logistics - Invoice\nTracking: ${trackingNumber}\nShipment ID: ${shipmentId}\nGenerated: ${new Date().toISOString()}\n\nThank you for shipping with us.`;
     const blob = new Blob([content], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");

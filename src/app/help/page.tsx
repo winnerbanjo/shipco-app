@@ -71,12 +71,12 @@ const FAQS = [
     a: "We track every leg of your shipment. If there's a delay, you'll see status updates in the tracking view. Delays can happen due to weather, customs, or high volume. If your shipment is significantly late, contact support with your tracking ID—we'll investigate and, where applicable, follow our claims process. Delivery times are estimates unless you've booked an express guaranteed service.",
   },
   {
-    q: "How do I become a Shipco Partner?",
+    q: "How do I become a shipco Partner?",
     a: "We work with hubs, riders, and enterprise clients. For hub or rider partnerships, email partnerships@shipco.com with your location and capacity. For high-volume or API integration, use the same email or visit our Services page to see Import/Export and Nationwide options. We'll guide you through onboarding and contracts.",
   },
   {
     q: "Do you ship internationally?",
-    a: "Yes. Shipco offers Import and Export services with seamless clearing and forwarding. We handle documentation, customs, and first-mile and last-mile so you can ship to and from Nigeria. See our Import/Export flow and get a quote on the Services page.",
+    a: "Yes. shipco offers Import and Export services with seamless clearing and forwarding. We handle documentation, customs, and first-mile and last-mile so you can ship to and from Nigeria. See our Import/Export flow and get a quote on the Services page.",
     link: { label: "Import/Export on Services", href: "/services#import-export" },
   },
 ];
@@ -99,7 +99,7 @@ export default function HelpPage() {
         <div className="mx-auto max-w-4xl px-6 py-16 sm:py-24">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#121212]/70 hover:text-[#F40009]"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#121212]/70 hover:text-[#e3201b]"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to home
@@ -123,7 +123,7 @@ export default function HelpPage() {
                 onSubmit={(e) => e.preventDefault()}
                 className="flex items-center gap-3 rounded-xl bg-[#121212]/[0.02] px-4 py-1"
               >
-                <Search className="h-6 w-6 shrink-0 text-[#F40009]" strokeWidth={1.5} aria-hidden />
+                <Search className="h-6 w-6 shrink-0 text-[#e3201b]" strokeWidth={1.5} aria-hidden />
                 <input
                   type="search"
                   placeholder="Search help articles..."
@@ -154,9 +154,9 @@ export default function HelpPage() {
                     <Link
                       href={cat.href}
                       id={cat.href.replace("/help#", "")}
-                      className="group flex flex-col rounded-2xl border border-[#121212]/10 bg-white p-8 shadow-xl transition-all hover:-translate-y-2 hover:shadow-2xl hover:border-[#F40009]/20 scroll-mt-24"
+                      className="group flex flex-col rounded-2xl border border-[#121212]/10 bg-white p-8 shadow-xl transition-all hover:-translate-y-2 hover:shadow-2xl hover:border-[#e3201b]/20 scroll-mt-24"
                     >
-                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F40009]/10 text-[#F40009] transition-colors group-hover:bg-[#F40009]/15">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#e3201b]/10 text-[#e3201b] transition-colors group-hover:bg-[#e3201b]/15">
                         <Icon className="h-7 w-7" strokeWidth={1.5} />
                       </div>
                       <h3 className="mt-5 text-xl font-bold text-[#121212]">{cat.title}</h3>
@@ -185,7 +185,7 @@ export default function HelpPage() {
                     <button
                       type="button"
                       onClick={() => setOpenFaqIndex(openFaqIndex === i ? null : i)}
-                      className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-semibold text-[#121212] focus:outline-none focus:ring-2 focus:ring-[#F40009] focus:ring-inset"
+                      className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-semibold text-[#121212] focus:outline-none focus:ring-2 focus:ring-[#e3201b] focus:ring-inset"
                       aria-expanded={openFaqIndex === i}
                     >
                       {faq.q}
@@ -210,7 +210,7 @@ export default function HelpPage() {
                             {faq.link && (
                               <Link
                                 href={faq.link.href}
-                                className="mt-4 inline-block text-sm font-medium text-[#F40009] hover:underline"
+                                className="mt-4 inline-block text-sm font-medium text-[#e3201b] hover:underline"
                               >
                                 {faq.link.label} →
                               </Link>
@@ -246,10 +246,10 @@ export default function HelpPage() {
                     href={href}
                     target={href.startsWith("http") ? "_blank" : undefined}
                     rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="flex flex-col items-start rounded-xl border border-[#121212]/10 bg-[#121212]/[0.02] p-6 transition-all hover:-translate-y-1 hover:border-[#F40009]/30 hover:bg-[#F40009]/5 min-w-[200px]"
+                    className="flex flex-col items-start rounded-xl border border-[#121212]/10 bg-[#121212]/[0.02] p-6 transition-all hover:-translate-y-1 hover:border-[#e3201b]/30 hover:bg-[#e3201b]/5 min-w-[200px]"
                   >
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#F40009]/10">
-                      <Icon className="h-6 w-6 text-[#F40009]" strokeWidth={1.5} />
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#e3201b]/10">
+                      <Icon className="h-6 w-6 text-[#e3201b]" strokeWidth={1.5} />
                     </div>
                     <span className="mt-4 font-semibold text-[#121212]">{label}</span>
                     <span className="mt-1 text-sm text-[#121212]/60">{description}</span>

@@ -130,7 +130,7 @@ export function AdminDashboardContent() {
             <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">
               Profit Margin
             </p>
-            <p className="mt-2 text-2xl font-semibold tracking-tighter text-[#F40009]">
+            <p className="mt-2 text-2xl font-semibold tracking-tighter text-[#e3201b]">
               {summary.profitMarginPercent}%
             </p>
           </div>
@@ -138,7 +138,7 @@ export function AdminDashboardContent() {
             <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">
               Total Net Profit
             </p>
-            <p className="mt-2 text-2xl font-semibold tracking-tighter text-[#F40009]">
+            <p className="mt-2 text-2xl font-semibold tracking-tighter text-[#e3201b]">
               {formatMoneyFull(getTotalNetProfit())}
             </p>
             <p className="mt-1 text-xs text-zinc-500">
@@ -209,7 +209,7 @@ export function AdminDashboardContent() {
                   <td className="px-6 py-4 font-medium tracking-tighter text-profit-green">
                     {formatMoney(hub.netProfit)}
                   </td>
-                  <td className="px-6 py-4 font-medium tracking-tighter text-[#F40009]">
+                  <td className="px-6 py-4 font-medium tracking-tighter text-[#e3201b]">
                     {hub.marginPercent}%
                   </td>
                 </tr>

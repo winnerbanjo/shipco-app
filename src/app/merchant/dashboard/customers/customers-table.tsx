@@ -45,12 +45,12 @@ export function MerchantCustomersTable({ customers }: { customers: DemoCustomer[
           placeholder="Search by ID or Name"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="h-10 flex-1 min-w-[200px] rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
+          className="h-10 flex-1 min-w-[200px] rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#e3201b] focus:outline-none focus:ring-1 focus:ring-[#e3201b]"
         />
         <select
           value={city}
           onChange={(e) => setCity(e.target.value)}
-          className="h-10 rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 focus:border-[#F40009] focus:outline-none focus:ring-1 focus:ring-[#F40009]"
+          className="h-10 rounded-none border border-zinc-200 bg-white px-3 text-sm text-zinc-900 focus:border-[#e3201b] focus:outline-none focus:ring-1 focus:ring-[#e3201b]"
         >
           {cityOptions.map((opt) => (
             <option key={opt} value={opt}>
@@ -62,7 +62,7 @@ export function MerchantCustomersTable({ customers }: { customers: DemoCustomer[
           <button
             type="button"
             onClick={clearFilters}
-            className="rounded-none border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-700 hover:border-[#F40009] hover:text-[#F40009]"
+            className="rounded-none border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-700 hover:border-[#e3201b] hover:text-[#e3201b]"
           >
             Clear Filters
           </button>
