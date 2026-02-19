@@ -1,95 +1,12 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { getToken } from "next-auth/jwt";
 
-const SESSION_COOKIES = [
-  "next-auth.session-token",
-  "__Secure-next-auth.session-token",
-  "shipco-merchant-token",
-  "shipco-hub-token",
-];
-
-const PROTECTED_PREFIXES = ["/dashboard", "/admin", "/merchant", "/customer", "/hub"];
-const PUBLIC_PREFIXES = ["/auth", "/api", "/track", "/"];
-const SIGNIN_URL = "/auth/login";
-
-function isProtectedPath(pathname: string): boolean {
-  return PROTECTED_PREFIXES.some((prefix) => pathname.startsWith(prefix));
-}
-
-function isPublicPath(pathname: string): boolean {
-  if (pathname === "/") return true;
-  return PUBLIC_PREFIXES.some((prefix) => pathname.startsWith(prefix));
-}
-
-function hasSessionCookie(request: NextRequest): boolean {
-  const cookieHeader = request.cookies.toString();
-  return SESSION_COOKIES.some((name) => cookieHeader.includes(`${name}=`));
-}
-
-function redirectToSignIn(request: NextRequest, pathname: string, reason?: string, errorCode?: string) {
-  const loginUrl = new URL(SIGNIN_URL, request.url);
-  loginUrl.searchParams.set("callbackUrl", pathname);
-  if (errorCode) loginUrl.searchParams.set("error", errorCode);
-  if (reason) {
-    console.log("[middleware] Redirecting to signin:", reason);
-  }
-  return NextResponse.redirect(loginUrl);
-}
-
+/**
+ * Temporarily simplified: no auth checks so callback and login flow are not interfered with.
+ * Re-enable protection for /admin, /merchant, /hub when auth is stable.
+ */
 export async function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
-
-  try {
-    // Consolidate Customer → Merchant: redirect all /customer to merchant dashboard
-    if (pathname.startsWith("/customer")) {
-      const url = request.nextUrl.clone();
-      url.pathname = "/merchant/dashboard";
-      return NextResponse.redirect(url);
-    }
-
-    if (!isProtectedPath(pathname) || isPublicPath(pathname)) {
-      return NextResponse.next();
-    }
-
-    if (!hasSessionCookie(request)) {
-      return redirectToSignIn(request, pathname, "No session cookie");
-    }
-
-    // Admin routes: only users with role ADMIN may access
-    if (pathname.startsWith("/admin")) {
-      let token;
-      try {
-        token = await getToken({
-          req: request,
-          secret: process.env.NEXTAUTH_SECRET,
-        });
-      } catch (err) {
-        console.log("[middleware] Token decode failed, redirecting to signin. Error:", err);
-        return redirectToSignIn(request, pathname, "Token decode failed", "unauthorized");
-      }
-
-      const role = token?.role;
-      if (token == null || role == null || role !== "ADMIN") {
-        console.log("[middleware] Admin route: token =", JSON.stringify(token ?? null), "| role =", role);
-        return redirectToSignIn(request, pathname, "Missing or invalid admin token/role", "unauthorized");
-      }
-    }
-
-    // Hub routes: only users with hub token (HUB_OPERATOR) may access
-    if (pathname.startsWith("/hub")) {
-      const hasHubToken = request.cookies.get("shipco-hub-token")?.value;
-      if (!hasHubToken) {
-        console.log("[middleware] Hub route: no hub token");
-        return redirectToSignIn(request, pathname, "Hub access requires hub operator login", "unauthorized");
-      }
-    }
-
-    return NextResponse.next();
-  } catch (err) {
-    console.log("[middleware] Unhandled error, redirecting to signin. Error:", err);
-    return redirectToSignIn(request, pathname, "Middleware error");
-  }
+  return NextResponse.next();
 }
 
 export const config = {

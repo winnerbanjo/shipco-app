@@ -2,10 +2,11 @@ import mongoose from "mongoose";
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
-if (!MONGODB_URI) {
-  console.warn(
-    "[Shipco] MONGODB_URI is not set. Database features will be disabled. Add MONGODB_URI to .env.local to connect."
-  );
+/** Only connect when a real MongoDB URI is set (starts with mongodb+srv:// or mongodb://). */
+function isMongoUriConfigured(): boolean {
+  if (!MONGODB_URI || typeof MONGODB_URI !== "string") return false;
+  const u = MONGODB_URI.trim();
+  return u.startsWith("mongodb+srv://") || u.startsWith("mongodb://");
 }
 
 interface MongooseCache {
@@ -23,19 +24,20 @@ if (!global.mongoose) global.mongoose = cached;
 
 /**
  * Connect to MongoDB. Uses process.env.MONGODB_URI.
- * If URI is missing, returns null so the app can mount without crashing.
+ * Returns null if MONGODB_URI is not set or not a valid MongoDB URI (avoids MongoParseError).
+ * Uncomment the connection logic below when you are ready to use MongoDB.
  */
 export async function connectDB(): Promise<typeof mongoose | null> {
+  if (!isMongoUriConfigured()) {
+    return null;
+  }
+
   if (cached.conn) {
     return cached.conn;
   }
 
-  if (!MONGODB_URI) {
-    return null;
-  }
-
   if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGODB_URI);
+    cached.promise = mongoose.connect(MONGODB_URI!);
   }
 
   try {

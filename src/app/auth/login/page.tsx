@@ -22,24 +22,73 @@ function LoginContent() {
     setError(null);
     setLoading(true);
     try {
-      const res = await signIn("credentials", {
+      const credentials = {
         email: email.trim(),
         password,
         redirect: false,
         callbackUrl: callbackUrl as string,
-      });
+      };
+      const timeoutMs = 12_000;
+      let res: { ok?: boolean; url?: string } | null = null;
+      try {
+        res = await Promise.race([
+          signIn("credentials", credentials),
+          new Promise<null>((_, reject) =>
+            setTimeout(() => reject(new Error("Sign-in timed out")), timeoutMs)
+          ),
+        ]);
+      } catch (timeoutOrErr) {
+        if (
+          timeoutOrErr instanceof Error &&
+          timeoutOrErr.message === "Sign-in timed out"
+        ) {
+          const merchantRes = await attemptMerchantLogin(
+            email.trim(),
+            password,
+            callbackUrl
+          );
+          if (merchantRes.success) {
+            router.push(merchantRes.redirect);
+            return;
+          }
+        }
+        throw timeoutOrErr;
+      }
       if (res?.ok && res.url) {
         router.push(res.url);
         return;
       }
-      const merchantRes = await attemptMerchantLogin(email.trim(), password, callbackUrl);
+      // Show specific NextAuth error (e.g. CredentialsSignin) when credentials fail
+      const nextAuthError =
+        res?.error != null
+          ? String(res.error)
+          : null;
+      const merchantRes = await attemptMerchantLogin(
+        email.trim(),
+        password,
+        callbackUrl
+      );
       if (merchantRes.success) {
         router.push(merchantRes.redirect);
         return;
       }
-      setError(merchantRes.error);
-    } catch {
-      setError("Something went wrong. Please try again.");
+      const isDbUnreachable = res?.status === 500;
+      const friendlyDbMessage = "Database connecting... please wait.";
+      setError(
+        isDbUnreachable ? friendlyDbMessage : (nextAuthError ?? merchantRes.error ?? "Invalid email or password.")
+      );
+    } catch (err) {
+      const isTimeout =
+        err instanceof Error && err.message === "Sign-in timed out";
+      const isNetworkOrServer =
+        err instanceof TypeError ||
+        (err instanceof Error && (err.message.includes("fetch") || err.message.includes("network")));
+      const message = isTimeout
+        ? "Sign-in took too long. Check your connection or try again."
+        : isNetworkOrServer
+          ? "Database connecting... please wait."
+          : "Something went wrong. Please try again.";
+      setError(message);
     } finally {
       setLoading(false);
     }
@@ -101,7 +150,7 @@ function LoginContent() {
               disabled={loading}
               className="mt-2 w-full rounded-2xl bg-[#F40009] py-4 text-sm font-medium text-white transition-colors hover:bg-[#cc0008] disabled:opacity-70"
             >
-              {loading ? "Signing in…" : "Sign in"}
+              {loading ? "Logging in..." : "Sign in"}
             </button>
           </form>
 

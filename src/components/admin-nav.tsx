@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { DollarSign, Package, Settings, LogOut } from "lucide-react";
+import { DollarSign, Package, Settings, LogOut, Building2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { signOut } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 
 const nav = [
   { href: "/admin", label: "Revenue Overview", icon: DollarSign },
+  { href: "/hub/dashboard", label: "Hub Operations", icon: Building2 },
   { href: "/admin/shipments", label: "Shipment Management", icon: Package },
   { href: "/admin/pricing", label: "Pricing Control", icon: Settings },
 ];
@@ -19,7 +20,8 @@ export function AdminNav() {
   return (
     <header className="sticky top-0 z-10 border-b bg-card">
       <div className="flex h-14 items-center gap-6 px-6">
-        <span className="font-semibold">Shipco Admin</span>
+        <span className="font-sans font-bold text-black">Shipco</span>
+        <span className="font-normal text-zinc-600">Admin</span>
         <nav className="flex gap-1">
           {nav.map(({ href, label, icon: Icon }) => (
             <Link

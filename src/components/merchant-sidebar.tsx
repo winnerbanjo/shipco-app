@@ -18,7 +18,7 @@ import { Button } from "@/components/ui/button";
 const nav = [
   { href: "/merchant/dashboard", label: "Overview", icon: LayoutDashboard },
   { href: "/merchant/dashboard/booking", label: "Book Shipment", icon: Package },
-  { href: "/merchant/dashboard/shipments", label: "Shipments", icon: PackageSearch },
+  { href: "/merchant/dashboard/shipments", label: "Tracking", icon: PackageSearch },
   { href: "/merchant/dashboard/bulk", label: "Bulk Upload", icon: Upload },
   { href: "/merchant/dashboard/wallet", label: "Wallet", icon: Wallet },
   { href: "/merchant/dashboard/settings", label: "Settings", icon: Settings },

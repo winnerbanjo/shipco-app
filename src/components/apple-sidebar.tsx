@@ -12,6 +12,7 @@ import {
   CheckSquare,
   DollarSign,
   Truck,
+  Building2,
 } from "lucide-react";
 import { signOut } from "next-auth/react";
 import { cn } from "@/lib/utils";
@@ -75,6 +76,7 @@ export function MerchantAppleSidebar() {
 
 const adminNav = [
   { href: "/admin/dashboard", label: "Overview", icon: LayoutDashboard },
+  { href: "/hub/dashboard", label: "Hub Operations", icon: Building2 },
   { href: "/admin/tasks", label: "Task Dispatcher", icon: CheckSquare },
   { href: "/admin/merchants", label: "Merchants", icon: Package },
   { href: "/admin/shipments", label: "Shipments", icon: History },

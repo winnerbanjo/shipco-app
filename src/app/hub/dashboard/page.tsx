@@ -12,9 +12,9 @@ import {
 } from "@/data/hub-operations-demo";
 
 const QUICK_ACTIONS = [
-  { href: "/hub/scan", label: "Scan Package", icon: ScanLine, primary: true },
-  { href: "/hub/update-status", label: "Update Status", icon: RefreshCw, primary: false },
-  { href: "/hub/register-walkin", label: "Register Walk-in Merchant", icon: UserPlus, primary: true },
+  { href: "/hub/scan", label: "Scan Package", icon: ScanLine },
+  { href: "/hub/update-status", label: "Update Status", icon: RefreshCw },
+  { href: "/hub/register-walkin", label: "Register Walk-in", icon: UserPlus },
 ];
 
 export default function HubDashboardPage() {
@@ -57,32 +57,22 @@ export default function HubDashboardPage() {
         <DateFilter value={dateState} onChange={setDateState} />
       </section>
 
-      {/* Quick actions — Scan & Register Walk-in in Wine Red */}
+      {/* Quick Action buttons — Coca-Cola Red */}
       <section className="mt-8">
         <h2 className="text-xs font-medium uppercase tracking-wider text-zinc-500">
           Quick actions
         </h2>
         <div className="mt-4 grid gap-4 sm:grid-cols-3">
-          {QUICK_ACTIONS.map(({ href, label, icon: Icon, primary }) => (
+          {QUICK_ACTIONS.map(({ href, label, icon: Icon }) => (
             <Link
               key={href}
               href={href}
-              className={
-                primary
-                  ? "flex items-center gap-4 border-0 bg-[#F40009] p-6 font-medium text-white transition-colors hover:bg-[#cc0008]"
-                  : "flex items-center gap-4 border border-zinc-100 bg-white p-6 transition-colors hover:border-zinc-200 hover:bg-zinc-50"
-              }
+              className="flex items-center gap-4 border-0 bg-[#F40009] p-6 font-medium text-white transition-colors hover:bg-[#cc0008]"
             >
-              <div
-                className={
-                  primary
-                    ? "flex h-12 w-12 items-center justify-center bg-white/15"
-                    : "flex h-12 w-12 items-center justify-center border border-zinc-100 bg-zinc-50"
-                }
-              >
-                <Icon strokeWidth={1} className={`h-6 w-6 ${primary ? "text-white" : "text-[#F40009]"}`} />
+              <div className="flex h-12 w-12 items-center justify-center bg-white/15">
+                <Icon strokeWidth={1} className="h-6 w-6 text-white" />
               </div>
-              <span className={primary ? "text-white" : "text-zinc-900"}>{label}</span>
+              <span>{label}</span>
             </Link>
           ))}
         </div>
