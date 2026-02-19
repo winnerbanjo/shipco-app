@@ -25,7 +25,9 @@ export function CustomerSidebar() {
 
   return (
     <aside className="flex w-56 flex-col border-r border-shipco-border bg-card">
-      <div className="p-4 font-semibold text-shipco-red">Shipco Logistics</div>
+      <div className="flex items-center gap-2 p-4 font-sans font-bold text-black">
+        Shipco <span className="font-normal text-shipco-red">Logistics</span>
+      </div>
       <nav className="flex flex-1 flex-col gap-1 px-2">
         {nav.map(({ href, label, icon: Icon }) => (
           <Link

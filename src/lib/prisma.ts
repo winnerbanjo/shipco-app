@@ -2,9 +2,11 @@ import { PrismaClient } from "@prisma/client";
 
 /**
  * Strict singleton: one PrismaClient instance per process. Required for Render and
- * serverless to avoid connection pool exhaustion and timeouts.
+ * Vercel serverless to avoid connection pool exhaustion and timeouts.
  *
- * DATABASE_URL should include: ?sslmode=require&connect_timeout=30&connection_limit=1&pool_timeout=20
+ * Standard @prisma/client is fine on Vercel; no need for @prisma/extension-accelerate
+ * unless you use Prisma Accelerate for connection pooling. Ensure DATABASE_URL
+ * includes: ?sslmode=require&connect_timeout=30&connection_limit=1&pool_timeout=20
  */
 const globalForPrisma = globalThis as unknown as { __shipco_prisma__: PrismaClient | undefined };
 

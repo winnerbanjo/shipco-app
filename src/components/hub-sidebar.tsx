@@ -10,11 +10,14 @@ import {
   Users,
   LogOut,
   FileEdit,
+  RefreshCw,
+  ScanLine,
 } from "lucide-react";
 
 const nav = [
   { href: "/hub/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/hub/tasks", label: "Tasks", icon: CheckSquare },
+  { href: "/hub/scan", label: "Scan", icon: ScanLine },
+  { href: "/hub/update-status", label: "Update Status", icon: CheckSquare },
   { href: "/hub/booking", label: "Booking", icon: FileEdit },
   { href: "/hub/inventory", label: "Branch Inventory", icon: Package },
   { href: "/hub/customers", label: "Merchant Directory", icon: Users },
@@ -55,10 +58,22 @@ export function HubSidebar() {
         })}
       </nav>
       <div className="border-t border-zinc-100 p-2">
+        <p className="mb-1 px-3 py-1 text-[10px] font-medium uppercase tracking-wider text-zinc-400">
+          Switch role (testing)
+        </p>
+        <div className="flex gap-1">
+          <Link
+            href="/merchant/dashboard"
+            className="flex flex-1 items-center justify-center gap-1.5 rounded-none border border-zinc-200 bg-white px-2 py-2 text-xs font-medium text-zinc-600 hover:bg-zinc-50"
+          >
+            <RefreshCw className="h-3 w-3" />
+            Merchant
+          </Link>
+        </div>
         <button
           type="button"
           onClick={handleSignOut}
-          className="flex w-full items-center gap-3 rounded-none px-3 py-2 text-sm font-medium text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900"
+          className="mt-2 flex w-full items-center gap-3 rounded-none px-3 py-2 text-sm font-medium text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900"
         >
           <LogOut className="h-4 w-4" />
           Sign out

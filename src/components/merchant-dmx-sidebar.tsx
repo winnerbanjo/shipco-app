@@ -19,8 +19,8 @@ export function MerchantSidebar() {
   return (
     <aside className="flex h-full w-56 flex-col border-r border-[#F40009] bg-black" style={{ borderRightWidth: "1px" }}>
       <div className="flex h-14 items-center border-b border-[#F40009]/30 px-4">
-        <Link href="/dashboard" className="font-semibold text-white">
-          Shipco Merchant
+        <Link href="/dashboard" className="flex items-center gap-2 font-sans text-lg font-bold text-white">
+          Shipco <span className="font-normal text-zinc-400">Merchant</span>
         </Link>
       </div>
       <nav className="flex-1 space-y-0.5 p-2">
