@@ -10,6 +10,9 @@ import { prisma } from "@/lib/prisma";
  */
 export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
+  cookies: {
+    useSecureCookies: process.env.NODE_ENV === "production",
+  },
   providers: [
     CredentialsProvider({
       id: "credentials",
@@ -72,7 +75,7 @@ export const authOptions: NextAuthOptions = {
       return token;
     },
     async session({ session, token }) {
-      if (session.user) {
+      if (session?.user) {
         (session.user as { id?: string }).id = token.id as string;
         (session.user as { role?: Role }).role = token.role as Role;
       }

@@ -1,13 +1,13 @@
 import { redirect } from "next/navigation";
-import { getSession } from "@shipco/lib/auth";
+import { getMerchantSession } from "@/lib/merchant-session";
 import { connectDB } from "@shipco/lib/mongodb";
 import Merchant from "@shipco/lib/models/Merchant";
 import { getMerchantKycStatus } from "@/lib/merchant-kyc";
 import { MerchantBookingFlow } from "./merchant-booking-flow";
 
 export default async function MerchantBookingPage() {
-  const session = await getSession();
-  if (!session?.merchantId) redirect("/auth/login");
+  const session = await getMerchantSession();
+  if (!session) redirect("/auth/login");
   const kycStatus = await getMerchantKycStatus(session.merchantId);
   if (kycStatus !== "Approved") {
     redirect("/merchant/dashboard?blocked=kyc");

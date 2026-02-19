@@ -2,14 +2,14 @@ import { redirect } from "next/navigation";
 import { connectDB } from "@shipco/lib/mongodb";
 import Merchant from "@shipco/lib/models/Merchant";
 import Shipment from "@shipco/lib/models/Shipment";
-import { getSession } from "@shipco/lib/auth";
+import { getMerchantSession } from "@/lib/merchant-session";
 import { WalletPageClient } from "./wallet-page-client";
 import { DEMO_BALANCE, DEMO_TRANSACTIONS } from "./demo-transactions";
 import { formatDemoDateOnly } from "@/lib/demo-date";
 
 export default async function MerchantWalletPage() {
-  const session = await getSession();
-  if (!session?.merchantId || !session.isVerified) {
+  const session = await getMerchantSession();
+  if (!session) {
     redirect("/auth/login");
   }
 

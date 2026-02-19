@@ -23,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable} bg-white font-sans`}>
       <body className="min-h-screen bg-white text-zinc-900 antialiased">
+        {/* Entire app wrapped in Providers (SessionProvider + RateCardProvider) so session is available everywhere */}
         <Providers>{children}</Providers>
       </body>
     </html>

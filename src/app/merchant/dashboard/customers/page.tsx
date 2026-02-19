@@ -1,11 +1,11 @@
-import { getSession } from "@shipco/lib/auth";
+import { getMerchantSession } from "@/lib/merchant-session";
 import { redirect } from "next/navigation";
 import { MERCHANT_DEMO_CUSTOMERS_15 } from "@/data/demo-customers";
 import { MerchantCustomersTable } from "./customers-table";
 
 export default async function MerchantCustomersPage() {
-  const session = await getSession();
-  if (!session?.merchantId || !session.isVerified) redirect("/auth/login");
+  const session = await getMerchantSession();
+  if (!session) redirect("/auth/login");
 
   return (
     <div className="mx-auto max-w-5xl">

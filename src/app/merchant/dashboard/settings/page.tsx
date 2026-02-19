@@ -1,12 +1,12 @@
 import { redirect } from "next/navigation";
 import { connectDB } from "@shipco/lib/mongodb";
 import Merchant from "@shipco/lib/models/Merchant";
-import { getSession } from "@shipco/lib/auth";
+import { getMerchantSession } from "@/lib/merchant-session";
 import { SettingsClient } from "./settings-client";
 
 export default async function MerchantSettingsPage() {
-  const session = await getSession();
-  if (!session?.merchantId || !session.isVerified) {
+  const session = await getMerchantSession();
+  if (!session) {
     redirect("/auth/login");
   }
 

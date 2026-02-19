@@ -1,12 +1,12 @@
-import { getSession } from "@shipco/lib/auth";
+import { getMerchantSession } from "@/lib/merchant-session";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { ShipmentsWithSearch } from "./shipments-with-search";
 import { DEMO_SHIPMENTS } from "./demo-shipments";
 
 export default async function MerchantShipmentsPage() {
-  const session = await getSession();
-  if (!session?.merchantId || !session.isVerified) redirect("/auth/login");
+  const session = await getMerchantSession();
+  if (!session) redirect("/auth/login");
 
   const list = DEMO_SHIPMENTS.map((d) => ({
     id: d.id,

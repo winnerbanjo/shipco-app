@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import { connectDB } from "@shipco/lib/mongodb";
 import Shipment from "@shipco/lib/models/Shipment";
 import Merchant from "@shipco/lib/models/Merchant";
-import { getSession } from "@shipco/lib/auth";
+import { getMerchantSession } from "@/lib/merchant-session";
 import { Package, CheckCircle, Wallet, Truck } from "lucide-react";
 import { MerchantDashboardDateFilter } from "./merchant-dashboard-date-filter";
 import { MerchantKycBanner } from "@/components/merchant-kyc-banner";
@@ -40,7 +40,7 @@ export default async function MerchantDashboardPage({
 }: {
   searchParams: Promise<{ blocked?: string }>;
 }) {
-  const session = await getSession();
+  const session = await getMerchantSession();
   const resolvedParams = await searchParams;
   const showBlockedMessage = resolvedParams?.blocked === "kyc";
   const kycStatus = session?.merchantId ? await getMerchantKycStatus(session.merchantId) : null;
