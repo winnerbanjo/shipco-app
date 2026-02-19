@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useEffect, useRef } from "react";
+import { useSession } from "next-auth/react";
 import { getAndClearBookingDraft } from "@/lib/booking-draft";
 import { useFormState } from "react-dom";
 import { createBookingFromPowerForm, type CreateBookingState } from "@/app/merchant/booking-actions";
@@ -33,7 +34,7 @@ const PACKAGE_CATEGORY_OPTIONS = [
 type Sender = { businessName: string; email: string; address: string };
 
 export function BookingPowerForm({
-  sender,
+  sender: initialSender,
   serviceType,
   merchantId,
   onBack,
@@ -43,6 +44,54 @@ export function BookingPowerForm({
   merchantId?: string;
   onBack: () => void;
 }) {
+  const { data: session, status: sessionStatus } = useSession();
+  const [profileLoading, setProfileLoading] = useState(true);
+  const [senderProfile, setSenderProfile] = useState<Sender & { phone?: string }>(initialSender);
+  const [senderAddress, setSenderAddress] = useState(initialSender.address);
+
+  useEffect(() => {
+    if (sessionStatus === "unauthenticated") {
+      setSenderProfile(initialSender);
+      setSenderAddress(initialSender.address);
+      setProfileLoading(false);
+      return;
+    }
+    if (sessionStatus !== "authenticated") return;
+
+    let cancelled = false;
+    setProfileLoading(true);
+    fetch("/api/merchant/profile")
+      .then((res) => res.json())
+      .then((data) => {
+        if (cancelled) return;
+        const next = {
+          businessName: data.businessName ?? "",
+          email: data.email ?? "",
+          address: data.address ?? "",
+          phone: data.phone ?? "",
+        };
+        setSenderProfile(next);
+        setSenderAddress(next.address);
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setSenderProfile(initialSender);
+          setSenderAddress(initialSender.address);
+        }
+      })
+      .finally(() => {
+        if (!cancelled) setProfileLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [sessionStatus, initialSender.businessName, initialSender.email, initialSender.address]);
+
+  const sender = useMemo(
+    () => ({ ...senderProfile, address: senderAddress }),
+    [senderProfile, senderAddress]
+  );
+
   type ServiceMode = "dropoff" | "pickup";
   const [serviceMode, setServiceMode] = useState<ServiceMode>("dropoff");
   const [nearestHub, setNearestHub] = useState(DESTINATION_HUB_OPTIONS[0].value);
@@ -226,20 +275,36 @@ export function BookingPowerForm({
               <section className="border-b border-zinc-100 pb-12">
                 <h2 className="text-xs font-medium uppercase tracking-wider text-zinc-500">Sender details</h2>
                 <p className="mt-1 text-sm text-zinc-400">From your merchant profile (rider will pick up here)</p>
-                <div className="mt-8 grid gap-6 sm:grid-cols-2">
-                  <div>
-                    <Label className="text-zinc-700">Business name</Label>
-                    <Input readOnly value={sender.businessName} className="mt-2 h-12 rounded-none border-zinc-100 bg-zinc-50" />
+                {profileLoading ? (
+                  <div className="mt-8 space-y-6">
+                    <div className="h-4 w-48 animate-pulse rounded bg-zinc-100" />
+                    <div className="h-4 w-64 animate-pulse rounded bg-zinc-100" />
+                    <div className="h-4 w-full animate-pulse rounded bg-zinc-100" />
+                    <p className="text-xs text-zinc-400">Loading profile...</p>
                   </div>
-                  <div>
-                    <Label className="text-zinc-700">Email</Label>
-                    <Input readOnly value={sender.email} className="mt-2 h-12 rounded-none border-zinc-100 bg-zinc-50" />
+                ) : (
+                  <div className="mt-8 grid gap-6 sm:grid-cols-2">
+                    <div>
+                      <Label className="text-zinc-700">Business name</Label>
+                      <Input readOnly value={sender.businessName} className="mt-2 h-12 rounded-none border-zinc-100 bg-zinc-50" />
+                    </div>
+                    <div>
+                      <Label className="text-zinc-700">Email</Label>
+                      <Input readOnly value={sender.email} className="mt-2 h-12 rounded-none border-zinc-100 bg-zinc-50" />
+                    </div>
+                    <div className="sm:col-span-2">
+                      <Label className="text-zinc-700">Address</Label>
+                      <Input
+                        name="senderAddress"
+                        value={senderAddress}
+                        onChange={(e) => setSenderAddress(e.target.value)}
+                        className="mt-2 h-12 rounded-none border-zinc-200"
+                        placeholder="Edit if rider should pick up from a different branch"
+                      />
+                      <p className="mt-1 text-xs text-zinc-500">You can change this for this shipment only.</p>
+                    </div>
                   </div>
-                  <div className="sm:col-span-2">
-                    <Label className="text-zinc-700">Address</Label>
-                    <Input readOnly value={sender.address} className="mt-2 h-12 rounded-none border-zinc-100 bg-zinc-50" />
-                  </div>
-                </div>
+                )}
               </section>
             )}
 

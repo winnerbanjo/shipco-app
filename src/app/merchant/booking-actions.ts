@@ -190,7 +190,8 @@ export async function createBookingFromPowerForm(
     }
 
     const senderName = merchant.businessName ?? "Merchant";
-    const senderAddress = merchant.address ?? "";
+    const senderAddressForm = (formData.get("senderAddress") as string)?.trim();
+    const senderAddress = senderAddressForm || merchant.address ?? "";
 
     return {
       trackingId: shipmentDoc.trackingId,
