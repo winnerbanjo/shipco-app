@@ -29,14 +29,14 @@ function LoginContent() {
         callbackUrl: callbackUrl as string,
       };
       const timeoutMs = 12_000;
-      let res: { ok?: boolean; url?: string } | null = null;
+      let res: any = null;
       try {
-        res = await Promise.race([
+        res = (await Promise.race([
           signIn("credentials", credentials),
           new Promise<null>((_, reject) =>
             setTimeout(() => reject(new Error("Sign-in timed out")), timeoutMs)
           ),
-        ]);
+        ])) as any;
       } catch (timeoutOrErr) {
         if (
           timeoutOrErr instanceof Error &&
@@ -54,15 +54,12 @@ function LoginContent() {
         }
         throw timeoutOrErr;
       }
-      if (res?.ok && res.url) {
+      if (res != null && res?.ok === true && res?.url) {
         router.push(res.url);
         return;
       }
-      // Show specific NextAuth error (e.g. CredentialsSignin) when credentials fail
       const nextAuthError =
-        res?.error != null
-          ? String(res.error)
-          : null;
+        res?.error != null ? String(res.error) : null;
       const merchantRes = await attemptMerchantLogin(
         email.trim(),
         password,
