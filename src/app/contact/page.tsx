@@ -72,10 +72,10 @@ export default function ContactPage() {
           {/* Hero */}
           <ScrollReveal className="mt-8 text-center">
             <h1 className="text-4xl font-extrabold tracking-tight text-[#121212] sm:text-5xl">
-              We're here to keep you moving.
+              We&apos;re here to keep you moving.
             </h1>
             <p className="mt-4 text-lg text-[#121212]/70">
-              Reach our global offices or reach out directly. We'll get back to you quickly.
+              Reach our global offices or reach out directly. We&apos;ll get back to you quickly.
             </p>
           </ScrollReveal>
 
@@ -85,7 +85,7 @@ export default function ContactPage() {
               Global offices
             </h2>
             <div className="mt-6 grid gap-6 sm:grid-cols-2">
-              {OFFICES.map((office, i) => {
+              {OFFICES.map((office) => {
                 const Icon = office.icon;
                 return (
                   <div
@@ -109,7 +109,7 @@ export default function ContactPage() {
               Direct support
             </h2>
             <div className="mt-6 grid gap-6 sm:grid-cols-3">
-              {SUPPORT_CHANNELS.map((channel, i) => {
+              {SUPPORT_CHANNELS.map((channel) => {
                 const Icon = channel.icon;
                 return (
                   <a

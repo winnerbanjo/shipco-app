@@ -19,7 +19,6 @@ const config: Config = {
         none: "0",
       },
       colors: {
-        primary: "#e3201b",
         charcoal: "#18181b",
         shipcoRed: "#e3201b",
         "profit-green": "#166534",
