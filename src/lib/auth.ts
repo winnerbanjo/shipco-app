@@ -11,7 +11,15 @@ import { prisma } from "@/lib/prisma";
 export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   cookies: {
-    useSecureCookies: process.env.NODE_ENV === "production",
+    sessionToken: {
+      name: process.env.NODE_ENV === "production" ? "__Secure-next-auth.session-token" : "next-auth.session-token",
+      options: {
+        httpOnly: true,
+        sameSite: "lax",
+        path: "/",
+        secure: process.env.NODE_ENV === "production",
+      },
+    },
   },
   providers: [
     CredentialsProvider({
@@ -67,19 +75,19 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.role = user.role;
-        token.id = user.id;
-      }
-      return token;
-    },
     async session({ session, token }) {
-      if (session?.user) {
-        (session.user as { id?: string }).id = token.id as string;
-        (session.user as { role?: Role }).role = token.role as Role;
+      if (token && session.user) {
+        session.user.id = token.id as string;
+        session.user.role = token.role as Role;
       }
       return session;
+    },
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+        token.role = user.role;
+      }
+      return token;
     },
     redirect({ url, baseUrl }) {
       const base = process.env.NEXTAUTH_URL ?? baseUrl;
