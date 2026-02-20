@@ -9,6 +9,7 @@ import { attemptMerchantLogin } from "./actions";
 function LoginContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  // Default to /auth/callback so role-based redirect runs (ADMIN → /admin/dashboard, etc.)
   const callbackUrl = searchParams.get("callbackUrl") ?? "/auth/callback";
   const errorParam = searchParams.get("error");
   const isUnauthorized = errorParam === "unauthorized";

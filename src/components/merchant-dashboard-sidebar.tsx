@@ -10,6 +10,9 @@ import {
   LogOut,
   Users,
   RefreshCw,
+  FileCheck,
+  Building2,
+  Truck,
 } from "lucide-react";
 import { logoutMerchant } from "@/app/auth/logout/actions";
 
@@ -20,6 +23,13 @@ const nav = [
   { href: "/merchant/dashboard/customers", label: "Customers", icon: Users },
   { href: "/merchant/wallet", label: "Wallet", icon: Wallet },
   { href: "/merchant/dashboard/settings", label: "Settings", icon: Settings },
+];
+
+const adminNav = [
+  { href: "/admin/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/admin/shipments", label: "Shipment Management", icon: Truck },
+  { href: "/admin/kyc", label: "KYC Approvals", icon: FileCheck },
+  { href: "/admin/merchants", label: "Merchant Overview", icon: Building2 },
 ];
 
 export function MerchantDashboardSidebar({
@@ -68,12 +78,33 @@ export function MerchantDashboardSidebar({
           );
         })}
         {isAdmin && (
-          <Link
-            href="/admin/dashboard"
-            className="flex items-center gap-4 border-l-[3px] border-l-transparent px-5 py-3.5 text-sm font-medium text-amber-700 hover:bg-white/80 hover:text-amber-800"
-          >
-            Admin Dashboard
-          </Link>
+          <>
+            <p className="mt-6 mb-2 px-5 text-[10px] font-medium uppercase tracking-wider text-zinc-400">
+              shipco Admin
+            </p>
+            {adminNav.map((item) => {
+              const isActive =
+                pathname === item.href || (item.href !== "/admin/dashboard" && pathname.startsWith(item.href));
+              const Icon = item.icon;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`flex items-center gap-4 border-l-[3px] px-5 py-3.5 text-sm font-medium transition-colors ${
+                    isActive
+                      ? "border-l-[#e3201b] bg-white text-[#e3201b]"
+                      : "border-l-transparent text-amber-700 hover:bg-white/80 hover:text-amber-800"
+                  }`}
+                >
+                  <Icon
+                    strokeWidth={1}
+                    className={`h-4 w-4 shrink-0 ${isActive ? "text-[#e3201b]" : "text-amber-600"}`}
+                  />
+                  {item.label}
+                </Link>
+              );
+            })}
+          </>
         )}
       </nav>
       <div className="border-t border-zinc-100 p-6">

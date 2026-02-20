@@ -36,7 +36,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/", baseUrl));
   }
 
-  // /admin: allow ADMIN only
+  // /admin: strictly ADMIN only — no other roles
   if (pathname.startsWith("/admin")) {
     if (!token) {
       const baseUrl = process.env.NEXTAUTH_URL ?? request.nextUrl.origin;
@@ -44,9 +44,11 @@ export async function middleware(request: NextRequest) {
       loginUrl.searchParams.set("callbackUrl", pathname);
       return NextResponse.redirect(loginUrl.toString());
     }
-    if (role === "ADMIN") return NextResponse.next();
-    const baseUrl = process.env.NEXTAUTH_URL ?? request.nextUrl.origin;
-    return NextResponse.redirect(new URL("/", baseUrl));
+    if (role !== "ADMIN") {
+      const baseUrl = process.env.NEXTAUTH_URL ?? request.nextUrl.origin;
+      return NextResponse.redirect(new URL("/", baseUrl));
+    }
+    return NextResponse.next();
   }
 
   // /hub: allow HUB_OPERATOR and ADMIN
