@@ -115,17 +115,22 @@ export function BookingPowerForm({
   useEffect(() => {
     if (draftApplied.current) return;
     const draft = getAndClearBookingDraft();
-    if (!draft) return;
+    const params = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : null;
+    const originParam = params?.get("origin") ?? draft?.origin;
+    const destParam = params?.get("destination") ?? draft?.destination;
+    const weightParam = params?.get("weight");
+    const weightVal = weightParam ? parseFloat(weightParam) : draft?.weightKg;
+    if (!draft && !originParam && !destParam && (weightVal == null || !Number.isFinite(weightVal))) return;
     draftApplied.current = true;
-    setWeight(String(draft.weightKg));
-    setReceiverCountry(draft.destination);
-    if (draft.destLga || draft.destination) {
-      setReceiverStructured((prev) => ({
-        ...prev,
-        state: prev.state || draft.destination || "",
-        lga: prev.lga || draft.destLga || "",
-      }));
-    }
+    if (weightVal != null && Number.isFinite(weightVal)) setWeight(String(weightVal));
+    const dest = destParam ?? draft?.destination ?? "";
+    const destLga = draft?.destLga ?? "";
+    setReceiverCountry(dest);
+    setReceiverStructured((prev) => ({
+      ...prev,
+      state: prev.state || dest || "",
+      lga: prev.lga || destLga || "",
+    }));
   }, []);
 
   function handleReceiverHubSuggest(hub: string | null) {

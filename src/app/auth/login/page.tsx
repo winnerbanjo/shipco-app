@@ -95,7 +95,7 @@ function LoginContent() {
     <div className="flex min-h-screen flex-col items-center justify-center bg-white px-4 py-12 font-sans">
       <div className="w-full max-w-sm">
         <div className="mb-8 flex justify-center">
-          <span className="font-sans text-2xl font-bold tracking-tighter text-black">shipco</span>
+          <span className="font-sans text-2xl font-extrabold tracking-tighter text-black">shipco</span>
         </div>
 
         <div className="w-full border border-zinc-100 bg-white p-8 shadow-sm">

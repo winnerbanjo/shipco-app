@@ -194,6 +194,14 @@ export function useRateCard(): RateCardState {
       setMoversRates: () => {},
       setCustomRatesForMerchant: () => {},
       getQuote: (origin: string, destination: string, weightKg: number, express: boolean, _merchantId?: string) => {
+        const o = origin?.trim().toLowerCase();
+        const d = destination?.trim().toLowerCase();
+        const bothLagos = o === "lagos" && d === "lagos";
+        if (bothLagos && weightKg > 0) {
+          const total = computeLocalDispatchTotal(weightKg);
+          const finalTotal = Math.round(express ? total * EXPRESS_MULTIPLIER : total);
+          return { baseFare: total, perKg: 0, total: finalTotal };
+        }
         const base = DEFAULT_BASE;
         const perKg = DEFAULT_PER_KG;
         const raw = base + weightKg * perKg;

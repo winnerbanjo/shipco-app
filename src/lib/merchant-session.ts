@@ -6,6 +6,8 @@ export type MerchantSession = {
   merchantId: string;
   email: string;
   isVerified: boolean;
+  /** Set when session is from NextAuth (for Admin link in sidebar). */
+  role?: "MERCHANT" | "ADMIN";
 };
 
 /**
@@ -30,6 +32,7 @@ export async function getMerchantSession(): Promise<MerchantSession | null> {
       merchantId: user.id,
       email: user.email,
       isVerified: true,
+      role: user.role as "MERCHANT" | "ADMIN",
     };
   }
   return null;

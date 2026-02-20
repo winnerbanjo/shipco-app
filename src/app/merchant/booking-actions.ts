@@ -154,6 +154,12 @@ export async function createBookingFromPowerForm(
     const sellingPrice = cost;
     const costPrice = Math.round(sellingPrice / (1 + DEFAULT_MARKUP_PERCENT / 100));
 
+    const serviceModeLabel =
+      serviceType === "local" ? "Local" :
+      serviceType === "nationwide" ? "Nationwide" :
+      serviceType === "international" ? "International" :
+      serviceType === "movers" ? "Movers" : "Nationwide";
+
     const shipmentDoc = await Shipment.create({
       merchantId: new mongoose.Types.ObjectId(session.merchantId as string),
       trackingId,
@@ -167,6 +173,7 @@ export async function createBookingFromPowerForm(
       costPrice,
       sellingPrice,
       status: "Pending",
+      serviceType: serviceModeLabel,
     });
 
     console.log("[Booking Power Form] Shipment created", {

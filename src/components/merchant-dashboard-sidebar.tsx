@@ -69,10 +69,10 @@ export function MerchantDashboardSidebar({
         })}
         {isAdmin && (
           <Link
-            href="/admin/merchants"
-            className="flex items-center gap-4 border-l-[3px] border-l-transparent px-5 py-3.5 text-sm font-medium text-amber-700 hover:bg-white/80"
+            href="/admin/dashboard"
+            className="flex items-center gap-4 border-l-[3px] border-l-transparent px-5 py-3.5 text-sm font-medium text-amber-700 hover:bg-white/80 hover:text-amber-800"
           >
-            Admin
+            Admin Dashboard
           </Link>
         )}
       </nav>

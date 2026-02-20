@@ -32,6 +32,8 @@ export interface IShipment extends Document {
   status: ShipmentStatus;
   /** Optional timeline timestamps for each journey step */
   timeline?: ITimelineSteps;
+  /** Service type for admin display: Local, Nationwide, International, Movers */
+  serviceType?: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -69,6 +71,7 @@ const ShipmentSchema = new Schema<IShipment>(
       outForDeliveryAt: { type: Date },
       deliveredAt: { type: Date },
     },
+    serviceType: { type: String, default: null },
   },
   { timestamps: true }
 );

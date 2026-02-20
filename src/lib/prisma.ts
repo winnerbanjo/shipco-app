@@ -3,6 +3,7 @@ import { PrismaClient } from "@prisma/client";
 /**
  * Singleton: one PrismaClient per process so Vercel/Render serverless does not
  * hit "Too many connections". globalThis survives HMR and avoids new clients per request.
+ * Safe for serverless: reuse the same client across invocations in the same process.
  * DB URL gets sslmode=require&connect_timeout=30 when DATABASE_URL is set.
  */
 const globalForPrisma = globalThis as typeof globalThis & { __prisma?: PrismaClient };

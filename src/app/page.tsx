@@ -22,7 +22,7 @@ import { LandingNav } from "@/components/landing/LandingNav";
 import { FatFooter } from "@/components/landing/FatFooter";
 import { BackToTop } from "@/components/landing/BackToTop";
 import { ScrollReveal } from "@/components/landing/ScrollReveal";
-import { saveBookingDraft } from "@/lib/booking-draft";
+import { saveBookingDraft, getQuickQuoteInputs, saveQuickQuoteInputs } from "@/lib/booking-draft";
 import { computeLocalDispatchTotal } from "@/data/local-dispatch-pricing";
 
 const CITIES = [
@@ -164,6 +164,41 @@ function SmartQuoteWidget() {
   const [destinationCountry, setDestinationCountry] = useState("");
   const [category, setCategory] = useState("general");
   const [weight, setWeight] = useState("");
+
+  useEffect(() => {
+    const saved = getQuickQuoteInputs();
+    if (!saved) return;
+    if (saved.service) setService(saved.service as ServiceType);
+    if (saved.city) setCity(saved.city);
+    if (saved.originCity) setOriginCity(saved.originCity);
+    if (saved.destinationCity) setDestinationCity(saved.destinationCity);
+    if (saved.originLga) setOriginLga(saved.originLga);
+    if (saved.destLga) setDestLga(saved.destLga);
+    if (saved.area) setArea(saved.area);
+    if (saved.originCountry) setOriginCountry(saved.originCountry);
+    if (saved.destinationCountry) setDestinationCountry(saved.destinationCountry);
+    if (saved.category) setCategory(saved.category);
+    if (saved.weight) setWeight(saved.weight);
+  }, []);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      saveQuickQuoteInputs({
+        service,
+        city,
+        originCity,
+        destinationCity,
+        originLga,
+        destLga,
+        area,
+        originCountry,
+        destinationCountry,
+        category,
+        weight,
+      });
+    }, 400);
+    return () => clearTimeout(t);
+  }, [service, city, originCity, destinationCity, originLga, destLga, area, originCountry, destinationCountry, category, weight]);
 
   const isWithinLagos =
     service === "nationwide" && originCity === "Lagos" && destinationCity === "Lagos";

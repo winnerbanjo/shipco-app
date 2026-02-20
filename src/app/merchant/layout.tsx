@@ -11,7 +11,8 @@ export default async function MerchantLayout({
   const session = await getMerchantSession();
   if (!session) redirect("/auth/login");
   const isAdmin =
-    process.env.ADMIN_EMAIL && session.email === process.env.ADMIN_EMAIL;
+    session.role === "ADMIN" ||
+    (process.env.ADMIN_EMAIL && session.email === process.env.ADMIN_EMAIL);
 
   return (
     <div className="flex h-screen flex-col bg-white md:flex-row">

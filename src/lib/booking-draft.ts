@@ -75,3 +75,37 @@ export function peekBookingDraft(): BookingDraft | null {
     return null;
   }
 }
+
+/** Quick Quote widget: persist inputs so they survive refresh and prefill after login. */
+export const QUICK_QUOTE_INPUTS_KEY = "shipco_quick_quote_inputs";
+
+export type QuickQuoteInputs = {
+  service?: string;
+  city?: string;
+  originCity?: string;
+  destinationCity?: string;
+  originLga?: string;
+  destLga?: string;
+  area?: string;
+  originCountry?: string;
+  destinationCountry?: string;
+  category?: string;
+  weight?: string;
+};
+
+export function saveQuickQuoteInputs(inputs: QuickQuoteInputs): void {
+  if (typeof window === "undefined") return;
+  try {
+    localStorage.setItem(QUICK_QUOTE_INPUTS_KEY, JSON.stringify(inputs));
+  } catch (_) {}
+}
+
+export function getQuickQuoteInputs(): QuickQuoteInputs | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = localStorage.getItem(QUICK_QUOTE_INPUTS_KEY);
+    return raw ? (JSON.parse(raw) as QuickQuoteInputs) : null;
+  } catch (_) {
+    return null;
+  }
+}

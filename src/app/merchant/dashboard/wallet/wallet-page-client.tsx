@@ -208,7 +208,7 @@ export function WalletPageClient({
               A Paystack payment window will open. Complete payment there; this page will refresh when done.
             </p>
             <form onSubmit={handleFundWallet} className="mt-8 space-y-6">
-              {error && <p className="text-sm text-red-600">{error}</p>}
+              {error && <p className="text-sm text-[#e3201b]">{error}</p>}
               <div>
                 <Label htmlFor="amount" className="text-zinc-700">
                   Amount (₦)

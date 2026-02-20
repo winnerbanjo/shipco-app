@@ -1,5 +1,6 @@
 /** Shipco Pricing Engine — demo/static data for API, CSV, and Manual rates. */
 import { STATIC_ISO } from "@/lib/demo-date";
+import { computeLocalDispatchTotal } from "@/data/local-dispatch-pricing";
 
 export type PricingSource = "api" | "csv" | "manual";
 
@@ -61,10 +62,18 @@ export function getQuoteForRoute(
   weightKg: number,
   express = false
 ): { baseFare: number; perKg: number; total: number } {
+  const o = origin?.trim().toLowerCase();
+  const d = destination?.trim().toLowerCase();
+  const bothLagos = o === "lagos" && d === "lagos";
+  if (bothLagos && weightKg > 0) {
+    const total = computeLocalDispatchTotal(weightKg);
+    const finalTotal = Math.round(express ? total * 1.5 : total);
+    return { baseFare: total, perKg: 0, total: finalTotal };
+  }
   const rate = DEMO_MANUAL_RATES.find(
     (r) =>
-      r.origin.toLowerCase() === origin.toLowerCase() &&
-      r.destination.toLowerCase() === destination.toLowerCase()
+      r.origin.toLowerCase() === (o ?? "") &&
+      r.destination.toLowerCase() === (d ?? "")
   );
   const base = rate?.basePrice ?? 500;
   const perKg = rate?.perKgPrice ?? 150;

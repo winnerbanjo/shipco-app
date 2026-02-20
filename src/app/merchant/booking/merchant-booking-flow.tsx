@@ -17,10 +17,14 @@ export function MerchantBookingFlow({ sender, merchantId }: { sender: Sender; me
     if (draftApplied.current) return;
     const draft = peekBookingDraft();
     if (!draft?.serviceType) return;
-    const st = draft.serviceType as ServiceType;
-    if (["local", "nationwide", "international", "movers"].includes(st)) {
+    const st = draft.serviceType as string;
+    const mapped: ServiceType | null =
+      st === "import" || st === "export" ? "international"
+      : st === "local" || st === "nationwide" || st === "international" || st === "movers" ? st as ServiceType
+      : null;
+    if (mapped) {
       draftApplied.current = true;
-      setServiceType(st);
+      setServiceType(mapped);
     }
   }, []);
 

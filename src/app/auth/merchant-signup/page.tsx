@@ -115,7 +115,7 @@ export default function MerchantSignupPage() {
     <div className="min-h-screen bg-white">
       <div className="mx-auto max-w-xl px-6 py-12">
         <header className="flex items-center gap-4 border-b border-zinc-100 pb-8">
-          <span className="shrink-0 font-sans text-xl font-bold tracking-tighter text-black">shipco</span>
+          <span className="shrink-0 font-sans text-xl font-extrabold tracking-tighter text-black">shipco</span>
           <div>
             <h1 className="font-sans text-2xl font-semibold tracking-tighter text-zinc-900">
               Merchant Sign-Up

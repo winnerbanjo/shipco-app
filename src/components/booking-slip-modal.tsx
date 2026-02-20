@@ -63,7 +63,7 @@ export function BookingSlipModal({ open, onClose, data, className }: BookingSlip
       <div className="relative max-h-[90vh] w-full max-w-lg overflow-auto rounded-none border border-zinc-200 bg-white shadow-lg">
         <div ref={slipRef} className="p-8">
           {/* Logo */}
-          <span className="mb-6 block shrink-0 font-sans text-xl font-bold tracking-tighter text-black">shipco</span>
+          <span className="mb-6 block shrink-0 font-sans text-xl font-extrabold tracking-tighter text-black">shipco</span>
           <h2 id="slip-title" className="font-sans text-lg font-semibold tracking-tighter text-zinc-900">
             Booking Slip
           </h2>
