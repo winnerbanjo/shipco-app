@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/track-order", "destination": "/" },
+    { "source": "/track-order/(.*)", "destination": "/$1" }
+  ]
+}

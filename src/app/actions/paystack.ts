@@ -53,7 +53,7 @@ export async function initializePayment(
     // Paystack amount is in kobo (smallest currency unit)
     const amountInKobo = Math.round(amountInNaira * 100);
 
-    const baseUrl = process.env.NEXTAUTH_URL ?? "http://localhost:3000";
+    const baseUrl = process.env.NEXTAUTH_URL ?? process.env.NEXT_PUBLIC_APP_URL ?? "https://shipco-logistics.com";
     const callbackUrl = `${baseUrl}/merchant/dashboard/wallet?funded=1`;
 
     const response = await fetch(`${PAYSTACK_BASE_URL}/transaction/initialize`, {

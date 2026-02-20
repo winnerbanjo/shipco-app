@@ -32,7 +32,7 @@ export function ShipmentList({ shipments }: { shipments: ShipmentRow[] }) {
   }
 
   function handleDownloadWaybill(id: string) {
-    const base = typeof window !== "undefined" ? window.location.origin : (process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000");
+    const base = typeof window !== "undefined" ? window.location.origin : (process.env.NEXT_PUBLIC_APP_URL || "https://shipco-logistics.com");
     window.open(`${base}/api/merchant/shipments/${id}/waybill`, "_blank");
   }
 

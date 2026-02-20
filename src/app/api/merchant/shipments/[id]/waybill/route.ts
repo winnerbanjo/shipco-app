@@ -7,7 +7,7 @@ import { generateWaybillPdf } from "@shipco/lib/waybill";
 
 export const dynamic = "force-dynamic";
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://shipco-logistics.com";
 
 export async function GET(
   _request: NextRequest,
