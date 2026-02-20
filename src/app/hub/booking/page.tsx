@@ -270,7 +270,7 @@ export default function HubBookingPage() {
             id="notes"
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
-            placeholder="e.g. Call before arriving. Fragile—handle with care."
+            placeholder="e.g. Call before arriving. Fragile - handle with care."
             rows={3}
             className="mt-2 w-full resize-y rounded-none border border-zinc-200 bg-white px-4 py-4 font-sans text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#e3201b] focus:outline-none focus:ring-1 focus:ring-[#e3201b]"
           />

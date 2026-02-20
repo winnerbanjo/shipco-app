@@ -112,7 +112,7 @@ export function AdminShipmentsTable() {
                   <tr key={s.id} className="border-b border-zinc-200 last:border-b-0">
                     <td className="px-8 py-5 font-mono font-sans text-[#e3201b]">{s.trackingId}</td>
                     <td className="px-8 py-5 font-sans text-zinc-900">{s.merchant}</td>
-                    <td className="px-8 py-5 font-sans text-zinc-600">{s.serviceMode ?? "—"}</td>
+                    <td className="px-8 py-5 font-sans text-zinc-600">{s.serviceMode ?? "-"}</td>
                     <td className="px-8 py-5 font-sans text-zinc-600">{s.origin}</td>
                     <td className="px-8 py-5 font-sans text-zinc-900">{s.destination}</td>
                     <td className="px-8 py-5 font-sans text-zinc-600">{s.weightKg} kg</td>

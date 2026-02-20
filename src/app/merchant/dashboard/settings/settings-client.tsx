@@ -129,7 +129,7 @@ export function SettingsClient({
         </div>
       </section>
 
-      {/* API keys — website integration */}
+      {/* API keys - website integration */}
       <section>
         <h2 className="text-xs font-medium uppercase tracking-wider text-zinc-500">
           API keys

@@ -1,5 +1,5 @@
 /**
- * Local Dispatch (Within Lagos) — flat rate + weight surcharge.
+ * Local Dispatch (Within Lagos) - flat rate + weight surcharge.
  * Used when Origin and Destination are both Lagos (LGA-to-LGA).
  */
 

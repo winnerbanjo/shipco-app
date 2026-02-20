@@ -86,7 +86,7 @@ export function BulkUploadForm() {
       {result && (
         <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
           <p className="font-medium text-slate-900">
-            Created: {result.created} — Failed: {result.failed}
+            Created: {result.created} - Failed: {result.failed}
           </p>
           {result.errors.length > 0 && (
             <ul className="mt-2 list-inside list-disc text-sm text-red-600">

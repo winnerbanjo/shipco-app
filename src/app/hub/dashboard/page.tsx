@@ -57,7 +57,7 @@ export default function HubDashboardPage() {
         <DateFilter value={dateState} onChange={setDateState} />
       </section>
 
-      {/* Quick Action buttons — Coca-Cola Red */}
+      {/* Quick Action buttons - Coca-Cola Red */}
       <section className="mt-8">
         <h2 className="text-xs font-medium uppercase tracking-wider text-zinc-500">
           Quick actions
@@ -78,7 +78,7 @@ export default function HubDashboardPage() {
         </div>
       </section>
 
-      {/* Operations Master Grid — 4 high-impact metrics */}
+      {/* Operations Master Grid - 4 high-impact metrics */}
       <section className="mt-10">
         <h2 className="text-xs font-medium uppercase tracking-wider text-zinc-500">
           Operations
@@ -115,7 +115,7 @@ export default function HubDashboardPage() {
         </div>
       </section>
 
-      {/* Activity row — Walk-ins & Tasks Assigned */}
+      {/* Activity row - Walk-ins & Tasks Assigned */}
       <section className="mt-10">
         <h2 className="text-xs font-medium uppercase tracking-wider text-zinc-500">
           Activity
@@ -137,10 +137,10 @@ export default function HubDashboardPage() {
         </div>
       </section>
 
-      {/* Inventory Preview — no Amount, add Time at Hub */}
+      {/* Inventory Preview - no Amount, add Time at Hub */}
       <section className="mt-10">
         <h2 className="text-xs font-medium uppercase tracking-wider text-zinc-500">
-          At hub — preview
+          At hub - preview
         </h2>
         <div className="mt-4 overflow-hidden rounded-none border border-zinc-100 bg-white">
           <table className="w-full text-left text-sm">

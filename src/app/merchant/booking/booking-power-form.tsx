@@ -249,7 +249,7 @@ export function BookingPowerForm({
             </section>
           )}
 
-          {/* Economy | Express toggle — Economy = Standard (slower, cheaper), Express = premium */}
+          {/* Economy | Express toggle - Economy = Standard (slower, cheaper), Express = premium */}
           <div className="mb-10">
             <p className="mb-3 text-xs font-medium uppercase tracking-wider text-zinc-500">Service tier</p>
             <div className="flex items-center gap-0 rounded-none border border-zinc-100 bg-white p-1">
@@ -282,7 +282,7 @@ export function BookingPowerForm({
           </div>
 
           <div className="space-y-16">
-            {/* Sender — only when Rider Pick-up */}
+            {/* Sender - only when Rider Pick-up */}
             {serviceMode === "pickup" && (
               <section className="border-b border-zinc-100 pb-12">
                 <h2 className="text-xs font-medium uppercase tracking-wider text-zinc-500">Sender details</h2>
@@ -447,7 +447,7 @@ export function BookingPowerForm({
                     />
                     {zone && (
                       <p className="mt-1 text-xs font-medium text-[#e3201b]">
-                        Zone detected: {ZONE_LABELS[zone]} — rate pulled from sheet
+                        Zone detected: {ZONE_LABELS[zone]} - rate pulled from sheet
                       </p>
                     )}
                   </div>

@@ -1,5 +1,5 @@
 /**
- * Countries for Quick Quote dropdown — mapped to export/import zones.
+ * Countries for Quick Quote dropdown - mapped to export/import zones.
  * Values must match getZoneFromCountry (lowercased) in zone-pricing.ts.
  */
 export const QUICK_QUOTE_COUNTRIES: { value: string; label: string }[] = [

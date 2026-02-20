@@ -1,5 +1,5 @@
 /** CSV template content and download helpers for Admin Pricing.
- * Standardized Zone-Based Cost Engine — matches Pricing Structure.
+ * Standardized Zone-Based Cost Engine - matches Pricing Structure.
  */
 
 /** Economy / Express: route-based rate card (domestic). Cost Price = carrier cost; Selling = Cost × (1 + Markup %). */

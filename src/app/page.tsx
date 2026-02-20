@@ -132,7 +132,7 @@ const TESTIMONIALS = [
 
 const DROPOFF_BULLETS = [
   "Instant waybill at the counter",
-  "No pick-up fee — pay only for shipping",
+  "No pick-up fee - pay only for shipping",
   "Same-day dispatch from hub",
   "Secure insurance included",
   "Real-time tracking from handoff",
@@ -597,7 +597,7 @@ export default function HomePage() {
               <div className="relative aspect-square w-full max-w-md overflow-hidden rounded-3xl bg-[#121212]/5 shadow-2xl transition-all duration-500 hover:shadow-[0_24px_48px_-12px_rgba(0,0,0,0.18)] hover:-translate-y-2 animate-float">
                 <Image
                   src={HERO_IMAGE}
-                  alt="Happy client with their box delivered — shipco delivery"
+                  alt="Happy client with their box delivered - shipco delivery"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -753,7 +753,7 @@ export default function HomePage() {
                 Service modes
               </h2>
               <p className="mt-2 text-center text-3xl font-bold tracking-tight text-[#121212] sm:text-4xl">
-                Drop-off or pick-up — you choose
+                Drop-off or pick-up - you choose
               </p>
             </ScrollReveal>
             <div className="mt-16 grid gap-8 sm:grid-cols-2">

@@ -1,4 +1,4 @@
-/** Shipco Pricing Engine — demo/static data for API, CSV, and Manual rates. */
+/** Shipco Pricing Engine - demo/static data for API, CSV, and Manual rates. */
 import { STATIC_ISO } from "@/lib/demo-date";
 import { computeLocalDispatchTotal } from "@/data/local-dispatch-pricing";
 
@@ -25,7 +25,7 @@ export interface PricingState {
   manualRates: ManualRate[];
 }
 
-/** Demo API config — Connected to DML API */
+/** Demo API config - Connected to DML API */
 export const INITIAL_API_CONFIG: ApiPricingConfig = {
   connected: true,
   endpoint: "https://api.dml-logistics.ng/v1/rates",
@@ -52,7 +52,7 @@ export function extractCityFromAddress(address: string): string | null {
 }
 
 /**
- * Get pricing for Live Quote — static demo: prefer manual rates by route, else fallback to default.
+ * Get pricing for Live Quote - static demo: prefer manual rates by route, else fallback to default.
  * origin/destination are city names (e.g. Lagos, Abuja). For structured addresses use
  * getPricingCityFromAddress(state, lga) from @/data/address-constants so CSV/Merchant Rate Cards key by LGA/State.
  */

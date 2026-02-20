@@ -99,7 +99,7 @@ export function WalletPageClient({
 
   return (
     <>
-      {/* Balance Card — pure white, 1px zinc-100 */}
+      {/* Balance Card - pure white, 1px zinc-100 */}
       <div className="mt-12 border border-zinc-100 bg-white p-10">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">

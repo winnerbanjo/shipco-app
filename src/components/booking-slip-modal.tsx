@@ -68,7 +68,7 @@ export function BookingSlipModal({ open, onClose, data, className }: BookingSlip
             Booking Slip
           </h2>
 
-          {/* Service Type — bold Wine Red */}
+          {/* Service Type - bold Wine Red */}
           <p className="mt-4 font-sans text-sm font-bold tracking-tighter text-[#e3201b]">
             {SERVICE_LABELS[data.serviceType]}
           </p>
@@ -110,7 +110,7 @@ export function BookingSlipModal({ open, onClose, data, className }: BookingSlip
             </div>
           </div>
 
-          {/* Terms & Conditions — service-specific */}
+          {/* Terms & Conditions - service-specific */}
           <p className="mt-6 border-t border-zinc-100 pt-4 text-xs text-zinc-500">
             {TERMS_BY_SERVICE[data.serviceType]}
           </p>

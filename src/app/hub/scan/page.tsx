@@ -9,7 +9,7 @@ export default function HubScanPage() {
         Scan Package
       </h1>
       <p className="mt-2 text-sm text-zinc-500">
-        Enter or scan a tracking ID (demo — no hardware).
+        Enter or scan a tracking ID (demo - no hardware).
       </p>
       <div className="mt-8 border border-zinc-100 bg-white p-8">
         <input

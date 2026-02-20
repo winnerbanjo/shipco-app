@@ -1,5 +1,5 @@
 /**
- * Shipco Zone-Based Cost Engine — Pricing Structure.
+ * Shipco Zone-Based Cost Engine - Pricing Structure.
  * Re-exports logic from @/lib/logic for backward compatibility.
  * Zone labels and extended country mapping for UI.
  */
@@ -23,7 +23,7 @@ export const ZONE_LABELS: Record<ZoneId, string> = {
 
 /** Country → Zone mapping (extended for Smart Zone Search). */
 export const COUNTRY_TO_ZONE: Record<string, ZoneId> = {
-  // Zone 1 — UK
+  // Zone 1 - UK
   uk: "1",
   "united kingdom": "1",
   greatbritain: "1",
@@ -34,7 +34,7 @@ export const COUNTRY_TO_ZONE: Record<string, ZoneId> = {
   "northern ireland": "1",
   ireland: "1",
 
-  // Zone 2 — West Africa
+  // Zone 2 - West Africa
   cameroon: "2",
   ghana: "2",
   senegal: "2",
@@ -56,7 +56,7 @@ export const COUNTRY_TO_ZONE: Record<string, ZoneId> = {
   gabon: "2",
   congo: "2",
 
-  // Zone 3 — Canada & USA
+  // Zone 3 - Canada & USA
   usa: "3",
   "united states": "3",
   "united states of america": "3",
@@ -65,7 +65,7 @@ export const COUNTRY_TO_ZONE: Record<string, ZoneId> = {
   canada: "3",
   mexico: "3",
 
-  // Zone 4 — Australia & Oceania
+  // Zone 4 - Australia & Oceania
   australia: "4",
   "new zealand": "4",
   newzealand: "4",

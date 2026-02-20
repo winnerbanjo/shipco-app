@@ -65,8 +65,8 @@ export default function AdminPricingPage() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [economyRateStatus, setEconomyRateStatus] = useState<"Active" | string>("Last Updated: Feb 15");
   const [expressRateStatus, setExpressRateStatus] = useState<"Active" | string>("Last Updated: Feb 15");
-  const [internationalRateStatus, setInternationalRateStatus] = useState<"Active" | string>("—");
-  const [moversRateStatus, setMoversRateStatus] = useState<"Active" | string>("—");
+  const [internationalRateStatus, setInternationalRateStatus] = useState<"Active" | string>("-");
+  const [moversRateStatus, setMoversRateStatus] = useState<"Active" | string>("-");
   const [economyPreview, setEconomyPreview] = useState<RateCardRow[]>([]);
   const [expressPreview, setExpressPreview] = useState<RateCardRow[]>([]);
   const [internationalPreview, setInternationalPreview] = useState<InternationalRateRow[]>([]);
@@ -296,7 +296,7 @@ export default function AdminPricingPage() {
         </TabsList>
 
         <TabsContent value="api" className="mt-10 space-y-10">
-          {/* Cost vs. Profit — Profit Markup global setting */}
+          {/* Cost vs. Profit - Profit Markup global setting */}
           <div className="border border-zinc-200 bg-white">
             <div className="border-b border-zinc-200 px-8 py-6">
               <h2 className="font-sans text-lg font-semibold tracking-tighter text-zinc-900">
@@ -440,7 +440,7 @@ export default function AdminPricingPage() {
                   Drag and drop your rate sheet here
                 </p>
                 <p className="mt-1 text-xs text-zinc-500">
-                  or click to browse — CSV, XLSX
+                  or click to browse - CSV, XLSX
                 </p>
                 <input
                   type="file"
@@ -504,7 +504,7 @@ export default function AdminPricingPage() {
                   {(manualRates ?? []).length === 0 ? (
                     <tr>
                       <td colSpan={5} className="px-8 py-12 text-center text-sm text-zinc-500">
-                        No data — using demo rates. Edit above or upload CSV in Merchant Rate Cards.
+                        No data - using demo rates. Edit above or upload CSV in Merchant Rate Cards.
                       </td>
                     </tr>
                   ) : (
@@ -750,8 +750,8 @@ export default function AdminPricingPage() {
                           <tbody>
                             {(economyPreview ?? []).map((r, i) => (
                               <tr key={i} className="border-b border-zinc-100 last:border-b-0">
-                                <td className="px-3 py-1.5 text-zinc-700">{r?.origin ?? "—"}</td>
-                                <td className="px-3 py-1.5 text-zinc-700">{r?.destination ?? "—"}</td>
+                                <td className="px-3 py-1.5 text-zinc-700">{r?.origin ?? "-"}</td>
+                                <td className="px-3 py-1.5 text-zinc-700">{r?.destination ?? "-"}</td>
                                 <td className="px-3 py-1.5 text-zinc-700">₦{(r?.basePrice ?? 0).toLocaleString()}</td>
                                 <td className="px-3 py-1.5 text-zinc-700">₦{(r?.weightRate ?? 0).toLocaleString()}</td>
                               </tr>
@@ -775,8 +775,8 @@ export default function AdminPricingPage() {
                           <tbody>
                             {(expressPreview ?? []).map((r, i) => (
                               <tr key={i} className="border-b border-zinc-100 last:border-b-0">
-                                <td className="px-3 py-1.5 text-zinc-700">{r?.origin ?? "—"}</td>
-                                <td className="px-3 py-1.5 text-zinc-700">{r?.destination ?? "—"}</td>
+                                <td className="px-3 py-1.5 text-zinc-700">{r?.origin ?? "-"}</td>
+                                <td className="px-3 py-1.5 text-zinc-700">{r?.destination ?? "-"}</td>
                                 <td className="px-3 py-1.5 text-zinc-700">₦{(r?.basePrice ?? 0).toLocaleString()}</td>
                                 <td className="px-3 py-1.5 text-zinc-700">₦{(r?.weightRate ?? 0).toLocaleString()}</td>
                               </tr>
@@ -801,7 +801,7 @@ export default function AdminPricingPage() {
                           <tbody>
                             {(internationalPreview ?? []).map((r, i) => (
                               <tr key={i} className="border-b border-zinc-100 last:border-b-0">
-                                <td className="px-3 py-1.5 text-zinc-700">{r?.weightKg ?? "—"}</td>
+                                <td className="px-3 py-1.5 text-zinc-700">{r?.weightKg ?? "-"}</td>
                                 <td className="px-3 py-1.5 text-zinc-700">₦{(r?.zone1Amount ?? 0).toLocaleString()}</td>
                                 <td className="px-3 py-1.5 text-zinc-700">₦{(r?.zone2Amount ?? 0).toLocaleString()}</td>
                                 <td className="px-3 py-1.5 text-zinc-700">₦{(r?.zone3Amount ?? 0).toLocaleString()}</td>
@@ -826,7 +826,7 @@ export default function AdminPricingPage() {
                           <tbody>
                             {(moversPreview ?? []).map((r, i) => (
                               <tr key={i} className="border-b border-zinc-100 last:border-b-0">
-                                <td className="px-3 py-1.5 text-zinc-700">{r?.vanSize ?? "—"}</td>
+                                <td className="px-3 py-1.5 text-zinc-700">{r?.vanSize ?? "-"}</td>
                                 <td className="px-3 py-1.5 text-zinc-700">₦{(r?.basePrice ?? 0).toLocaleString()}</td>
                                 <td className="px-3 py-1.5 text-zinc-700">₦{(r?.perKm ?? 0).toLocaleString()}</td>
                               </tr>
@@ -888,7 +888,7 @@ export default function AdminPricingPage() {
         </TabsContent>
       </Tabs>
 
-      {/* Success toast — rendered at high z-index, outside flow */}
+      {/* Success toast - rendered at high z-index, outside flow */}
       {toast && (
         <div
           role="status"

@@ -21,7 +21,7 @@ export function QuickQuoteModalTrigger() {
 
   return (
     <>
-      {/* FAB — bottom right */}
+      {/* FAB - bottom right */}
       <button
         type="button"
         onClick={() => setIsOpen(true)}
@@ -32,7 +32,7 @@ export function QuickQuoteModalTrigger() {
         <span className="hidden sm:inline">Check Rates</span>
       </button>
 
-      {/* Modal — full-screen on mobile, centered on desktop */}
+      {/* Modal - full-screen on mobile, centered on desktop */}
       {isOpen && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-0 md:p-4"
@@ -62,7 +62,7 @@ export function QuickQuoteModalTrigger() {
               </button>
             </div>
 
-            {/* Quick Quote card — keeps wine red buttons and Export/Import toggle. Full screen on mobile for easy tap/type */}
+            {/* Quick Quote card - keeps wine red buttons and Export/Import toggle. Full screen on mobile for easy tap/type */}
             <div className="flex-1 overflow-auto p-6 pb-8">
               <QuickQuoteCard className="border-0 p-0 shadow-none" />
             </div>

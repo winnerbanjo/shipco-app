@@ -1,5 +1,5 @@
 /**
- * Shipco Pricing Logic — reusable for Quick Quote, Booking, and API.
+ * Shipco Pricing Logic - reusable for Quick Quote, Booking, and API.
  * Backend-engineer friendly: pure functions, easy to unit test.
  */
 
@@ -13,7 +13,7 @@ export interface ZoneRateRow {
   zone4: number;
 }
 
-/** Default zone rate sheet — carrier cost in NGN. */
+/** Default zone rate sheet - carrier cost in NGN. */
 export const DEFAULT_ZONE_RATES: ZoneRateRow[] = [
   { weightKg: 0.5, zone1: 29372.63, zone2: 15200, zone3: 34760.8, zone4: 31245.2 },
   { weightKg: 1, zone1: 32500, zone2: 16800, zone3: 38500, zone4: 34800 },

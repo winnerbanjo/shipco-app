@@ -1,5 +1,5 @@
 /**
- * Booking price calculation — base + fuel + insurance + VAT.
+ * Booking price calculation - base + fuel + insurance + VAT.
  * Backend-engineer friendly: pure function, easy to unit test.
  */
 

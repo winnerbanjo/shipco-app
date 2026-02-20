@@ -1,4 +1,4 @@
-/** Shipco Partner/3PL Management — demo data for logistics partners. */
+/** Shipco Partner/3PL Management - demo data for logistics partners. */
 
 export type ServiceType = "domestic" | "international";
 
@@ -12,7 +12,7 @@ export interface Partner {
   isInternal: boolean;
 }
 
-/** Demo partners — DHL, GIG, FedEx, Internal Fleet */
+/** Demo partners - DHL, GIG, FedEx, Internal Fleet */
 export const DEMO_PARTNERS: Partner[] = [
   {
     id: "shipco-internal",

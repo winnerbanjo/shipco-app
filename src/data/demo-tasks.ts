@@ -36,7 +36,7 @@ export type DemoTask = {
   assignedHub: HubSlug;
   status: TaskStatus;
   createdAt: string;
-  /** Service type for smart task integration — opens correct booking form. */
+  /** Service type for smart task integration - opens correct booking form. */
   serviceType?: ServiceType;
 };
 

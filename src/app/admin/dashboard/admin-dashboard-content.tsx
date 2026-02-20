@@ -88,7 +88,7 @@ export function AdminDashboardContent() {
 
   return (
     <>
-      {/* Date Filter — updates all financial numbers instantly */}
+      {/* Date Filter - updates all financial numbers instantly */}
       <section className="border-b border-zinc-100 bg-white pb-6">
         <DateFilter value={dateState} onChange={setDateState} />
       </section>

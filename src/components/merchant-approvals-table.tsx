@@ -75,7 +75,7 @@ export function MerchantApprovalsTable({
                   <TableCell className="font-medium">{m.businessName}</TableCell>
                   <TableCell>{m.user.email}</TableCell>
                   <TableCell className="max-w-[200px] truncate">{m.businessAddress}</TableCell>
-                  <TableCell>{m.category ?? "—"}</TableCell>
+                  <TableCell>{m.category ?? "-"}</TableCell>
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-2">
                       <Button
@@ -126,7 +126,7 @@ export function MerchantApprovalsTable({
                   <TableRow key={m.id}>
                     <TableCell className="font-medium">{m.businessName}</TableCell>
                     <TableCell>{m.user.email}</TableCell>
-                    <TableCell>{m.category ?? "—"}</TableCell>
+                    <TableCell>{m.category ?? "-"}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>

@@ -1,4 +1,4 @@
-/** Static demo ledger: Lagos, Abuja, Kano and key routes — no DB */
+/** Static demo ledger: Lagos, Abuja, Kano and key routes - no DB */
 export const DEMO_SHIPMENTS = [
   { id: "demo-1", trackingId: "Shipco-1001", receiverName: "Abuja", receiverPhone: "+234 801 234 5678", status: "In-Transit", packageWeight: 4.2, cost: 4500, createdAt: "12 Feb 2026" },
   { id: "demo-2", trackingId: "Shipco-1002", receiverName: "Kano", receiverPhone: "+234 802 345 6789", status: "Delivered", packageWeight: 6, cost: 8200, createdAt: "14 Feb 2026" },

@@ -23,7 +23,7 @@ function carrierCost(sellingPrice: number) {
   return Math.round(sellingPrice / 1.20);
 }
 
-/** 35 shipments for Admin Shipments page — varied origins, merchants, statuses. serviceMode for dashboard. */
+/** 35 shipments for Admin Shipments page - varied origins, merchants, statuses. serviceMode for dashboard. */
 export const ADMIN_DEMO_SHIPMENTS: DemoShipment[] = [
   { id: "1", trackingId: "Shipco-1001", merchant: "Mubarak", origin: "Lagos Hub", destination: "Abuja", weightKg: 4, amount: 4500, partnerCost: carrierCost(4500), status: "In transit", serviceMode: "Nationwide" },
   { id: "2", trackingId: "Shipco-1002", merchant: "Greenlife Pharma", origin: "Abuja Hub", destination: "Kano", weightKg: 6, amount: 8200, partnerCost: carrierCost(8200), status: "Delivered", serviceMode: "Nationwide" },

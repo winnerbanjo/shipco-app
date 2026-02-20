@@ -36,15 +36,17 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/", baseUrl));
   }
 
-  // /admin: strictly ADMIN only — no other roles
+  // /admin: any route starting with /admin requires token.role === 'ADMIN'
   if (pathname.startsWith("/admin")) {
     if (!token) {
+      console.log("[middleware] /admin: redirecting to login (no token)");
       const baseUrl = process.env.NEXTAUTH_URL ?? request.nextUrl.origin;
       const loginUrl = new URL("/auth/login", baseUrl);
       loginUrl.searchParams.set("callbackUrl", pathname);
       return NextResponse.redirect(loginUrl.toString());
     }
     if (role !== "ADMIN") {
+      console.log("[middleware] /admin: redirecting to / (role is not ADMIN)", { role, hasToken: !!token });
       const baseUrl = process.env.NEXTAUTH_URL ?? request.nextUrl.origin;
       return NextResponse.redirect(new URL("/", baseUrl));
     }

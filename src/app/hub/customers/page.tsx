@@ -115,7 +115,7 @@ export default function HubCustomersPage() {
                   <td className="px-8 py-5 text-zinc-600">{c.phone}</td>
                   <td className="px-8 py-5 text-zinc-600">{c.city}</td>
                   <td className="px-8 py-5 text-zinc-900">{c.orderCount}</td>
-                  <td className="px-8 py-5 text-zinc-600">{c.lastOrder ?? "—"}</td>
+                  <td className="px-8 py-5 text-zinc-600">{c.lastOrder ?? "-"}</td>
                 </tr>
               ))
             )}

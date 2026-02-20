@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
 import {
   LayoutDashboard,
   Package,
@@ -40,6 +41,8 @@ export function MerchantDashboardSidebar({
   isAdmin: boolean;
 }) {
   const pathname = usePathname();
+  const { data: session } = useSession();
+  const showAdminSection = session?.user?.role === "ADMIN";
 
   return (
     <aside className="hidden h-full w-64 flex-col border-r border-zinc-100 bg-zinc-50 md:flex">
@@ -77,7 +80,7 @@ export function MerchantDashboardSidebar({
             </Link>
           );
         })}
-        {isAdmin && (
+        {showAdminSection && (
           <>
             <p className="mt-6 mb-2 px-5 text-[10px] font-medium uppercase tracking-wider text-zinc-400">
               shipco Admin

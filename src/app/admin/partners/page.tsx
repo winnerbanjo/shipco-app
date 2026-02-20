@@ -237,7 +237,7 @@ export default function AdminPartnersPage() {
                   {p.trackingUrl ? (
                     <span className="text-[#e3201b]">Track via Partner</span>
                   ) : (
-                    "—"
+                    "-"
                   )}
                 </td>
                 <td className="px-8 py-5">

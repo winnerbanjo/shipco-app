@@ -1,5 +1,5 @@
 /**
- * Luxury Notification Engine — Email (Nodemailer) + WhatsApp nudge.
+ * Luxury Notification Engine - Email (Nodemailer) + WhatsApp nudge.
  * Templates: Shipment Booked, Status Updated. Left-aligned, elegant, clear CTA.
  */
 
@@ -35,7 +35,7 @@ const baseEmailStyles = `
 const ctaStyle =
   "display: inline-block; margin-top: 24px; padding: 14px 28px; background: #1e3a5f; color: #fff; text-decoration: none; font-weight: 600; letter-spacing: 0.02em;";
 
-/** Send 'Shipment Booked' email — luxury style, left-aligned, clear CTA */
+/** Send 'Shipment Booked' email - luxury style, left-aligned, clear CTA */
 export async function sendShipmentBookedEmail(params: {
   to: string;
   recipientName: string;
@@ -55,7 +55,7 @@ export async function sendShipmentBookedEmail(params: {
       <p><strong>Tracking ID:</strong> ${params.trackingId}</p>
       <p>You can follow the delivery journey at the link below.</p>
       <a href="${trackUrl}" style="${ctaStyle}">Track your shipment</a>
-      <p style="margin-top: 32px; color: #666; font-size: 14px;">— ${APP_NAME}</p>
+      <p style="margin-top: 32px; color: #666; font-size: 14px;">- ${APP_NAME}</p>
     </div>
   `;
   try {
@@ -72,7 +72,7 @@ export async function sendShipmentBookedEmail(params: {
   }
 }
 
-/** Send 'Status Updated' email — subject: "Your Shipco Package is moving" */
+/** Send 'Status Updated' email - subject: "Your Shipco Package is moving" */
 export async function sendStatusUpdatedEmail(params: {
   to: string;
   recipientName: string;
@@ -91,7 +91,7 @@ export async function sendStatusUpdatedEmail(params: {
       <p><strong>Tracking ID:</strong> ${params.trackingId}</p>
       <p><strong>Status:</strong> ${params.status}</p>
       <a href="${trackUrl}" style="${ctaStyle}">View delivery journey</a>
-      <p style="margin-top: 32px; color: #666; font-size: 14px;">— ${APP_NAME}</p>
+      <p style="margin-top: 32px; color: #666; font-size: 14px;">- ${APP_NAME}</p>
     </div>
   `;
   try {

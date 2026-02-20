@@ -68,7 +68,7 @@ const FAQS = [
   },
   {
     q: "What happens if my package is delayed?",
-    a: "We track every leg of your shipment. If there's a delay, you'll see status updates in the tracking view. Delays can happen due to weather, customs, or high volume. If your shipment is significantly late, contact support with your tracking ID—we'll investigate and, where applicable, follow our claims process. Delivery times are estimates unless you've booked an express guaranteed service.",
+    a: "We track every leg of your shipment. If there's a delay, you'll see status updates in the tracking view. Delays can happen due to weather, customs, or high volume. If your shipment is significantly late, contact support with your tracking ID: we'll investigate and, where applicable, follow our claims process. Delivery times are estimates unless you've booked an express guaranteed service.",
   },
   {
     q: "How do I become a shipco Partner?",

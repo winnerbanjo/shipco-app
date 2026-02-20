@@ -87,6 +87,17 @@ export const authOptions: NextAuthOptions = {
         token.id = user.id;
         token.role = user.role;
       }
+      if (!token.role && token.id) {
+        try {
+          const dbUser = await prisma.user.findUnique({
+            where: { id: token.id as string },
+            select: { role: true },
+          });
+          if (dbUser) token.role = dbUser.role as Role;
+        } catch (e) {
+          console.error("[NextAuth jwt] Failed to fetch role:", e);
+        }
+      }
       return token;
     },
     redirect({ url, baseUrl }) {

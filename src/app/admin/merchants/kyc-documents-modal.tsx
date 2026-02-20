@@ -105,9 +105,9 @@ export function KycDocumentsModal({
                   {data.businessKyc ? (
                     <>
                       <p><span className="text-zinc-500">Company:</span> {data.businessKyc.companyName}</p>
-                      <p><span className="text-zinc-500">RC Number:</span> {data.businessKyc.rcNumber ?? "—"}</p>
+                      <p><span className="text-zinc-500">RC Number:</span> {data.businessKyc.rcNumber ?? "-"}</p>
                       {data.businessKyc.industry && <p><span className="text-zinc-500">Industry:</span> {data.businessKyc.industry}</p>}
-                      <p><span className="text-zinc-500">Address:</span> {data.businessKyc.businessAddress ?? "—"}</p>
+                      <p><span className="text-zinc-500">Address:</span> {data.businessKyc.businessAddress ?? "-"}</p>
                       {data.businessKyc.cacDocumentUrl && (
                         <p><span className="text-zinc-500">CAC Doc:</span> <a href={data.businessKyc.cacDocumentUrl} target="_blank" rel="noopener noreferrer" className="text-[#e3201b] underline">View</a></p>
                       )}

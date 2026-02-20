@@ -7,7 +7,7 @@ import { getSession } from "@shipco/lib/auth";
 import { connectDB } from "@shipco/lib/mongodb";
 import Merchant from "@shipco/lib/models/Merchant";
 
-/** GET /api/merchant/profile — returns businessName, email, address, phone for the logged-in merchant. */
+/** GET /api/merchant/profile - returns businessName, email, address, phone for the logged-in merchant. */
 export async function GET() {
   try {
     const nextAuthSession = await getServerSession(authOptions);

@@ -82,7 +82,7 @@ export default async function MerchantDashboardPage({
         recentActivity = recent.map((s) => ({
           trackingId: s.trackingId,
           status: s.status,
-          receiverName: (s.receiverDetails as { name?: string })?.name ?? "—",
+          receiverName: (s.receiverDetails as { name?: string })?.name ?? "-",
           createdAt: s.createdAt,
         }));
         if (volume.length > 0) {
@@ -135,7 +135,7 @@ export default async function MerchantDashboardPage({
         </p>
       </div>
 
-      {/* Stats — Logistics at a glance, stack vertically on mobile */}
+      {/* Stats - Logistics at a glance, stack vertically on mobile */}
       <div className="mt-12 flex flex-col gap-6 sm:grid sm:grid-cols-2 lg:grid-cols-4">
         {statCards.map(({ label, value, icon: Icon }) => (
           <div key={label} className="border border-zinc-100 bg-white p-8">
@@ -193,13 +193,13 @@ export default async function MerchantDashboardPage({
                         {row.trackingId}
                       </Link>
                     </td>
-                    <td className="px-8 py-5 text-zinc-900">{row.route ?? row.receiverName ?? "—"}</td>
+                    <td className="px-8 py-5 text-zinc-900">{row.route ?? row.receiverName ?? "-"}</td>
                     <td className="px-8 py-5 text-zinc-900">
                       {row.amount != null
                         ? `₦${row.amount.toLocaleString("en-NG")}`
                         : row.createdAt
                         ? formatDemoDateOnly(new Date(row.createdAt).toISOString())
-                        : "—"}
+                        : "-"}
                     </td>
                     <td className="px-8 py-5">
                       <span

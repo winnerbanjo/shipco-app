@@ -63,10 +63,10 @@ export default function AdminTasksPage() {
       id: `t-new-${Date.now()}`,
       source,
       orderRef: `#${orderRef}`,
-      customerName: customerName.trim() || "—",
-      phone: phone.trim() || "—",
-      item: item.trim() || "—",
-      pickupAddress: pickupAddress.trim() || "—",
+      customerName: customerName.trim() || "-",
+      phone: phone.trim() || "-",
+      item: item.trim() || "-",
+      pickupAddress: pickupAddress.trim() || "-",
       specialInstructions: specialInstructions.trim() || undefined,
       assignedHub,
       status: "Assigned",
@@ -200,7 +200,7 @@ export default function AdminTasksPage() {
               id="specialInstructions"
               value={specialInstructions}
               onChange={(e) => setSpecialInstructions(e.target.value)}
-              placeholder="e.g. Customer is only available after 4 PM. Fragile—contains glass ornaments."
+              placeholder="e.g. Customer is only available after 4 PM. Fragile - contains glass ornaments."
               rows={4}
               className="mt-2 w-full resize-y rounded-none border border-zinc-200 bg-white px-4 py-4 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-[#e3201b] focus:outline-none focus:ring-1 focus:ring-[#e3201b]"
             />
@@ -284,7 +284,7 @@ export default function AdminTasksPage() {
                     {t.specialInstructions ? (
                       <span className="line-clamp-2 text-xs">{t.specialInstructions}</span>
                     ) : (
-                      <span className="text-zinc-400">—</span>
+                      <span className="text-zinc-400">-</span>
                     )}
                   </td>
                   <td className="px-8 py-5">

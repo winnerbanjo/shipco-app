@@ -21,7 +21,7 @@ export function MerchantMobileNav({ email, isAdmin }: { email: string; isAdmin: 
 
   return (
     <>
-      {/* Mobile header bar — visible only when sidebar is hidden */}
+      {/* Mobile header bar - visible only when sidebar is hidden */}
       <header className="flex h-14 min-h-[3.5rem] items-center justify-between border-b border-zinc-100 bg-white px-4 md:hidden">
         <Link href="/merchant/dashboard" className="text-lg font-bold tracking-tighter text-[#e3201b]">
           shipco

@@ -216,7 +216,7 @@ export function QuickQuoteCard({ className }: { className?: string }) {
           </button>
         </div>
 
-        {/* Inputs — grid-cols-1 on small, grid-cols-2 on md+ */}
+        {/* Inputs - grid-cols-1 on small, grid-cols-2 on md+ */}
         <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
           <div className="space-y-2">
             <Label htmlFor="quick-quote-origin" className="text-xs font-medium text-zinc-700">
@@ -282,7 +282,7 @@ export function QuickQuoteCard({ className }: { className?: string }) {
           </Button>
         </div>
 
-        {/* Inline result — hidden on mobile when modal is open */}
+        {/* Inline result - hidden on mobile when modal is open */}
         {result && (
           <div className={cn("mt-4", isMobile && showMobileModal && "hidden")}>
             <QuoteResultView result={result} />

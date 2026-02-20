@@ -46,7 +46,7 @@ export default function AboutPage() {
                 Our mission
               </h2>
               <p className="mt-4 leading-relaxed text-[#121212]/80">
-                shipco exists to make logistics simple, transparent, and reliable for businesses and individuals across Nigeria. We combine technology with a physical hub and rider network so that every shipment is tracked, insured, and delivered on time. We believe that moving goods should be as easy as sending a message — and we are built to deliver on that promise, one package at a time.
+                shipco exists to make logistics simple, transparent, and reliable for businesses and individuals across Nigeria. We combine technology with a physical hub and rider network so that every shipment is tracked, insured, and delivered on time. We believe that moving goods should be as easy as sending a message - and we are built to deliver on that promise, one package at a time.
               </p>
             </ScrollReveal>
           </section>

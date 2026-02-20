@@ -1,4 +1,4 @@
-# Shipco Logistics — Backend Engineer Handoff
+# Shipco Logistics - Backend Engineer Handoff
 
 This document lists all environment variables and backend architecture for the Render deployment.
 
@@ -31,30 +31,30 @@ This document lists all environment variables and backend architecture for the R
 ## Database Architecture
 
 - **PostgreSQL (Prisma)**: User, Shipment, Wallet, Transaction, MerchantProfile, PricingRates.
-- **MongoDB**: Merchant module (Mongoose models: Merchant, Shipment) — used for merchant dashboard, booking, KYC.
+- **MongoDB**: Merchant module (Mongoose models: Merchant, Shipment) - used for merchant dashboard, booking, KYC.
 
 **Note:** The app uses both databases. A future migration to unify on PostgreSQL is recommended.
 
 ## API Routes Security
 
-- `/api/shipments` — Session required (getServerSession).
-- `/api/shipments/bulk` — Session required.
-- `/api/merchant/wallet` — Session required.
-- `/api/merchant/api-key` — Session + MerchantProfile required.
-- `/api/merchant/shipments/[id]/waybill` — Merchant session (getSession from @shipco/lib/auth).
-- `/api/admin/merchants/[id]/verify` — Admin role required.
-- `/api/track/[id]` — Public (no auth).
-- `/api/auth/register` — Public.
-- `/api/auth/merchant-kyc-signup` — Public.
-- `/api/auth/merchant-complete` — Public (completion flow).
-- `/api/webhooks/paystack` — No session; verified via `x-paystack-signature` HMAC.
+- `/api/shipments` - Session required (getServerSession).
+- `/api/shipments/bulk` - Session required.
+- `/api/merchant/wallet` - Session required.
+- `/api/merchant/api-key` - Session + MerchantProfile required.
+- `/api/merchant/shipments/[id]/waybill` - Merchant session (getSession from @shipco/lib/auth).
+- `/api/admin/merchants/[id]/verify` - Admin role required.
+- `/api/track/[id]` - Public (no auth).
+- `/api/auth/register` - Public.
+- `/api/auth/merchant-kyc-signup` - Public.
+- `/api/auth/merchant-complete` - Public (completion flow).
+- `/api/webhooks/paystack` - No session; verified via `x-paystack-signature` HMAC.
 
 ## Business Logic Location
 
-- `src/lib/logic/pricing.ts` — Zone pricing, markup, Quick Quote math.
-- `src/lib/logic/booking-price.ts` — Booking price breakdown (base, fuel, insurance, VAT).
-- `src/data/zone-pricing.ts` — UI-facing zone mapping (re-exports from logic).
-- `src/data/pricing-demo.ts` — Manual rates, `getQuoteForRoute`.
+- `src/lib/logic/pricing.ts` - Zone pricing, markup, Quick Quote math.
+- `src/lib/logic/booking-price.ts` - Booking price breakdown (base, fuel, insurance, VAT).
+- `src/data/zone-pricing.ts` - UI-facing zone mapping (re-exports from logic).
+- `src/data/pricing-demo.ts` - Manual rates, `getQuoteForRoute`.
 
 ## Logging
 

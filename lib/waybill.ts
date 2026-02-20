@@ -1,5 +1,5 @@
 /**
- * Digital Waybill PDF generation — Shipco branding, tracking QR, merchant & receiver details, weight.
+ * Digital Waybill PDF generation - Shipco branding, tracking QR, merchant & receiver details, weight.
  * Uses jspdf + qrcode. Run on server only.
  */
 
@@ -17,7 +17,7 @@ export interface WaybillData {
   packageWeightKg: number;
   cost: number;
   trackUrl: string;
-  /** Optional: for external 3PL partners (DHL, GIG, FedEx) — shows "Track via Partner" link */
+  /** Optional: for external 3PL partners (DHL, GIG, FedEx) - shows "Track via Partner" link */
   partnerName?: string;
   partnerTrackingUrl?: string;
 }
@@ -28,7 +28,7 @@ export async function generateWaybillPdf(data: WaybillData): Promise<Buffer> {
   const pageHeight = (doc as unknown as { internal: { pageSize: { getHeight: () => number } } }).internal.pageSize.getHeight();
   let y = 20;
 
-  // —— Shipco Branding ——
+  // - Shipco Branding -
   doc.setFontSize(24);
   doc.setFont("helvetica", "bold");
   doc.setTextColor(27, 55, 100); // deep logistics blue
@@ -40,7 +40,7 @@ export async function generateWaybillPdf(data: WaybillData): Promise<Buffer> {
   doc.text("Digital Waybill", 20, y);
   y += 14;
 
-  // —— Tracking + QR (mocked QR points to track URL) ——
+  // - Tracking + QR (mocked QR points to track URL) -
   doc.setDrawColor(200, 200, 200);
   doc.rect(20, y, 50, 50);
   try {
@@ -62,7 +62,7 @@ export async function generateWaybillPdf(data: WaybillData): Promise<Buffer> {
   doc.text("Track: " + data.trackUrl, 78, y + 28);
   y += 58;
 
-  // —— Merchant Details ——
+  // - Merchant Details -
   doc.setFontSize(12);
   doc.setFont("helvetica", "bold");
   doc.setTextColor(0, 0, 0);
@@ -77,7 +77,7 @@ export async function generateWaybillPdf(data: WaybillData): Promise<Buffer> {
   doc.text(data.merchantAddress, 20, y);
   y += 12;
 
-  // —— Receiver Details ——
+  // - Receiver Details -
   doc.setFont("helvetica", "bold");
   doc.setFontSize(12);
   doc.text("Receiver", 20, y);
@@ -91,7 +91,7 @@ export async function generateWaybillPdf(data: WaybillData): Promise<Buffer> {
   doc.text(data.receiverAddress, 20, y);
   y += 14;
 
-  // —— Weight & Cost ——
+  // - Weight & Cost -
   doc.setFont("helvetica", "bold");
   doc.text("Weight (kg)", 20, y);
   doc.text("Cost (NGN)", 80, y);
@@ -101,7 +101,7 @@ export async function generateWaybillPdf(data: WaybillData): Promise<Buffer> {
   doc.text(new Intl.NumberFormat("en-NG").format(data.cost), 80, y);
   y += 10;
 
-  // —— Track via Partner (external 3PL) ——
+  // - Track via Partner (external 3PL) -
   if (data.partnerName && data.partnerTrackingUrl) {
     y += 8;
     doc.setFont("helvetica", "bold");

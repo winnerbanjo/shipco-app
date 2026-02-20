@@ -103,7 +103,7 @@ export default function ContactPage() {
             </div>
           </ScrollReveal>
 
-          {/* Direct Support — large animated cards */}
+          {/* Direct Support - large animated cards */}
           <ScrollReveal delay={0.15}>
             <h2 className="mt-16 text-sm font-semibold uppercase tracking-wider text-[#121212]/60">
               Direct support
@@ -131,7 +131,7 @@ export default function ContactPage() {
             </div>
           </ScrollReveal>
 
-          {/* Contact Form — Anti-Gravity */}
+          {/* Contact Form - Anti-Gravity */}
           <ScrollReveal delay={0.2}>
             <h2 className="mt-16 text-sm font-semibold uppercase tracking-wider text-[#121212]/60">
               Send a message

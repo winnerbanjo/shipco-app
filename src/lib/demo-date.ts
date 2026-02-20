@@ -54,9 +54,9 @@ export function formatDemoDateOnly(iso?: string | null): string {
  * For track page / journey: "15 Feb 2026, 2:55 PM". Deterministic (UTC).
  */
 export function formatDemoDateWithTime(iso: string | null | undefined): string {
-  if (!iso?.trim()) return "—";
+  if (!iso?.trim()) return "-";
   const d = new Date(iso);
-  if (Number.isNaN(d.getTime())) return "—";
+  if (Number.isNaN(d.getTime())) return "-";
   const mon = MONTHS[d.getUTCMonth()] ?? "Jan";
   const day = d.getUTCDate();
   const year = d.getUTCFullYear();

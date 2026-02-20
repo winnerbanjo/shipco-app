@@ -344,9 +344,9 @@ export function BookingForm() {
               <p className="text-xs font-medium uppercase tracking-wider text-zinc-500 font-sans">
                 Receiver
               </p>
-              <p className="mt-2 text-lg text-zinc-900 font-sans">{receiverName || "—"}</p>
-              <p className="text-zinc-600 font-sans">{receiverPhone || "—"}</p>
-              <p className="text-zinc-600 font-sans">{receiverAddress || "—"}</p>
+              <p className="mt-2 text-lg text-zinc-900 font-sans">{receiverName || "-"}</p>
+              <p className="text-zinc-600 font-sans">{receiverPhone || "-"}</p>
+              <p className="text-zinc-600 font-sans">{receiverAddress || "-"}</p>
             </div>
             <div className="border border-zinc-100 bg-white p-8">
               <p className="text-xs font-medium uppercase tracking-wider text-zinc-500 font-sans">

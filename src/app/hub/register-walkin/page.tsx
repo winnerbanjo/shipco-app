@@ -9,7 +9,7 @@ export default function HubRegisterWalkinPage() {
         Register Walk-in Customer
       </h1>
       <p className="mt-2 text-sm text-zinc-500">
-        Add a new walk-in customer (demo — no database).
+        Add a new walk-in customer (demo - no database).
       </p>
       <div className="mt-8 border border-zinc-100 bg-white p-8">
         <input

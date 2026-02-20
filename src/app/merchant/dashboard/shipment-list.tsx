@@ -37,7 +37,7 @@ export function ShipmentList({ shipments }: { shipments: ShipmentRow[] }) {
   }
 
   function formatDateCell(createdAt: string): string {
-    if (!createdAt?.trim()) return "—";
+    if (!createdAt?.trim()) return "-";
     if (createdAt.includes("T")) {
       return formatDemoDateOnly(createdAt);
     }

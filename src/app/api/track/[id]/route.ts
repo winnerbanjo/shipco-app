@@ -6,7 +6,7 @@ import { isValidTrackingFormat } from "@/lib/tracking";
 export const dynamic = "force-dynamic";
 
 /**
- * GET /api/track/[id] — Public tracking: fetch shipment by Tracking ID.
+ * GET /api/track/[id] - Public tracking: fetch shipment by Tracking ID.
  * Returns minimal shipment + timeline for the Delivery Journey UI.
  */
 export async function GET(
